@@ -20,6 +20,11 @@ public class Motor : MonoBehaviour
         suspensionHeight = 3.5f;
 
     /// <summary>
+    /// Rays that are cast below the vehicle
+    /// </summary>
+    public Transform[] edgeRaysPositions;
+
+    /// <summary>
     /// Input (user) forces
     /// </summary>
     private float
@@ -50,18 +55,47 @@ public class Motor : MonoBehaviour
 
     private void handleSuspension()
     {
-        // Cast a ray below the vehicle
-        Ray floorRay = new Ray(this.transform.position, this.transform.up * -1.0f);
-        RaycastHit hit;
+        Vector3
+            linearForce = Vector3.zero,
+            targetNormal = Vector3.zero;
 
-        if (Physics.Raycast(floorRay, out hit, suspensionHeight))
+        int groundedEdges = 0;
+
+        foreach (Transform rayPos in edgeRaysPositions)
         {
-            // We're under the spring equilibrium; apply an opposing force
-            float dy = (suspensionHeight - hit.distance) / suspensionHeight;
-            Vector3 springForce = hit.normal * suspensionForce * dy;
+            // Cast a ray below the vehicle
+            Ray floorRay = new Ray(rayPos.position, this.transform.up * -1.0f);
+            RaycastHit hit;
 
-            rigidbody.AddForce(springForce);
+            if (Physics.Raycast(floorRay, out hit, suspensionHeight))
+            {
+                // We're under the spring equilibrium; apply an opposing force
+                float dy = (suspensionHeight - hit.distance) / suspensionHeight;
+                Vector3 springForce = hit.normal * suspensionForce * dy;
+
+                linearForce += springForce;
+                targetNormal += hit.normal;
+
+                //rigidbody.AddForce(springForce / (float)edgeRaysPositions.Length);
+
+                // Tend toward 0 rotation
+                //Quaternion targetRotation = Quaternion.LookRotation(transform.forward, hit.normal);
+                //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10.0f);
+
+                groundedEdges++;
+            }
         }
+
+        if (groundedEdges > 0)
+        {
+            linearForce /= (float)groundedEdges;
+            rigidbody.AddForce(linearForce);
+        }
+
+        targetNormal = targetNormal.normalized;
+        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, targetNormal);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10.0f);
+        //transform.rotation = targetRotation;
     }
 
     private void handlePowerInput()
