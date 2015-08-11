@@ -48,6 +48,13 @@ public class BotVehicleController : MonoBehaviour
 
         for (int i = 0; i < path.corners.Length - 1; i++)
             Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red);
+
+        // Robert's modifications, modified
+        if (path.corners.Length == 2 && Vector3.Dot(targDir, transform.forward) < 0)
+        {
+            inputLinearForce = 0.5f;
+            inputSteering = 40.0f;
+        }
     }
 
     void FixedUpdate()
@@ -56,9 +63,9 @@ public class BotVehicleController : MonoBehaviour
         float steerAngle = inputSteering;
         wheels[0].steerAngle = wheels[1].steerAngle = steerAngle;
 
-        // All-wheel drive
+        // Front-wheel drive
         float torque = inputLinearForce * maxTorque;
-        for (int i = 0; i < wheels.Length; i++)
+        for (int i = 0; i < 2; i++)
             wheels[i].motorTorque = torque;
     }
 }
