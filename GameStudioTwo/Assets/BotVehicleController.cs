@@ -45,7 +45,6 @@ public class BotVehicleController : MonoBehaviour
         Debug.DrawRay(transform.position, targDir);
         inputLinearForce = 1.0f;
         inputSteering = -targetAngle - this.transform.rotation.eulerAngles.y;
-        inputSteering = inputSteering % 128.0f;
 
         for (int i = 0; i < path.corners.Length - 1; i++)
             Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red);
@@ -54,12 +53,12 @@ public class BotVehicleController : MonoBehaviour
     void FixedUpdate()
     {
         // Front-wheel steering
-        float steerAngle = Mathf.Clamp(inputSteering, -maxSteeringAngle, maxSteeringAngle);
+        float steerAngle = inputSteering;
         wheels[0].steerAngle = wheels[1].steerAngle = steerAngle;
 
-        // Rear-wheel drive
+        // All-wheel drive
         float torque = inputLinearForce * maxTorque;
-        for (int i = 2; i < 4; i++)
+        for (int i = 0; i < wheels.Length; i++)
             wheels[i].motorTorque = torque;
     }
 }
