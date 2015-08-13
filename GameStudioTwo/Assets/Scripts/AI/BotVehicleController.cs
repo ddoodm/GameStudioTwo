@@ -74,7 +74,7 @@ public class BotVehicleController : MonoBehaviour
         // Robert's modifications, modified
         if (path.corners.Length == 2 && Vector3.Dot(targDir, transform.forward) < 0)
         {
-            inputLinearForce = 0.8f;
+            inputLinearForce = 1.1f;
             inputSteering = 40.0f;
         }
     }
