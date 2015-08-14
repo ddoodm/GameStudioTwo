@@ -22,6 +22,8 @@ ModelImporter:
     100028: Box011
     100030: Box012
     100032: OldFenceSeg
+    100034: Plane003
+    100036: Plane004
     400000: pCube1
     400002: Plane001
     400004: Plane002
@@ -39,6 +41,8 @@ ModelImporter:
     400028: Box011
     400030: Box012
     400032: OldFenceSeg
+    400034: Plane003
+    400036: Plane004
     2300000: pCube1
     2300002: Plane001
     2300004: Plane002
@@ -54,6 +58,8 @@ ModelImporter:
     2300024: Box010
     2300026: Box011
     2300028: Box012
+    2300030: Plane003
+    2300032: Plane004
     3300000: pCube1
     3300002: Plane001
     3300004: Plane002
@@ -69,6 +75,8 @@ ModelImporter:
     3300024: Box010
     3300026: Box011
     3300028: Box012
+    3300030: Plane003
+    3300032: Plane004
     4300000: pCube1
     4300002: Plane001
     4300004: Plane002
@@ -84,6 +92,8 @@ ModelImporter:
     4300024: Box009
     4300026: Box008
     4300028: Box012
+    4300030: Plane003
+    4300032: Plane004
     7400000: Take 001
     9500000: //RootNode
   materials:
