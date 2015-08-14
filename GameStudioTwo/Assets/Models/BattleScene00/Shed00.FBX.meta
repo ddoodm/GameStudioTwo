@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 37ccaaf562ff14c4e85b6710b9adf686
-timeCreated: 1439446972
+guid: bba61bc5ecf69e14690ca4beeb1a541c
+timeCreated: 1439515000
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -8,92 +8,30 @@ ModelImporter:
     100000: pCube1
     100002: Plane001
     100004: Plane002
-    100006: //RootNode
-    100008: Box001
-    100010: Box002
-    100012: Box003
-    100014: Box004
-    100016: Box005
-    100018: Box006
-    100020: Box007
-    100022: Box008
-    100024: Box009
-    100026: Box010
-    100028: Box011
-    100030: Box012
-    100032: OldFenceSeg
-    100034: Plane003
-    100036: Plane004
+    100006: Plane003
+    100008: Plane004
+    100010: //RootNode
     400000: pCube1
     400002: Plane001
     400004: Plane002
-    400006: //RootNode
-    400008: Box001
-    400010: Box002
-    400012: Box003
-    400014: Box004
-    400016: Box005
-    400018: Box006
-    400020: Box007
-    400022: Box008
-    400024: Box009
-    400026: Box010
-    400028: Box011
-    400030: Box012
-    400032: OldFenceSeg
-    400034: Plane003
-    400036: Plane004
+    400006: Plane003
+    400008: Plane004
+    400010: //RootNode
     2300000: pCube1
     2300002: Plane001
     2300004: Plane002
-    2300006: Box001
-    2300008: Box002
-    2300010: Box003
-    2300012: Box004
-    2300014: Box005
-    2300016: Box006
-    2300018: Box007
-    2300020: Box008
-    2300022: Box009
-    2300024: Box010
-    2300026: Box011
-    2300028: Box012
-    2300030: Plane003
-    2300032: Plane004
+    2300006: Plane003
+    2300008: Plane004
     3300000: pCube1
     3300002: Plane001
     3300004: Plane002
-    3300006: Box001
-    3300008: Box002
-    3300010: Box003
-    3300012: Box004
-    3300014: Box005
-    3300016: Box006
-    3300018: Box007
-    3300020: Box008
-    3300022: Box009
-    3300024: Box010
-    3300026: Box011
-    3300028: Box012
-    3300030: Plane003
-    3300032: Plane004
+    3300006: Plane003
+    3300008: Plane004
     4300000: pCube1
     4300002: Plane001
     4300004: Plane002
-    4300006: Box002
-    4300008: Box010
-    4300010: Box007
-    4300012: Box001
-    4300014: Box005
-    4300016: Box003
-    4300018: Box004
-    4300020: Box006
-    4300022: Box011
-    4300024: Box009
-    4300026: Box008
-    4300028: Box012
-    4300030: Plane003
-    4300032: Plane004
+    4300006: Plane003
+    4300008: Plane004
     7400000: Take 001
     9500000: //RootNode
   materials:
@@ -119,7 +57,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .100000001
+    globalScale: 100
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
