@@ -6,15 +6,10 @@ public class playerHealth : MonoBehaviour {
 
     public Slider health;
     public Text finish;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
 	
 	// Update is called once per frame
-	void Update () {
-
+	void Update ()
+    {
         if (health.value == 0)
         {
             if (gameObject.CompareTag("Player"))
@@ -26,9 +21,6 @@ public class playerHealth : MonoBehaviour {
                 finish.text = "You win";
             }
         }
-        
-
-	
 	}
 
     void OnCollisionEnter(Collision collision)
@@ -39,6 +31,5 @@ public class playerHealth : MonoBehaviour {
             Debug.Log(gameObject.tag + " hit for " + damage);
             health.value -= damage;
         }
-        
     }
 }
