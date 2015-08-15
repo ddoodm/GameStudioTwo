@@ -34,19 +34,37 @@ public class BotVehicleController : MonoBehaviour
     /// The transform that the robot should follow
     /// </summary>
     public Transform target;
+    public Rigidbody targetRigidbody;
+
+    public enum SteeringMethod
+    {
+        ARRIVE,
+        PURSUE,
+    }
+    public SteeringMethod steeringMethod = SteeringMethod.ARRIVE;
 
     private NavMeshPath path;
 
     void Start()
     {
         path = new NavMeshPath();
+        targetRigidbody = target.GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        // Add target velocity to persue
-        //Vector3 targetPosition = target.position + target.GetComponent<Rigidbody>().velocity;
-        Vector3 targetPosition = target.position;
+        Vector3 targetPosition;
+
+        switch (steeringMethod)
+        {
+            case SteeringMethod.PURSUE:
+                // Add target velocity to persue
+                targetPosition = target.position + targetRigidbody.velocity;
+                break;
+            case SteeringMethod.ARRIVE: default:
+                targetPosition = target.position;
+                break;
+        }        
 
         // Use the NavMesh to generate an array of waypoints
         NavMesh.CalculatePath(transform.position, targetPosition, NavMesh.AllAreas, path);
