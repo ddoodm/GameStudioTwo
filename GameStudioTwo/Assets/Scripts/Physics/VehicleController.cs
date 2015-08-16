@@ -8,6 +8,7 @@ public class VehicleController : MonoBehaviour
     /// TODO: Create axle class
     /// </summary>
     public WheelCollider[] wheels;
+	public bool play = true;
 
     /// <summary>
     /// Motor, braking and steering constraints
@@ -26,20 +27,25 @@ public class VehicleController : MonoBehaviour
 
     void Update()
     {
-        // Update input forces
-        inputLinearForce = Input.GetAxis("Vertical");
-        inputSteering = Input.GetAxis("Horizontal");
+		if (play) 
+		{
+			// Update input forces
+			inputLinearForce = Input.GetAxis ("Vertical");
+			inputSteering = Input.GetAxis ("Horizontal");
+		}
     }
 
     void FixedUpdate()
-    {
-        // Front-wheel steering
-        float steerAngle = inputSteering * steeringAngle;
-        wheels[0].steerAngle = wheels[1].steerAngle = steerAngle;
+	{
+		if (play) {
+			// Front-wheel steering
+			float steerAngle = inputSteering * steeringAngle;
+			wheels [0].steerAngle = wheels [1].steerAngle = steerAngle;
 
-        // All-wheel drive
-        float torque = inputLinearForce * maxTorque;
-        for (int i = 0; i < wheels.Length; i++)
-            wheels[i].motorTorque = torque;
+			// All-wheel drive
+			float torque = inputLinearForce * maxTorque;
+			for (int i = 0; i < wheels.Length; i++)
+				wheels [i].motorTorque = torque;
+		}
     }
 }
