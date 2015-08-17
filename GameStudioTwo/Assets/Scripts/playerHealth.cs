@@ -17,7 +17,11 @@ public class playerHealth : MonoBehaviour {
     public float health
     {
         get { return _health; }
-        set { _health = value; healthSlider.value = value; }
+        set
+        {
+            _health = value<0? 0 : value;
+            healthSlider.value = _health;
+        }
     }
 
     void Start()
@@ -29,7 +33,7 @@ public class playerHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (health == 0)
+        if (health <= 0)
         {
             if (gameObject.CompareTag("Player"))
                 finish.text = "You Lose";

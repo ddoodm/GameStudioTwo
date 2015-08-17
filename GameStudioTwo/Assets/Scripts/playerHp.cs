@@ -7,6 +7,9 @@ public class playerHp : MonoBehaviour {
 	private float maxHP = 100f;
 	private float currentHp = 0f;
 
+    public Canvas miniBarCanvas;
+    public Camera camera;
+
 	// Use this for initialization
 	void Start () {
 		currentHp = maxHP;
@@ -15,8 +18,10 @@ public class playerHp : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update ()
+    {
+        miniBarCanvas.transform.rotation =
+            Quaternion.LookRotation(this.transform.position - camera.transform.position, Vector3.up);
 	}
 
 	void decreaseHP(){
