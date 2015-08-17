@@ -43,6 +43,10 @@ public class FSMBotController : MonoBehaviour
                 execute_arrive();
                 state = transition_arrive();
                 return;
+            case FSMState.EVADE:
+                execute_evade();
+                state = transition_evade();
+                return;
         }
     }
 
@@ -77,7 +81,27 @@ public class FSMBotController : MonoBehaviour
         if (distanceToPlayer > 15.0f)
             return FSMState.ARRIVE;
 
+        if (distanceToPlayer < 2.5f)
+            return FSMState.EVADE;
+
         return FSMState.PATROL;
+    }
+
+    private void execute_evade()
+    {
+        controller.setTargetWaypoint(
+            (transform.position - playerTransform.position).normalized * 20.0f);
+    }
+
+    private FSMState transition_evade()
+    {
+        float distanceToPlayer =
+            (this.transform.position - playerTransform.position).magnitude;
+
+        if (distanceToPlayer > 15.0f)
+            return FSMState.PATROL;
+
+        return FSMState.EVADE;
     }
 
     private void goToRandomPosition()
