@@ -62,7 +62,7 @@ public class FSMBotController : MonoBehaviour
         float distanceToPlayer =
             (this.transform.position - playerTransform.position).magnitude;
 
-        if (distanceToPlayer < 15.0f)
+        if (distanceToPlayer < 10.0f)
             return FSMState.ARRIVE;
         return FSMState.PATROL;
     }
@@ -78,7 +78,7 @@ public class FSMBotController : MonoBehaviour
         float distanceToPlayer =
             (this.transform.position - playerTransform.position).magnitude;
 
-        if (distanceToPlayer > 15.0f)
+        if (distanceToPlayer > 10.0f)
             return FSMState.ARRIVE;
 
         if (distanceToPlayer < 2.5f)
@@ -90,7 +90,7 @@ public class FSMBotController : MonoBehaviour
     private void execute_evade()
     {
         controller.setTargetWaypoint(
-            (transform.position - playerTransform.position).normalized * 20.0f);
+            (transform.position - playerTransform.position).normalized * 2.0f);
     }
 
     private FSMState transition_evade()
@@ -98,7 +98,7 @@ public class FSMBotController : MonoBehaviour
         float distanceToPlayer =
             (this.transform.position - playerTransform.position).magnitude;
 
-        if (distanceToPlayer > 15.0f)
+        if (distanceToPlayer > 10.0f)
             return FSMState.PATROL;
 
         return FSMState.EVADE;
@@ -106,7 +106,7 @@ public class FSMBotController : MonoBehaviour
 
     private void goToRandomPosition()
     {
-        Vector3 finalTarget = Random.insideUnitSphere * 30.0f;
+        Vector3 finalTarget = Random.insideUnitSphere * 20.0f;
         finalTarget.y = 0;
         controller.setTargetWaypoint(finalTarget);
     }
