@@ -53,8 +53,8 @@ public class playerHealth : MonoBehaviour {
         float damage = collision.relativeVelocity.magnitude;
 
         float damageAngleMag = Mathf.Abs(Vector3.Dot(collision.contacts[0].normal, -collision.collider.transform.right));
-        float thisDamage = damage * (1.0f - damageAngleMag);
-        float otherDamage = damage * damageAngleMag;
+        float otherDamage = damage * (1.0f - damageAngleMag);
+        float thisDamage = damage * damageAngleMag;
 
         this.issueDamage(thisDamage);
         otherPlayerHealth.issueDamage(otherDamage);
