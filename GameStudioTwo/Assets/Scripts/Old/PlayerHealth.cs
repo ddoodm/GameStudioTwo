@@ -10,7 +10,9 @@ public class PlayerHealth : MonoBehaviour
 
     public float
         maxHealth = 50.0f,
+        mass = 1.0f,
         damageFactor = 1.0f;
+
 
     // Never set this directly! Anywhere! Yes, this means you!
     private float _health;
@@ -29,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
     {
         healthBar.maxValue = maxHealth;
         health = maxHealth;
+        calculateMass();
     }
 	
 	// Update is called once per frame
@@ -48,17 +51,35 @@ public class PlayerHealth : MonoBehaviour
         // Rob's:
         //float damage = Random.Range(collision.relativeVelocity.magnitude - 2, collision.relativeVelocity.magnitude + 2);
 
-        // Get the PlayerHealth of the collider
-        PlayerHealth otherPlayerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+        //Determine damage multiplier
+        float damageMultiplier = 1.0f;
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            weaponStats weapon = contact.otherCollider.gameObject.GetComponent<weaponStats>();
+            if (weapon != null)
+            {
+                if (weapon.damageMultiplier > damageMultiplier)
+                {
+                    damageMultiplier = weapon.damageMultiplier;
+                }
+            }
+        }
+
+        PlayerHealth enemy = collision.gameObject.GetComponent<PlayerHealth>();
 
         float damage = collision.relativeVelocity.magnitude;
 
-        float damageAngleMag = Mathf.Abs(Vector3.Dot(collision.contacts[0].normal, -collision.collider.transform.right));
-        float otherDamage = damage * (1.0f - damageAngleMag);
-        float thisDamage = damage * damageAngleMag;
+
+        //Deinyon's code to make damage only happen on T-Bones
+        //float damageAngleMag = Mathf.Abs(Vector3.Dot(collision.contacts[0].normal, -collision.collider.transform.right));
+        //float otherDamage = damage * (1.0f - damageAngleMag);
+
+
+        float thisDamage = damage * damageMultiplier * enemy.mass;
+        Debug.Log("Damage Multiplier: " + damageMultiplier);
+        Debug.Log(collision.gameObject.tag + " Mass: " + enemy.mass);
 
         this.issueDamage(thisDamage);
-        otherPlayerHealth.issueDamage(otherDamage);
     }
 
     public void issueDamage(float damage)
@@ -71,5 +92,16 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
             issueDamage(collision);
+    }
+
+    private void calculateMass()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag("Weapon"))
+            {
+                mass += child.GetComponent<weaponStats>().mass;
+            }
+        }
     }
 }
