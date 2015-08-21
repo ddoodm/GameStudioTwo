@@ -2340,6 +2340,10 @@ Prefab:
       propertyPath: m_NormalizedViewPortRect.width
       value: .300000012
       objectReference: {fileID: 0}
+    - target: {fileID: 11428492, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: energyBar
+      value: 
+      objectReference: {fileID: 850215050}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_IsPrefabParent: 0
@@ -2934,6 +2938,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f49dbeffcc8de345857dd7226857d11, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &850215046 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 192328, guid: 8ef40bbd7f121764fb8b2e5e88544083, type: 2}
+  m_PrefabInternal: {fileID: 140748727}
+--- !u!114 &850215050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 850215046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ca93f0d6b8382458402740239e775e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxValue: 50
 --- !u!1 &855549471
 GameObject:
   m_ObjectHideFlags: 0
