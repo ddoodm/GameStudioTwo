@@ -2,9 +2,10 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class playerHealth : MonoBehaviour {
-
-    public Slider healthSlider;
+public class PlayerHealth : MonoBehaviour
+{
+    //public Slider healthSlider;
+    public HPBar healthBar;
     public Text finish;
 
     public float
@@ -20,13 +21,13 @@ public class playerHealth : MonoBehaviour {
         set
         {
             _health = value<0? 0 : value;
-            healthSlider.value = _health;
+            healthBar.value = _health;
         }
     }
 
     void Start()
     {
-        healthSlider.maxValue = maxHealth;
+        healthBar.maxValue = maxHealth;
         health = maxHealth;
     }
 	
@@ -48,7 +49,7 @@ public class playerHealth : MonoBehaviour {
         //float damage = Random.Range(collision.relativeVelocity.magnitude - 2, collision.relativeVelocity.magnitude + 2);
 
         // Get the PlayerHealth of the collider
-        playerHealth otherPlayerHealth = collision.gameObject.GetComponent<playerHealth>();
+        PlayerHealth otherPlayerHealth = collision.gameObject.GetComponent<PlayerHealth>();
 
         float damage = collision.relativeVelocity.magnitude;
 
