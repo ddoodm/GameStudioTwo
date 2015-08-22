@@ -9,6 +9,10 @@ TagManager:
   - Player Model
   - Enemy
   - Weapon
+  - Store Camera
+  - LawnMower
+  - LawnMowerSmall
+  - LawnMowerLarge
   layers:
   - Default
   - TransparentFX
