@@ -15,7 +15,11 @@ public class BotVehicleController : MonoBehaviour
     public float
         maxTorque = 50.0f,
         maxBrakeTorque = 50.0f,
-        maxSteeringAngle = 20.0f;
+        maxSteeringAngle = 20.0f,
+        targetSpeed = 1.0f;
+
+    public float
+        targetThreshRadius = 0.1f;
 
     /// <summary>
     /// Controller inputs obtained at frame update
@@ -33,8 +37,12 @@ public class BotVehicleController : MonoBehaviour
     /// <summary>
     /// The transform that the robot should follow
     /// </summary>
-    public Transform target;
-    public Rigidbody targetRigidbody;
+    //public Transform target;
+    //public Rigidbody targetRigidbody;
+
+    private Vector3 targetWaypoint;
+
+    public bool canPathfind { get; private set; }
 
     public enum SteeringMethod
     {
@@ -48,11 +56,46 @@ public class BotVehicleController : MonoBehaviour
     void Start()
     {
         path = new NavMeshPath();
-        targetRigidbody = target.GetComponent<Rigidbody>();
+        //targetRigidbody = target.GetComponent<Rigidbody>();
     }
 
     void Update()
     {
+        // Use the NavMesh to generate an array of waypoints
+        NavMesh.CalculatePath(transform.position, targetWaypoint, NavMesh.AllAreas, path);
+        Debug.DrawLine(targetWaypoint, targetWaypoint + Vector3.up * 10.0f, Color.magenta);
+        canPathfind = (path.status == NavMeshPathStatus.PathComplete);
+        if (!canPathfind)
+            Debug.Log("Cannot pathfind!");
+
+        // The target is the first waypoint, or the position of the target
+        Vector3 cWaypt = path.corners.Length > 1 ? path.corners[1] : targetWaypoint;
+        Debug.DrawLine(cWaypt, cWaypt + Vector3.up * 10.0f, Color.green);
+
+        // Compute steering angle
+        Vector3 targDir = cWaypt - this.transform.position;                        // Direction to the target
+        float targetAngle = Mathf.Atan2(targDir.z, targDir.x) * Mathf.Rad2Deg - 90.0f;  // Atan2 returns the angle to targDir from (0,0) in radians
+        Debug.DrawRay(transform.position, targDir);
+        inputSteering = -targetAngle - this.transform.rotation.eulerAngles.y;           // Steer toward the target angle, and subtract the local rotation
+
+        // Constant driving force
+        inputLinearForce = targetSpeed;
+
+        // Debug path display
+        for (int i = 0; i < path.corners.Length - 1; i++)
+            Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red);
+
+        // Prevent constant ramming
+        controlRamming();
+
+        // Robert's modifications, modified
+        if (path.corners.Length == 2 && Vector3.Dot(targDir, transform.forward) < 0)
+        {
+            inputLinearForce = 1.1f;
+            inputSteering = 40.0f;
+        }
+
+        /*
         Vector3 targetPosition;
 
         switch (steeringMethod)
@@ -73,28 +116,18 @@ public class BotVehicleController : MonoBehaviour
         Vector3 targetWaypt = path.corners.Length>1? path.corners[1] : targetPosition;
         Debug.DrawLine(targetWaypt, targetWaypt + Vector3.up * 10.0f, Color.green);
 
-        // Compute steering angle
-        Vector3 targDir = targetWaypt - this.transform.position;                        // Direction to the target
-        float targetAngle = Mathf.Atan2(targDir.z, targDir.x) * Mathf.Rad2Deg - 90.0f;  // Atan2 returns the angle to targDir from (0,0) in radians
-        Debug.DrawRay(transform.position, targDir);
-        inputSteering = -targetAngle - this.transform.rotation.eulerAngles.y;           // Steer toward the target angle, and subtract the local rotation
+        setSteeringTo(targetWaypt);
+        */
+    }
 
-        // Constant driving force
-        inputLinearForce = 1.0f;
+    public void setTargetWaypoint(Vector3 targetWaypoint)
+    {
+        this.targetWaypoint = targetWaypoint;
+    }
 
-        // Debug path display
-        for (int i = 0; i < path.corners.Length - 1; i++)
-            Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red);
-
-        // Prevent constant ramming
-        controlRamming();
-
-        // Robert's modifications, modified
-        if (path.corners.Length == 2 && Vector3.Dot(targDir, transform.forward) < 0)
-        {
-            inputLinearForce = 1.1f;
-            inputSteering = 40.0f;
-        }
+    public bool atTarget
+    {
+        get { return (targetWaypoint - transform.position).magnitude <= targetThreshRadius; }
     }
 
     void FixedUpdate()
@@ -127,7 +160,7 @@ public class BotVehicleController : MonoBehaviour
         {
             // Invert force and steering (reverse)
             inputLinearForce *= -1.0f;
-            inputSteering *= -0.8f;
+            inputSteering = -8.0f;
             reverseTimer -= Time.deltaTime;
         }
     }
