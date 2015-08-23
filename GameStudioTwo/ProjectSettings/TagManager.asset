@@ -19,6 +19,7 @@ TagManager:
   - Spike
   - StoreUI
   - Player Engine
+  - Player Camera
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,8 @@ public class StoreController : MonoBehaviour {
 	int noOfModels;
 	int playerModelPos = 0;
 
+	bool hasSpike = false;
+
 
 	// Use this for initialization
 	void Start () {
@@ -20,9 +22,12 @@ public class StoreController : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Main Player");
 		player.GetComponent<VehicleController>().play = false;
 		player.GetComponent<Rigidbody>().useGravity = false;
-		player.GetComponent<Transform>().position = new Vector3(0.0f, 5.0f, 0.0f);
 
-		playerModel = GameObject.Find ("Player/VehicleBase/Base");
+		playerCamera = GameObject.FindGameObjectWithTag("Player Camera");
+		playerCamera.SetActive(false);
+		playerModel = GameObject.FindGameObjectWithTag("Player Model");
+		player.SetActive (false);
+
 
 		StoreUI = GameObject.FindGameObjectWithTag("StoreUI");
 
@@ -40,15 +45,15 @@ public class StoreController : MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit))
 			{
-				if (hit.transform.tag == "LawnMower" || hit.transform.tag == "LawnMowerSmall" || hit.transform.tag == "LawnMowerLarge")
+				if (hit.transform.tag == "LawnMowerRed" || hit.transform.tag == "LawnMowerGreen" || hit.transform.tag == "LawnMowerBlue")
 				{
+					player.SetActive(true);
 					Material selectedModel = hit.transform.gameObject.GetComponent<Renderer>().material;
 					GameObject.FindGameObjectWithTag("Player Model").GetComponent<Renderer>().material = selectedModel;
 					GameObject.FindGameObjectWithTag("Player Engine").GetComponent<Renderer>().material = selectedModel;
 
-					GameObject.Find ("Player/VehicleBase").GetComponent<Transform>().localPosition = 
-						(hit.transform.gameObject.GetComponent<Transform>().localPosition + 
-						 new Vector3 (0.0f - playerModelPos * 10.0f, -1.5f, 2.0f));
+					GameObject.Find ("VehicleV2").GetComponent<Transform>().position = 
+						(hit.transform.gameObject.GetComponent<Transform>().position);
 
 					hit.transform.parent.gameObject.SetActive(false);
 
@@ -57,35 +62,19 @@ public class StoreController : MonoBehaviour {
 
 				if (hit.transform.tag == "Spike")
 				{
-					//GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), new Vector3(0.2f, playerModel.transform.localPosition.y, 0.02f), playerModel.transform.rotation);
-					GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), playerModel.transform.position, Quaternion.identity);
-					//spike.transform.position = new Vector3 (0.0f, 10.0f, 0.0f);
-					//spike.transform.rotation = Quaternion.identity;
-					spike.transform.Rotate(180.0f, 0.0f, -90.0f, Space.World);
-					
-					//spike.transform.localPosition = new Vector3 (0.0f, 10.0f, 0.0f);
-					spike.transform.parent = playerModel.transform;
+					if (!hasSpike) 
+					{
+						hasSpike = true;
+						//GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), new Vector3(0.2f, playerModel.transform.localPosition.y, 0.02f), playerModel.transform.rotation);
+						GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), player.transform.position, Quaternion.identity);
+						//spike.transform.position = new Vector3 (0.0f, 10.0f, 0.0f);
+						//spike.transform.rotation = Quaternion.identity;
+						spike.transform.Rotate(-90.0f, 0.0f, 0.0f, Space.World);
+						spike.transform.localScale -= new Vector3(0.8f, 0.8f, 0.8f);
+						//spike.transform.localPosition = new Vector3 (0.0f, 10.0f, 0.0f);
+						spike.transform.parent = playerModel.transform;
+					}
 				}
-
-				/*
-				switch (hit.transform.tag)
-				{
-					case "LawnMower":
-						
-						break;
-						
-					case "LawnMowerSmall":
-						
-						break;
-						
-					case "LawnMowerLarge":
-						
-						break;
-					
-					default:
-						break;
-				}
-				*/
 			}
 		}
 	}
@@ -93,7 +82,8 @@ public class StoreController : MonoBehaviour {
 
 	public void startTest(){
 		StoreUI.GetComponentInChildren<Animator>().SetTrigger("FadeOut");
-		GameObject.Find ("StoreUI").SetActive(false);
+		playerCamera.SetActive(true);
+		//GameObject.Find ("StoreUI").SetActive(false);
 		player.GetComponent<VehicleController>().play = true;
 		player.GetComponent<Rigidbody>().useGravity = true;
 	}
