@@ -12,6 +12,7 @@ public class FSMBotController : MonoBehaviour
     public Transform playerTransform;
 
     private BotVehicleController controller;
+    private Rigidbody botRigidbody;
 
     private NavMeshPath path;
 
@@ -27,6 +28,7 @@ public class FSMBotController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<BotVehicleController>();
+        botRigidbody = GetComponent<Rigidbody>();
         path = new NavMeshPath();
 
         goToRandomPosition();
@@ -60,8 +62,8 @@ public class FSMBotController : MonoBehaviour
 
     private void execute_patrol()
     {
-        controller.targetSpeed = 0.4f;
-        if (controller.atTarget)
+        controller.targetSpeed = 1.0f;
+        if (controller.atTarget || botRigidbody.velocity.magnitude < 0.1f)
             goToRandomPosition();
     }
 
@@ -87,12 +89,12 @@ public class FSMBotController : MonoBehaviour
             (this.transform.position - playerTransform.position).magnitude;
 
         if (distanceToPlayer > 10.0f)
-            return FSMState.ARRIVE;
+            return FSMState.PATROL;
 
         //if (distanceToPlayer < 2.5f)
         //    return FSMState.EVADE;
 
-        return FSMState.PATROL;
+        return FSMState.ARRIVE;
     }
 
     private void execute_evade()
@@ -124,7 +126,7 @@ public class FSMBotController : MonoBehaviour
 
     private void goToRandomPosition()
     {
-        Vector3 finalTarget = Random.insideUnitSphere * 20.0f;
+        Vector3 finalTarget = Random.insideUnitSphere * 100.0f;
         finalTarget.y = 0;
 
         controller.setTargetWaypoint(finalTarget);
