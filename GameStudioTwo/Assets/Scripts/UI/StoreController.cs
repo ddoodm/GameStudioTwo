@@ -55,7 +55,8 @@ public class StoreController : MonoBehaviour {
 				if (hit.transform.tag == "Spike")
 				{
 					StoreUI.GetComponentInChildren<Animator>().SetTrigger("FadeOut");
-					GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), new Vector3(0.2f, playerModel.transform.position.y, 0.02f), playerModel.transform.rotation);
+					//GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), new Vector3(0.2f, playerModel.transform.position.y, 0.02f), playerModel.transform.rotation);
+					GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
 					spike.transform.Rotate(0, 270, 180);
 					spike.transform.parent = playerModel.transform;
 				}
