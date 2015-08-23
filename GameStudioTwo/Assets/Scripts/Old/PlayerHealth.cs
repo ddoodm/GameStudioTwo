@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (health <= 0)
+        if (health <= 0 ||Vector3.Dot(transform.up,Vector3.up) < 0)
         {
             if (gameObject.CompareTag("Player"))
                 finish.text = "You Lose";
