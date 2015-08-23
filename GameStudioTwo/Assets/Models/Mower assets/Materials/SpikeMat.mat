@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: MowerBaseMat
+  m_Name: SpikeMat
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -98,11 +98,11 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: .370000005
+        second: 1
       data:
         first:
           name: _Metallic
-        second: .595000029
+        second: .519999981
       data:
         first:
           name: _BumpScale
@@ -135,4 +135,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .970588207, g: .206963688, b: .206963688, a: 1}
+        second: {r: .691176474, g: .691176474, b: .691176474, a: 1}
