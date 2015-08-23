@@ -19,7 +19,7 @@ public class BotVehicleController : MonoBehaviour
         targetSpeed = 1.0f;
 
     public float
-        targetThreshRadius = 0.1f;
+        targetThreshRadius = 1.0f;
 
     /// <summary>
     /// Controller inputs obtained at frame update
