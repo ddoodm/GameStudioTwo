@@ -46,7 +46,7 @@ public class StoreController : MonoBehaviour {
 					GameObject.FindGameObjectWithTag("Player Model").GetComponent<Renderer>().material = selectedModel;
 					GameObject.FindGameObjectWithTag("Player Engine").GetComponent<Renderer>().material = selectedModel;
 
-					GameObject.Find ("Player/VehicleBase/Base").GetComponent<Transform>().position = hit.transform.gameObject.GetComponent<Transform>().position;
+					GameObject.Find ("Player/VehicleBase").GetComponent<Transform>().localPosition = hit.transform.gameObject.GetComponent<Transform>().localPosition + new Vector3 (0.0f, -1.5f, 2.0f);
 					hit.transform.gameObject.SetActive(false);
 
 					StoreUI.GetComponentInChildren<Animator>().SetTrigger("FadeOut");
@@ -55,9 +55,13 @@ public class StoreController : MonoBehaviour {
 				if (hit.transform.tag == "Spike")
 				{
 					StoreUI.GetComponentInChildren<Animator>().SetTrigger("FadeOut");
-					//GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), new Vector3(0.2f, playerModel.transform.position.y, 0.02f), playerModel.transform.rotation);
-					GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
-					spike.transform.Rotate(0, 270, 180);
+					//GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), new Vector3(0.2f, playerModel.transform.localPosition.y, 0.02f), playerModel.transform.rotation);
+					GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), playerModel.transform.position, Quaternion.identity);
+					//spike.transform.position = new Vector3 (0.0f, 10.0f, 0.0f);
+					//spike.transform.rotation = Quaternion.identity;
+					spike.transform.Rotate(180.0f, 0.0f, -90.0f, Space.World);
+					
+					//spike.transform.localPosition = new Vector3 (0.0f, 10.0f, 0.0f);
 					spike.transform.parent = playerModel.transform;
 				}
 
