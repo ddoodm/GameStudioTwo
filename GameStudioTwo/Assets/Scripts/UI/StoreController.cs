@@ -4,6 +4,8 @@ using System.Collections;
 public class StoreController : MonoBehaviour {
 
 	GameObject player;
+	GameObject playerModel;
+	GameObject StoreUI;
 	GameObject uiPlayerModels;
 	GameObject selectedModel;
 	GameObject playerCamera;
@@ -20,6 +22,9 @@ public class StoreController : MonoBehaviour {
 		player.GetComponent<Rigidbody>().useGravity = false;
 		player.GetComponent<Transform>().position = new Vector3(0.0f, 5.0f, 0.0f);
 
+		playerModel = GameObject.Find ("Player/VehicleBase/Base");
+
+		StoreUI = GameObject.FindGameObjectWithTag("StoreUI");
 
 		uiPlayerModels = GameObject.Find ("StoreUI/Models/Player");
 
@@ -35,9 +40,24 @@ public class StoreController : MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit))
 			{
-				if (hit.transform.tag == "LawnMower" || hit.transform.tag == "LawnMowerSmall" ||hit.transform.tag == "LawnMowerLarge")
+				if (hit.transform.tag == "LawnMower" || hit.transform.tag == "LawnMowerSmall" || hit.transform.tag == "LawnMowerLarge")
 				{
-					player.GetComponentInChildren<Animator>().SetTrigger("FadeOutStore");
+					Material selectedModel = hit.transform.gameObject.GetComponent<Renderer>().material;
+					GameObject.FindGameObjectWithTag("Player Model").GetComponent<Renderer>().material = selectedModel;
+					GameObject.FindGameObjectWithTag("Player Engine").GetComponent<Renderer>().material = selectedModel;
+
+					GameObject.Find ("Player/VehicleBase/Base").GetComponent<Transform>().position = hit.transform.gameObject.GetComponent<Transform>().position;
+					hit.transform.gameObject.SetActive(false);
+
+					StoreUI.GetComponentInChildren<Animator>().SetTrigger("FadeOut");
+				}
+
+				if (hit.transform.tag == "Spike")
+				{
+					StoreUI.GetComponentInChildren<Animator>().SetTrigger("FadeOut");
+					GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), new Vector3(0.2f, playerModel.transform.position.y, 0.02f), playerModel.transform.rotation);
+					spike.transform.Rotate(0, 270, 180);
+					spike.transform.parent = playerModel.transform;
 				}
 
 				/*
