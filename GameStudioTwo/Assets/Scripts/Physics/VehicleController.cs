@@ -62,9 +62,13 @@ public class VehicleController : MonoBehaviour
             else
                 inputLinearForce = 0;
 
-            if (Input.GetButton("Boost") && energy >= 1)
+            if (Input.GetButtonDown("Boost") && energy >= 1)
             {
                 boosting = true;
+            }
+            else if (Input.GetButtonUp("Boost"))
+            {
+                boosting = false;
             }
             boost();
             
@@ -102,6 +106,7 @@ public class VehicleController : MonoBehaviour
         if (boosting == false && energy < maxEnergy)
         {
             energy += 0.25f;
+            speedMultiplier = 1;
         }
 
     }
