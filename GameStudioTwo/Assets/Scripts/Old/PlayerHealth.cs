@@ -110,10 +110,7 @@ public class PlayerHealth : MonoBehaviour
         weaponStats[] allChildren = GetComponentsInChildren<weaponStats>();
         foreach (weaponStats child in allChildren)
         {
-            if (child.CompareTag("Weapon"))
-            {
-                mass += child.mass;
-            }
+            mass += child.mass;
         }
     }
 }
