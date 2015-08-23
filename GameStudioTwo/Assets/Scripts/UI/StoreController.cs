@@ -10,6 +10,8 @@ public class StoreController : MonoBehaviour {
 	GameObject selectedModel;
 	GameObject playerCamera;
 
+    persistentStats playerChoice;
+
 	int noOfModels;
 	int playerModelPos = 0;
 
@@ -18,6 +20,10 @@ public class StoreController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Time.timeScale = 1;
+        if (GameObject.FindGameObjectWithTag("Persistent Stats").GetComponent<persistentStats>() != null)
+            playerChoice = GameObject.FindGameObjectWithTag("Persistent Stats").GetComponent<persistentStats>();
+
 		//playerCamera.GetComponent<Transform> ().Rotate (30.0f, 0.0f, 0.0f);
 		player = GameObject.FindGameObjectWithTag("Main Player");
 		player.GetComponent<VehicleController>().play = false;
@@ -52,6 +58,9 @@ public class StoreController : MonoBehaviour {
 					GameObject.FindGameObjectWithTag("Player Model").GetComponent<Renderer>().material = selectedModel;
 					GameObject.FindGameObjectWithTag("Player Engine").GetComponent<Renderer>().material = selectedModel;
 
+                    if (playerChoice != null)
+                        playerChoice.color = selectedModel;
+
 					GameObject.Find ("VehicleV2").GetComponent<Transform>().position = 
 						(hit.transform.gameObject.GetComponent<Transform>().position);
 
@@ -73,6 +82,8 @@ public class StoreController : MonoBehaviour {
 						spike.transform.localScale -= new Vector3(0.8f, 0.8f, 0.8f);
 						//spike.transform.localPosition = new Vector3 (0.0f, 10.0f, 0.0f);
 						spike.transform.parent = playerModel.transform;
+                        if (playerChoice != null)
+                            playerChoice.spike = true;
 					}
 				}
 			}
@@ -81,11 +92,21 @@ public class StoreController : MonoBehaviour {
 
 
 	public void startTest(){
+        if (!hasSpike)
+        {
+            if (playerChoice != null)
+                playerChoice.spike = false;
+        }
+        Application.LoadLevel(2);
+
+        //Sorry Jesse
+        /*
 		StoreUI.GetComponentInChildren<Animator>().SetTrigger("FadeOut");
 		playerCamera.SetActive(true);
 		//GameObject.Find ("StoreUI").SetActive(false);
 		player.GetComponent<VehicleController>().play = true;
 		player.GetComponent<Rigidbody>().useGravity = true;
+         * */
 	}
 
 
