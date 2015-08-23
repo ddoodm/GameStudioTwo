@@ -6,10 +6,52 @@ ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Base
+    100004: Box001
+    100006: Box002
+    100008: Cylinder003
+    100010: Cylinder004
+    100012: Cylinder006
+    100014: Cylinder008
+    100016: Handle
+    100018: Line001
     400000: //RootNode
+    400002: Base
+    400004: Box001
+    400006: Box002
+    400008: Cylinder003
+    400010: Cylinder004
+    400012: Cylinder006
+    400014: Cylinder008
+    400016: Handle
+    400018: Line001
     2300000: //RootNode
+    2300002: Base
+    2300004: Box001
+    2300006: Box002
+    2300008: Cylinder003
+    2300010: Cylinder004
+    2300012: Cylinder006
+    2300014: Cylinder008
+    2300016: Line001
     3300000: //RootNode
+    3300002: Base
+    3300004: Box001
+    3300006: Box002
+    3300008: Cylinder003
+    3300010: Cylinder004
+    3300012: Cylinder006
+    3300014: Cylinder008
+    3300016: Line001
     4300000: Base
+    4300002: Cylinder003
+    4300004: Cylinder006
+    4300006: Line001
+    4300008: Cylinder008
+    4300010: Box002
+    4300012: Cylinder004
+    4300014: Box001
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1

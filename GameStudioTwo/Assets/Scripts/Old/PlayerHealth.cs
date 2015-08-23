@@ -16,7 +16,6 @@ public class PlayerHealth : MonoBehaviour
 
     // Never set this directly! Anywhere! Yes, this means you!
     private float _health;
-
     public float health
     {
         get { return _health; }
