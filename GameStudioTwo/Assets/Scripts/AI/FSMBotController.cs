@@ -13,27 +13,31 @@ public class FSMBotController : MonoBehaviour
 
     private BotVehicleController controller;
 
+    private NavMeshPath path;
+
     private enum FSMState
     {
         PATROL,
         ARRIVE,
         EVADE,
+        REVERSE,
     }
     private FSMState state = FSMState.PATROL;
 
-    private NavMeshPath path;
-
     void Start()
     {
-        path = new NavMeshPath();
         controller = GetComponent<BotVehicleController>();
+        path = new NavMeshPath();
 
         goToRandomPosition();
     }
 
     void Update()
     {
-        switch(state)
+        if (!controller.canPathfind)
+            goToRandomPosition();
+
+        switch (state)
         {
             case FSMState.PATROL:
                 execute_patrol();
@@ -46,6 +50,10 @@ public class FSMBotController : MonoBehaviour
             case FSMState.EVADE:
                 execute_evade();
                 state = transition_evade();
+                return;
+            case FSMState.REVERSE:
+                execute_reverse();
+                state = transition_reverse();
                 return;
         }
     }
@@ -81,8 +89,8 @@ public class FSMBotController : MonoBehaviour
         if (distanceToPlayer > 10.0f)
             return FSMState.ARRIVE;
 
-        if (distanceToPlayer < 2.5f)
-            return FSMState.EVADE;
+        //if (distanceToPlayer < 2.5f)
+        //    return FSMState.EVADE;
 
         return FSMState.PATROL;
     }
@@ -104,10 +112,21 @@ public class FSMBotController : MonoBehaviour
         return FSMState.EVADE;
     }
 
+    private void execute_reverse()
+    {
+        
+    }
+
+    private FSMState transition_reverse()
+    {
+        return FSMState.ARRIVE;
+    }
+
     private void goToRandomPosition()
     {
         Vector3 finalTarget = Random.insideUnitSphere * 20.0f;
         finalTarget.y = 0;
+
         controller.setTargetWaypoint(finalTarget);
     }
 }
