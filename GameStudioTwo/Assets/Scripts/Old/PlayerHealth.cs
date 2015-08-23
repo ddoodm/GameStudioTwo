@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     //public Slider healthSlider;
     public HPBar healthBar;
     public Text finish;
+    public Button restartButton;
 
     public float
         maxHealth = 50.0f,
@@ -40,8 +41,19 @@ public class PlayerHealth : MonoBehaviour
         {
             if (gameObject.CompareTag("Player"))
                 finish.text = "You Lose";
+            
             else if (gameObject.CompareTag("Enemy"))
                 finish.text = "You win";
+            
+
+            Time.timeScale = 0;
+
+            restartButton.gameObject.SetActive(true);
+            if (Input.GetButtonDown("Boost"))
+            {
+                Application.LoadLevel(0);
+            }
+
         }
 	}
 
@@ -95,11 +107,12 @@ public class PlayerHealth : MonoBehaviour
 
     private void calculateMass()
     {
-        foreach (Transform child in transform)
+        weaponStats[] allChildren = GetComponentsInChildren<weaponStats>();
+        foreach (weaponStats child in allChildren)
         {
             if (child.CompareTag("Weapon"))
             {
-                mass += child.GetComponent<weaponStats>().mass;
+                mass += child.mass;
             }
         }
     }
