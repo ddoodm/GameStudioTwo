@@ -15,6 +15,6 @@ public class restartLevel : MonoBehaviour {
 
     public void restart()
     {
-        Application.LoadLevel(0);
+        Application.LoadLevel(1);
     }
 }
