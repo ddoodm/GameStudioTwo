@@ -755,6 +755,7 @@ MonoBehaviour:
   maxTorque: 90
   maxBrakeTorque: 50
   maxSteeringAngle: 20
+  targetSpeed: 1
   targetThreshRadius: 1.5
   maxContactTime: .800000012
   maxReverseTime: 2
@@ -1105,6 +1106,10 @@ Prefab:
     - target: {fileID: 413260, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11480802, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
