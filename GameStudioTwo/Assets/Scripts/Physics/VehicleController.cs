@@ -46,8 +46,8 @@ public class VehicleController : MonoBehaviour
 
     void Start()
     {
-        energyBar.maxValue = maxEnergy;
-        energy = maxEnergy;
+        //energyBar.maxValue = maxEnergy;
+        //energy = maxEnergy;
     }
 
     void Update()
