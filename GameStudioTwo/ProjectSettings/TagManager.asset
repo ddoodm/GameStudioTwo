@@ -10,9 +10,15 @@ TagManager:
   - Enemy
   - Weapon
   - Store Camera
-  - LawnMower
+  - LawnMowerBlue
+  - LawnMowerRed
+  - LawnMowerGreen
   - LawnMowerSmall
   - LawnMowerLarge
+  - LawnMower
+  - Spike
+  - StoreUI
+  - Player Engine
   layers:
   - Default
   - TransparentFX
