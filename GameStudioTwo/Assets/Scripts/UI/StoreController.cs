@@ -30,7 +30,7 @@ public class StoreController : MonoBehaviour {
 		player.GetComponent<Rigidbody>().useGravity = false;
 
 		playerCamera = GameObject.FindGameObjectWithTag("Player Camera");
-		playerCamera.SetActive(false);
+		//playerCamera.SetActive(false);
 		playerModel = GameObject.FindGameObjectWithTag("Player Model");
 		player.SetActive (false);
 
