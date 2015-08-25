@@ -19,6 +19,7 @@ public class VehicleController : MonoBehaviour
         maxBrakeTorque = 50.0f,
         maxEnergy = 50.0f,
         speedMultiplier = 1.0f,
+        strafeSpeed,
         steeringAngle = 20.0f;
 
     /// <summary>
@@ -61,6 +62,17 @@ public class VehicleController : MonoBehaviour
                 inputLinearForce = -1;
             else
                 inputLinearForce = 0;
+
+            if (Input.GetKeyDown(KeyCode.Q) && energy == maxEnergy)
+            {
+                transform.GetComponent<Rigidbody>().AddForce(-transform.right*strafeSpeed);
+                energy -= maxEnergy;
+            }
+            if (Input.GetKeyDown(KeyCode.E) && energy == maxEnergy)
+            {
+                transform.GetComponent<Rigidbody>().AddForce(transform.right*strafeSpeed);
+                energy -= maxEnergy;
+            }
 
             if (Input.GetButtonDown("Boost") && energy >= 1)
             {
