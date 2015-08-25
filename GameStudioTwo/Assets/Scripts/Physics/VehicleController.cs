@@ -40,7 +40,9 @@ public class VehicleController : MonoBehaviour
         set
         {
             _energy = value < 0 ? 0 : value;
-            energyBar.value = _energy;
+
+            if(energyBar)
+                energyBar.value = _energy;
         }
     }
 
