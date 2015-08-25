@@ -2,9 +2,9 @@ Initialize engine version: 5.1.2f1 (afd2369b692a)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: Intel(R) HD Graphics 4600 (ID=0x416)
-    Vendor:   Intel
-    VRAM:     128 MB
+    Renderer: NVIDIA GeForce GTX 970M  (ID=0x13d8)
+    Vendor:   NVIDIA
+    VRAM:     2991 MB
 Begin MonoManager ReloadAssembly
 Platform assembly: D:\GameStudioTwo\GameStudioTwo\GameStudioTwo\Builds\x86-64\Mowdown_x86-64_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading D:\GameStudioTwo\GameStudioTwo\GameStudioTwo\Builds\x86-64\Mowdown_x86-64_Data\Managed\UnityEngine.dll into Unity Child Domain
@@ -16,7 +16,7 @@ Platform assembly: D:\GameStudioTwo\GameStudioTwo\GameStudioTwo\Builds\x86-64\Mo
 Loading D:\GameStudioTwo\GameStudioTwo\GameStudioTwo\Builds\x86-64\Mowdown_x86-64_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: D:\GameStudioTwo\GameStudioTwo\GameStudioTwo\Builds\x86-64\Mowdown_x86-64_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading D:\GameStudioTwo\GameStudioTwo\GameStudioTwo\Builds\x86-64\Mowdown_x86-64_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.131 seconds
+- Completed reload, in  0.045 seconds
 desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -24,29 +24,29 @@ desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
 Platform assembly: D:\GameStudioTwo\GameStudioTwo\GameStudioTwo\Builds\x86-64\Mowdown_x86-64_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\GameStudioTwo\GameStudioTwo\GameStudioTwo\Builds\x86-64\Mowdown_x86-64_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 8198 -> priority: 1 
-  Thread -> id: c4c4 -> priority: 1 
+  Thread -> id: d8bc -> priority: 1 
+  Thread -> id: d330 -> priority: 1 
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.292514 ms
+UnloadTime: 0.245143 ms
 
 Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 569.
-Total: 0.215142 ms (FindLiveObjects: 0.019737 ms CreateObjectMapping: 0.011842 ms MarkObjects: 0.176061 ms  DeleteObjects: 0.007105 ms)
+Total: 0.329226 ms (FindLiveObjects: 0.041844 ms CreateObjectMapping: 0.018553 ms MarkObjects: 0.257775 ms  DeleteObjects: 0.010263 ms)
 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
 Shader 'Nature/Terrain/Specular': fallback shader 'Nature/Terrain/Diffuse' not found
 Shader 'Nature/Terrain/Standard': fallback shader 'Nature/Terrain/Diffuse' not found
-UnloadTime: 3.824794 ms
+UnloadTime: 4.136257 ms
 
 Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 2416.
-Total: 0.819908 ms (FindLiveObjects: 0.101057 ms CreateObjectMapping: 0.036317 ms MarkObjects: 0.351727 ms  DeleteObjects: 0.330411 ms)
+Total: 0.839252 ms (FindLiveObjects: 0.108163 ms CreateObjectMapping: 0.037501 ms MarkObjects: 0.364360 ms  DeleteObjects: 0.328832 ms)
 
 Cannot pathfind!
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: beac -> priority: 1 
-  Thread -> id: c320 -> priority: 1 
+  Thread -> id: db30 -> priority: 1 
+  Thread -> id: dfc4 -> priority: 1 
 Cannot pathfind!
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
@@ -56,110 +56,6 @@ Cannot pathfind!
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 Cannot pathfind!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Cannot pathfind!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Cannot pathfind!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Cannot pathfind!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Cannot pathfind!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Cannot pathfind!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Cannot pathfind!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Cannot pathfind!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Cannot pathfind!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Damage Multiplier: 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Enemy Mass: 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Player hit for 10.15489
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Damage Multiplier: 1.2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Player Mass: 1.2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Enemy hit for 14.62305
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Damage Multiplier: 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Enemy Mass: 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Player hit for 7.444276
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Damage Multiplier: 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Player Mass: 1.2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Enemy hit for 8.933132
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Damage Multiplier: 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Enemy Mass: 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Player hit for 2.329549
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Damage Multiplier: 1.2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Player Mass: 1.2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Enemy hit for 3.354551
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 

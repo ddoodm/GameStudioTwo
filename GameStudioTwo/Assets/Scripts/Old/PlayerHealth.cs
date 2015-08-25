@@ -37,6 +37,9 @@ public class PlayerHealth : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (finish == null)
+            return;
+
         if (health <= 0 ||Vector3.Dot(transform.up,Vector3.up) < 0)
         {
             if (gameObject.CompareTag("Player"))
@@ -44,16 +47,15 @@ public class PlayerHealth : MonoBehaviour
             
             else if (gameObject.CompareTag("Enemy"))
                 finish.text = "You win";
-            
 
-            Time.timeScale = 0;
+
+            Time.timeScale = 0.0f;
 
             restartButton.gameObject.SetActive(true);
             if (Input.GetButtonDown("Boost"))
             {
                 Application.LoadLevel(0);
             }
-
         }
 	}
 
