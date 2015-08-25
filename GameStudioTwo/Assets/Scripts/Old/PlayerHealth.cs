@@ -40,22 +40,11 @@ public class PlayerHealth : MonoBehaviour
         if (finish == null)
             return;
 
-        if (health <= 0 ||Vector3.Dot(transform.up,Vector3.up) < 0)
+        if (health <= 0)
+            gameOver();
+        if (Vector3.Dot(transform.up,Vector3.up) < 0)
         {
-            if (gameObject.CompareTag("Player"))
-                finish.text = "You Lose";
-            
-            else if (gameObject.CompareTag("Enemy"))
-                finish.text = "You win";
-
-
-            Time.timeScale = 0.0f;
-
-            restartButton.gameObject.SetActive(true);
-            if (Input.GetButtonDown("Boost"))
-            {
-                Application.LoadLevel(0);
-            }
+            StartCoroutine(checkFlipped());
         }
 	}
 
@@ -114,5 +103,32 @@ public class PlayerHealth : MonoBehaviour
         {
             mass += child.mass;
         }
+    }
+
+    void gameOver()
+    {
+        if (gameObject.CompareTag("Player"))
+            finish.text = "You Lose";
+
+        else if (gameObject.CompareTag("Enemy"))
+            finish.text = "You win";
+
+
+        Time.timeScale = 0.0f;
+
+        restartButton.gameObject.SetActive(true);
+        if (Input.GetButtonDown("Boost"))
+        {
+            Application.LoadLevel(1);
+        }
+    }
+
+    IEnumerator checkFlipped()
+    {
+        yield return new WaitForSeconds(5);
+        if (Vector3.Dot(transform.up, Vector3.up) < 0)
+            gameOver();
+        else
+            StopCoroutine("checkFlipped");
     }
 }
