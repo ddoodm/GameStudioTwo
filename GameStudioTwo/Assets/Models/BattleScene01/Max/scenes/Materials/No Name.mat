@@ -98,7 +98,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: .5
+        second: .130999997
       data:
         first:
           name: _Metallic
@@ -135,4 +135,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: .25, g: .25, b: .25, a: 1}
