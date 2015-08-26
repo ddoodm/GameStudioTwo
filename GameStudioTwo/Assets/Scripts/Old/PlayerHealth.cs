@@ -50,20 +50,28 @@ public class PlayerHealth : MonoBehaviour
 
     public void issueDamage(Collision collision)
     {
-        // Rob's:
-        //float damage = Random.Range(collision.relativeVelocity.magnitude - 2, collision.relativeVelocity.magnitude + 2);
 
         //Determine damage multiplier
         float damageMultiplier = 1.0f;
+
+        //check if hit by weapon
         foreach (ContactPoint contact in collision.contacts)
         {
             weaponStats weapon = contact.otherCollider.gameObject.GetComponent<weaponStats>();
             if (weapon != null)
-            {
-                if (weapon.damageMultiplier > damageMultiplier)
-                {
+            {           
+                if(weapon.damageMultiplier > 1)
                     damageMultiplier = weapon.damageMultiplier;
-                }
+            }
+        }
+        //check if hit on armor
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            weaponStats weapon = contact.thisCollider.gameObject.GetComponent<weaponStats>();
+            if (weapon != null)
+            {
+                if (weapon.damageMultiplier < 1)
+                    damageMultiplier *= weapon.damageMultiplier;
             }
         }
 
