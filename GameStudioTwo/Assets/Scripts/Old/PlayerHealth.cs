@@ -37,9 +37,11 @@ public class PlayerHealth : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+
         if (finish == null)
             return;
 
+        calculateMass();
         if (health <= 0)
             gameOver();
         if (Vector3.Dot(transform.up,Vector3.up) < 0)
@@ -54,42 +56,46 @@ public class PlayerHealth : MonoBehaviour
         //Determine damage multiplier
         float damageMultiplier = 1.0f;
 
+        PlayerHealth enemy = collision.gameObject.GetComponent<PlayerHealth>();
+        float damage = collision.relativeVelocity.magnitude;
+        float thisDamage = 0;
+
         //check if hit by weapon
         foreach (ContactPoint contact in collision.contacts)
         {
             weaponStats weapon = contact.otherCollider.gameObject.GetComponent<weaponStats>();
+            weaponStats armor = contact.thisCollider.gameObject.GetComponent<weaponStats>();
             if (weapon != null)
             {           
                 if(weapon.damageMultiplier > 1)
                     damageMultiplier = weapon.damageMultiplier;
             }
-        }
-        //check if hit on armor
-        foreach (ContactPoint contact in collision.contacts)
-        {
-            weaponStats weapon = contact.thisCollider.gameObject.GetComponent<weaponStats>();
-            if (weapon != null)
+            if (armor != null)
             {
-                if (weapon.damageMultiplier < 1)
-                    damageMultiplier *= weapon.damageMultiplier;
+                if (armor.damageMultiplier < 1)
+                    damageMultiplier *= armor.damageMultiplier;
             }
+
+            thisDamage = damage * damageMultiplier * enemy.mass;
+
+            if (armor != null)
+                armor.issueDamageAttachment(thisDamage);
+
         }
-
-        PlayerHealth enemy = collision.gameObject.GetComponent<PlayerHealth>();
-
-        float damage = collision.relativeVelocity.magnitude;
-
 
         //Deinyon's code to make damage only happen on T-Bones
         //float damageAngleMag = Mathf.Abs(Vector3.Dot(collision.contacts[0].normal, -collision.collider.transform.right));
         //float otherDamage = damage * (1.0f - damageAngleMag);
 
 
-        float thisDamage = damage * damageMultiplier * enemy.mass;
+        
+
         Debug.Log("Damage Multiplier: " + damageMultiplier);
         Debug.Log(collision.gameObject.tag + " Mass: " + enemy.mass);
 
         this.issueDamage(thisDamage);
+
+        Debug.Log(gameObject.name + " has " + health + " remaining");
     }
 
     public void issueDamage(float damage)
@@ -106,6 +112,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void calculateMass()
     {
+        mass = 1;
         weaponStats[] allChildren = GetComponentsInChildren<weaponStats>();
         foreach (weaponStats child in allChildren)
         {
@@ -139,4 +146,5 @@ public class PlayerHealth : MonoBehaviour
         else
             StopCoroutine("checkFlipped");
     }
+
 }
