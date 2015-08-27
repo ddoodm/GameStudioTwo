@@ -38,8 +38,8 @@ public class CameraVehicleTrack : MonoBehaviour
 
         transform.Rotate(-Vector3.Scale(offsetRot, Vector3.one - Vector3.up));
 
-        transform.position = calcAvoidancePosition(transform.position);
         transform.position = avoidFloor(transform.position);
+        //transform.position = calcAvoidancePosition(transform.position);
     }
 
     /// <summary>

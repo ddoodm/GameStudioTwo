@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 480940}
   - 33: {fileID: 3377386}
   - 23: {fileID: 2344936}
-  - 64: {fileID: 6468510}
-  - 54: {fileID: 5476630}
+  - 64: {fileID: 6463792}
+  - 54: {fileID: 5438052}
   m_Layer: 0
   m_Name: ColaMachine
   m_TagString: Untagged
@@ -41,10 +41,10 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: a5eca45243efaa7489223194183821d7, type: 2}
-  - {fileID: 2100000, guid: 897a75a88b5f96d429a237ba5bfc5371, type: 2}
-  - {fileID: 2100000, guid: 2c75223b9e18d5648815561d50c01155, type: 2}
-  - {fileID: 2100000, guid: 15eab720279b4134a8db24a32891f693, type: 2}
+  - {fileID: 2100000, guid: 0e37c1727f56c78409fc357d63c8aa10, type: 2}
+  - {fileID: 2100000, guid: bbc148fc56e14a94c8756245cfde1be4, type: 2}
+  - {fileID: 2100000, guid: a62980e8ae8770a4c82342a5cc4b6d7e, type: 2}
+  - {fileID: 2100000, guid: 0db158f37205b424fa80f3e6c5608480, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -64,8 +64,8 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147526}
-  m_Mesh: {fileID: 4300056, guid: c6d11ed620ab8764a889f16f7ae1f951, type: 3}
---- !u!54 &5476630
+  m_Mesh: {fileID: 4300056, guid: 27587a919cc32ef4a9f9fbeeba6d6684, type: 3}
+--- !u!54 &5438052
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -80,7 +80,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &6468510
+--- !u!64 &6463792
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -91,14 +91,22 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 1
-  m_Mesh: {fileID: 4300056, guid: c6d11ed620ab8764a889f16f7ae1f951, type: 3}
+  m_Mesh: {fileID: 4300056, guid: 27587a919cc32ef4a9f9fbeeba6d6684, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147526}
