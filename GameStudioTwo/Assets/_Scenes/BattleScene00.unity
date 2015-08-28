@@ -5592,7 +5592,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f611ebc3f7c8b964c812e66069da2289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MiniMapTexture: {fileID: 8400000, guid: a6ec24b5f468bad4a99af6b581693cb6, type: 2}
 --- !u!4 &1490723114
 Transform:
   m_ObjectHideFlags: 0
@@ -5970,10 +5969,10 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .949999988
+    x: .819999993
     y: 0
-    width: .460000008
-    height: .419999987
+    width: .180000007
+    height: .300000012
   near clip plane: 1
   far clip plane: 20
   field of view: 60
@@ -6503,15 +6502,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2067096, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_NormalizedViewPortRect.width
-      value: .460000008
+      value: .180000007
       objectReference: {fileID: 0}
     - target: {fileID: 2067096, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_NormalizedViewPortRect.height
-      value: .419999987
+      value: .300000012
       objectReference: {fileID: 0}
     - target: {fileID: 2067096, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_NormalizedViewPortRect.x
-      value: .949999988
+      value: .819999993
       objectReference: {fileID: 0}
     - target: {fileID: 2067096, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_NormalizedViewPortRect.y
