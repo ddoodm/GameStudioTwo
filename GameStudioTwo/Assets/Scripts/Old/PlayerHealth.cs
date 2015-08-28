@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public HPBar healthBar;
     public Text finish;
     public Button restartButton;
+	public Image gameOverScreen;
 
     public float
         maxHealth = 50.0f,
@@ -37,7 +38,6 @@ public class PlayerHealth : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-
         if (finish == null)
             return;
 
@@ -122,21 +122,28 @@ public class PlayerHealth : MonoBehaviour
 
     void gameOver()
     {
-        if (gameObject.CompareTag("Player"))
-            finish.text = "You Lose";
-
-        else if (gameObject.CompareTag("Enemy"))
-            finish.text = "You win";
-
-
-        Time.timeScale = 0.0f;
-
-        restartButton.gameObject.SetActive(true);
+		if (gameObject.CompareTag("Player"))
+			finish.text = "You Lose!";
+		
+		else if (gameObject.CompareTag("Enemy"))
+			finish.text = "You win!";
+		Time.timeScale = 0.0f;
+		//Show Game Over Screen 
+		restartButton.gameObject.SetActive(true);
+		finish.gameObject.SetActive (true);
+		Color gameOverScrColor = new Color(0.3f,0.5f,1,1);
+		gameOverScreen.color = gameOverScrColor;
+	
         if (Input.GetButtonDown("Boost"))
         {
             Application.LoadLevel(1);
         }
     }
+
+	IEnumerator showGameOver() {
+		yield return new WaitForSeconds(2);
+
+	}
 
     IEnumerator checkFlipped()
     {
