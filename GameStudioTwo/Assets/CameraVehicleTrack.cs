@@ -38,22 +38,33 @@ public class CameraVehicleTrack : MonoBehaviour
 
         transform.Rotate(-Vector3.Scale(offsetRot, Vector3.one - Vector3.up));
 
+        transform.position = calcAvoidancePosition(transform.position);
         transform.position = avoidFloor(transform.position);
-        //transform.position = calcAvoidancePosition(transform.position);
     }
 
     /// <summary>
-    /// Avoids static objects using the NavMesh.
+    /// Avoids static objects.
     /// TODO: Make this better by fixing the camera sticking issue
     /// </summary>
     Vector3 calcAvoidancePosition(Vector3 inPos)
     {
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(inPos, out hit, 100.0f, NavMesh.AllAreas))
+        Ray r = new Ray(target.position, (transform.position - target.position).normalized);
+
+        //Vector3 colEpsilon = this.transform.forward;
+        float camDistance = (target.position - this.transform.position).magnitude;
+
+        // Exclude all but scene geometry from raycast
+        LayerMask sceneLayer = LayerMask.GetMask(new string[] { "SceneGeometry" });
+
+        RaycastHit hit;
+        if (Physics.Raycast(r, out hit, camDistance, sceneLayer))
         {
-            return new Vector3(hit.position.x, inPos.y, hit.position.z);
+            Vector3 hitPoint = hit.point;
+            hitPoint.y = inPos.y;
+
+            return hitPoint;
         }
-        return Vector3.zero;
+        return inPos;
     }
 
     /// <summary>
