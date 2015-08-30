@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 484272}
   - 146: {fileID: 14625142}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RayFL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   - 4: {fileID: 463482}
   - 33: {fileID: 3391534}
   - 23: {fileID: 2376638}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 478668}
   - 108: {fileID: 10869542}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - 4: {fileID: 438646}
   - 33: {fileID: 3366974}
   - 23: {fileID: 2330428}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 114: {fileID: 11428492}
   - 65: {fileID: 6509864}
   - 114: {fileID: 11480802}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VehicleV2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 491100}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WheelColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 488410}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WheelModels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 461372}
   - 20: {fileID: 2075246}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RearViewCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 487690}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VehicleBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - 23: {fileID: 2388688}
   - 95: {fileID: 9520964}
   - 64: {fileID: 6415064}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Base
   m_TagString: Player Model
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - 23: {fileID: 2370466}
   - 95: {fileID: 9525842}
   - 65: {fileID: 6573536}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Engine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 486866}
   - 65: {fileID: 6583458}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BoxCollider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - 4: {fileID: 430738}
   - 33: {fileID: 3338398}
   - 23: {fileID: 2340118}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder009
   m_TagString: Player Model
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 459202}
   - 146: {fileID: 14695086}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RayRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - 4: {fileID: 434340}
   - 33: {fileID: 3357606}
   - 23: {fileID: 2338904}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Line002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 482556}
   - 146: {fileID: 14601756}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RayRR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - 23: {fileID: 2351096}
   - 95: {fileID: 9573010}
   - 65: {fileID: 6547874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Engine Housing
   m_TagString: Player Model
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 479102}
   - 146: {fileID: 14697168}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RayFR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   - 4: {fileID: 467172}
   - 33: {fileID: 3360704}
   - 23: {fileID: 2312506}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   - 4: {fileID: 475244}
   - 33: {fileID: 3304632}
   - 23: {fileID: 2332964}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 451066}
   - 95: {fileID: 9528774}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spike
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -360,9 +360,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 415228}
   - 65: {fileID: 6565748}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HandleCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -376,7 +376,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 447620}
   - 95: {fileID: 9564260}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 423444}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BodyColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ GameObject:
   - 4: {fileID: 469542}
   - 33: {fileID: 3389898}
   - 23: {fileID: 2373552}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - 4: {fileID: 466042}
   - 33: {fileID: 3361442}
   - 23: {fileID: 2359992}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Line001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   - 4: {fileID: 440696}
   - 136: {fileID: 13697514}
   - 114: {fileID: 11497616}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpikeCollider
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   - 4: {fileID: 454716}
   - 33: {fileID: 3336900}
   - 23: {fileID: 2308958}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +478,7 @@ GameObject:
   - 124: {fileID: 12449098}
   - 92: {fileID: 9256284}
   - 81: {fileID: 8107526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1306,7 +1306,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116606}
   serializedVersion: 2
-  m_Mass: 100
+  m_Mass: 50
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
@@ -1571,6 +1571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: .200000003
   damageMultiplier: 1.20000005
+  hp: 0
 --- !u!124 &12449098
 Behaviour:
   m_ObjectHideFlags: 1
