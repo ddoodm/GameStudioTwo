@@ -2861,7 +2861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fedc8b9717e8e841827c4494d286bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flipForce: 800
+  flipForce: 650
   proximityRadius: 1.89999998
 --- !u!59 &855301396
 HingeJoint:
@@ -2876,7 +2876,7 @@ HingeJoint:
   m_ConnectedAnchor: {x: -.675001144, y: -.14250046, z: -.0165006928}
   m_UseSpring: 1
   m_Spring:
-    spring: 30.3700008
+    spring: 40.8600006
     damper: 0
     targetPosition: 20
   m_UseMotor: 0
