@@ -48,9 +48,13 @@ public class PlayerHealth : MonoBehaviour
         calculateMass();
         if (health <= 0)
             gameOver();
-        if (Vector3.Dot(transform.up,Vector3.up) < 0)
+        if (Vector3.Dot(transform.up, Vector3.up) < 0)
         {
             StartCoroutine(checkFlipped());
+        }
+        else
+        {
+            StopCoroutine("checkFlipped");
         }
 	}
 

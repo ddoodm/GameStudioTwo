@@ -55,6 +55,10 @@ public class flipperControls : MonoBehaviour {
                     this.transform.position,
                     ForceMode.Impulse);
             }
+            else if(Vector3.Dot(transform.up, Vector3.up) < 0)
+            {
+                thisRigidbody.AddForceAtPosition(0.5f * Vector3.up * flipForce, this.transform.position, ForceMode.Impulse);
+            }
         }
     }
 
