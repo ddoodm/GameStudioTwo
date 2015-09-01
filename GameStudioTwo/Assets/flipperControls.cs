@@ -8,7 +8,7 @@ public class flipperControls : MonoBehaviour {
         proximityRadius = 1.0f;
 
     private float
-        initialSpring, initialSpringTarget;
+        initialSpring, initialSpringTarget, initialRotation;
 
     public bool canFlip { get; protected set; }
 
@@ -24,6 +24,7 @@ public class flipperControls : MonoBehaviour {
 
         initialSpring = hinge.spring.spring;
         initialSpringTarget = hinge.spring.targetPosition;
+        initialRotation = this.transform.rotation.z;
 
         canFlip = true;
 	}
@@ -35,6 +36,10 @@ public class flipperControls : MonoBehaviour {
         {
             // Flip the flipper's hinge joint
             flipHinge();
+
+            // The target may not have been collided with
+            if (!opRigidbody)
+                return;
 
             // If the flipper is close enough to the bot:
             if ((this.transform.position - opRigidbody.transform.position).magnitude < proximityRadius)
@@ -73,6 +78,27 @@ public class flipperControls : MonoBehaviour {
         spring.spring = initialSpring;
         hinge.spring = spring;
 
+        // Wait for the flipper to un-flip
+        float rotDelta = 0.0f;
+        do
+        {
+            rotDelta = Mathf.Abs(initialRotation - transform.rotation.z);
+            Debug.Log(rotDelta);
+            yield return new WaitForSeconds(0.1f);
+        } while (rotDelta > 10.0f);
+
         canFlip = true;
     }
+
+    /* Bad idea:
+    void OnCollisionStay(Collision col)
+    {
+        if(col.collider.GetComponent<Rigidbody>())
+            opRigidbody = col.collider.GetComponent<Rigidbody>();
+    }
+
+    void OnCollisionExit(Collision col)
+    {
+        opRigidbody = null;
+    }*/
 }
