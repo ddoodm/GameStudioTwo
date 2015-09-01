@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
+using System.Collections.Generic;
 using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
@@ -9,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
     public Text finish;
     public Button restartButton;
 	public Image gameOverScreen;
+
+    private bool analyticsSent = false;
 
     public float
         maxHealth = 50.0f,
@@ -97,6 +101,15 @@ public class PlayerHealth : MonoBehaviour
         this.issueDamage(thisDamage);
 
         Debug.Log(gameObject.name + " has " + health + " remaining");
+
+
+        Analytics.CustomEvent("Hit", new Dictionary<string, object> 
+        {
+            {"Was Hit", gameObject.name},
+            {"Hit by", enemy.name},
+            {"Hit for", thisDamage},
+            {"Remaining HP", health}
+        });
     }
 
     public void issueDamage(float damage)
@@ -128,17 +141,34 @@ public class PlayerHealth : MonoBehaviour
 
     void gameOver()
     {
-		if (gameObject.CompareTag("Player"))
-			finish.text = "You Lose!";
-		
-		else if (gameObject.CompareTag("Enemy"))
-			finish.text = "You win!";
+        string winner = "Bot";
+        if (gameObject.CompareTag("Player"))
+        {
+            winner = "Bot";
+            finish.text = "You Lose!";
+        }
+
+        else if (gameObject.CompareTag("Enemy"))
+        {
+            finish.text = "You win!";
+            winner = "Player";
+        }
 		Time.timeScale = 0.0f;
 		//Show Game Over Screen 
 		restartButton.gameObject.SetActive(true);
 		finish.gameObject.SetActive (true);
 		Color gameOverScrColor = new Color(0.3f,0.5f,1,1);
 		gameOverScreen.color = gameOverScrColor;
+
+        if (!analyticsSent)
+        {
+            Analytics.CustomEvent("gameOver", new Dictionary<string, object> 
+            {
+                {"Winner", winner},
+                {"Remaining HP", health},
+            });
+            analyticsSent = true;
+        }
 	
         if (Input.GetButtonDown("Boost"))
         {
