@@ -52,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void issueDamage(Collision collision)
     {
+        
 
         //Determine damage multiplier
         float damageMultiplier = 1.0f;
@@ -106,8 +107,12 @@ public class PlayerHealth : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
+        {
             issueDamage(collision);
+        }
+        
     }
 
     private void calculateMass()
@@ -118,6 +123,7 @@ public class PlayerHealth : MonoBehaviour
         {
             mass += child.mass;
         }
+        gameObject.GetComponent<Rigidbody>().mass = 50 * mass;
     }
 
     void gameOver()
