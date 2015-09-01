@@ -15,9 +15,12 @@ public class flipperControls : MonoBehaviour {
     HingeJoint hinge;
 
     Rigidbody thisRigidbody, opRigidbody;
+    public KeyCode control;
 
 	// Use this for initialization
 	void Start () {
+
+        control = transform.parent.GetComponentInParent<socketControl>().control;
         hinge = GetComponent<HingeJoint>();
         thisRigidbody = GetComponent<Rigidbody>();
         opRigidbody = GameObject.FindWithTag("Enemy").GetComponent<Rigidbody>();
@@ -32,7 +35,7 @@ public class flipperControls : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetKeyUp(KeyCode.Alpha1) && canFlip)
+        if (Input.GetKeyUp(control) && canFlip)
         {
             // Flip the flipper's hinge joint
             flipHinge();
