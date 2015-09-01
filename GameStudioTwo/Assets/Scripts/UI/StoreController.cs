@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class StoreController : MonoBehaviour {
@@ -10,12 +11,16 @@ public class StoreController : MonoBehaviour {
 	GameObject selectedModel;
 	GameObject playerCamera;
 
+    public Vector3 rgbColor;
+
+
     persistentStats playerChoice;
 
 	int noOfModels;
 	int playerModelPos = 0;
 
 	bool hasSpike = false;
+    bool modelChosen = false;
 
 
 	// Use this for initialization
@@ -46,6 +51,7 @@ public class StoreController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        Color sliderColor = new Color(rgbColor.x, rgbColor.y, rgbColor.z);
 		if (Input.GetMouseButtonDown(0)){
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
@@ -55,19 +61,24 @@ public class StoreController : MonoBehaviour {
 				{
 					player.SetActive(true);
 					Material selectedModel = hit.transform.gameObject.GetComponent<Renderer>().material;
-					GameObject.FindGameObjectWithTag("Player Model").GetComponent<Renderer>().material = selectedModel;
-					GameObject.FindGameObjectWithTag("Player Engine").GetComponent<Renderer>().material = selectedModel;
 
-                    if (playerChoice != null)
-                        playerChoice.color = selectedModel;
+
+					GameObject.FindGameObjectWithTag("Player Model").GetComponent<Renderer>().material.color = sliderColor;
+					GameObject.FindGameObjectWithTag("Player Engine").GetComponent<Renderer>().material.color = sliderColor;
+
 
 					GameObject.Find ("VehicleV2").GetComponent<Transform>().position = 
 						(hit.transform.gameObject.GetComponent<Transform>().position);
 
 					hit.transform.parent.gameObject.SetActive(false);
 
+                    //Robs bad code
+                    modelChosen = true;
+                    //Ends here
+
 					StoreUI.GetComponentInChildren<Animator>().SetTrigger("FadeOut");
 				}
+
 
 				if (hit.transform.tag == "Spike")
 				{
@@ -88,6 +99,15 @@ public class StoreController : MonoBehaviour {
 				}
 			}
 		}
+
+        if (modelChosen)
+        {
+            GameObject.FindGameObjectWithTag("Player Model").GetComponent<Renderer>().material.color = sliderColor;
+            GameObject.FindGameObjectWithTag("Player Engine").GetComponent<Renderer>().material.color = sliderColor;
+        }
+
+        if (playerChoice != null)
+            playerChoice.color = sliderColor;
 	}
 
 
@@ -146,6 +166,23 @@ public class StoreController : MonoBehaviour {
 			yield return null;
 		}
 	}
+
+    public void changeR(float slider)
+    {
+        rgbColor.x = slider / 255;
+    }
+
+    public void changeG(float slider)
+    {
+        rgbColor.y = slider / 255;
+    }
+
+    public void changeB(float slider)
+    {
+        rgbColor.z = slider / 255;
+    }
+
+
 
 
 

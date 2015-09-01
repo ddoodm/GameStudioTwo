@@ -3,7 +3,7 @@ using System.Collections;
 
 public class persistentStats : MonoBehaviour {
 
-    public Material color;
+    public Color color;
     public bool spike;
 
 	// Use this for initialization
