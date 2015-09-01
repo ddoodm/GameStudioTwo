@@ -21,7 +21,7 @@ public class colorSelector : MonoBehaviour {
             GameObject[] bot = GameObject.FindGameObjectsWithTag("Player Model");
             foreach (GameObject part in bot)
             {
-                part.GetComponent<Renderer>().material = choice.color;
+                part.GetComponent<Renderer>().material.color = choice.color;
             }
             if (choice.spike == false)
             {
