@@ -2861,7 +2861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fedc8b9717e8e841827c4494d286bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 10000
+  flipForce: 800
+  proximityRadius: 1.89999998
 --- !u!59 &855301396
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -2875,9 +2876,9 @@ HingeJoint:
   m_ConnectedAnchor: {x: -.675001144, y: -.14250046, z: -.0165006928}
   m_UseSpring: 1
   m_Spring:
-    spring: 0
+    spring: 30.3700008
     damper: 0
-    targetPosition: 0
+    targetPosition: 20
   m_UseMotor: 0
   m_Motor:
     targetVelocity: 0
@@ -2892,7 +2893,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 1
 --- !u!54 &855301397
 Rigidbody:
