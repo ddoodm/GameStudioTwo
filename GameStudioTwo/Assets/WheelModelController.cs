@@ -41,7 +41,8 @@ public class WheelModelController : MonoBehaviour
                 models[i].transform.position = wheelPoint;
             }
             else
-                models[i].transform.localPosition = defaultPositions[i];
+                if(defaultPositions != null && defaultPositions.Length >= i)
+                    models[i].transform.localPosition = defaultPositions[i];
         }
 
         if(defaultPositions == null)
