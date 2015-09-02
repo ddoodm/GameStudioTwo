@@ -53,6 +53,9 @@ ModelImporter:
     100090: Plane002
     100092: Plane003
     100094: Plane004
+    100096: Pillar002
+    100098: Pillar01
+    100100: DangerSign
     400000: //RootNode
     400002: Box001
     400004: Box002
@@ -101,6 +104,9 @@ ModelImporter:
     400090: Plane002
     400092: Plane003
     400094: Plane004
+    400096: Pillar002
+    400098: Pillar01
+    400100: DangerSign
     2300000: Box001
     2300002: Box002
     2300004: Box003
@@ -145,6 +151,9 @@ ModelImporter:
     2300082: Plane002
     2300084: Plane003
     2300086: Plane004
+    2300088: Pillar002
+    2300090: Pillar01
+    2300092: DangerSign
     3300000: Box001
     3300002: Box002
     3300004: Box003
@@ -189,6 +198,9 @@ ModelImporter:
     3300082: Plane002
     3300084: Plane003
     3300086: Plane004
+    3300088: Pillar002
+    3300090: Pillar01
+    3300092: DangerSign
     4300000: Box001
     4300002: Plane001
     4300004: Box002
@@ -233,6 +245,9 @@ ModelImporter:
     4300082: Plane003
     4300084: Box038
     4300086: Plane004
+    4300088: Pillar01
+    4300090: Pillar002
+    4300092: DangerSign
     9500000: //RootNode
   materials:
     importMaterials: 1
