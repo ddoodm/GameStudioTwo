@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: c6d11ed620ab8764a889f16f7ae1f951
-timeCreated: 1440511220
+guid: 5ae7c7351e7dd4242847c17502e47504
+timeCreated: 1441191309
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -32,30 +32,27 @@ ModelImporter:
     100048: Box024
     100050: Box025
     100052: Box026
-    100054: BudgetLadder
-    100056: Line001
-    100058: Plane001
-    100060: Plane002
-    100062: Box027
-    100064: Box028
-    100066: Box029
-    100068: Box030
-    100070: Box031
-    100072: Box032
-    100074: Box033
-    100076: Box034
-    100078: Box035
-    100080: Box036
-    100082: Box037
-    100084: Box038
-    100086: ColaMachine
-    100088: ColaMachine001
-    100090: Line002
+    100054: Box027
+    100056: Box028
+    100058: Box029
+    100060: Box030
+    100062: Box031
+    100064: Box032
+    100066: Box033
+    100068: Box034
+    100070: Box035
+    100072: Box036
+    100074: Box037
+    100076: Box038
+    100078: BudgetLadder
+    100080: ColaMachine
+    100082: ColaMachine001
+    100084: Line001
+    100086: Line002
+    100088: Plane001
+    100090: Plane002
     100092: Plane003
     100094: Plane004
-    100096: Pillar002
-    100098: Pillar01
-    100100: DangerSign
     400000: //RootNode
     400002: Box001
     400004: Box002
@@ -83,30 +80,27 @@ ModelImporter:
     400048: Box024
     400050: Box025
     400052: Box026
-    400054: BudgetLadder
-    400056: Line001
-    400058: Plane001
-    400060: Plane002
-    400062: Box027
-    400064: Box028
-    400066: Box029
-    400068: Box030
-    400070: Box031
-    400072: Box032
-    400074: Box033
-    400076: Box034
-    400078: Box035
-    400080: Box036
-    400082: Box037
-    400084: Box038
-    400086: ColaMachine
-    400088: ColaMachine001
-    400090: Line002
+    400054: Box027
+    400056: Box028
+    400058: Box029
+    400060: Box030
+    400062: Box031
+    400064: Box032
+    400066: Box033
+    400068: Box034
+    400070: Box035
+    400072: Box036
+    400074: Box037
+    400076: Box038
+    400078: BudgetLadder
+    400080: ColaMachine
+    400082: ColaMachine001
+    400084: Line001
+    400086: Line002
+    400088: Plane001
+    400090: Plane002
     400092: Plane003
     400094: Plane004
-    400096: Pillar002
-    400098: Pillar01
-    400100: DangerSign
     2300000: Box001
     2300002: Box002
     2300004: Box003
@@ -133,27 +127,24 @@ ModelImporter:
     2300046: Box024
     2300048: Box025
     2300050: Box026
-    2300052: Plane001
-    2300054: Plane002
-    2300056: Box027
-    2300058: Box028
-    2300060: Box029
-    2300062: Box030
-    2300064: Box031
-    2300066: Box032
-    2300068: Box033
-    2300070: Box034
-    2300072: Box035
-    2300074: Box036
-    2300076: Box037
-    2300078: Box038
-    2300080: ColaMachine
-    2300082: ColaMachine001
+    2300052: Box027
+    2300054: Box028
+    2300056: Box029
+    2300058: Box030
+    2300060: Box031
+    2300062: Box032
+    2300064: Box033
+    2300066: Box034
+    2300068: Box035
+    2300070: Box036
+    2300072: Box037
+    2300074: Box038
+    2300076: ColaMachine
+    2300078: ColaMachine001
+    2300080: Plane001
+    2300082: Plane002
     2300084: Plane003
     2300086: Plane004
-    2300088: Pillar002
-    2300090: Pillar01
-    2300092: DangerSign
     3300000: Box001
     3300002: Box002
     3300004: Box003
@@ -180,27 +171,24 @@ ModelImporter:
     3300046: Box024
     3300048: Box025
     3300050: Box026
-    3300052: Plane001
-    3300054: Plane002
-    3300056: Box027
-    3300058: Box028
-    3300060: Box029
-    3300062: Box030
-    3300064: Box031
-    3300066: Box032
-    3300068: Box033
-    3300070: Box034
-    3300072: Box035
-    3300074: Box036
-    3300076: Box037
-    3300078: Box038
-    3300080: ColaMachine
-    3300082: ColaMachine001
+    3300052: Box027
+    3300054: Box028
+    3300056: Box029
+    3300058: Box030
+    3300060: Box031
+    3300062: Box032
+    3300064: Box033
+    3300066: Box034
+    3300068: Box035
+    3300070: Box036
+    3300072: Box037
+    3300074: Box038
+    3300076: ColaMachine
+    3300078: ColaMachine001
+    3300080: Plane001
+    3300082: Plane002
     3300084: Plane003
     3300086: Plane004
-    3300088: Pillar002
-    3300090: Pillar01
-    3300092: DangerSign
     4300000: Box001
     4300002: Plane001
     4300004: Box002
@@ -245,9 +233,6 @@ ModelImporter:
     4300082: Plane003
     4300084: Box038
     4300086: Plane004
-    4300088: Pillar01
-    4300090: Pillar002
-    4300092: DangerSign
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -272,7 +257,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .0199999996
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

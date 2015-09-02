@@ -43,6 +43,19 @@ ModelImporter:
     100070: Line001
     100072: Line002
     100074: Plane002
+    100076: Box030
+    100078: Box031
+    100080: Box032
+    100082: Box033
+    100084: Box034
+    100086: Box035
+    100088: Box036
+    100090: Box037
+    100092: Box038
+    100094: Pillar002
+    100096: Pillar01
+    100098: Plane003
+    100100: Plane004
     400000: //RootNode
     400002: Base
     400004: Box001
@@ -81,6 +94,19 @@ ModelImporter:
     400070: Line001
     400072: Line002
     400074: Plane002
+    400076: Box030
+    400078: Box031
+    400080: Box032
+    400082: Box033
+    400084: Box034
+    400086: Box035
+    400088: Box036
+    400090: Box037
+    400092: Box038
+    400094: Pillar002
+    400096: Pillar01
+    400098: Plane003
+    400100: Plane004
     2300000: //RootNode
     2300002: Base
     2300004: Box001
@@ -116,6 +142,19 @@ ModelImporter:
     2300064: ColaMachine
     2300066: ColaMachine001
     2300068: Plane002
+    2300070: Box030
+    2300072: Box031
+    2300074: Box032
+    2300076: Box033
+    2300078: Box034
+    2300080: Box035
+    2300082: Box036
+    2300084: Box037
+    2300086: Box038
+    2300088: Pillar002
+    2300090: Pillar01
+    2300092: Plane003
+    2300094: Plane004
     3300000: //RootNode
     3300002: Base
     3300004: Box001
@@ -151,6 +190,19 @@ ModelImporter:
     3300064: ColaMachine
     3300066: ColaMachine001
     3300068: Plane002
+    3300070: Box030
+    3300072: Box031
+    3300074: Box032
+    3300076: Box033
+    3300078: Box034
+    3300080: Box035
+    3300082: Box036
+    3300084: Box037
+    3300086: Box038
+    3300088: Pillar002
+    3300090: Pillar01
+    3300092: Plane003
+    3300094: Plane004
     4300000: Base
     4300002: Plane001
     4300004: Box001
@@ -186,6 +238,19 @@ ModelImporter:
     4300064: Box028
     4300066: Box029
     4300068: WheelFR
+    4300070: Box030
+    4300072: Box031
+    4300074: Box032
+    4300076: Box033
+    4300078: Box034
+    4300080: Box035
+    4300082: Box036
+    4300084: Box037
+    4300086: Plane003
+    4300088: Box038
+    4300090: Plane004
+    4300092: Pillar01
+    4300094: Pillar002
     7400000: Take 001
     9500000: //RootNode
   materials:
