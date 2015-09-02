@@ -90,7 +90,6 @@ public class flipperControls : MonoBehaviour {
         do
         {
             rotDelta = Mathf.Abs(initialRotation - transform.rotation.z);
-            Debug.Log(rotDelta);
             yield return new WaitForSeconds(0.1f);
         } while (rotDelta > 10.0f);
 

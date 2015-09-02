@@ -115,6 +115,7 @@ ModelImporter:
     2300062: ColaMachine
     2300064: ColaMachine001
     2300066: Plane002
+    2300068: //RootNode
     3300000: Base
     3300002: Box001
     3300004: Plane001
@@ -149,6 +150,7 @@ ModelImporter:
     3300062: ColaMachine
     3300064: ColaMachine001
     3300066: Plane002
+    3300068: //RootNode
     4300000: Base
     4300002: Plane001
     4300004: Box001
@@ -183,6 +185,7 @@ ModelImporter:
     4300062: Box027
     4300064: Box028
     4300066: Box029
+    4300068: WheelFR
     7400000: Take 001
     9500000: //RootNode
   materials:
