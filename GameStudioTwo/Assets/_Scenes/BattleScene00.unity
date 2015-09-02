@@ -2871,6 +2871,26 @@ Prefab:
       propertyPath: energyBar
       value: 
       objectReference: {fileID: 850215050}
+    - target: {fileID: 179604, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 129276, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114112, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 127482, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 179604, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_IsPrefabParent: 0
@@ -4216,6 +4236,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f49dbeffcc8de345857dd7226857d11, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1439707276 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 127482, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+  m_PrefabInternal: {fileID: 944017575}
+--- !u!114 &1439707282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1439707276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: .200000003
+  damageMultiplier: 1
+  hp: 5
 --- !u!4 &1440264645 stripped
 Transform:
   m_PrefabParentObject: {fileID: 466492, guid: 8f49dbeffcc8de345857dd7226857d11, type: 2}
