@@ -2891,6 +2891,18 @@ Prefab:
       propertyPath: m_TagString
       value: Weapon
       objectReference: {fileID: 0}
+    - target: {fileID: 5914746, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -.675001144
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914746, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_ConnectedAnchor.z
+      value: -.0165006928
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346618, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0822d5772e71e7f4b949f26a7c538f46, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_IsPrefabParent: 0

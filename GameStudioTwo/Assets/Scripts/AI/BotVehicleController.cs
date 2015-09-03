@@ -89,9 +89,10 @@ public class BotVehicleController : MonoBehaviour
         controlRamming();
 
         // Robert's modifications, modified
-        if (path.corners.Length == 2 && Vector3.Dot(targDir, transform.forward) < 0)
+        // (If the waypoint is behind the bot, reverse [don't try to ram walls!])
+        if (/*path.corners.Length == 2 &&*/ Vector3.Dot(targDir, transform.forward) < 0)
         {
-            inputLinearForce = 1.1f;
+            inputLinearForce = -1.1f;
             inputSteering = 40.0f;
         }
 

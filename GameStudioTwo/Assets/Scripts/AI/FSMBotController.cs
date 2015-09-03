@@ -9,6 +9,10 @@ public class FSMBotController : MonoBehaviour
     private float contactTimer, reverseTimer;
     public float maxContactTime = 0.8f, maxReverseTime = 1.0f;
 
+    public float
+        patrolDistance = 20.0f,     // The bot will stop following the player at this distance
+        wanderDistance = 10.0f;     // The distance that the bot will wander
+
     public Transform playerTransform;
 
     private BotVehicleController controller;
@@ -72,7 +76,7 @@ public class FSMBotController : MonoBehaviour
         float distanceToPlayer =
             (this.transform.position - playerTransform.position).magnitude;
 
-        if (distanceToPlayer < 10.0f)
+        if (distanceToPlayer < patrolDistance)
             return FSMState.ARRIVE;
         return FSMState.PATROL;
     }
@@ -88,7 +92,7 @@ public class FSMBotController : MonoBehaviour
         float distanceToPlayer =
             (this.transform.position - playerTransform.position).magnitude;
 
-        if (distanceToPlayer > 10.0f)
+        if (distanceToPlayer > patrolDistance)
             return FSMState.PATROL;
 
         //if (distanceToPlayer < 2.5f)
@@ -108,7 +112,7 @@ public class FSMBotController : MonoBehaviour
         float distanceToPlayer =
             (this.transform.position - playerTransform.position).magnitude;
 
-        if (distanceToPlayer > 10.0f)
+        if (distanceToPlayer > patrolDistance)
             return FSMState.PATROL;
 
         return FSMState.EVADE;
@@ -126,7 +130,8 @@ public class FSMBotController : MonoBehaviour
 
     private void goToRandomPosition()
     {
-        Vector3 finalTarget = Random.insideUnitSphere * 100.0f;
+        Vector3 finalTarget =
+            this.transform.position + Random.insideUnitSphere * wanderDistance;
         finalTarget.y = 0;
 
         controller.setTargetWaypoint(finalTarget);
