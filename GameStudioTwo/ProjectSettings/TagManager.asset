@@ -16,11 +16,18 @@ TagManager:
   - LawnMowerSmall
   - LawnMowerLarge
   - LawnMower
-  - Spike
-  - StoreUI
-  - Player Engine
+  - Item_Spike
+  - Engine Model
   - Player Camera
   - Persistent Stats
+  - Player Engine
+  - Item_Flipper
+  - Item_Handle
+  - Socket_Left
+  - Socket_Right
+  - Socket_Front
+  - Socket_Back
+  - Socket_Top
   layers:
   - Default
   - TransparentFX
