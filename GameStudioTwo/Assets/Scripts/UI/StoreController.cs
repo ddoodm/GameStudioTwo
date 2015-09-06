@@ -2,16 +2,22 @@
 using UnityEngine.UI;
 using System.Collections;
 
+
+public enum Equipment { EMPTY, HANDLE, SPIKE, FLIPPER };
+
+public enum Socket { EMPTY, LEFT, RIGHT, FRONT, BACK, TOP };
+
+
 public class StoreController : MonoBehaviour {
 
-	GameObject player;
-	GameObject playerModel;
-	GameObject StoreUI;
-	GameObject uiPlayerModels;
+	public GameObject playerModel;
+	public GameObject storeUI;
+	public GameObject uiPlayerModels;
 	GameObject selectedModel;
-	GameObject playerCamera;
 
-    public Vector3 rgbColor;
+    private Vector3 rgbColor;
+	private Color sliderColour;
+	public Color selectedItemColour = new Color(255f/255f, 200f/255f, 0f/255f);
 
 
     persistentStats playerChoice;
@@ -20,45 +26,91 @@ public class StoreController : MonoBehaviour {
 	int playerModelPos = 0;
 
 	bool hasSpike = false;
-    bool modelChosen = false;
+    bool colourChange = false;
+
+	//
+	// Selected items on the model
+	//
+	public static int MAX_SOCKETS = 5;
+	private Equipment[] ItemSocketArray = new Equipment[MAX_SOCKETS];
+	public Equipment selectedEquipment = Equipment.EMPTY;
+	private Socket selectedSocket = Socket.EMPTY;
+
 
 
 	// Use this for initialization
 	void Start () {
         Time.timeScale = 1;
-        if (GameObject.FindGameObjectWithTag("Persistent Stats").GetComponent<persistentStats>() != null)
-            playerChoice = GameObject.FindGameObjectWithTag("Persistent Stats").GetComponent<persistentStats>();
 
-		//playerCamera.GetComponent<Transform> ().Rotate (30.0f, 0.0f, 0.0f);
+        if (GameObject.FindGameObjectWithTag ("Persistent Stats").GetComponent<persistentStats> () != null) 
+		{
+			playerChoice = GameObject.FindGameObjectWithTag ("Persistent Stats").GetComponent<persistentStats> ();
+		}
+
+
+		// equipment initializers=
+		for (int i = 0; i < MAX_SOCKETS; i++)
+		{
+			ItemSocketArray[i] = Equipment.EMPTY;
+		}
+
+		noOfModels = uiPlayerModels.GetComponent<Transform> ().childCount - 1;
+
+		rgbColor = new Vector3(200f/255f, 50f/255f, 50f/255f);
+
+		sliderColour = new Color(rgbColor.x, rgbColor.y, rgbColor.z);
+
+
+		//old code
+		/*
 		player = GameObject.FindGameObjectWithTag("Main Player");
 		player.GetComponent<VehicleController>().play = false;
 		player.GetComponent<Rigidbody>().useGravity = false;
 
 		playerCamera = GameObject.FindGameObjectWithTag("Player Camera");
-		//playerCamera.SetActive(false);
 		playerModel = GameObject.FindGameObjectWithTag("Player Model");
 		player.SetActive (false);
-
-
-		StoreUI = GameObject.FindGameObjectWithTag("StoreUI");
-
-		uiPlayerModels = GameObject.Find ("StoreUI/Models/Player");
-
-		noOfModels = uiPlayerModels.GetComponent<Transform> ().childCount - 1;
-		//selectedModel = GameObject.Find ("Lawn Mower");
+		*/
 	}
 
 
 	// Update is called once per frame
 	void Update () {
-        Color sliderColor = new Color(rgbColor.x, rgbColor.y, rgbColor.z);
+
 		if (Input.GetMouseButtonDown(0)){
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit))
 			{
+				HandleItemSelection(hit);
+
+				if (selectedEquipment != Equipment.EMPTY){
+					foreach (Transform child in hit.transform) {
+						child.GetComponent<Renderer>().material.color = selectedItemColour;
+					}
+					if (selectedSocket != Socket.EMPTY){
+						InstantiateItemAtSocket();
+					}
+
+				}
+
+				if (playerChoice != null){
+					System.Array.Copy(ItemSocketArray, playerChoice.playerItems, 5);
+				}
+
+				//old code
+				/*
 				if (hit.transform.tag == "LawnMowerRed" || hit.transform.tag == "LawnMowerGreen" || hit.transform.tag == "LawnMowerBlue")
 				{
+
+					playerModel.GetComponent<Transform>().position = hit.transform.position;
+						
+					hit.transform.parent.gameObject.SetActive(false);
+
+
+					GetComponent<Animator>().SetTrigger("FadeOut");
+
+
 					player.SetActive(true);
 					Material selectedModel = hit.transform.gameObject.GetComponent<Renderer>().material;
 
@@ -67,47 +119,168 @@ public class StoreController : MonoBehaviour {
 					GameObject.FindGameObjectWithTag("Player Engine").GetComponent<Renderer>().material.color = sliderColor;
 
 
-					GameObject.Find ("VehicleV2").GetComponent<Transform>().position = 
+					player.GetComponent<Transform>().position = 
 						(hit.transform.gameObject.GetComponent<Transform>().position);
-
-					hit.transform.parent.gameObject.SetActive(false);
-
-                    //Robs bad code
-                    modelChosen = true;
-                    //Ends here
-
-					StoreUI.GetComponentInChildren<Animator>().SetTrigger("FadeOut");
 				}
 
 
 				if (hit.transform.tag == "Spike")
 				{
-					if (!hasSpike) 
+					if (!hasSpike)
 					{
 						hasSpike = true;
-						//GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), new Vector3(0.2f, playerModel.transform.localPosition.y, 0.02f), playerModel.transform.rotation);
-						GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), player.transform.position, Quaternion.identity);
-						//spike.transform.position = new Vector3 (0.0f, 10.0f, 0.0f);
-						//spike.transform.rotation = Quaternion.identity;
+
+						GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), playerModel.transform.position, Quaternion.identity);
 						spike.transform.Rotate(-90.0f, 0.0f, 0.0f, Space.World);
 						spike.transform.localScale -= new Vector3(0.8f, 0.8f, 0.8f);
-						//spike.transform.localPosition = new Vector3 (0.0f, 10.0f, 0.0f);
 						spike.transform.parent = playerModel.transform;
+
                         if (playerChoice != null)
                             playerChoice.spike = true;
 					}
 				}
+				*/
 			}
 		}
 
-        if (modelChosen)
-        {
-            GameObject.FindGameObjectWithTag("Player Model").GetComponent<Renderer>().material.color = sliderColor;
-            GameObject.FindGameObjectWithTag("Player Engine").GetComponent<Renderer>().material.color = sliderColor;
+
+        if (colourChange)
+		{
+			sliderColour = new Color(rgbColor.x, rgbColor.y, rgbColor.z);
+			playerModel.GetComponent<Renderer>().material.color = sliderColour;
+			GameObject.FindGameObjectWithTag("Player Engine").GetComponent<Renderer>().material.color = sliderColour;
+			colourChange = false;
         }
 
-        if (playerChoice != null)
-            playerChoice.color = sliderColor;
+        if (playerChoice != null) 
+		{
+			playerChoice.playerColor = sliderColour;
+		}
+	}
+
+
+	void HandleItemSelection(RaycastHit hit) {
+		switch (hit.transform.tag){
+			case "LawnMowerRed":
+			case "LawnMowerGreen":
+			case "LawnMowerBlue":
+				playerModel.GetComponent<Transform>().position = hit.transform.position;
+				hit.transform.parent.gameObject.SetActive(false);
+				
+				GetComponent<Animator>().SetTrigger("FadeOut");
+				break;
+
+			case "Item_Handle":
+				selectedEquipment = Equipment.HANDLE;
+				break;
+				
+			case "Item_Spike":
+				selectedEquipment = Equipment.SPIKE;
+				break;
+				
+			case "Item_Flipper":
+				selectedEquipment = Equipment.FLIPPER;
+				break;
+
+			case "Socket_Left":
+				selectedSocket = Socket.LEFT;
+				break;
+				
+			case "Socket_Right":
+				selectedSocket = Socket.RIGHT;
+				break;
+				
+			case "Socket_Front":
+				selectedSocket = Socket.FRONT;
+				break;
+				
+			case "Socket_Back":
+				selectedSocket = Socket.BACK;
+				break;
+				
+			case "Socket_Top":
+				selectedSocket = Socket.TOP;
+				break;
+
+			case "Player Model":
+				break;
+
+			default:
+				selectedEquipment = Equipment.EMPTY;
+				break;
+		}
+			
+
+
+	}
+
+
+	
+	
+	void InstantiateItemAtSocket(){
+		switch (selectedSocket) {
+		case Socket.LEFT:
+			if (ItemSocketArray[0] == Equipment.EMPTY){
+
+
+
+
+
+
+
+			}
+
+
+
+			break;
+
+
+
+		case Socket.RIGHT:
+
+
+
+
+			break;
+
+
+
+		case Socket.FRONT:
+			if (ItemSocketArray[2] == Equipment.EMPTY){
+				GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), playerModel.transform.position, Quaternion.identity);
+				spike.transform.Rotate(-180.0f, 0.0f, 0.0f, Space.World);
+				spike.transform.localScale -= new Vector3(0.8f, 0.8f, 0.8f);
+				spike.transform.parent = playerModel.transform;
+				ItemSocketArray[2] = Equipment.SPIKE;
+				selectedEquipment = Equipment.EMPTY;
+				selectedSocket = Socket.EMPTY;
+			}
+
+
+
+			break;
+
+
+
+		case Socket.BACK:
+
+
+
+
+			break;
+
+
+
+		case Socket.TOP:
+			break;
+			
+			
+			
+			
+			
+			
+			
+		}
 	}
 
 
@@ -170,16 +343,19 @@ public class StoreController : MonoBehaviour {
     public void changeR(float slider)
     {
         rgbColor.x = slider / 255;
+		colourChange = true;
     }
 
     public void changeG(float slider)
     {
-        rgbColor.y = slider / 255;
+		rgbColor.y = slider / 255;
+		colourChange = true;
     }
 
     public void changeB(float slider)
     {
-        rgbColor.z = slider / 255;
+		rgbColor.z = slider / 255;
+		colourChange = true;
     }
 
 
