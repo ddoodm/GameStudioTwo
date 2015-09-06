@@ -25,7 +25,7 @@ public class StoreController : MonoBehaviour {
 	int noOfModels;
 	int playerModelPos = 0;
 
-	bool hasSpike = false;
+	//bool hasSpike = false;
     bool colourChange = false;
 
 	//
@@ -50,6 +50,13 @@ public class StoreController : MonoBehaviour {
 		for (int i = 0; i < MAX_SOCKETS; i++)
 		{
 			itemSocketArray[i] = Equipment.EMPTY;
+		}
+
+		if (playerChoice != null){
+			for (int i = 0; i < MAX_SOCKETS; i++)
+			{
+				playerChoice.playerItems[i] = itemSocketArray[i];
+			}
 		}
 
 		noOfModels = uiPlayerModels.GetComponent<Transform> ().childCount - 1;
@@ -90,7 +97,10 @@ public class StoreController : MonoBehaviour {
 				}
 
 				if (playerChoice != null){
-					System.Array.Copy(itemSocketArray, playerChoice.playerItems, 5);
+					for (int i = 0; i < MAX_SOCKETS; i++)
+					{
+						playerChoice.playerItems[i] = itemSocketArray[i];
+					}
 				}
 
 				//old code
@@ -255,17 +265,20 @@ public class StoreController : MonoBehaviour {
 		selectedEquipment = Equipment.EMPTY;
 		selectedSocket = Socket.EMPTY;
 
-		player.GetComponent<SocketEquipment>().SocketItems(itemSocketArray);
+		player.GetComponent<SocketEquipment>().SocketItems(itemSocketArray, false);
 
 	}
 
 
 	public void startTest(){
-        if (!hasSpike)
-        {
-            if (playerChoice != null)
-                playerChoice.spike = false;
-        }
+        if (playerChoice != null)
+		{
+			for (int i = 0; i < MAX_SOCKETS; i++)
+			{
+				playerChoice.playerItems[i] = itemSocketArray[i];
+			}
+		}
+        
         Application.LoadLevel(2);
 
         //Sorry Jesse
