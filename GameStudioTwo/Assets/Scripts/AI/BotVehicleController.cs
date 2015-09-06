@@ -95,30 +95,6 @@ public class BotVehicleController : MonoBehaviour
             inputLinearForce = -1.1f;
             inputSteering = 40.0f;
         }
-
-        /*
-        Vector3 targetPosition;
-
-        switch (steeringMethod)
-        {
-            case SteeringMethod.PURSUE:
-                // Add target velocity to persue
-                targetPosition = target.position + targetRigidbody.velocity;
-                break;
-            case SteeringMethod.ARRIVE: default:
-                targetPosition = target.position;
-                break;
-        }        
-
-        // Use the NavMesh to generate an array of waypoints
-        NavMesh.CalculatePath(transform.position, targetPosition, NavMesh.AllAreas, path);
-
-        // The target is the first waypoint, or the position of the target
-        Vector3 targetWaypt = path.corners.Length>1? path.corners[1] : targetPosition;
-        Debug.DrawLine(targetWaypt, targetWaypt + Vector3.up * 10.0f, Color.green);
-
-        setSteeringTo(targetWaypt);
-        */
     }
 
     public void setTargetWaypoint(Vector3 targetWaypoint)

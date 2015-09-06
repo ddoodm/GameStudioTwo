@@ -16,6 +16,7 @@ public class FSMBotController : MonoBehaviour
     public Transform playerTransform;
 
     private BotVehicleController controller;
+    private PlayerHealth botHealth, playerHealth;
     private Rigidbody botRigidbody;
 
     private NavMeshPath path;
@@ -33,6 +34,10 @@ public class FSMBotController : MonoBehaviour
     {
         controller = GetComponent<BotVehicleController>();
         botRigidbody = GetComponent<Rigidbody>();
+        botHealth = GetComponent<PlayerHealth>();
+
+        playerHealth = playerTransform.GetComponent<PlayerHealth>();
+
         path = new NavMeshPath();
 
         goToRandomPosition();
@@ -76,8 +81,13 @@ public class FSMBotController : MonoBehaviour
         float distanceToPlayer =
             (this.transform.position - playerTransform.position).magnitude;
 
+        // Stay away if we have less health
+        /*if (botHealth.health < playerHealth.health)
+            return FSMState.PATROL;*/
+
         if (distanceToPlayer < patrolDistance)
             return FSMState.ARRIVE;
+
         return FSMState.PATROL;
     }
 
@@ -95,6 +105,11 @@ public class FSMBotController : MonoBehaviour
         if (distanceToPlayer > patrolDistance)
             return FSMState.PATROL;
 
+        // Run away if we have less health than the player
+        /*
+        if (botHealth.health < playerHealth.health)
+            return FSMState.EVADE;*/
+
         //if (distanceToPlayer < 2.5f)
         //    return FSMState.EVADE;
 
@@ -104,7 +119,7 @@ public class FSMBotController : MonoBehaviour
     private void execute_evade()
     {
         controller.setTargetWaypoint(
-            (transform.position - playerTransform.position).normalized * 2.0f);
+            (transform.position - playerTransform.position).normalized * 10.0f);
     }
 
     private FSMState transition_evade()
@@ -114,6 +129,13 @@ public class FSMBotController : MonoBehaviour
 
         if (distanceToPlayer > patrolDistance)
             return FSMState.PATROL;
+
+        if (botRigidbody.velocity.magnitude < 0.1f)
+            return FSMState.PATROL;
+
+        // If we have more health than the player, chase them
+        if (botHealth.health >= playerHealth.health)
+            return FSMState.ARRIVE;
 
         return FSMState.EVADE;
     }
