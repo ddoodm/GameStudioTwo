@@ -28,6 +28,8 @@ TagManager:
   - Socket_Front
   - Socket_Back
   - Socket_Top
+  - StoreUI
+  - Socket_Ball
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,10 @@ public class persistentStats : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		for (int i = 0; i < 5; i++)
+		{
+			playerItems[i] = Equipment.EMPTY;
+		}
 	}
 	
 	// Update is called once per frame
