@@ -575,6 +575,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &165646
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 433026}
+  - 33: {fileID: 3304524}
+  - 23: {fileID: 2389204}
+  - 95: {fileID: 9525188}
+  - 64: {fileID: 6498356}
+  - 114: {fileID: 11450682}
+  m_Layer: 0
+  m_Name: Cover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &169844
 GameObject:
   m_ObjectHideFlags: 1
@@ -669,6 +689,21 @@ GameObject:
   - 4: {fileID: 424262}
   m_Layer: 8
   m_Name: VehicleBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &188880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 435100}
+  m_Layer: 0
+  m_Name: CoverContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -906,7 +941,20 @@ Transform:
   - {fileID: 400722}
   - {fileID: 22421344}
   - {fileID: 424262}
+  - {fileID: 435100}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &433026
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165646}
+  m_LocalRotation: {x: -.119473815, y: -.00698981155, z: .692479789, w: .711441457}
+  m_LocalPosition: {x: -.199999496, y: -.300000012, z: 1.05000031}
+  m_LocalScale: {x: 3, y: 12, z: 5}
+  m_Children: []
+  m_Father: {fileID: 435100}
   m_RootOrder: 0
 --- !u!4 &434326
 Transform:
@@ -920,6 +968,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 443066}
   m_RootOrder: 4
+--- !u!4 &435100
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 433026}
+  m_Father: {fileID: 432064}
+  m_RootOrder: 3
 --- !u!4 &436464
 Transform:
   m_ObjectHideFlags: 1
@@ -1618,6 +1679,30 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!23 &2389204
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165646}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: ec8ba9dba47387e4b9a771c0086ee06e, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!23 &2391150
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -1697,6 +1782,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175358}
   m_Mesh: {fileID: 4300002, guid: 299eea98330d60142b8d4b25371f2090, type: 3}
+--- !u!33 &3304524
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165646}
+  m_Mesh: {fileID: 4300000, guid: 9f20a6dafa7e00142a0a6ff06d60bf8f, type: 3}
 --- !u!33 &3315566
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -1897,6 +1989,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: b99c292162cbc3e47aba92ade92595fc, type: 3}
+--- !u!64 &6498356
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: 9f20a6dafa7e00142a0a6ff06d60bf8f, type: 3}
 --- !u!64 &6499830
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -1983,6 +2087,23 @@ Animator:
   m_GameObject: {fileID: 103204}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 15dc47ea272bae3448b7bb5fa0b6ed18, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &9525188
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165646}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 9f20a6dafa7e00142a0a6ff06d60bf8f, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -2188,6 +2309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: 49
+  button: 
 --- !u!114 &11437976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2218,6 +2340,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
+--- !u!114 &11450682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: .200000003
+  damageMultiplier: .850000024
+  hp: 50
 --- !u!114 &11452500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2230,10 +2366,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheels:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 14682538}
+  - {fileID: 14681596}
+  - {fileID: 14699764}
+  - {fileID: 14647968}
   maxTorque: 50
   maxBrakeTorque: 50
   maxSteeringAngle: 20
@@ -2340,6 +2476,7 @@ MonoBehaviour:
   flipForce: 650
   proximityRadius: 1.89999998
   control: 0
+  button: 
 --- !u!114 &11476786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2365,6 +2502,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxContactTime: .800000012
   maxReverseTime: 1
+  patrolDistance: 20
+  wanderDistance: 10
   playerTransform: {fileID: 0}
 --- !u!114 &11484528
 MonoBehaviour:
