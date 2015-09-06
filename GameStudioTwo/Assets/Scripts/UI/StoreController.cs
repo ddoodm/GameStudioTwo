@@ -211,8 +211,12 @@ public class StoreController : MonoBehaviour {
 		if (selectedEquipment == Equipment.Item_Handle && (selectedSocket != Socket.Socket_Back && selectedSocket != Socket.EMPTY)) {
 			selectedSocket = Socket.EMPTY;
 		}
-
-
+		if (selectedEquipment == Equipment.Item_Spike && selectedSocket == Socket.Socket_Top) {
+			selectedSocket = Socket.EMPTY;
+		}
+		if (selectedEquipment == Equipment.Item_Flipper && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Back)) {
+			selectedSocket = Socket.EMPTY;
+		}
 
 
 	}
