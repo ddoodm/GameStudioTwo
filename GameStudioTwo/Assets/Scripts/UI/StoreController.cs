@@ -3,19 +3,19 @@ using UnityEngine.UI;
 using System.Collections;
 
 
-public enum Equipment { EMPTY, HANDLE, SPIKE, FLIPPER };
+public enum Equipment { EMPTY, Item_Handle, Item_Spike, Item_Flipper };
 
-public enum Socket { EMPTY, LEFT, RIGHT, FRONT, BACK, TOP };
+public enum Socket { EMPTY, Socket_Left, Socket_Right, Socket_Front, Socket_Back, Socket_Top };
 
 
 public class StoreController : MonoBehaviour {
 
-	public GameObject playerModel;
+	public GameObject player;
 	public GameObject storeUI;
 	public GameObject uiPlayerModels;
 	GameObject selectedModel;
 
-    private Vector3 rgbColor;
+	private Vector3 rgbColor = new Vector3(200f/255f, 50f/255f, 50f/255f);
 	private Color sliderColour;
 	public Color selectedItemColour = new Color(255f/255f, 200f/255f, 0f/255f);
 
@@ -32,11 +32,9 @@ public class StoreController : MonoBehaviour {
 	// Selected items on the model
 	//
 	public static int MAX_SOCKETS = 5;
-	private Equipment[] ItemSocketArray = new Equipment[MAX_SOCKETS];
+	private Equipment[] itemSocketArray = new Equipment[MAX_SOCKETS];
 	public Equipment selectedEquipment = Equipment.EMPTY;
 	private Socket selectedSocket = Socket.EMPTY;
-
-
 
 	// Use this for initialization
 	void Start () {
@@ -51,15 +49,12 @@ public class StoreController : MonoBehaviour {
 		// equipment initializers=
 		for (int i = 0; i < MAX_SOCKETS; i++)
 		{
-			ItemSocketArray[i] = Equipment.EMPTY;
+			itemSocketArray[i] = Equipment.EMPTY;
 		}
 
 		noOfModels = uiPlayerModels.GetComponent<Transform> ().childCount - 1;
 
-		rgbColor = new Vector3(200f/255f, 50f/255f, 50f/255f);
-
 		sliderColour = new Color(rgbColor.x, rgbColor.y, rgbColor.z);
-
 
 		//old code
 		/*
@@ -89,13 +84,13 @@ public class StoreController : MonoBehaviour {
 						child.GetComponent<Renderer>().material.color = selectedItemColour;
 					}
 					if (selectedSocket != Socket.EMPTY){
-						InstantiateItemAtSocket();
+						FillItemSocketArray();
 					}
 
 				}
 
 				if (playerChoice != null){
-					System.Array.Copy(ItemSocketArray, playerChoice.playerItems, 5);
+					System.Array.Copy(itemSocketArray, playerChoice.playerItems, 5);
 				}
 
 				//old code
@@ -147,7 +142,7 @@ public class StoreController : MonoBehaviour {
         if (colourChange)
 		{
 			sliderColour = new Color(rgbColor.x, rgbColor.y, rgbColor.z);
-			playerModel.GetComponent<Renderer>().material.color = sliderColour;
+			GameObject.FindGameObjectWithTag("Player Model").GetComponent<Renderer>().material.color = sliderColour;
 			GameObject.FindGameObjectWithTag("Player Engine").GetComponent<Renderer>().material.color = sliderColour;
 			colourChange = false;
         }
@@ -160,46 +155,48 @@ public class StoreController : MonoBehaviour {
 
 
 	void HandleItemSelection(RaycastHit hit) {
+		selectedSocket = Socket.EMPTY;
+
 		switch (hit.transform.tag){
 			case "LawnMowerRed":
 			case "LawnMowerGreen":
 			case "LawnMowerBlue":
-				playerModel.GetComponent<Transform>().position = hit.transform.position;
+				player.GetComponent<Transform>().position = hit.transform.position;
 				hit.transform.parent.gameObject.SetActive(false);
 				
 				GetComponent<Animator>().SetTrigger("FadeOut");
 				break;
 
 			case "Item_Handle":
-				selectedEquipment = Equipment.HANDLE;
+				selectedEquipment = Equipment.Item_Handle;
 				break;
 				
 			case "Item_Spike":
-				selectedEquipment = Equipment.SPIKE;
+				selectedEquipment = Equipment.Item_Spike;
 				break;
 				
 			case "Item_Flipper":
-				selectedEquipment = Equipment.FLIPPER;
+				selectedEquipment = Equipment.Item_Flipper;
 				break;
 
 			case "Socket_Left":
-				selectedSocket = Socket.LEFT;
+				selectedSocket = Socket.Socket_Left;
 				break;
 				
 			case "Socket_Right":
-				selectedSocket = Socket.RIGHT;
+				selectedSocket = Socket.Socket_Right;
 				break;
 				
 			case "Socket_Front":
-				selectedSocket = Socket.FRONT;
+				selectedSocket = Socket.Socket_Front;
 				break;
 				
 			case "Socket_Back":
-				selectedSocket = Socket.BACK;
+				selectedSocket = Socket.Socket_Back;
 				break;
 				
 			case "Socket_Top":
-				selectedSocket = Socket.TOP;
+				selectedSocket = Socket.Socket_Top;
 				break;
 
 			case "Player Model":
@@ -207,80 +204,55 @@ public class StoreController : MonoBehaviour {
 
 			default:
 				selectedEquipment = Equipment.EMPTY;
+				selectedSocket = Socket.EMPTY;
 				break;
 		}
-			
+
+		if (selectedEquipment == Equipment.Item_Handle && (selectedSocket != Socket.Socket_Back && selectedSocket != Socket.EMPTY)) {
+			selectedSocket = Socket.EMPTY;
+		}
+
+
 
 
 	}
 
 
+	// instantiate at sockets change rotation based on what socket. make this a separate script on the vehicle prefab
 	
-	
-	void InstantiateItemAtSocket(){
+	void FillItemSocketArray(){
 		switch (selectedSocket) {
-		case Socket.LEFT:
-			if (ItemSocketArray[0] == Equipment.EMPTY){
+			case Socket.Socket_Left:
+				itemSocketArray[0] = selectedEquipment;
+				break;
 
+			case Socket.Socket_Right:
+				itemSocketArray[1] = selectedEquipment;
+				break;
 
+			case Socket.Socket_Front:
+				itemSocketArray[2] = selectedEquipment;
+				break;
 
+			case Socket.Socket_Back:
+				itemSocketArray[3] = selectedEquipment;
+				break;
 
+			case Socket.Socket_Top:
+				itemSocketArray[4] = selectedEquipment;
+				break;
 
-
-
-			}
-
-
-
-			break;
-
-
-
-		case Socket.RIGHT:
-
-
-
-
-			break;
-
-
-
-		case Socket.FRONT:
-			if (ItemSocketArray[2] == Equipment.EMPTY){
-				GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), playerModel.transform.position, Quaternion.identity);
-				spike.transform.Rotate(-180.0f, 0.0f, 0.0f, Space.World);
-				spike.transform.localScale -= new Vector3(0.8f, 0.8f, 0.8f);
-				spike.transform.parent = playerModel.transform;
-				ItemSocketArray[2] = Equipment.SPIKE;
+			default:
 				selectedEquipment = Equipment.EMPTY;
 				selectedSocket = Socket.EMPTY;
-			}
+				return;
 
-
-
-			break;
-
-
-
-		case Socket.BACK:
-
-
-
-
-			break;
-
-
-
-		case Socket.TOP:
-			break;
-			
-			
-			
-			
-			
-			
-			
 		}
+		selectedEquipment = Equipment.EMPTY;
+		selectedSocket = Socket.EMPTY;
+
+		player.GetComponent<SocketEquipment>().SocketItems(itemSocketArray);
+
 	}
 
 
