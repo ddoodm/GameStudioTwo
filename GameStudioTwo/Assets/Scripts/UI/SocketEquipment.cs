@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SocketEquipment : MonoBehaviour {
 	
-	private Transform player;
+	public Transform player;
 
 	public Transform prefab_handle;
 	public Transform prefab_spike;
@@ -18,11 +18,11 @@ public class SocketEquipment : MonoBehaviour {
 
 
 	public void Start() {
-		player = GetComponent<Transform>();
+
 	}
 
 
-	public void SocketItems(Equipment[] equipmentArray){
+	public void SocketItems(Equipment[] equipmentArray, bool game){
 		// Remove all items before putting more on
 		RemoveItems();
 		ResetSockets();
@@ -45,6 +45,14 @@ public class SocketEquipment : MonoBehaviour {
 				default:
 					break;
 			}
+		}
+
+		if (game) {
+			socket_left.Rotate(0.0f, 180.0f, 0.0f, Space.World);
+			socket_right.Rotate(0.0f, 180.0f, 0.0f, Space.World);
+			socket_front.Rotate(0.0f, 180.0f, 0.0f, Space.World);
+			socket_back.Rotate(0.0f, 180.0f, 0.0f, Space.World);
+			socket_top.Rotate(0.0f, 180.0f, 0.0f, Space.World);
 		}
 
 		// old code
@@ -129,10 +137,10 @@ public class SocketEquipment : MonoBehaviour {
 					child.gameObject.SetActive(false);
 				}
 
-				Transform handle_back = (Transform)Instantiate(prefab_handle, player.position, Quaternion.identity);
-				handle_back.Rotate(-180.0f, 0.0f, 0.0f, Space.World);
+				Transform handle_back = (Transform)Instantiate(prefab_handle, socket_back.position, Quaternion.identity);
+				handle_back.Rotate(-90.0f, 0.0f, 0.0f, Space.World);
 				handle_back.parent = socket_back;
-				socket_back.transform.localPosition = new Vector3(-0.85f, 0.0f, 0.25f);
+				socket_back.transform.localPosition = new Vector3(-0.025f, 0.0f, 0.1f);
 
 				break;
 			
@@ -156,10 +164,10 @@ public class SocketEquipment : MonoBehaviour {
 					child.gameObject.SetActive(false);
 				}
 			
-				Transform spike_left = (Transform)Instantiate(prefab_spike, player.position, Quaternion.identity);
-				spike_left.Rotate(0.0f, 180.0f, 90.0f, Space.World);
+				Transform spike_left = (Transform)Instantiate(prefab_spike, socket_left.position, Quaternion.identity);
+				spike_left.Rotate(-90.0f, 180.0f, 90.0f, Space.World);
 				spike_left.parent = socket_left;
-				socket_left.transform.localPosition = new Vector3(0.0f, -0.2f, 0.08f);
+				socket_left.transform.localPosition = new Vector3(0.0f, 0.6f, -0.07f);
 
 				break;
 				
@@ -171,10 +179,10 @@ public class SocketEquipment : MonoBehaviour {
 					child.gameObject.SetActive(false);
 				}
 				
-				Transform spike_right = (Transform)Instantiate(prefab_spike, player.position, Quaternion.identity);
-				spike_right.Rotate(180.0f, 0.0f, 90.0f, Space.World);
+				Transform spike_right = (Transform)Instantiate(prefab_spike, socket_right.position, Quaternion.identity);
+				spike_right.Rotate(-90.0f, 0.0f, 90.0f, Space.World);
 				spike_right.parent = socket_right;
-				socket_right.transform.localPosition = new Vector3(0.0f, 0.2f, 0.08f);
+				socket_right.transform.localPosition = new Vector3(0.0f, -0.6f, -0.07f);
 
 				break;
 				
@@ -186,10 +194,10 @@ public class SocketEquipment : MonoBehaviour {
 					child.gameObject.SetActive(false);
 				}
 			
-				Transform spike_front = (Transform)Instantiate(prefab_spike, player.position, Quaternion.identity);
-				spike_front.Rotate(180.0f, 0.0f, 0.0f, Space.World);
+				Transform spike_front = (Transform)Instantiate(prefab_spike, socket_front.position, Quaternion.identity);
+				spike_front.Rotate(-90.0f, 0.0f, 0.0f, Space.World);
 				spike_front.parent = socket_front;
-				//socket_front.transform.localPosition = new Vector3(0.0f, 0.2f, 0.08f);
+				socket_front.transform.localPosition = new Vector3(-0.015f, 0.0f, -0.07f);
 
 				break;
 				
@@ -201,10 +209,10 @@ public class SocketEquipment : MonoBehaviour {
 					child.gameObject.SetActive(false);
 				}
 
-				Transform spike_back = (Transform)Instantiate(prefab_spike, player.position, Quaternion.identity);
-				spike_back.Rotate(0.0f, 180.0f, 0.0f, Space.World);
+				Transform spike_back = (Transform)Instantiate(prefab_spike, socket_back.position, Quaternion.identity);
+				spike_back.Rotate(-90.0f, 0.0f, 180.0f, Space.World);
 				spike_back.parent = socket_back;
-				//socket_back.transform.localPosition = new Vector3(0.0f, 0.2f, 0.08f);
+				socket_back.transform.localPosition = new Vector3(0.2f, 0.0f, -0.07f);
 
 				break;
 				
@@ -229,10 +237,10 @@ public class SocketEquipment : MonoBehaviour {
 					child.gameObject.SetActive(false);
 				}
 			
-				Transform flipper_left = (Transform)Instantiate(prefab_flipper, player.position, Quaternion.identity);
-				flipper_left.Rotate(0.0f, 0.0f, -90.0f, Space.World);
+				Transform flipper_left = (Transform)Instantiate(prefab_flipper, socket_left.position, Quaternion.identity);
+				flipper_left.Rotate(90.0f, 0.0f, -90.0f, Space.World);
 				flipper_left.parent = socket_left;
-				socket_left.transform.localPosition = new Vector3(-0.175f, -1.285f, 0.685f);
+				socket_left.transform.localPosition = new Vector3(-0.16f, -0.485f, 0.545f);
 
 				break;
 				
@@ -244,10 +252,10 @@ public class SocketEquipment : MonoBehaviour {
 					child.gameObject.SetActive(false);
 				}
 			
-				Transform flipper_right = (Transform)Instantiate(prefab_flipper, player.position, Quaternion.identity);
-				flipper_right.Rotate(0.0f, 0.0f, 90.0f, Space.World);
+				Transform flipper_right = (Transform)Instantiate(prefab_flipper, socket_right.position, Quaternion.identity);
+				flipper_right.Rotate(90.0f, 0.0f, 90.0f, Space.World);
 				flipper_right.parent = socket_right;
-				socket_right.transform.localPosition = new Vector3(0.175f, 1.285f, 0.685f);
+				socket_right.transform.localPosition = new Vector3(0.16f, 0.485f, 0.545f);
 				break;
 				
 			// Front Socket
@@ -258,10 +266,10 @@ public class SocketEquipment : MonoBehaviour {
 					child.gameObject.SetActive(false);
 				}
 			
-				Transform flipper_front = (Transform)Instantiate(prefab_flipper, player.position, Quaternion.identity);
-				flipper_front.Rotate(0.0f, 0.0f, 180.0f, Space.World);
+				Transform flipper_front = (Transform)Instantiate(prefab_flipper, socket_front.position, Quaternion.identity);
+				flipper_front.Rotate(90.0f, 0.0f, 180.0f, Space.World);
 				flipper_front.parent = socket_front;
-				socket_front.transform.localPosition = new Vector3(1.7f, -0.15f, 0.685f);
+				socket_front.transform.localPosition = new Vector3(0.7f, -0.15f, 0.545f);
 
 				break;
 				
