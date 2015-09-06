@@ -6978,8 +6978,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab_handle: {fileID: 476778, guid: 1c1c9199febe92a498325eac01c6cd0a, type: 2}
-  prefab_spike: {fileID: 450254, guid: 304acdb7091f9cd4c8bf721dd9b1cf33, type: 2}
-  prefab_flipper: {fileID: 479698, guid: ff8579a4a3fc0f0458a2699b76d894b3, type: 2}
+  prefab_spike: {fileID: 437768, guid: 304acdb7091f9cd4c8bf721dd9b1cf33, type: 2}
+  prefab_flipper: {fileID: 420456, guid: a163cb33b8a5f7943ac8f6be0a5acdb7, type: 2}
   socket_left: {fileID: 2141084482}
   socket_right: {fileID: 1725002360}
   socket_front: {fileID: 1366076822}
