@@ -93,8 +93,18 @@ public class VehicleController : MonoBehaviour
 	{
 		if (play) {
 			// Front-wheel steering
-			float steerAngle = inputSteering * steeringAngle;
-			wheels [0].steerAngle = wheels [1].steerAngle = steerAngle;
+            float temp = 1;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                temp = 4;
+            }
+
+			float steerAngle = inputSteering * steeringAngle*temp;
+            wheels [0].steerAngle = wheels [1].steerAngle = steerAngle;
+
+
+
+
 
 			// All-wheel drive
 			float torque = inputLinearForce * maxTorque * speedMultiplier;

@@ -1913,6 +1913,22 @@ Prefab:
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 1933616268}
+    - target: {fileID: 14665802, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_ForwardFriction.m_ExtremumSlip
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 14611484, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_ForwardFriction.m_ExtremumSlip
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 14699144, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_ForwardFriction.m_ExtremumSlip
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 14670482, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_ForwardFriction.m_ExtremumSlip
+      value: .100000001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_IsPrefabParent: 0
@@ -5579,6 +5595,14 @@ Prefab:
     - target: {fileID: 128212, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452500, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477014, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}

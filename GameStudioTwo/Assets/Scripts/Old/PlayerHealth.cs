@@ -124,7 +124,6 @@ public class PlayerHealth : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
         {
             issueDamage(collision);
