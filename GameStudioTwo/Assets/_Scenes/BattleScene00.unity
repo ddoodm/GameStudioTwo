@@ -5572,6 +5572,14 @@ Prefab:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1310802190}
+    - target: {fileID: 139196, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 128212, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_IsPrefabParent: 0

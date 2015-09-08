@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e791f9e103da9c468ba33c47f5900a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {fileID: 0}
-  spike: 0
+  playerColor: {r: 0, g: 0, b: 0, a: 0}
+  playerItems: 
 --- !u!4 &1040505311
 Transform:
   m_ObjectHideFlags: 0
