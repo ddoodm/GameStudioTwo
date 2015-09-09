@@ -57,6 +57,7 @@ ModelImporter:
     100098: Box039
     100100: Pillar002
     100102: Pillar01
+    100104: Cylinder001
     400000: //RootNode
     400002: Base
     400004: Box001
@@ -109,6 +110,7 @@ ModelImporter:
     400098: Box039
     400100: Pillar002
     400102: Pillar01
+    400104: Cylinder001
     2300000: Base
     2300002: Box001
     2300004: Plane001
@@ -158,6 +160,7 @@ ModelImporter:
     2300092: Box039
     2300094: Pillar002
     2300096: Pillar01
+    2300098: Cylinder001
     3300000: Base
     3300002: Box001
     3300004: Plane001
@@ -207,6 +210,7 @@ ModelImporter:
     3300092: Box039
     3300094: Pillar002
     3300096: Pillar01
+    3300098: Cylinder001
     4300000: Base
     4300002: Plane001
     4300004: Box001
@@ -256,6 +260,7 @@ ModelImporter:
     4300092: Pillar01
     4300094: Pillar002
     4300096: Box039
+    4300098: Cylinder001
     7400000: Take 001
     9500000: //RootNode
   materials:
