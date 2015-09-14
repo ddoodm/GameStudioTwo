@@ -57,6 +57,10 @@ ModelImporter:
     100098: Plane003
     100100: Plane004
     100102: Cylinder001
+    100104: OuterStadium
+    100106: StadiumShape
+    100108: StadShelter
+    100110: StadShelter001
     400000: //RootNode
     400002: Base
     400004: Box001
@@ -109,6 +113,10 @@ ModelImporter:
     400098: Plane003
     400100: Plane004
     400102: Cylinder001
+    400104: OuterStadium
+    400106: StadiumShape
+    400108: StadShelter
+    400110: StadShelter001
     2300000: //RootNode
     2300002: Base
     2300004: Box001
@@ -158,6 +166,8 @@ ModelImporter:
     2300092: Plane003
     2300094: Plane004
     2300096: Cylinder001
+    2300098: OuterStadium
+    2300100: StadiumShape
     3300000: //RootNode
     3300002: Base
     3300004: Box001
@@ -207,6 +217,8 @@ ModelImporter:
     3300092: Plane003
     3300094: Plane004
     3300096: Cylinder001
+    3300098: OuterStadium
+    3300100: StadiumShape
     4300000: Base
     4300002: Plane001
     4300004: Box001
@@ -256,6 +268,8 @@ ModelImporter:
     4300092: Pillar01
     4300094: Pillar002
     4300096: Cylinder001
+    4300098: StadiumShape
+    4300100: OuterStadium
     7400000: Take 001
     9500000: //RootNode
   materials:
