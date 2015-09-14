@@ -297,8 +297,44 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_TagString
       value: Player Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[1].time
+      value: .228372023
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[1].value
+      value: .937297046
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[1].inSlope
+      value: 1.10924244
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[1].outSlope
+      value: 1.10924244
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[2].value
+      value: .00913244486
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[2].time
+      value: 1.0017699
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[2].inSlope
+      value: -1.75810289
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[2].outSlope
+      value: -1.75810289
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
