@@ -14,11 +14,20 @@ public class flipperControls : MonoBehaviour {
 
     public bool canFlip { get; protected set; }
 
+
+    public float flipstate = 0,
+    flipSpeed = 1,
+    counter = 0;
+
+
     //HingeJoint hinge;
 
     Rigidbody thisRigidbody, opRigidbody;
     public KeyCode control;
     public string button;
+
+    public Transform visible;
+
 
     public float curveVar;
     public AnimationCurve curve;
@@ -28,6 +37,8 @@ public class flipperControls : MonoBehaviour {
 
         control = transform.parent.GetComponentInParent<socketControl>().control;
         button = transform.parent.GetComponentInParent<socketControl>().button;
+
+        visible = transform.parent.parent.parent.transform;
 
         //hinge = GetComponent<HingeJoint>();
         thisRigidbody = GetComponent<Rigidbody>();
@@ -45,11 +56,11 @@ public class flipperControls : MonoBehaviour {
     {
         
         curveVar += Time.deltaTime;
-        if ((/*Input.GetButtonUp(button) || */Input.GetKeyUp(control)) && curveVar > 1f)
+        if ((/*Input.GetButtonUp(button) || */Input.GetKeyUp(control)) && flipstate == 0)
         {
             curveVar = 0;
             // Flip the flipper's hinge joint
-            //flipHinge();
+            flipstate = 10f;
 
             // The target may not have been collided with
             if (!opRigidbody)
@@ -72,7 +83,30 @@ public class flipperControls : MonoBehaviour {
             }
             
         }
-        this.transform.rotation = Quaternion.Euler(new Vector3(initialRot.x,initialRot.y, initialRot.z + this.transform.rotation.z + curve.Evaluate(curveVar) * -180.0f));
+        flipHinge();
+    }
+
+    private void flipHinge()
+    {
+        counter += flipstate * flipSpeed;
+
+        this.transform.Rotate(new Vector3(0, 0, flipstate * -flipSpeed));
+
+        if (counter > 50)
+        {
+            counter = 0;
+            flipstate = -1;
+        }
+        if (counter < -60)
+        {
+            this.transform.rotation = Quaternion.Euler(new Vector3(0,transform.parent.parent.parent.transform.rotation.eulerAngles.y - initialRot.y,0));
+            //transform.parent.parent.parent.transform
+            flipstate = 0;
+            counter = 0;
+        }
+
+
+
     }
 
     /*
