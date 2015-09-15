@@ -20,6 +20,8 @@ public class SocketEquipment : MonoBehaviour {
 	public Transform brace_right;
 	public Transform brace_front;
 
+    private flipperControls temp;
+
 
 	public void Start() {
 
@@ -251,6 +253,9 @@ public class SocketEquipment : MonoBehaviour {
 				brace_left.gameObject.SetActive(true);
 
 				Transform flipper_left = (Transform)Instantiate(prefab_flipper, socket_left.position, Quaternion.identity);
+                temp = flipper_left.GetComponent<flipperControls>();
+                if (temp != null)
+                    flipper_left.GetComponent<flipperControls>().initialRot = new Vector3(0, 180, 0);
 				flipper_left.Rotate(0.0f, 0.0f, 00.0f, Space.World);
 				flipper_left.parent = socket_left;
 				socket_left.transform.localPosition = new Vector3(0.0f, -0.678f, 0.3f);
@@ -284,6 +289,11 @@ public class SocketEquipment : MonoBehaviour {
 				brace_front.gameObject.SetActive(true);
 
 				Transform flipper_front = (Transform)Instantiate(prefab_flipper, socket_front.position, Quaternion.identity);
+                
+                temp = flipper_front.GetComponent<flipperControls>();
+                if (temp != null)
+                    flipper_front.GetComponent<flipperControls>().initialRot = new Vector3(0, 270, 0);
+                
 				flipper_front.Rotate(180.0f, -90.0f, 180.0f, Space.World);
 				flipper_front.parent = socket_front;
 				socket_front.transform.localPosition = new Vector3(1.23f, 0.0f, 0.185f);

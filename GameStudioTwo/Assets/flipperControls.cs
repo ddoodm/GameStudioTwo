@@ -10,7 +10,7 @@ public class flipperControls : MonoBehaviour {
     private float
         initialSpring, initialSpringTarget, initialRotation;
 
-    public Quaternion initialRot;
+    public Vector3 initialRot = new Vector3(0,0,0);
 
     public bool canFlip { get; protected set; }
 
@@ -36,7 +36,6 @@ public class flipperControls : MonoBehaviour {
         //initialSpring = hinge.spring.spring;
         //initialSpringTarget = hinge.spring.targetPosition;
 
-        initialRot = this.transform.rotation;
         canFlip = true;
         curveVar = 1.0f;
 	}
@@ -73,7 +72,7 @@ public class flipperControls : MonoBehaviour {
             }
             
         }
-        this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, this.transform.rotation.z + curve.Evaluate(curveVar) * -180.0f));
+        this.transform.rotation = Quaternion.Euler(new Vector3(initialRot.x,initialRot.y, initialRot.z + this.transform.rotation.z + curve.Evaluate(curveVar) * -180.0f));
     }
 
     /*
