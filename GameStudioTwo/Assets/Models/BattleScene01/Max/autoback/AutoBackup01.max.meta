@@ -64,6 +64,14 @@ ModelImporter:
     100112: StadiumShape
     100114: StadShelter
     100116: StadShelter001
+    100118: Cylinder002
+    100120: Cylinder003
+    100122: Cylinder004
+    100124: SinusTarp
+    100126: Stadiroom
+    100128: TarpSupportA
+    100130: TarpSupportA001
+    100132: StadiumHedge
     400000: //RootNode
     400002: Base
     400004: Box001
@@ -123,6 +131,14 @@ ModelImporter:
     400112: StadiumShape
     400114: StadShelter
     400116: StadShelter001
+    400118: Cylinder002
+    400120: Cylinder003
+    400122: Cylinder004
+    400124: SinusTarp
+    400126: Stadiroom
+    400128: TarpSupportA
+    400130: TarpSupportA001
+    400132: StadiumHedge
     2300000: Base
     2300002: Box001
     2300004: Plane001
@@ -177,6 +193,14 @@ ModelImporter:
     2300102: Object
     2300104: OuterStadium
     2300106: StadiumShape
+    2300108: Cylinder002
+    2300110: Cylinder003
+    2300112: Cylinder004
+    2300114: SinusTarp
+    2300116: Stadiroom
+    2300118: TarpSupportA
+    2300120: TarpSupportA001
+    2300122: StadiumHedge
     3300000: Base
     3300002: Box001
     3300004: Plane001
@@ -231,6 +255,14 @@ ModelImporter:
     3300102: Object
     3300104: OuterStadium
     3300106: StadiumShape
+    3300108: Cylinder002
+    3300110: Cylinder003
+    3300112: Cylinder004
+    3300114: SinusTarp
+    3300116: Stadiroom
+    3300118: TarpSupportA
+    3300120: TarpSupportA001
+    3300122: StadiumHedge
     4300000: Base
     4300002: Plane001
     4300004: Box001
@@ -285,6 +317,14 @@ ModelImporter:
     4300102: BaseWalls
     4300104: StadiumShape
     4300106: OuterStadium
+    4300108: Stadiroom
+    4300110: SinusTarp
+    4300112: Cylinder002
+    4300114: Cylinder003
+    4300116: Cylinder004
+    4300118: TarpSupportA
+    4300120: TarpSupportA001
+    4300122: StadiumHedge
     7400000: Take 001
     9500000: //RootNode
   materials:
@@ -343,8 +383,10 @@ ModelImporter:
     legStretch: .0500000007
     feetSpacing: 0
     rootMotionBoneName: 
+    hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
