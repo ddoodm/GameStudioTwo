@@ -60,8 +60,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void issueDamage(Collision collision)
     {
-        
-
         //Determine damage multiplier
         float damageMultiplier = 1.0f;
 
@@ -92,13 +90,6 @@ public class PlayerHealth : MonoBehaviour
 
         }
 
-        //Deinyon's code to make damage only happen on T-Bones
-        //float damageAngleMag = Mathf.Abs(Vector3.Dot(collision.contacts[0].normal, -collision.collider.transform.right));
-        //float otherDamage = damage * (1.0f - damageAngleMag);
-
-
-        
-
         Debug.Log("Damage Multiplier: " + damageMultiplier);
         Debug.Log(collision.gameObject.tag + " Mass: " + enemy.mass);
 
@@ -106,14 +97,14 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log(gameObject.name + " has " + health + " remaining");
 
-
+        /* TODO: Re-enable this; Deinyon disabled analytics for now, because of compiler errors.
         Analytics.CustomEvent("Hit", new Dictionary<string, object> 
         {
             {"Was Hit", gameObject.name},
             {"Hit by", enemy.name},
             {"Hit for", thisDamage},
             {"Remaining HP", health}
-        });
+        });*/
     }
 
     public void issueDamage(float damage)
@@ -165,11 +156,13 @@ public class PlayerHealth : MonoBehaviour
 
         if (!analyticsSent)
         {
+            /* TODO: Re-enable this; Deinyon disabled analytics for now, because of compiler errors.
             Analytics.CustomEvent("gameOver", new Dictionary<string, object> 
             {
                 {"Winner", winner},
                 {"Remaining HP", health},
             });
+            */
             analyticsSent = true;
         }
 	

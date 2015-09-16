@@ -35,6 +35,16 @@ ModelImporter:
     100054: Box023
     100056: Box024
     100058: Box025
+    100060: Stadiroom
+    100062: SinusTarp
+    100064: Cylinder001
+    100066: Cylinder002
+    100068: Cylinder003
+    100070: Cylinder004
+    100072: TarpSupportA
+    100074: TarpSupportA001
+    100076: StadiumHedge
+    100078: ThickLightPole
     400000: //RootNode
     400002: Box001
     400004: Box002
@@ -65,6 +75,16 @@ ModelImporter:
     400054: Box023
     400056: Box024
     400058: Box025
+    400060: Stadiroom
+    400062: SinusTarp
+    400064: Cylinder001
+    400066: Cylinder002
+    400068: Cylinder003
+    400070: Cylinder004
+    400072: TarpSupportA
+    400074: TarpSupportA001
+    400076: StadiumHedge
+    400078: ThickLightPole
     2300000: Box001
     2300002: Box002
     2300004: Box003
@@ -92,6 +112,16 @@ ModelImporter:
     2300048: Box023
     2300050: Box024
     2300052: Box025
+    2300054: Stadiroom
+    2300056: SinusTarp
+    2300058: Cylinder001
+    2300060: Cylinder002
+    2300062: Cylinder003
+    2300064: Cylinder004
+    2300066: TarpSupportA
+    2300068: TarpSupportA001
+    2300070: StadiumHedge
+    2300072: ThickLightPole
     3300000: Box001
     3300002: Box002
     3300004: Box003
@@ -119,6 +149,16 @@ ModelImporter:
     3300048: Box023
     3300050: Box024
     3300052: Box025
+    3300054: Stadiroom
+    3300056: SinusTarp
+    3300058: Cylinder001
+    3300060: Cylinder002
+    3300062: Cylinder003
+    3300064: Cylinder004
+    3300066: TarpSupportA
+    3300068: TarpSupportA001
+    3300070: StadiumHedge
+    3300072: ThickLightPole
     4300000: StadiumShape
     4300002: OuterStadium
     4300004: Box002
@@ -146,6 +186,16 @@ ModelImporter:
     4300048: Box023
     4300050: Box024
     4300052: Box025
+    4300054: Stadiroom
+    4300056: SinusTarp
+    4300058: Cylinder001
+    4300060: Cylinder002
+    4300062: Cylinder003
+    4300064: Cylinder004
+    4300066: TarpSupportA
+    4300068: TarpSupportA001
+    4300070: StadiumHedge
+    4300072: ThickLightPole
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -170,7 +220,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .5
+    globalScale: .25
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -203,8 +253,10 @@ ModelImporter:
     legStretch: .0500000007
     feetSpacing: 0
     rootMotionBoneName: 
+    hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
