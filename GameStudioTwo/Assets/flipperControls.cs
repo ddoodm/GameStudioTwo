@@ -10,13 +10,27 @@ public class flipperControls : MonoBehaviour {
     private float
         initialSpring, initialSpringTarget, initialRotation;
 
+    public Vector3 initialRot = new Vector3(0,0,0);
+
     public bool canFlip { get; protected set; }
 
-    HingeJoint hinge;
+
+    public float flipstate = 0,
+    flipSpeed = 1,
+    counter = 0;
+
+
+    //HingeJoint hinge;
 
     Rigidbody thisRigidbody, opRigidbody;
     public KeyCode control;
     public string button;
+
+    public Transform visible;
+
+
+    public float curveVar;
+    public AnimationCurve curve;
 
 	// Use this for initialization
 	void Start () {
@@ -24,24 +38,29 @@ public class flipperControls : MonoBehaviour {
         control = transform.parent.GetComponentInParent<socketControl>().control;
         button = transform.parent.GetComponentInParent<socketControl>().button;
 
-        hinge = GetComponent<HingeJoint>();
+        visible = transform.parent.parent.parent.transform;
+
+        //hinge = GetComponent<HingeJoint>();
         thisRigidbody = GetComponent<Rigidbody>();
         opRigidbody = GameObject.FindWithTag("Enemy").GetComponent<Rigidbody>();
 
-        initialSpring = hinge.spring.spring;
-        initialSpringTarget = hinge.spring.targetPosition;
-        initialRotation = this.transform.rotation.z;
+        //initialSpring = hinge.spring.spring;
+        //initialSpringTarget = hinge.spring.targetPosition;
 
         canFlip = true;
+        curveVar = 1.0f;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if ((Input.GetButtonUp(button) || Input.GetKeyUp(control)) && canFlip)
+        
+        curveVar += Time.deltaTime;
+        if ((/*Input.GetButtonUp(button) || */Input.GetKeyUp(control)) && flipstate == 0)
         {
+            curveVar = 0;
             // Flip the flipper's hinge joint
-            flipHinge();
+            flipstate = 10f;
 
             // The target may not have been collided with
             if (!opRigidbody)
@@ -60,11 +79,37 @@ public class flipperControls : MonoBehaviour {
             }
             else if(Vector3.Dot(transform.up, Vector3.up) < 0)
             {
-                thisRigidbody.AddForceAtPosition(0.5f * Vector3.up * flipForce, this.transform.position, ForceMode.Impulse);
+                transform.parent.GetComponentInParent<Rigidbody>().AddForceAtPosition(0.5f * Vector3.up * flipForce, this.transform.position, ForceMode.Impulse);
             }
+            
         }
+        flipHinge();
     }
 
+    private void flipHinge()
+    {
+        counter += flipstate * flipSpeed;
+
+        this.transform.Rotate(new Vector3(0, 0, flipstate * -flipSpeed));
+
+        if (counter > 50)
+        {
+            counter = 0;
+            flipstate = -1;
+        }
+        if (counter < -60)
+        {
+            this.transform.rotation = Quaternion.Euler(new Vector3(0,transform.parent.parent.parent.transform.rotation.eulerAngles.y - initialRot.y,0));
+            //transform.parent.parent.parent.transform
+            flipstate = 0;
+            counter = 0;
+        }
+
+
+
+    }
+
+    /*
     private void flipHinge ()
     {
         JointSpring hingeSpring = hinge.spring;
@@ -98,6 +143,7 @@ public class flipperControls : MonoBehaviour {
 
         canFlip = true;
     }
+     * */
 
     /* Bad idea:
     void OnCollisionStay(Collision col)
