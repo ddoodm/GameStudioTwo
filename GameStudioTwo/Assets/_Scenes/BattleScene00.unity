@@ -1975,6 +1975,26 @@ Prefab:
       propertyPath: m_ForwardFriction.m_ExtremumSlip
       value: .100000001
       objectReference: {fileID: 0}
+    - target: {fileID: 150718, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 2102212760}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: finish
+      value: 
+      objectReference: {fileID: 1648447204}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: restartButton
+      value: 
+      objectReference: {fileID: 1735366971}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 1933616268}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_IsPrefabParent: 0
@@ -5420,6 +5440,12 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 466492, guid: 8f49dbeffcc8de345857dd7226857d11, type: 2}
   m_PrefabInternal: {fileID: 168839178}
+--- !u!114 &2001736518 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11476786, guid: 9b1422ed844df2c44b6908a03aad489e,
+    type: 2}
+  m_PrefabInternal: {fileID: 2123367838}
+  m_Script: {fileID: 11500000, guid: c2ca93f0d6b8382458402740239e775e, type: 3}
 --- !u!1001 &2041410678
 Prefab:
   m_ObjectHideFlags: 0
@@ -5626,7 +5652,7 @@ Prefab:
     - target: {fileID: 11477014, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
       propertyPath: playerTransform
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 56022616}
     - target: {fileID: 139196, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
       propertyPath: m_TagString
       value: Untagged
@@ -5647,6 +5673,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11437976, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 2001736518}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_IsPrefabParent: 0
