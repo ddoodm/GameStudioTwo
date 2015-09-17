@@ -36,6 +36,9 @@ public class FSMBotController : MonoBehaviour
         botRigidbody = GetComponent<Rigidbody>();
         botHealth = GetComponent<PlayerHealth>();
 
+        if (playerTransform == null)
+            playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
+
         playerHealth = playerTransform.GetComponent<PlayerHealth>();
 
         path = new NavMeshPath();

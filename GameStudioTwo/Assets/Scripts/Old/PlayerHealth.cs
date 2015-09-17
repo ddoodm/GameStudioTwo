@@ -6,7 +6,6 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    //public Slider healthSlider;
     public HPBar healthBar;
     public Text finish;
     public Button restartButton;

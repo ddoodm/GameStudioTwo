@@ -34,14 +34,7 @@ public class BotVehicleController : MonoBehaviour
     private float contactTimer, reverseTimer;
     public float maxContactTime = 0.8f, maxReverseTime = 1.0f;
 
-    /// <summary>
-    /// The transform that the robot should follow
-    /// </summary>
-    //public Transform target;
-    //public Rigidbody targetRigidbody;
-
     private Vector3 targetWaypoint;
-
 
     public bool canPathfind { get; private set; }
 
@@ -51,7 +44,6 @@ public class BotVehicleController : MonoBehaviour
         PURSUE,
     }
     public SteeringMethod steeringMethod = SteeringMethod.ARRIVE;
-
 
     private NavMeshPath path;
 
@@ -67,7 +59,6 @@ public class BotVehicleController : MonoBehaviour
 
 		// Jesse's code to add attachments to the bot
 		AddAttachments ();
-
     }
 
     void Update()
