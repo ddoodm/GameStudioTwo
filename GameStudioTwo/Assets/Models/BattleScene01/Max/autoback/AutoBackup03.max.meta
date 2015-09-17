@@ -56,6 +56,19 @@ ModelImporter:
     100096: Pillar01
     100098: Plane003
     100100: Plane004
+    100102: Cylinder001
+    100104: OuterStadium
+    100106: StadiumShape
+    100108: StadShelter
+    100110: StadShelter001
+    100112: Cylinder002
+    100114: Cylinder003
+    100116: Cylinder004
+    100118: SinusTarp
+    100120: Stadiroom
+    100122: TarpSupportA
+    100124: TarpSupportA001
+    100126: StadiumHedge
     400000: //RootNode
     400002: Base
     400004: Box001
@@ -107,6 +120,19 @@ ModelImporter:
     400096: Pillar01
     400098: Plane003
     400100: Plane004
+    400102: Cylinder001
+    400104: OuterStadium
+    400106: StadiumShape
+    400108: StadShelter
+    400110: StadShelter001
+    400112: Cylinder002
+    400114: Cylinder003
+    400116: Cylinder004
+    400118: SinusTarp
+    400120: Stadiroom
+    400122: TarpSupportA
+    400124: TarpSupportA001
+    400126: StadiumHedge
     2300000: //RootNode
     2300002: Base
     2300004: Box001
@@ -155,6 +181,17 @@ ModelImporter:
     2300090: Pillar01
     2300092: Plane003
     2300094: Plane004
+    2300096: Cylinder001
+    2300098: OuterStadium
+    2300100: StadiumShape
+    2300102: Cylinder002
+    2300104: Cylinder003
+    2300106: Cylinder004
+    2300108: SinusTarp
+    2300110: Stadiroom
+    2300112: TarpSupportA
+    2300114: TarpSupportA001
+    2300116: StadiumHedge
     3300000: //RootNode
     3300002: Base
     3300004: Box001
@@ -203,6 +240,17 @@ ModelImporter:
     3300090: Pillar01
     3300092: Plane003
     3300094: Plane004
+    3300096: Cylinder001
+    3300098: OuterStadium
+    3300100: StadiumShape
+    3300102: Cylinder002
+    3300104: Cylinder003
+    3300106: Cylinder004
+    3300108: SinusTarp
+    3300110: Stadiroom
+    3300112: TarpSupportA
+    3300114: TarpSupportA001
+    3300116: StadiumHedge
     4300000: Base
     4300002: Plane001
     4300004: Box001
@@ -251,6 +299,17 @@ ModelImporter:
     4300090: Plane004
     4300092: Pillar01
     4300094: Pillar002
+    4300096: Cylinder001
+    4300098: StadiumShape
+    4300100: OuterStadium
+    4300102: Stadiroom
+    4300104: SinusTarp
+    4300106: Cylinder002
+    4300108: Cylinder003
+    4300110: Cylinder004
+    4300112: TarpSupportA
+    4300114: TarpSupportA001
+    4300116: StadiumHedge
     7400000: Take 001
     9500000: //RootNode
   materials:
@@ -309,8 +368,10 @@ ModelImporter:
     legStretch: .0500000007
     feetSpacing: 0
     rootMotionBoneName: 
+    hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
