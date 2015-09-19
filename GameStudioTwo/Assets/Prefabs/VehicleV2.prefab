@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11402894}
   m_Layer: 8
   m_Name: LeftBrace
-  m_TagString: Untagged
+  m_TagString: Player Model
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +114,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 426692}
   - 135: {fileID: 13571090}
+  - 114: {fileID: 11421064}
   m_Layer: 8
   m_Name: FrontSocket
   m_TagString: Socket_Front
@@ -167,6 +168,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 461482}
   - 135: {fileID: 13557052}
+  - 114: {fileID: 11457904}
   m_Layer: 8
   m_Name: BackSocket
   m_TagString: Socket_Back
@@ -305,7 +307,7 @@ GameObject:
   - 114: {fileID: 11482088}
   m_Layer: 8
   m_Name: RightBrace
-  m_TagString: Untagged
+  m_TagString: Player Model
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -441,6 +443,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 410482}
   - 135: {fileID: 13567904}
+  - 114: {fileID: 11423918}
   m_Layer: 8
   m_Name: RightSocket
   m_TagString: Socket_Right
@@ -756,7 +759,7 @@ GameObject:
   - 23: {fileID: 2315074}
   m_Layer: 8
   m_Name: FrontBrace
-  m_TagString: Untagged
+  m_TagString: Player Model
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -805,6 +808,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 434168}
   - 135: {fileID: 13572960}
+  - 114: {fileID: 11423024}
   m_Layer: 8
   m_Name: LeftSocket
   m_TagString: Socket_Left
@@ -1444,7 +1448,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150718}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.1399994, y: 1.06400001, z: 14.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2679,6 +2683,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   control: 49
   button: Socket Left
+--- !u!114 &11421064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  control: 51
+  button: Boost
+--- !u!114 &11423024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  control: 49
+  button: Socket Left
+--- !u!114 &11423918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  control: 50
+  button: Socket Right
 --- !u!114 &11440514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2707,7 +2750,8 @@ MonoBehaviour:
   player: {fileID: 488816}
   prefab_handle: {fileID: 476778, guid: 1c1c9199febe92a498325eac01c6cd0a, type: 2}
   prefab_spike: {fileID: 418942, guid: 84586772812a76a4387ed355299244b4, type: 2}
-  prefab_flipper: {fileID: 447446, guid: d14d0ca374a0a8c4ba4c79300c867577, type: 2}
+  prefab_flipper: {fileID: 457978, guid: 941c6595ec8de9d4ca9aeb8c28a99ed2, type: 2}
+  prefab_booster: {fileID: 429898, guid: a975cc422cb5e6e4d9f5368b693983d6, type: 2}
   socket_left: {fileID: 434168}
   socket_right: {fileID: 410482}
   socket_front: {fileID: 426692}
@@ -2729,8 +2773,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flipForce: 650
   proximityRadius: 1.89999998
+  initialRot: {x: 0, y: 0, z: 0}
+  flipstate: 0
+  flipSpeed: 1
+  counter: 0
   control: 0
   button: 
+  visible: {fileID: 0}
+  curveVar: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11453478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2755,6 +2810,19 @@ MonoBehaviour:
   speedMultiplier: 1
   strafeSpeed: 50000
   steeringAngle: 20
+--- !u!114 &11457904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  control: 52
+  button: Socket Back
 --- !u!114 &11482088
 MonoBehaviour:
   m_ObjectHideFlags: 1

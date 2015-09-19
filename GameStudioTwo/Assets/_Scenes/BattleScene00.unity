@@ -1816,126 +1816,54 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 492524, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalPosition.x
       value: -21.1399994
       objectReference: {fileID: 0}
-    - target: {fileID: 492524, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1.06400001
       objectReference: {fileID: 0}
-    - target: {fileID: 492524, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalPosition.z
       value: 14.71
       objectReference: {fileID: 0}
-    - target: {fileID: 492524, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 492524, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 492524, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 492524, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -1.62920685e-07
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 492524, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 11475208, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: energyBar
-      value: 
-      objectReference: {fileID: 850215050}
-    - target: {fileID: 11415826, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 2102212760}
-    - target: {fileID: 11415826, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: finish
-      value: 
-      objectReference: {fileID: 1648447204}
-    - target: {fileID: 11415826, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: restartButton
-      value: 
-      objectReference: {fileID: 1735366971}
-    - target: {fileID: 11415826, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: gameOverScreen
-      value: 
-      objectReference: {fileID: 1933616268}
-    - target: {fileID: 14665802, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_ForwardFriction.m_ExtremumSlip
-      value: .100000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 14611484, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_ForwardFriction.m_ExtremumSlip
-      value: .100000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 14699144, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_ForwardFriction.m_ExtremumSlip
-      value: .100000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 14670482, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_ForwardFriction.m_ExtremumSlip
-      value: .100000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 150718, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 2102212760}
-    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: finish
-      value: 
-      objectReference: {fileID: 1648447204}
-    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: restartButton
-      value: 
-      objectReference: {fileID: 1735366971}
-    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: gameOverScreen
-      value: 
-      objectReference: {fileID: 1933616268}
     - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11443950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: prefab_flipper
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: healthBar
       value: 
-      objectReference: {fileID: 457978, guid: 941c6595ec8de9d4ca9aeb8c28a99ed2, type: 2}
-    - target: {fileID: 100990, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_TagString
-      value: Player Model
-      objectReference: {fileID: 0}
-    - target: {fileID: 134716, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_TagString
-      value: Player Model
-      objectReference: {fileID: 0}
-    - target: {fileID: 189546, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_TagString
-      value: Player Model
-      objectReference: {fileID: 0}
-    - target: {fileID: 11443950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: prefab_booster
+      objectReference: {fileID: 2102212760}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: finish
       value: 
-      objectReference: {fileID: 429898, guid: a975cc422cb5e6e4d9f5368b693983d6, type: 2}
+      objectReference: {fileID: 1648447204}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: restartButton
+      value: 
+      objectReference: {fileID: 1735366971}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 1933616268}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_IsPrefabParent: 0
@@ -2803,12 +2731,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f49dbeffcc8de345857dd7226857d11, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &850215050 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11440850, guid: b94daa370d72ea04eb05f3f5f5367cd3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1143490911}
-  m_Script: {fileID: 11500000, guid: c2ca93f0d6b8382458402740239e775e, type: 3}
 --- !u!1 &857157608 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: bba61bc5ecf69e14690ca4beeb1a541c, type: 3}
