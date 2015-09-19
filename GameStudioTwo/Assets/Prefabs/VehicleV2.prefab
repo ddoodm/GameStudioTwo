@@ -2708,7 +2708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: 49
-  button: Socket Left
+  button: SocketLeft
 --- !u!114 &11423918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2721,7 +2721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: 50
-  button: Socket Right
+  button: SocketRight
 --- !u!114 &11440514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2822,7 +2822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: 52
-  button: Socket Back
+  button: SocketBack
 --- !u!114 &11482088
 MonoBehaviour:
   m_ObjectHideFlags: 1
