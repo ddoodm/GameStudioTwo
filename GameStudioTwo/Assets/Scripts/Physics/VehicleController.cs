@@ -26,7 +26,7 @@ public class VehicleController : MonoBehaviour
     /// Controller inputs obtained at frame update
     /// </summary>
 
-    private bool
+    public bool
         boosting;
 
     private float
@@ -49,6 +49,18 @@ public class VehicleController : MonoBehaviour
 
     void Start()
     {
+        HPBar temp;
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("UI");
+        foreach (GameObject uiElement in objects)
+        {
+            temp = uiElement.GetComponent<HPBar>();
+            if (temp != null)
+            {
+                energyBar = temp;
+            }
+
+        }
+
     }
 
     void Update()
@@ -56,32 +68,13 @@ public class VehicleController : MonoBehaviour
 		if (play) 
 		{
 			// Update input forces
-            if (Input.GetKey(KeyCode.W) || Input.GetButton("Fire1"))
+            if (Input.GetKey(KeyCode.W) || Input.GetButton("Fire1") || Input.GetKey(KeyCode.UpArrow))
                 inputLinearForce = 1;
-            else if (Input.GetKey(KeyCode.S) || Input.GetButton("Fire2"))
+            else if (Input.GetKey(KeyCode.S) || Input.GetButton("Fire2") || Input.GetKey(KeyCode.DownArrow))
                 inputLinearForce = -1;
             else
                 inputLinearForce = 0;
 
-            if (Input.GetKeyDown(KeyCode.Q) && energy == maxEnergy)
-            {
-                transform.GetComponent<Rigidbody>().AddForce(-transform.right*strafeSpeed);
-                energy -= maxEnergy;
-            }
-            if (Input.GetKeyDown(KeyCode.E) && energy == maxEnergy)
-            {
-                transform.GetComponent<Rigidbody>().AddForce(transform.right*strafeSpeed);
-                energy -= maxEnergy;
-            }
-
-            if (Input.GetButtonDown("Boost") && energy >= 1)
-            {
-                boosting = true;
-            }
-            else if (Input.GetButtonUp("Boost"))
-            {
-                boosting = false;
-            }
             boost();
             
 			    //inputLinearForce = Input.GetAxis ("Vertical");
@@ -113,7 +106,7 @@ public class VehicleController : MonoBehaviour
 		}
     }
 
-    void boost()
+    private void boost()
     {
         if (energy > 0 && boosting)
         {
@@ -132,4 +125,20 @@ public class VehicleController : MonoBehaviour
         }
 
     }
+
+    public void drainEnergy()
+    {
+        energy -= maxEnergy;
+    }
+
+    public bool checkEnergyFull()
+    {
+        if (energy == maxEnergy)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
 }
