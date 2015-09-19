@@ -14,13 +14,10 @@ public class flipperControls : MonoBehaviour {
 
     public bool canFlip { get; protected set; }
 
-    //HingeJoint hinge;
 
     Rigidbody thisRigidbody, opRigidbody;
     public KeyCode control;
     public string button;
-
-    public Transform visible;
 
 
     public float curveVar;
@@ -32,14 +29,9 @@ public class flipperControls : MonoBehaviour {
         control = transform.parent.GetComponentInParent<socketControl>().control;
         button = transform.parent.GetComponentInParent<socketControl>().button;
 
-        visible = transform.parent.parent.parent.transform;
-
-        //hinge = GetComponent<HingeJoint>();
         thisRigidbody = GetComponent<Rigidbody>();
         opRigidbody = GameObject.FindWithTag("Enemy").GetComponent<Rigidbody>();
 
-        //initialSpring = hinge.spring.spring;
-        //initialSpringTarget = hinge.spring.targetPosition;
 
         canFlip = true;
         curveVar = 1.0f;
@@ -79,51 +71,4 @@ public class flipperControls : MonoBehaviour {
         this.transform.rotation = Quaternion.Euler(new Vector3(0, transform.parent.parent.parent.transform.rotation.eulerAngles.y - initialRot.y, curve.Evaluate(curveVar) * -180));
     }
 
-    /*
-    private void flipHinge ()
-    {
-        JointSpring hingeSpring = hinge.spring;
-        hingeSpring.spring = initialSpring;
-        hingeSpring.targetPosition = 135;
-        hinge.spring = hingeSpring;
-
-        canFlip = false;
-
-        StartCoroutine(unflipHinge(hingeSpring));
-    }
-
-    IEnumerator unflipHinge(JointSpring spring)
-    {
-        yield return new WaitForSeconds(1.0f);
-        spring.spring = 2.0f;
-        spring.targetPosition = initialSpringTarget;
-        hinge.spring = spring;
-
-        yield return new WaitForSeconds(1.0f);
-        spring.spring = initialSpring;
-        hinge.spring = spring;
-
-        // Wait for the flipper to un-flip
-        float rotDelta = 0.0f;
-        do
-        {
-            rotDelta = Mathf.Abs(initialRotation - transform.rotation.z);
-            yield return new WaitForSeconds(0.1f);
-        } while (rotDelta > 10.0f);
-
-        canFlip = true;
-    }
-     * */
-
-    /* Bad idea:
-    void OnCollisionStay(Collision col)
-    {
-        if(col.collider.GetComponent<Rigidbody>())
-            opRigidbody = col.collider.GetComponent<Rigidbody>();
-    }
-
-    void OnCollisionExit(Collision col)
-    {
-        opRigidbody = null;
-    }*/
 }
