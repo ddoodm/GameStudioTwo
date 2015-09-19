@@ -317,9 +317,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flipForce: 800
   proximityRadius: 1.89999998
-  initialRot: {x: 0, y: 0, z: 0, w: 0}
+  initialRot: {x: 0, y: 0, z: 0}
+  flipstate: 0
+  flipSpeed: 1
+  counter: 0
   control: 0
   button: 
+  visible: {fileID: 0}
   curveVar: 0
   curve:
     serializedVersion: 2
@@ -385,6 +389,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: curve.m_Curve.Array.data[2].time
       value: 1.00010061
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Item_Flipper
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

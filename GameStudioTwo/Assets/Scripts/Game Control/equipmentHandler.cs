@@ -22,6 +22,8 @@ public class equipmentHandler : MonoBehaviour {
 			persistentStats playerData = GameObject.FindGameObjectWithTag("Persistent Stats").GetComponent<persistentStats>();
 
 			player.GetComponent<SocketEquipment>().SocketItems(playerData.playerItems, true);
+			
+			player.transform.Rotate (0.0f, 180.0f, 0.0f, Space.World);
 
             GameObject[] playerModel = GameObject.FindGameObjectsWithTag("Player Model");
             foreach (GameObject part in playerModel)

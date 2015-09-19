@@ -52,24 +52,6 @@ public class SocketEquipment : MonoBehaviour {
 					break;
 			}
 		}
-
-		if (game) {
-			socket_left.Rotate(0.0f, 180.0f, 0.0f, Space.World);
-			socket_right.Rotate(0.0f, 180.0f, 0.0f, Space.World);
-			socket_front.Rotate(0.0f, 180.0f, 0.0f, Space.World);
-			socket_back.Rotate(0.0f, 180.0f, 0.0f, Space.World);
-			socket_top.Rotate(0.0f, 180.0f, 0.0f, Space.World);
-		}
-
-		// old code
-		/*
-		if (ItemSocketArray[2] == Equipment.EMPTY){
-			GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), playerModel.transform.position, Quaternion.identity);
-			spike.transform.Rotate(-180.0f, 0.0f, 0.0f, Space.World);
-			spike.transform.localScale -= new Vector3(0.8f, 0.8f, 0.8f);
-			spike.transform.parent = playerModel.transform;
-		}
-		*/
 	}
 
 
@@ -319,7 +301,4 @@ public class SocketEquipment : MonoBehaviour {
 				break;
 		}
 	}
-
-
-
 }
