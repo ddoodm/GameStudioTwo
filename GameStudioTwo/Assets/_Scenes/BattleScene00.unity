@@ -37,6 +37,9 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1079713963}
+--- !u!127 &3
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -65,7 +68,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 112000001, guid: 24c8229c36199f84d8c9e48f35bc5832,
     type: 2}
   m_RuntimeCPUUsage: 25
@@ -941,7 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ForceModuleActive: 0
+  m_AllowActivationOnStandalone: 0
 --- !u!114 &246364177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -959,7 +961,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
-  m_ForceModuleActive: 0
+  m_AllowActivationOnMobileDevice: 0
 --- !u!114 &246364178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,7 +1065,6 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1621,6 +1622,10 @@ Prefab:
     - target: {fileID: 474966, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 121312, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
+      propertyPath: m_TagString
+      value: Weapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
@@ -4614,6 +4619,24 @@ Transform:
   - {fileID: 1263328715}
   m_Father: {fileID: 1711942395}
   m_RootOrder: 3
+--- !u!1 &1508282561 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 121312, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
+  m_PrefabInternal: {fileID: 382873383}
+--- !u!114 &1508282567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1508282561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 1
+  damageMultiplier: 2
+  hp: 5
 --- !u!1001 &1515697550
 Prefab:
   m_ObjectHideFlags: 0
@@ -5031,7 +5054,6 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -5677,6 +5699,10 @@ Prefab:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2001736518}
+    - target: {fileID: 134132, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_IsPrefabParent: 0

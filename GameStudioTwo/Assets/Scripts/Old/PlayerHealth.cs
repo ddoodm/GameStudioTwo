@@ -118,7 +118,48 @@ public class PlayerHealth : MonoBehaviour
         {
             issueDamage(collision);
         }
+
+        if (collision.gameObject.CompareTag("Weapon"))
+        {
+            hazardDamage(collision);
+        }
         
+    }
+
+    private void hazardDamage(Collision collision)
+    {
+        float damageMultiplier = 1.0f;
+        float damage = collision.relativeVelocity.magnitude;
+        float thisDamage = 0;
+
+        //check if hit by weapon
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            weaponStats weapon = contact.otherCollider.gameObject.GetComponent<weaponStats>();
+            weaponStats armor = contact.thisCollider.gameObject.GetComponent<weaponStats>();
+            if (weapon != null)
+            {
+                if (weapon.damageMultiplier > 1)
+                    damageMultiplier = weapon.damageMultiplier;
+            }
+            if (armor != null)
+            {
+                if (armor.damageMultiplier < 1)
+                    damageMultiplier *= armor.damageMultiplier;
+            }
+
+            thisDamage = damage * damageMultiplier * weapon.mass;
+            weapon.issueDamageAttachment(thisDamage);
+
+
+            if (armor != null)
+                armor.issueDamageAttachment(thisDamage);
+
+        }
+
+        this.issueDamage(thisDamage);
+
+        Debug.Log(gameObject.name + " has " + health + " remaining");
     }
 
     private void calculateMass()

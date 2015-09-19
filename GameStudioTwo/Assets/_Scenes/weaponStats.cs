@@ -34,7 +34,9 @@ public class weaponStats : MonoBehaviour {
         Debug.Log("Damage before multiplier: " + damage);
         Debug.Log("Damage multiplier: " + attachmentMultiplier);
         Debug.Log(gameObject.name + " hit for " + damage * attachmentMultiplier);
+        Debug.Log("HP before hit " + hp);
         hp -= damage * attachmentMultiplier;
+        
         Debug.Log("Remaining hp " + hp);
     }
 }
