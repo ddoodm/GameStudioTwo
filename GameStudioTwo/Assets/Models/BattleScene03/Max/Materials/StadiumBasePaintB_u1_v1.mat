@@ -98,7 +98,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: .215000004
+        second: .0480000004
       data:
         first:
           name: _Metallic
@@ -110,7 +110,7 @@ Material:
       data:
         first:
           name: _Parallax
-        second: .0100999996
+        second: .00499999989
       data:
         first:
           name: _OcclusionStrength
@@ -135,4 +135,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .926470578, g: .926470578, b: .926470578, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
