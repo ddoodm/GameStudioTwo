@@ -60,8 +60,7 @@ public class CameraVehicleTrack : MonoBehaviour
         if (Physics.Raycast(r, out hit, camDistance, sceneLayer))
         {
             Vector3 hitPoint = hit.point;
-            hitPoint.y = inPos.y;
-
+            hitPoint.y = 0;
             return hitPoint;
         }
         return inPos;
@@ -73,14 +72,18 @@ public class CameraVehicleTrack : MonoBehaviour
     Vector3 avoidFloor(Vector3 inPos)
     {
         RaycastHit hit;
+        float terrainDistance = 0;
         Ray r = new Ray(inPos, Vector3.down);
-        float terrainDistance = 0.0f;
-        if (Physics.Raycast(r, out hit, 1.0f))
+        LayerMask sceneLayer = LayerMask.GetMask(new string[] { "SceneGeometry" });
+        if (Physics.Raycast(r, out hit, 100.0f, sceneLayer))
             terrainDistance = hit.distance;
 
+        Debug.DrawLine(r.origin, hit.point, Color.yellow);
+
+        // Move the camera to the floor hit position, and offset
         return new Vector3(
             inPos.x,
-            Mathf.Max(terrainDistance + 0.1f, inPos.y),
+            inPos.y - terrainDistance + offset.y,
             inPos.z);
     }
 }
