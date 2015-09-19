@@ -172,7 +172,7 @@ public class BotVehicleController : MonoBehaviour
 		int rand;
 		for (int i = 0; i < 3; i++) 
 		{
-			rand = Random.Range (0, 2);
+			rand = Random.Range (0, 3);
 
 			switch (rand)
 			{
@@ -182,6 +182,13 @@ public class BotVehicleController : MonoBehaviour
 
 				case 1:
 					botItems[i] = Equipment.Item_Flipper;
+					break;
+
+				case 2:
+					if (i == 2)
+						i--;
+					else
+						botItems[i] = Equipment.Item_Booster;
 					break;
 			
 				default:
@@ -197,7 +204,7 @@ public class BotVehicleController : MonoBehaviour
 		
 		GetComponent<SocketEquipment>().SocketItems(botItems, true);
 
-		this.transform.Rotate (0.0f, 180.0f, 0.0f, Space.World);
+		//this.transform.Rotate (0.0f, 180.0f, 0.0f, Space.World);
 	}
 
 

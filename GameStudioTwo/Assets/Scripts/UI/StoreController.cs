@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 
-public enum Equipment { EMPTY, Item_Handle, Item_Spike, Item_Flipper };
+public enum Equipment { EMPTY, Item_Handle, Item_Spike, Item_Flipper, Item_Booster};
 
 public enum Socket { EMPTY, Socket_Left, Socket_Right, Socket_Front, Socket_Back, Socket_Top };
 
@@ -171,10 +171,12 @@ public class StoreController : MonoBehaviour {
 			case "LawnMowerRed":
 			case "LawnMowerGreen":
 			case "LawnMowerBlue":
-				player.GetComponent<Transform>().position = hit.transform.position;
-				hit.transform.parent.gameObject.SetActive(false);
+				//player.GetComponent<Transform>().position = hit.transform.position;
+				//hit.transform.parent.gameObject.SetActive(false);
+				player.GetComponent<Transform>().position = new Vector3(7.5f, 2.6f, 7.5f);
 				
-				GetComponent<Animator>().SetTrigger("FadeOut");
+				//GetComponent<Animator>().SetTrigger("FadeOut");
+				GetComponent<Animator>().SetTrigger("toItemSelection");
 				break;
 
 			case "Item_Handle":
@@ -187,6 +189,10 @@ public class StoreController : MonoBehaviour {
 				
 			case "Item_Flipper":
 				selectedEquipment = Equipment.Item_Flipper;
+				break;
+
+			case "Item_Booster":
+				selectedEquipment = Equipment.Item_Booster;
 				break;
 
 			case "Socket_Left":
@@ -225,6 +231,10 @@ public class StoreController : MonoBehaviour {
 			selectedSocket = Socket.EMPTY;
 		}
 		if (selectedEquipment == Equipment.Item_Flipper && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Back)) {
+			selectedSocket = Socket.EMPTY;
+		}
+
+		if (selectedEquipment == Equipment.Item_Booster && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Front)) {
 			selectedSocket = Socket.EMPTY;
 		}
 
