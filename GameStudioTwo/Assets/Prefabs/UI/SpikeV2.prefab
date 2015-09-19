@@ -45,7 +45,7 @@ GameObject:
   - 95: {fileID: 9536320}
   m_Layer: 8
   m_Name: SpikeV2
-  m_TagString: Player Model
+  m_TagString: Item_Spike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,7 +326,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
-      value: Player Model
+      value: Item_Spike
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
