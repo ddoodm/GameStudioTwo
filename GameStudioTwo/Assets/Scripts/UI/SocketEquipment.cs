@@ -8,6 +8,7 @@ public class SocketEquipment : MonoBehaviour {
 	public Transform prefab_handle;
 	public Transform prefab_spike;
 	public Transform prefab_flipper;
+	public Transform prefab_booster;
 	
 	public Transform socket_left;
 	public Transform socket_right;
@@ -46,6 +47,10 @@ public class SocketEquipment : MonoBehaviour {
 					
 				case Equipment.Item_Flipper:
 					SpawnFlipper(i);
+					break;
+
+				case Equipment.Item_Booster:
+					SpawnBooster(i);
 					break;
 
 				default:
@@ -238,7 +243,7 @@ public class SocketEquipment : MonoBehaviour {
                 temp = flipper_left.GetComponent<flipperControls>();
                 if (temp != null)
                     temp.initialRot = new Vector3(0, 0, 0);
-				flipper_left.Rotate(0.0f, 0.0f, 00.0f, Space.World);
+				flipper_left.Rotate(0.0f, 0.0f, 0.0f, Space.World);
 				flipper_left.parent = socket_left;
 				socket_left.transform.localPosition = new Vector3(0.0f, -0.678f, 0.3f);
 
@@ -301,4 +306,72 @@ public class SocketEquipment : MonoBehaviour {
 				break;
 		}
 	}
+
+
+
+	private void SpawnBooster(int socket){
+		switch (socket) {
+			// Left Socket
+		case 0:
+			// Deactivate ball object
+			foreach (Transform child in socket_left)
+			{
+				child.gameObject.SetActive(false);
+			}
+			
+			brace_left.gameObject.SetActive(true);
+			
+			Transform booster_left = (Transform)Instantiate(prefab_booster, socket_left.position, Quaternion.identity);
+			booster_left.Rotate(0.0f, 90.0f, 0.0f, Space.World);
+			booster_left.parent = socket_left;
+			socket_left.transform.localPosition = new Vector3(0.0f, -0.85f, 0.1f);
+			
+			break;
+			
+			// Right Socket
+		case 1:
+			// Deactivate ball object
+			foreach (Transform child in socket_right)
+			{
+				child.gameObject.SetActive(false);
+			}
+			
+			brace_right.gameObject.SetActive(true);
+			
+			Transform booster_right = (Transform)Instantiate(prefab_booster, socket_right.position, Quaternion.identity);
+			booster_right.Rotate(0.0f, -90.0f, 0.0f, Space.World);
+			booster_right.parent = socket_right;
+			socket_right.transform.localPosition = new Vector3(0.0f, 0.85f, 0.1f);
+			break;
+			
+			// Front Socket
+		case 2:
+			Debug.Log("Booster in wrong position");
+			break;
+
+			// Back Socket
+		case 3:
+			// Deactivate ball object
+			foreach (Transform child in socket_back)
+			{
+				child.gameObject.SetActive(false);
+			}
+			
+			Transform booster_back = (Transform)Instantiate(prefab_booster, socket_back.position, Quaternion.identity);
+			booster_back.Rotate(0.0f, 0.0f, 0.0f, Space.World);
+			booster_back.parent = socket_back;
+			socket_back.transform.localPosition = new Vector3(-0.775f, 0.0f, 0.15f);
+			
+			break;
+			
+			// Top Socket
+		case 4:	
+			Debug.Log("Booster in wrong position");
+			break;
+			
+		default:
+			break;
+		}
+	}
+
 }

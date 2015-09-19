@@ -30,6 +30,10 @@ TagManager:
   - Socket_Top
   - StoreUI
   - Socket_Ball
+  - Brace_Right
+  - Brace_Left
+  - Brace_Front
+  - Item_Booster
   layers:
   - Default
   - TransparentFX
