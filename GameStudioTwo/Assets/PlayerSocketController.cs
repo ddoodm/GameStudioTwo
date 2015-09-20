@@ -1,20 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerSocketController : MonoBehaviour {
-
+public class PlayerSocketController : MonoBehaviour
+{
     public KeyCode control;
     public string button;
 
     private Weapon childWeapon;
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         try
         {
-            if ((Input.GetButtonUp(button) || Input.GetKeyUp(control)))
+            if ((Input.GetButtonDown(button) || Input.GetKeyDown(control)))
                 UseChildWeapon();
+            if ((Input.GetButtonUp(button) || Input.GetKeyUp(control)))
+                EndUseChildWeapon();
         }
         catch (System.Exception e)
         {
@@ -22,10 +24,10 @@ public class PlayerSocketController : MonoBehaviour {
         }
     }
 
-    private void UseChildWeapon()
+    private Weapon GetChildWeapon()
     {
         if (transform.childCount < 1)
-            return;
+            return null;
         if (transform.childCount > 1)
             throw new System.Exception(this.name + " must have ONE child that implements the Weapon interface.");
 
@@ -33,6 +35,22 @@ public class PlayerSocketController : MonoBehaviour {
         if (childWeapon == null)
             throw new System.Exception(this.name + "'s child must contain a component that implements the Weapon interface.");
 
-        childWeapon.Use();
+        return childWeapon;
+    }
+
+    private void UseChildWeapon()
+    {
+        childWeapon = GetChildWeapon();
+
+        if(childWeapon != null)
+            childWeapon.Use();
+    }
+
+    private void EndUseChildWeapon()
+    {
+        childWeapon = GetChildWeapon();
+
+        if(childWeapon != null)
+            childWeapon.EndUse();
     }
 }
