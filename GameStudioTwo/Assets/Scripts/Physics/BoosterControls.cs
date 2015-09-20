@@ -32,8 +32,6 @@ public class BoosterControls : MonoBehaviour {
             case KeyCode.Alpha3: face = 3; break; //front
             case KeyCode.Alpha4: face = 4; break; //back
         }
-
-
 	
 	}
 	
@@ -88,8 +86,27 @@ public class BoosterControls : MonoBehaviour {
 
             }
         }
-        this.GetComponentInChildren<ParticleEmitter>().emit = thrust;
+        thrustParticles();
 	}
+
+    private void thrustParticles()
+    {
+        if (thrust)
+        {
+            this.GetComponentInChildren<ParticleEmitter>().minSize = 0.9f;
+            this.GetComponentInChildren<ParticleEmitter>().maxSize = 0.95f;
+            this.GetComponentInChildren<ParticleAnimator>().doesAnimateColor = true;
+        }
+        else
+        {
+            this.GetComponentInChildren<ParticleEmitter>().minSize = 0.5f;
+            this.GetComponentInChildren<ParticleEmitter>().maxSize = 0.55f;
+            this.GetComponentInChildren<ParticleAnimator>().doesAnimateColor = false;
+        }
+
+    }
+
+
 
     IEnumerator strafeParticles()
     {
