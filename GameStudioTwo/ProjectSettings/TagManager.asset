@@ -35,6 +35,8 @@ TagManager:
   - Brace_Front
   - Item_Booster
   - UI
+  - Topdown Camera
+  - Minimap Camera
   layers:
   - Default
   - TransparentFX
