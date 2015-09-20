@@ -178,9 +178,6 @@ public class StoreController : MonoBehaviour {
 				//GetComponent<Animator>().SetTrigger("FadeOut");
 				GetComponent<Animator>().SetTrigger("toItemSelection");
 				break;
-			case "Phone_Model":
-				GetComponent<Animator>().SetTrigger("toStoreSelection");
-				break;
 
 			case "Item_Handle":
 				selectedEquipment = Equipment.Item_Handle;
