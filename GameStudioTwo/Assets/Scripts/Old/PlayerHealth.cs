@@ -10,8 +10,15 @@ public class PlayerHealth : MonoBehaviour
     public Text finish;
     public Button restartButton;
 	public Image gameOverScreen;
+    public Text flippedCounterText;
+
+    private int flippedCounter;
+
+    public AnimationCurve flippedCounterSize;
+    public float flippedCounterSizeVar;
 
     private bool analyticsSent = false;
+    private bool flipCoroutineStarted = false;
 
     public float
         maxHealth = 50.0f,
@@ -33,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        flippedCounterSizeVar = 1.0f;
         healthBar.maxValue = maxHealth;
         health = maxHealth;
         calculateMass();
@@ -41,20 +49,28 @@ public class PlayerHealth : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        flippedCounterSizeVar += Time.deltaTime;
         if (finish == null)
             return;
 
         calculateMass();
         if (health <= 0)
             gameOver();
-        if (Vector3.Dot(transform.up, Vector3.up) < 0)
+        if (Vector3.Dot(transform.up, Vector3.up) < 0 && flipCoroutineStarted == false)
         {
+            flipCoroutineStarted = true;
             StartCoroutine(checkFlipped());
         }
-        else
+        else if(Vector3.Dot(transform.up,Vector3.up) >= 0)
         {
-            StopCoroutine("checkFlipped");
+            flippedCounterText.text = "";
+            flipCoroutineStarted = false;
+            StopCoroutine(checkFlipped());
         }
+        float temp = (flippedCounterSize.Evaluate(flippedCounterSizeVar) * 300);
+        Debug.Log(Vector3.Dot(transform.up,Vector3.up));
+        flippedCounterText.fontSize = (int)temp;
+
 	}
 
     public void issueDamage(Collision collision)
@@ -219,11 +235,27 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator checkFlipped()
     {
-        yield return new WaitForSeconds(5);
+        flippedCounterSizeVar = 0;
+        flippedCounterText.text = "5";
+        yield return new WaitForSeconds(1);
+        flippedCounterSizeVar = 0;
+        flippedCounterText.text = "4";
+        yield return new WaitForSeconds(1);
+        flippedCounterSizeVar = 0;
+        flippedCounterText.text = "3";
+        yield return new WaitForSeconds(1);
+        flippedCounterSizeVar = 0;
+        flippedCounterText.text = "2";
+        yield return new WaitForSeconds(1);
+        flippedCounterSizeVar = 0;
+        flippedCounterText.text = "1";
+        yield return new WaitForSeconds(1);
+        flippedCounterText.text = "";
         if (Vector3.Dot(transform.up, Vector3.up) < 0)
+        {
             gameOver();
-        else
-            StopCoroutine("checkFlipped");
+        }
+        StopCoroutine("checkFlipped");
     }
 
 }

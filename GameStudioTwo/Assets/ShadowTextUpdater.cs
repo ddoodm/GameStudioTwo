@@ -20,5 +20,6 @@ public class ShadowTextUpdater : MonoBehaviour
 	void Update ()
     {
         thisText.text = parentText.text;
+        thisText.fontSize = parentText.fontSize;
 	}
 }
