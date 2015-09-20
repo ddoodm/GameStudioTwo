@@ -7,6 +7,36 @@ TagManager:
   - Main Player
   - Store UI Models
   - Player Model
+  - Enemy
+  - Weapon
+  - Store Camera
+  - LawnMowerBlue
+  - LawnMowerRed
+  - LawnMowerGreen
+  - LawnMowerSmall
+  - LawnMowerLarge
+  - LawnMower
+  - Item_Spike
+  - Engine Model
+  - Player Camera
+  - Persistent Stats
+  - Player Engine
+  - Item_Flipper
+  - Item_Handle
+  - Socket_Left
+  - Socket_Right
+  - Socket_Front
+  - Socket_Back
+  - Socket_Top
+  - StoreUI
+  - Socket_Ball
+  - Brace_Right
+  - Brace_Left
+  - Brace_Front
+  - Item_Booster
+  - UI
+  - Topdown Camera
+  - Minimap Camera
   layers:
   - Default
   - TransparentFX
@@ -16,9 +46,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Player
+  - SceneGeometry
+  - Terrain
   - 
   - 
   - 
