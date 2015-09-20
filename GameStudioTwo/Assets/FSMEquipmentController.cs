@@ -6,11 +6,17 @@ public class FSMEquipmentController : MonoBehaviour
 {
     private SocketEquipment socketEquipment;
     private Equipment[] equips;
+    private GameObject player;
+
+    public float
+        flipperActivationRadius = 8.0f,
+        flipperCooldownSeconds = 2.0f;
 
 	// Use this for initialization
 	void Start ()
     {
         socketEquipment = GetComponent<SocketEquipment>();
+        player = GameObject.FindWithTag("Player");
 	}
 	
 	// Update is called once per frame
@@ -31,11 +37,20 @@ public class FSMEquipmentController : MonoBehaviour
         }
     }
 
+    private float flipperCooldownTimer = 0.0f;
     private void WeaponLogic_Flipper(SocketLocation socket)
     {
-        Weapon flipper = socketEquipment.GetWeaponInSocket(socket);
+        flipperCooldownTimer -= Time.deltaTime;
 
-        if ((int)Time.time % 2 == 0)
+        Weapon flipper = socketEquipment.GetWeaponInSocket(socket);
+        Transform flipperTransform = flipper.GetGameObject().transform;
+
+        float distanceToPlayer = (this.transform.position - player.transform.position).magnitude;
+
+        if (distanceToPlayer <= flipperActivationRadius && flipperCooldownTimer <= 0.0f)
+        {
             flipper.Use();
+            flipperCooldownTimer = flipperCooldownSeconds;
+        }
     }
 }

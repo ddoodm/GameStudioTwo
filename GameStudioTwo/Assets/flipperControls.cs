@@ -49,8 +49,14 @@ public class flipperControls : MonoBehaviour, Weapon {
             Flip();
     }
 
+    public GameObject GetGameObject()
+    {
+        return this.gameObject;
+    }
+
     private void Flip()
     {
+        canFlip = false;
         animationTime = 0;
 
         // The target may not have been collided with
@@ -77,7 +83,12 @@ public class flipperControls : MonoBehaviour, Weapon {
     private void DoAnimation()
     {
         animationTime += Time.deltaTime;
-        this.transform.rotation = Quaternion.Euler(new Vector3(0, transform.parent.parent.parent.transform.rotation.eulerAngles.y - initialRot.y, curve.Evaluate(animationTime) * -180));
+        float animCurveValue = curve.Evaluate(animationTime);
+        this.transform.rotation = Quaternion.Euler(new Vector3(0, transform.parent.parent.parent.transform.rotation.eulerAngles.y - initialRot.y, animCurveValue * -180));
+
+        // The player may flip once the animation is reset
+        if (animationTime >= 1.0f)
+            canFlip = true;
     }
 
     private void DoAudio()
