@@ -69,6 +69,11 @@ public class flipperControls : MonoBehaviour {
             
         }
         this.transform.rotation = Quaternion.Euler(new Vector3(0, transform.parent.parent.parent.transform.rotation.eulerAngles.y - initialRot.y, curve.Evaluate(curveVar) * -180));
+
+        if (curveVar >= 0 && GetComponent<AudioSource>().isPlaying == false && curveVar <= 1)
+        {
+            GetComponent<AudioSource>().Play();
+        }
     }
 
 }
