@@ -1968,10 +1968,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: flippedCounterSize.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalPosition.x
       value: -21.1399994
@@ -2004,10 +2000,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11453478, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: energyBar
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: healthBar
       value: 
@@ -2024,38 +2016,6 @@ Prefab:
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 1933616268}
-    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: flippedCounterSize.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: flippedCounterSize.m_Curve.Array.data[1].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: flippedCounterSize.m_Curve.Array.data[1].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: flippedCounterSize.m_Curve.Array.data[1].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: flippedCounterSize.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: flippedCounterSize.m_Curve.Array.data[0].inSlope
-      value: -1.90436912
-      objectReference: {fileID: 0}
-    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: flippedCounterSize.m_Curve.Array.data[0].outSlope
-      value: -1.90436912
-      objectReference: {fileID: 0}
-    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: flippedCounterSize.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: flippedCounterText
       value: 
@@ -6003,10 +5963,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11473864, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
-      propertyPath: flippedCounterSize.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 490412, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
       propertyPath: m_LocalPosition.x
       value: -17.7999992
@@ -6039,6 +5995,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11435424, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 56022616}
     - target: {fileID: 11473864, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
       propertyPath: finish
       value: 
@@ -6051,34 +6011,10 @@ Prefab:
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 1933616268}
-    - target: {fileID: 11435424, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
-      propertyPath: playerTransform
-      value: 
-      objectReference: {fileID: 56022616}
     - target: {fileID: 11473864, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
       propertyPath: flippedCounterText
       value: 
       objectReference: {fileID: 217859825}
-    - target: {fileID: 11473864, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 2102212760}
-    - target: {fileID: 11473864, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
-      propertyPath: flippedCounterSize.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11473864, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
-      propertyPath: flippedCounterSize.m_Curve.Array.data[0].inSlope
-      value: -1.90436912
-      objectReference: {fileID: 0}
-    - target: {fileID: 11473864, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
-      propertyPath: flippedCounterSize.m_Curve.Array.data[0].outSlope
-      value: -1.90436912
-      objectReference: {fileID: 0}
-    - target: {fileID: 11473864, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
-      propertyPath: flippedCounterSize.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_IsPrefabParent: 0
