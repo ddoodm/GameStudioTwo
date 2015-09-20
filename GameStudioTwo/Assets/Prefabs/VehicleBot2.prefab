@@ -577,6 +577,7 @@ GameObject:
   - 114: {fileID: 11435424}
   - 114: {fileID: 11473864}
   - 114: {fileID: 11438798}
+  - 114: {fileID: 11463170}
   m_Layer: 0
   m_Name: VehicleBot2
   m_TagString: Enemy
@@ -3026,6 +3027,17 @@ MonoBehaviour:
   mass: .200000003
   damageMultiplier: .850000024
   hp: 50
+--- !u!114 &11463170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d3130299d9d7b45aaef0b26691e545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11467964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3134,7 +3146,6 @@ MonoBehaviour:
   maxContactTime: .5
   maxReverseTime: 2
   steeringMethod: 0
-  botItems: 
 --- !u!135 &13512494
 SphereCollider:
   m_ObjectHideFlags: 1

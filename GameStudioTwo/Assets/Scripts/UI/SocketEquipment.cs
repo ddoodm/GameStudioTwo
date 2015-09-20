@@ -21,19 +21,16 @@ public class SocketEquipment : MonoBehaviour {
 	public Transform brace_right;
 	public Transform brace_front;
 
+    public Equipment[] equipment { get; private set; }
+
     private flipperControls temp;
-
-
-	public void Start() {
-
-	}
-
 
 	public void SocketItems(Equipment[] equipmentArray, bool game){
 		// Remove all items before putting more on
 		RemoveItems();
 		ResetSockets();
 
+        this.equipment = equipmentArray;
 
 		for (int i = 0; i < 5; i++) {
 			switch (equipmentArray [i]) {
@@ -101,9 +98,6 @@ public class SocketEquipment : MonoBehaviour {
 		socket_back.localPosition = new Vector3 (-0.85f, 0.0f, 0.1f);
 		socket_top.localPosition = new Vector3 (0.0f, 0.0f, 0.7f);
 	}
-
-
-
 
 	private void SpawnHandle(int socket){
 		switch (socket) {
