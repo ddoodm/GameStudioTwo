@@ -19,7 +19,7 @@ public class BotVehicleController : MonoBehaviour
         targetSpeed = 1.0f;
 
     public float
-        targetThreshRadius = 0.1f;
+        targetThreshRadius = 1.0f;
 
     /// <summary>
     /// Controller inputs obtained at frame update
@@ -33,12 +33,6 @@ public class BotVehicleController : MonoBehaviour
     /// </summary>
     private float contactTimer, reverseTimer;
     public float maxContactTime = 0.8f, maxReverseTime = 1.0f;
-
-    /// <summary>
-    /// The transform that the robot should follow
-    /// </summary>
-    //public Transform target;
-    //public Rigidbody targetRigidbody;
 
     private Vector3 targetWaypoint;
 
@@ -89,35 +83,12 @@ public class BotVehicleController : MonoBehaviour
         controlRamming();
 
         // Robert's modifications, modified
-        if (path.corners.Length == 2 && Vector3.Dot(targDir, transform.forward) < 0)
+        // (If the waypoint is behind the bot, reverse [don't try to ram walls!])
+        if (/*path.corners.Length == 2 &&*/ Vector3.Dot(targDir, transform.forward) < 0)
         {
-            inputLinearForce = 1.1f;
+            inputLinearForce = -1.1f;
             inputSteering = 40.0f;
         }
-
-        /*
-        Vector3 targetPosition;
-
-        switch (steeringMethod)
-        {
-            case SteeringMethod.PURSUE:
-                // Add target velocity to persue
-                targetPosition = target.position + targetRigidbody.velocity;
-                break;
-            case SteeringMethod.ARRIVE: default:
-                targetPosition = target.position;
-                break;
-        }        
-
-        // Use the NavMesh to generate an array of waypoints
-        NavMesh.CalculatePath(transform.position, targetPosition, NavMesh.AllAreas, path);
-
-        // The target is the first waypoint, or the position of the target
-        Vector3 targetWaypt = path.corners.Length>1? path.corners[1] : targetPosition;
-        Debug.DrawLine(targetWaypt, targetWaypt + Vector3.up * 10.0f, Color.green);
-
-        setSteeringTo(targetWaypt);
-        */
     }
 
     public void setTargetWaypoint(Vector3 targetWaypoint)
