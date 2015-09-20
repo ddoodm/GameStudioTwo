@@ -35,7 +35,7 @@ public class FSMEquipmentController : MonoBehaviour
     {
         Weapon flipper = socketEquipment.GetWeaponInSocket(socket);
 
-        if (Time.time % 2.0f == 0)
+        if ((int)Time.time % 2 == 0)
             flipper.Use();
     }
 }

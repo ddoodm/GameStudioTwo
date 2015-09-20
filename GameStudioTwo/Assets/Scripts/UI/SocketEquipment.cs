@@ -46,6 +46,13 @@ public class SocketEquipment : MonoBehaviour {
         return equipmentRefs[(int)socket];
     }
 
+    private void AddWeaponReference(Transform itemTrans, SocketLocation socket)
+    {
+        Weapon weapon = itemTrans.GetComponent<Weapon>();
+        if (weapon == null) throw new System.Exception(itemTrans.name + " has no component that implements Weapon.");
+        equipmentRefs[(int)socket] = weapon;
+    }
+
 	public void SocketItems(Equipment[] equipmentArray, bool game){
 		// Remove all items before putting more on
 		RemoveItems();
@@ -265,7 +272,7 @@ public class SocketEquipment : MonoBehaviour {
 				socket_left.transform.localPosition = new Vector3(0.0f, -0.678f, 0.3f);
 
                 // Add a reference to the array of references
-                equipmentRefs[(int)socket] = flipper_left.GetComponent<Weapon>();
+                AddWeaponReference(flipper_left, socket);
 
                 break;
 				
@@ -290,7 +297,7 @@ public class SocketEquipment : MonoBehaviour {
 				socket_right.transform.localPosition = new Vector3(0.0f, 0.678f, 0.3f);
 
                 // Add a reference to the array of references
-                equipmentRefs[(int)socket] = flipper_right.GetComponent<Weapon>();
+                AddWeaponReference(flipper_right, socket);
 
                 break;
 				
@@ -315,7 +322,7 @@ public class SocketEquipment : MonoBehaviour {
 				socket_front.transform.localPosition = new Vector3(1.23f, 0.0f, 0.185f);
 
                 // Add a reference to the array of references
-                equipmentRefs[(int)socket] = flipper_front.GetComponent<Weapon>();
+                AddWeaponReference(flipper_front, socket);
 
                 break;
 				
