@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum SocketLocation
+{
+    LEFT = 0, RIGHT, FRONT, BACK, TOP, NONE
+}
+
 public class SocketEquipment : MonoBehaviour {
 	
 	public Transform player;
@@ -16,38 +21,56 @@ public class SocketEquipment : MonoBehaviour {
 	public Transform socket_back;
 	public Transform socket_top;
 
-
 	public Transform brace_left;
 	public Transform brace_right;
 	public Transform brace_front;
 
-    public Equipment[] equipment { get; private set; }
+    /// <summary>
+    /// Each index corresponds to a SocketPosition.
+    /// Equipment denotes the type that is held by a socket, not the weapon itself.
+    /// </summary>
+    public Equipment[] equipmentTypes { get; private set; }
+
+    /// <summary>
+    /// Each index corresponds to a SocketPosition.
+    /// The actual references to the weapons contained by the sockets.
+    /// NOTE: This array stores only equipment that implements the Weapon interface
+    /// (eg, a flipper)
+    /// </summary>
+    public Weapon[] equipmentRefs { get; private set; }
 
     private flipperControls temp;
+
+    public Weapon GetWeaponInSocket(SocketLocation socket)
+    {
+        return equipmentRefs[(int)socket];
+    }
 
 	public void SocketItems(Equipment[] equipmentArray, bool game){
 		// Remove all items before putting more on
 		RemoveItems();
 		ResetSockets();
 
-        this.equipment = equipmentArray;
+        this.equipmentTypes = equipmentArray;
+        this.equipmentRefs = new Weapon[equipmentTypes.Length];
 
 		for (int i = 0; i < 5; i++) {
-			switch (equipmentArray [i]) {
+            SocketLocation iLocation = (SocketLocation)i;
+            switch (equipmentArray [i]) {
 				case Equipment.Item_Handle:
-					SpawnHandle(i);
+					SpawnHandle(iLocation);
 					break;
 					
 				case Equipment.Item_Spike:
-					SpawnSpike(i);
+					SpawnSpike(iLocation);
 					break;
 					
 				case Equipment.Item_Flipper:
-					SpawnFlipper(i);
+					SpawnFlipper(iLocation);
 					break;
 
 				case Equipment.Item_Booster:
-					SpawnBooster(i);
+					SpawnBooster(iLocation);
 					break;
 
 				default:
@@ -99,25 +122,25 @@ public class SocketEquipment : MonoBehaviour {
 		socket_top.localPosition = new Vector3 (0.0f, 0.0f, 0.7f);
 	}
 
-	private void SpawnHandle(int socket){
+	private void SpawnHandle(SocketLocation socket){
 		switch (socket) {
 			// Left Socket
-			case 0:
+			case SocketLocation.LEFT:
 				Debug.Log("Handle in wrong position");
 				break;
 				
 			// Right Socket
-			case 1:
+			case SocketLocation.RIGHT:
 				Debug.Log("Handle in wrong position");
 				break;
 				
 			// Front Socket
-			case 2:
+			case SocketLocation.FRONT:
 				Debug.Log("Handle in wrong position");
 				break;
 
 			// Back Socket
-			case 3:
+			case SocketLocation.BACK:
 				// Deactivate ball object
 				foreach (Transform child in socket_back)
 			{
@@ -132,7 +155,7 @@ public class SocketEquipment : MonoBehaviour {
 				break;
 			
 			// Top Socket
-			case 4:			
+			case SocketLocation.TOP:			
 				Debug.Log("Handle in wrong position");
 				break;
 					
@@ -141,10 +164,10 @@ public class SocketEquipment : MonoBehaviour {
 		}
 	}
 
-	private void SpawnSpike(int socket){
+	private void SpawnSpike(SocketLocation socket){
 		switch (socket) {
 			// Left Socket
-			case 0:
+			case SocketLocation.LEFT:
 				// Deactivate ball object
 				foreach (Transform child in socket_left)
 				{
@@ -161,7 +184,7 @@ public class SocketEquipment : MonoBehaviour {
 				break;
 				
 			// Right Socket
-			case 1:
+			case SocketLocation.RIGHT:
 				// Deactivate ball object
 				foreach (Transform child in socket_right)
 				{
@@ -178,7 +201,7 @@ public class SocketEquipment : MonoBehaviour {
 				break;
 				
 			// Front Socket
-			case 2:
+			case SocketLocation.FRONT:
 				// Deactivate ball object
 				foreach (Transform child in socket_front)
 				{
@@ -196,7 +219,7 @@ public class SocketEquipment : MonoBehaviour {
 				break;
 				
 			// Back Socket
-			case 3:
+			case SocketLocation.BACK:
 				// Deactivate ball object
 				foreach (Transform child in socket_back)
 				{
@@ -211,7 +234,7 @@ public class SocketEquipment : MonoBehaviour {
 				break;
 				
 			// Top Socket
-			case 4:
+			case SocketLocation.TOP:
 				Debug.Log("Spike in wrong position");
 
 				break;
@@ -221,10 +244,10 @@ public class SocketEquipment : MonoBehaviour {
 		}
 	}
 
-	private void SpawnFlipper(int socket){
+	private void SpawnFlipper(SocketLocation socket){
 		switch (socket) {
 			// Left Socket
-			case 0:
+			case SocketLocation.LEFT:
 				// Deactivate ball object
 				foreach (Transform child in socket_left)
 				{
@@ -241,10 +264,13 @@ public class SocketEquipment : MonoBehaviour {
 				flipper_left.parent = socket_left;
 				socket_left.transform.localPosition = new Vector3(0.0f, -0.678f, 0.3f);
 
-				break;
+                // Add a reference to the array of references
+                equipmentRefs[(int)socket] = flipper_left.GetComponent<Weapon>();
+
+                break;
 				
 			// Right Socket
-			case 1:
+			case SocketLocation.RIGHT:
 				// Deactivate ball object
 				foreach (Transform child in socket_right)
 				{
@@ -262,10 +288,14 @@ public class SocketEquipment : MonoBehaviour {
 				flipper_right.Rotate(0.0f, 180.0f, 0.0f, Space.World);
 				flipper_right.parent = socket_right;
 				socket_right.transform.localPosition = new Vector3(0.0f, 0.678f, 0.3f);
-				break;
+
+                // Add a reference to the array of references
+                equipmentRefs[(int)socket] = flipper_right.GetComponent<Weapon>();
+
+                break;
 				
 			// Front Socket
-			case 2:
+			case SocketLocation.FRONT:
 				// Deactivate ball object
 				foreach (Transform child in socket_front)
 				{
@@ -284,15 +314,18 @@ public class SocketEquipment : MonoBehaviour {
 				flipper_front.parent = socket_front;
 				socket_front.transform.localPosition = new Vector3(1.23f, 0.0f, 0.185f);
 
-				break;
+                // Add a reference to the array of references
+                equipmentRefs[(int)socket] = flipper_front.GetComponent<Weapon>();
+
+                break;
 				
 			// Back Socket
-			case 3:
+			case SocketLocation.BACK:
 				Debug.Log("Flipper in wrong position");
 				break;
 				
 			// Top Socket
-			case 4:	
+			case SocketLocation.TOP:	
 				Debug.Log("Flipper in wrong position");
 				break;
 				
@@ -301,12 +334,10 @@ public class SocketEquipment : MonoBehaviour {
 		}
 	}
 
-
-
-	private void SpawnBooster(int socket){
+	private void SpawnBooster(SocketLocation socket){
 		switch (socket) {
 			// Left Socket
-		case 0:
+		case SocketLocation.LEFT:
 			// Deactivate ball object
 			foreach (Transform child in socket_left)
 			{
@@ -319,11 +350,11 @@ public class SocketEquipment : MonoBehaviour {
 			booster_left.Rotate(0.0f, 90.0f, 0.0f, Space.World);
 			booster_left.parent = socket_left;
 			socket_left.transform.localPosition = new Vector3(0.0f, -0.85f, 0.1f);
-			
-			break;
+
+                break;
 			
 			// Right Socket
-		case 1:
+		case SocketLocation.RIGHT:
 			// Deactivate ball object
 			foreach (Transform child in socket_right)
 			{
@@ -336,15 +367,16 @@ public class SocketEquipment : MonoBehaviour {
 			booster_right.Rotate(0.0f, -90.0f, 0.0f, Space.World);
 			booster_right.parent = socket_right;
 			socket_right.transform.localPosition = new Vector3(0.0f, 0.85f, 0.1f);
-			break;
+
+                break;
 			
 			// Front Socket
-		case 2:
+		case SocketLocation.FRONT:
 			Debug.Log("Booster in wrong position");
 			break;
 
 			// Back Socket
-		case 3:
+		case SocketLocation.BACK:
 			// Deactivate ball object
 			foreach (Transform child in socket_back)
 			{
@@ -355,11 +387,11 @@ public class SocketEquipment : MonoBehaviour {
 			booster_back.Rotate(0.0f, 0.0f, 0.0f, Space.World);
 			booster_back.parent = socket_back;
 			socket_back.transform.localPosition = new Vector3(-0.775f, 0.0f, 0.15f);
-			
-			break;
+
+                break;
 			
 			// Top Socket
-		case 4:	
+		case SocketLocation.TOP:	
 			Debug.Log("Booster in wrong position");
 			break;
 			

@@ -578,6 +578,7 @@ GameObject:
   - 114: {fileID: 11473864}
   - 114: {fileID: 11438798}
   - 114: {fileID: 11463170}
+  - 114: {fileID: 11467896}
   m_Layer: 0
   m_Name: VehicleBot2
   m_TagString: Enemy
@@ -1574,7 +1575,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.7999992, y: .899999976, z: -18.9400005}
+  m_LocalPosition: {x: -17.7999992, y: .899999976, z: -11.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488924}
@@ -2870,7 +2871,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111228}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
   m_Name: 
@@ -2904,6 +2905,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2958,7 +2965,7 @@ MonoBehaviour:
   initialRot: {x: 0, y: 0, z: 0}
   control: 0
   button: 
-  curveVar: 0
+  animationTime: 0
   curve:
     serializedVersion: 2
     m_Curve: []
@@ -3006,7 +3013,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196248}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
   m_Name: 
@@ -3038,6 +3045,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d3130299d9d7b45aaef0b26691e545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11467896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dca2bc69242a72478854eac645b8ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11467964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3063,6 +3081,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: .839215696, b: .0588235296, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3084,6 +3108,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: .917647064, g: .0313725509, b: .0313725509, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3122,6 +3152,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
+  top: {fileID: 0}
+  main: {fileID: 0}
+  mini: {fileID: 0}
+  state: 0
 --- !u!114 &11475222
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -393,6 +393,7 @@ GameObject:
   - 65: {fileID: 6563732}
   - 114: {fileID: 11484472}
   - 114: {fileID: 11443950}
+  - 114: {fileID: 11479978}
   m_Layer: 2
   m_Name: VehicleV2
   m_TagString: Player
@@ -1448,8 +1449,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150718}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.1399994, y: 1.06400001, z: 14.71}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
+  m_LocalPosition: {x: .0979999974, y: .666000009, z: 21.7000008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 443854}
@@ -1524,6 +1525,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1557,6 +1559,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -2663,7 +2666,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100990}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
   m_Name: 
@@ -2695,7 +2698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: 51
-  button: Boost
+  button: SocketFront
 --- !u!114 &11423024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2776,7 +2779,7 @@ MonoBehaviour:
   initialRot: {x: 0, y: 0, z: 0}
   control: 0
   button: 
-  curveVar: 0
+  animationTime: 0
   curve:
     serializedVersion: 2
     m_Curve: []
@@ -2820,13 +2823,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   control: 52
   button: SocketBack
+--- !u!114 &11479978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9386a27960aef404f9db0669ae2621ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: 0300000000000000000000000400000000000000
 --- !u!114 &11482088
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134716}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
   m_Name: 

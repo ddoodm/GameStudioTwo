@@ -22,13 +22,12 @@ public class VehicleController : MonoBehaviour
         strafeSpeed,
         steeringAngle = 20.0f;
 
-    /// <summary>
-    /// Controller inputs obtained at frame update
-    /// </summary>
-
     public bool
         boosting;
 
+    /// <summary>
+    /// Controller inputs obtained at frame update
+    /// </summary>
     private float
         inputLinearForce,
         inputSteering;
@@ -58,9 +57,7 @@ public class VehicleController : MonoBehaviour
             {
                 energyBar = temp;
             }
-
         }
-
     }
 
     void Update()
@@ -94,10 +91,6 @@ public class VehicleController : MonoBehaviour
 
 			float steerAngle = inputSteering * steeringAngle*temp;
             wheels [0].steerAngle = wheels [1].steerAngle = steerAngle;
-
-
-
-
 
 			// All-wheel drive
 			float torque = inputLinearForce * maxTorque * speedMultiplier;

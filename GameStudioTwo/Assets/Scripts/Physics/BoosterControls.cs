@@ -20,8 +20,8 @@ public class BoosterControls : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        control = transform.parent.GetComponentInParent <socketControl>().control;
-        button = transform.parent.GetComponentInParent<socketControl>().button;
+        control = transform.parent.GetComponentInParent <PlayerSocketController>().control;
+        button = transform.parent.GetComponentInParent<PlayerSocketController>().button;
 
         body = transform.parent.parent.parent.transform;
 
