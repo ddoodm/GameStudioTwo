@@ -15,23 +15,20 @@ public class flipperControls : MonoBehaviour, Weapon {
 
     public bool canFlip { get; protected set; }
 
-
     Rigidbody thisRigidbody, opRigidbody;
-    public KeyCode control;
-    public string button;
-
 
     public float animationTime;
     public AnimationCurve curve;
 
 	// Use this for initialization
-	void Start () {
-
-        control = transform.parent.GetComponentInParent<PlayerSocketController>().control;
-        button = transform.parent.GetComponentInParent<PlayerSocketController>().button;
-
+	void Start ()
+    {
         thisRigidbody = GetComponent<Rigidbody>();
-        opRigidbody = GameObject.FindWithTag("Enemy").GetComponent<Rigidbody>();
+
+        if(this.transform.root.tag == "Player")
+            opRigidbody = GameObject.FindWithTag("Enemy").GetComponent<Rigidbody>();
+        else
+            opRigidbody = GameObject.FindWithTag("Player").GetComponent<Rigidbody>();
 
         canFlip = true;
 	}
@@ -65,7 +62,7 @@ public class flipperControls : MonoBehaviour, Weapon {
         {
             Vector3 normal = (opRigidbody.transform.position - this.transform.position).normalized;
 
-            // Apply a reliable force to the bot rigidbody
+            // Apply a reliable force to the opponent rigidbody
             opRigidbody.AddForceAtPosition(
                 0.5f * (normal + Vector3.up) * flipForce,
                 this.transform.position,
