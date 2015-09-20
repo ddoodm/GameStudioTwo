@@ -387,10 +387,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flipForce: 800
-  proximityRadius: 1.89999998
+  proximityRadius: 1.79999995
   initialRot: {x: 0, y: 0, z: 0}
-  control: 0
-  button: 
   animationTime: 0
   curve:
     serializedVersion: 2
@@ -458,7 +456,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: proximityRadius
-      value: 1.89999998
+      value: 1.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Convex
