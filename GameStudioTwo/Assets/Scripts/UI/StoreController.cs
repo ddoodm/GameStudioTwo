@@ -7,6 +7,8 @@ public enum Equipment { EMPTY, Item_Handle, Item_Spike, Item_Flipper, Item_Boost
 
 public enum Socket { EMPTY, Socket_Left, Socket_Right, Socket_Front, Socket_Back, Socket_Top };
 
+public enum StoreState {STATE_MODEL, STATE_ITEM, STATE_STORE};
+
 
 public class StoreController : MonoBehaviour {
 
@@ -19,6 +21,7 @@ public class StoreController : MonoBehaviour {
 	private Color sliderColour;
 	public Color selectedItemColour = new Color(255f/255f, 200f/255f, 0f/255f);
 
+	public StoreState current_state = StoreState.STATE_MODEL;
 
     persistentStats playerChoice;
 
@@ -175,10 +178,11 @@ public class StoreController : MonoBehaviour {
 				//hit.transform.parent.gameObject.SetActive(false);
 				player.GetComponent<Transform>().position = new Vector3(7.5f, 2.6f, 7.5f);
 				
-				//GetComponent<Animator>().SetTrigger("FadeOut");
+				current_state = StoreState.STATE_ITEM;
 				GetComponent<Animator>().SetTrigger("toItemSelection");
 				break;
 			case "Phone_Model":
+				current_state = StoreState.STATE_STORE;
 				GetComponent<Animator>().SetTrigger("toStoreSelection");
 				break;
 
