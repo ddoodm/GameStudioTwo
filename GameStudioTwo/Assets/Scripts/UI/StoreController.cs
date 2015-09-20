@@ -34,10 +34,16 @@ public class StoreController : MonoBehaviour {
 	//
 	// Selected items on the model
 	//
-	public static int MAX_SOCKETS = 5;
+	private static int MAX_SOCKETS = 5;
+	private static int TOTAL_ITEMS = 4;
 	private Equipment[] itemSocketArray = new Equipment[MAX_SOCKETS];
 	public Equipment selectedEquipment = Equipment.EMPTY;
 	private Socket selectedSocket = Socket.EMPTY;
+
+	public Equipment[] AvailableItems = new Equipment[TOTAL_ITEMS];
+
+	public int DOLLADOLLABILLSYALL = 0;
+	public Text moneyText;
 
 	// Use this for initialization
 	void Start () {
@@ -55,27 +61,26 @@ public class StoreController : MonoBehaviour {
 			itemSocketArray[i] = Equipment.EMPTY;
 		}
 
+
 		if (playerChoice != null){
 			for (int i = 0; i < MAX_SOCKETS; i++)
 			{
 				playerChoice.playerItems[i] = itemSocketArray[i];
 			}
+
+			//get the bought items
+			for (int i = 0; i < TOTAL_ITEMS; i++)
+			{
+				AvailableItems[i] = playerChoice.boughtItems[i];
+			}
+
+			DOLLADOLLABILLSYALL = playerChoice.playerMoney;
+
 		}
 
 		noOfModels = uiPlayerModels.GetComponent<Transform> ().childCount - 1;
 
 		sliderColour = new Color(rgbColor.x, rgbColor.y, rgbColor.z);
-
-		//old code
-		/*
-		player = GameObject.FindGameObjectWithTag("Main Player");
-		player.GetComponent<VehicleController>().play = false;
-		player.GetComponent<Rigidbody>().useGravity = false;
-
-		playerCamera = GameObject.FindGameObjectWithTag("Player Camera");
-		playerModel = GameObject.FindGameObjectWithTag("Player Model");
-		player.SetActive (false);
-		*/
 	}
 
 
@@ -105,51 +110,13 @@ public class StoreController : MonoBehaviour {
 						playerChoice.playerItems[i] = itemSocketArray[i];
 					}
 				}
-
-				//old code
-				/*
-				if (hit.transform.tag == "LawnMowerRed" || hit.transform.tag == "LawnMowerGreen" || hit.transform.tag == "LawnMowerBlue")
-				{
-
-					playerModel.GetComponent<Transform>().position = hit.transform.position;
-						
-					hit.transform.parent.gameObject.SetActive(false);
-
-
-					GetComponent<Animator>().SetTrigger("FadeOut");
-
-
-					player.SetActive(true);
-					Material selectedModel = hit.transform.gameObject.GetComponent<Renderer>().material;
-
-
-					GameObject.FindGameObjectWithTag("Player Model").GetComponent<Renderer>().material.color = sliderColor;
-					GameObject.FindGameObjectWithTag("Player Engine").GetComponent<Renderer>().material.color = sliderColor;
-
-
-					player.GetComponent<Transform>().position = 
-						(hit.transform.gameObject.GetComponent<Transform>().position);
-				}
-
-
-				if (hit.transform.tag == "Spike")
-				{
-					if (!hasSpike)
-					{
-						hasSpike = true;
-
-						GameObject spike = (GameObject)Instantiate(Resources.Load("Spike"), playerModel.transform.position, Quaternion.identity);
-						spike.transform.Rotate(-90.0f, 0.0f, 0.0f, Space.World);
-						spike.transform.localScale -= new Vector3(0.8f, 0.8f, 0.8f);
-						spike.transform.parent = playerModel.transform;
-
-                        if (playerChoice != null)
-                            playerChoice.spike = true;
-					}
-				}
-				*/
 			}
 		}
+
+
+		HandleBoughtItems();
+
+		moneyText.text = "Money: " + DOLLADOLLABILLSYALL;
 
 
         if (colourChange)
@@ -294,19 +261,39 @@ public class StoreController : MonoBehaviour {
 			{
 				playerChoice.playerItems[i] = itemSocketArray[i];
 			}
+			for (int i = 0; i < TOTAL_ITEMS; i++)
+			{
+				playerChoice.boughtItems[i] = AvailableItems[i];
+			}
+
+
+
 		}
         
         Application.LoadLevel(2);
-
-        //Sorry Jesse
-        /*
-		StoreUI.GetComponentInChildren<Animator>().SetTrigger("FadeOut");
-		playerCamera.SetActive(true);
-		//GameObject.Find ("StoreUI").SetActive(false);
-		player.GetComponent<VehicleController>().play = true;
-		player.GetComponent<Rigidbody>().useGravity = true;
-         * */
 	}
+
+
+	public void HandleBoughtItems()
+	{
+		for (int i = 0; i < TOTAL_ITEMS; i++) 
+		{
+			switch (AvailableItems [i]) 
+			{
+				case Equipment.EMPTY:
+					break;
+
+				case Equipment.Item_Handle:
+					break;
+
+
+			}
+		}
+	}
+
+
+
+
 
 
 	public void MoveLeft() {
@@ -364,9 +351,21 @@ public class StoreController : MonoBehaviour {
 		colourChange = true;
     }
 
+	public void BuyFlipper()
+	{
+		if (DOLLADOLLABILLSYALL < 100) {
+			AvailableItems [2] = Equipment.Item_Flipper;
+			DOLLADOLLABILLSYALL -= 100;
+		}
+	}
 
-
-
+	public void BuyBooster()
+	{
+		if (DOLLADOLLABILLSYALL < 200) {
+			AvailableItems [3] = Equipment.Item_Booster;
+			DOLLADOLLABILLSYALL -= 200;
+		}
+	}
 
 
 }

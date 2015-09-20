@@ -5,6 +5,8 @@ public class persistentStats : MonoBehaviour {
 
 	public Color playerColor;
 	public Equipment[] playerItems;
+	public Equipment[] boughtItems;
+	public int playerMoney;
 
 
 	// Update is called once per frame
@@ -21,5 +23,15 @@ public class persistentStats : MonoBehaviour {
 		{
 			playerItems[i] = Equipment.EMPTY;
 		}
+
+		boughtItems = new Equipment[4];
+		
+		boughtItems[0] = Equipment.Item_Handle;
+		boughtItems[1] = Equipment.Item_Spike;
+		boughtItems[2] = Equipment.EMPTY;
+		boughtItems[3] = Equipment.EMPTY;
+
+
+		playerMoney = 500;
 	}
 }
