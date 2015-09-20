@@ -93,12 +93,19 @@ public class BoosterControls : MonoBehaviour {
     {
         if (thrust)
         {
+            if (this.GetComponent<AudioSource>().isPlaying == false)
+            {
+                this.GetComponent<AudioSource>().volume = 0.3f;
+                this.GetComponent<AudioSource>().Play();
+                
+            }
             this.GetComponentInChildren<ParticleEmitter>().minSize = 0.9f;
             this.GetComponentInChildren<ParticleEmitter>().maxSize = 0.95f;
             this.GetComponentInChildren<ParticleAnimator>().doesAnimateColor = true;
         }
         else
         {
+            this.GetComponent<AudioSource>().volume -= 0.01f;
             this.GetComponentInChildren<ParticleEmitter>().minSize = 0.5f;
             this.GetComponentInChildren<ParticleEmitter>().maxSize = 0.55f;
             this.GetComponentInChildren<ParticleAnimator>().doesAnimateColor = false;
