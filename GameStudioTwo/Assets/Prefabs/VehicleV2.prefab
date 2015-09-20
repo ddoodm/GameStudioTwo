@@ -2862,6 +2862,23 @@ MonoBehaviour:
   finish: {fileID: 0}
   restartButton: {fileID: 0}
   gameOverScreen: {fileID: 0}
+  flippedCounterText: {fileID: 0}
+  flippedCounterSize:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: -1.90436912
+      outSlope: -1.90436912
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  flippedCounterSizeVar: 0
   maxHealth: 50
   mass: 1
   damageFactor: 1

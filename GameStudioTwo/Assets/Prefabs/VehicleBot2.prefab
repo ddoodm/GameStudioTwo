@@ -3103,10 +3103,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522a89c963985534091e0f0c7e14b45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 11442370}
+  healthBar: {fileID: 0}
   finish: {fileID: 0}
   restartButton: {fileID: 0}
   gameOverScreen: {fileID: 0}
+  flippedCounterText: {fileID: 0}
+  flippedCounterSize:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: -1.90436912
+      outSlope: -1.90436912
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  flippedCounterSizeVar: 0
   maxHealth: 50
   mass: 1
   damageFactor: 1
@@ -3122,6 +3139,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
+  top: {fileID: 0}
+  main: {fileID: 0}
+  mini: {fileID: 0}
+  state: 0
 --- !u!114 &11475222
 MonoBehaviour:
   m_ObjectHideFlags: 1
