@@ -303,6 +303,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -390,7 +391,7 @@ MonoBehaviour:
   initialRot: {x: 0, y: 0, z: 0}
   control: 0
   button: 
-  curveVar: 0
+  animationTime: 0
   curve:
     serializedVersion: 2
     m_Curve:
@@ -399,15 +400,30 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: .228372023
-      value: .937297046
-      inSlope: 1.10924244
-      outSlope: 1.10924244
+    - time: .160797656
+      value: .690289736
+      inSlope: 3.22840834
+      outSlope: 3.22840834
+      tangentMode: 0
+    - time: .231341317
+      value: .82282865
+      inSlope: -.188648701
+      outSlope: -.188648701
+      tangentMode: 0
+    - time: .35104847
+      value: .685723662
+      inSlope: -.0259280205
+      outSlope: -.0259280205
+      tangentMode: 0
+    - time: .709564388
+      value: .618126452
+      inSlope: -2.054317
+      outSlope: -2.054317
       tangentMode: 0
     - time: 1.00010061
       value: -4.15369868e-07
-      inSlope: -1.75810289
-      outSlope: -1.75810289
+      inSlope: -.177660182
+      outSlope: -.177660182
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -434,7 +450,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: curve.m_Curve.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: flipForce
@@ -450,11 +466,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: curve.m_Curve.Array.data[2].value
-      value: -4.15369868e-07
+      value: .711234331
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: curve.m_Curve.Array.data[2].time
-      value: 1.00010061
+      value: .231341317
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
@@ -471,6 +487,98 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Volume
       value: .400000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[2].inSlope
+      value: -.188648701
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[2].outSlope
+      value: -.188648701
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[3].time
+      value: .35104847
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[3].value
+      value: .574129343
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[3].inSlope
+      value: -.0259280205
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[3].outSlope
+      value: -.0259280205
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[4].inSlope
+      value: -2.054317
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[4].outSlope
+      value: -2.054317
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[1].value
+      value: .578695416
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[1].time
+      value: .160797656
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[1].inSlope
+      value: 3.22840834
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[1].outSlope
+      value: 3.22840834
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[4].time
+      value: .709564388
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[4].value
+      value: .618126452
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[5].time
+      value: 1.00010061
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[5].value
+      value: -.111594737
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[5].inSlope
+      value: -.177660182
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[5].outSlope
+      value: -.177660182
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[6].time
+      value: 1.00010061
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[6].value
+      value: -4.15369868e-07
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[6].inSlope
+      value: -.177660182
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[6].outSlope
+      value: -.177660182
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: curve.m_Curve.Array.data[0].value
+      value: -.111594319
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

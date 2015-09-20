@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(BotVehicleController))]
 public class FSMBotController : MonoBehaviour
 {
     /// <summary>
