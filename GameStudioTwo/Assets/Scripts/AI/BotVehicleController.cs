@@ -47,18 +47,10 @@ public class BotVehicleController : MonoBehaviour
 
     private NavMeshPath path;
 
-	/// <summary>
-	/// The bot items.
-	/// </summary>
-	public Equipment[] botItems;
-
     void Start()
     {
         path = new NavMeshPath();
         //targetRigidbody = target.GetComponent<Rigidbody>();
-
-		// Jesse's code to add attachments to the bot
-		AddAttachments ();
     }
 
     void Update()
@@ -156,63 +148,4 @@ public class BotVehicleController : MonoBehaviour
         if (col.transform.root.gameObject.tag == "Player")
             contactTimer = 0;
     }
-
-
-
-
-	public void AddAttachments()
-	{
-		botItems = new Equipment[5];
-		for (int i = 0; i < 5; i++)
-		{
-			botItems[i] = Equipment.EMPTY;
-		}
-
-
-		int rand;
-		for (int i = 0; i < 3; i++) 
-		{
-			rand = Random.Range (0, 3);
-
-			switch (rand)
-			{
-				case 0:
-					botItems[i] = Equipment.Item_Spike;
-					break;
-
-				case 1:
-					botItems[i] = Equipment.Item_Flipper;
-					break;
-
-				case 2:
-					if (i == 2)
-						i--;
-					else
-						botItems[i] = Equipment.Item_Booster;
-					break;
-			
-				default:
-					break;
-			}
-		}
-
-		
-		botItems[3] = Equipment.Item_Handle;
-
-
-
-		
-		GetComponent<SocketEquipment>().SocketItems(botItems, true);
-
-		//this.transform.Rotate (0.0f, 180.0f, 0.0f, Space.World);
-	}
-
-
-
 }
-
-
-
-
-
-
