@@ -13,6 +13,8 @@ public class BoosterControls : MonoBehaviour {
 
     public float strafeSpeed;
 
+    public bool thrust;
+
 
 
 	// Use this for initialization
@@ -46,6 +48,8 @@ public class BoosterControls : MonoBehaviour {
                     {
                         if (body.GetComponent<VehicleController>().checkEnergyFull())
                         {
+                            thrust = true;
+                            StartCoroutine("strafeParticles");
                             body.GetComponent<Rigidbody>().AddForce(body.transform.right * strafeSpeed);
                             body.GetComponent<VehicleController>().drainEnergy();
                         }
@@ -56,6 +60,8 @@ public class BoosterControls : MonoBehaviour {
                     {
                         if (body.GetComponent<VehicleController>().checkEnergyFull())
                         {
+                            thrust = true;
+                            StartCoroutine("strafeParticles");
                             body.GetComponent<Rigidbody>().AddForce(-body.transform.right * strafeSpeed);
                             body.GetComponent<VehicleController>().drainEnergy();
                         }
@@ -63,6 +69,7 @@ public class BoosterControls : MonoBehaviour {
                     }
                 case KeyCode.Alpha4:
                     {
+                        thrust = true;
                         body.GetComponent<VehicleController>().boosting = true;
                         break;
                     }
@@ -74,11 +81,21 @@ public class BoosterControls : MonoBehaviour {
             {
                 case KeyCode.Alpha4:
                     {
+                        thrust = false;
                         body.GetComponent<VehicleController>().boosting = false;
                         break;
                     }
 
             }
         }
+        this.GetComponentInChildren<ParticleEmitter>().emit = thrust;
 	}
+
+    IEnumerator strafeParticles()
+    {
+        yield return new WaitForSeconds(1.0f);
+        thrust = false;
+        StopCoroutine("strafeParticles");
+    }
+
 }
