@@ -358,6 +358,8 @@ public class SocketEquipment : MonoBehaviour {
 			booster_left.parent = socket_left;
 			socket_left.transform.localPosition = new Vector3(0.0f, -0.85f, 0.1f);
 
+                AddWeaponReference(booster_left, socket);
+
                 break;
 			
 			// Right Socket
@@ -374,6 +376,8 @@ public class SocketEquipment : MonoBehaviour {
 			booster_right.Rotate(0.0f, -90.0f, 0.0f, Space.World);
 			booster_right.parent = socket_right;
 			socket_right.transform.localPosition = new Vector3(0.0f, 0.85f, 0.1f);
+
+                AddWeaponReference(booster_right, socket);
 
                 break;
 			
@@ -394,6 +398,8 @@ public class SocketEquipment : MonoBehaviour {
 			booster_back.Rotate(0.0f, 0.0f, 0.0f, Space.World);
 			booster_back.parent = socket_back;
 			socket_back.transform.localPosition = new Vector3(-0.775f, 0.0f, 0.15f);
+
+                AddWeaponReference(booster_back, socket);
 
                 break;
 			

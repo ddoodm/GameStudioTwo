@@ -49,6 +49,11 @@ public class flipperControls : MonoBehaviour, Weapon {
             Flip();
     }
 
+    public void EndUse()
+    {
+        // Not needed for the flipper
+    }
+
     public GameObject GetGameObject()
     {
         return this.gameObject;

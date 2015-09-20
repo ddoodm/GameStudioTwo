@@ -1,24 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class BoosterControls : MonoBehaviour
+public class BoosterControls : MonoBehaviour, Weapon
 {
+    /*
     public KeyCode control;
     public string button;
     public Transform body;
+    */
 
-
-    public int face;
+    //public int face;
+    SocketLocation location;
 
     public float strafeSpeed;
 
-    public bool thrust;
+    public bool thrusting;
 
+    public void Use()
+    {
+        Boost();
+    }
 
+    public void EndUse()
+    {
+        EndBoost();
+    }
 
-	// Use this for initialization
-	void Start () {
+    public GameObject GetGameObject()
+    {
+        return this.gameObject;
+    }
 
+    // Use this for initialization
+    void Start ()
+    {
+        /*
         control = transform.parent.GetComponentInParent <PlayerSocketController>().control;
         button = transform.parent.GetComponentInParent<PlayerSocketController>().button;
 
@@ -31,12 +48,52 @@ public class BoosterControls : MonoBehaviour
             case KeyCode.Alpha3: face = 3; break; //front
             case KeyCode.Alpha4: face = 4; break; //back
         }
-	
+	*/
+
+        switch(transform.parent.name)
+        {
+            case "LeftSocket": location = SocketLocation.LEFT; break;
+            case "RightSocket": location = SocketLocation.RIGHT; break;
+            case "BackSocket": location = SocketLocation.BACK; break;
+        }
 	}
+
+    private void Boost()
+    {
+        switch(location)
+        {
+            case SocketLocation.LEFT:
+                thrusting = true;
+                StartCoroutine("strafeParticles");
+                transform.root.GetComponent<Rigidbody>().AddForce(transform.root.right * strafeSpeed);
+                transform.root.GetComponent<VehicleController>().drainEnergy();
+                break;
+            case SocketLocation.RIGHT:
+                thrusting = true;
+                StartCoroutine("strafeParticles");
+                transform.root.GetComponent<Rigidbody>().AddForce(-transform.root.right * strafeSpeed);
+                transform.root.GetComponent<VehicleController>().drainEnergy();
+                break;
+            case SocketLocation.BACK:
+                thrusting = true;
+                transform.root.GetComponent<VehicleController>().boosting = true;
+                break;
+        }
+    }
+
+    private void EndBoost()
+    {
+        if(location == SocketLocation.BACK)
+        {
+            thrusting = false;
+            transform.root.GetComponent<VehicleController>().boosting = false;
+        }
+    }
 	
 	// Update is called once per frame
-	void Update () {
-
+	void Update ()
+    {
+        /*
         if (Input.GetButtonDown(button) || Input.GetKeyDown(control))
         {
             switch(control)
@@ -85,12 +142,14 @@ public class BoosterControls : MonoBehaviour
 
             }
         }
+        */
+
         thrustParticles();
 	}
 
     private void thrustParticles()
     {
-        if (thrust)
+        if (thrusting)
         {
             if (this.GetComponent<AudioSource>().isPlaying == false)
             {
@@ -112,13 +171,10 @@ public class BoosterControls : MonoBehaviour
 
     }
 
-
-
     IEnumerator strafeParticles()
     {
         yield return new WaitForSeconds(1.0f);
-        thrust = false;
+        thrusting = false;
         StopCoroutine("strafeParticles");
     }
-
 }

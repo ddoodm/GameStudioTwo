@@ -7,5 +7,6 @@ using UnityEngine;
 public interface Weapon
 {
     void Use();
+    void EndUse();
     GameObject GetGameObject();
 }

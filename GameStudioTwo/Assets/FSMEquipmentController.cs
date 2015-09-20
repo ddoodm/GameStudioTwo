@@ -34,6 +34,7 @@ public class FSMEquipmentController : MonoBehaviour
         switch(item)
         {
             case Equipment.Item_Flipper: WeaponLogic_Flipper(socket); break;
+            case Equipment.Item_Booster: WeaponLogic_Booster(socket); break;
         }
     }
 
@@ -61,5 +62,25 @@ public class FSMEquipmentController : MonoBehaviour
                     flipperMaxCooldownSeconds,
                     1.0f - distanceToPlayer / flipperActivationRadius);
         }
+    }
+
+    private float boosterCooldown = 0.0f;
+    private void WeaponLogic_Booster(SocketLocation socket)
+    {
+        boosterCooldown -= Time.deltaTime;
+        Weapon booster = socketEquipment.GetWeaponInSocket(socket);
+
+        float distanceToPlayer = (this.transform.position - player.transform.position).magnitude;
+
+        if (distanceToPlayer < 10.0f && boosterCooldown < 0.0f)
+        {
+            booster.Use();
+
+            // If this is not a rear-booster, use a cooldown
+            if (socket != SocketLocation.BACK)
+                boosterCooldown = 2.0f;
+        }
+        else
+            booster.EndUse();
     }
 }
