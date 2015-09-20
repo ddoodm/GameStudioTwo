@@ -19,6 +19,8 @@ public class itemSelector : MonoBehaviour {
 	}
 
 	void Update (){
+
+
 		if (!highlighted) {
 			if (GetComponent<Transform>().tag != storeController.selectedEquipment.ToString()|| GetComponent<Transform> ().tag == "Phone_Model") {
 				if (!isSocket) {
@@ -40,6 +42,10 @@ public class itemSelector : MonoBehaviour {
 
 	
 	void OnMouseEnter(){
+		if (storeController.current_state != StoreState.STATE_ITEM)
+			return;
+
+
 		highlighted = true;
 		if (GetComponent<Transform> ().tag != storeController.selectedEquipment.ToString() || GetComponent<Transform> ().tag == "Phone_Model" ) {
 			if (!isSocket) {
