@@ -2879,7 +2879,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   flippedCounterSizeVar: 0
-  maxHealth: 50
+  maxHealth: 200
   mass: 1
   damageFactor: 1
 --- !u!114 &11487318

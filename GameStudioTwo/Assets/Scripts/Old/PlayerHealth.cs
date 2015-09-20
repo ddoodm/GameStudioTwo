@@ -68,7 +68,6 @@ public class PlayerHealth : MonoBehaviour
             StopCoroutine(checkFlipped());
         }
         float temp = (flippedCounterSize.Evaluate(flippedCounterSizeVar) * 300);
-        Debug.Log(Vector3.Dot(transform.up,Vector3.up));
         flippedCounterText.fontSize = (int)temp;
 
 	}
