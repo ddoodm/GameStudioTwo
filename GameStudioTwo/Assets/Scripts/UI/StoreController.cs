@@ -351,9 +351,18 @@ public class StoreController : MonoBehaviour {
 		colourChange = true;
     }
 
+	public void BackToItems()
+	{
+		current_state = StoreState.STATE_ITEM;
+		GetComponent<Animator>().SetTrigger("toItemSelection");
+	}
+
+
+
 	public void BuyFlipper()
 	{
-		if (DOLLADOLLABILLSYALL < 100) {
+		Debug.Log (DOLLADOLLABILLSYALL);
+		if (DOLLADOLLABILLSYALL > 100) {
 			AvailableItems [2] = Equipment.Item_Flipper;
 			DOLLADOLLABILLSYALL -= 100;
 		}
@@ -361,7 +370,7 @@ public class StoreController : MonoBehaviour {
 
 	public void BuyBooster()
 	{
-		if (DOLLADOLLABILLSYALL < 200) {
+		if (DOLLADOLLABILLSYALL > 200) {
 			AvailableItems [3] = Equipment.Item_Booster;
 			DOLLADOLLABILLSYALL -= 200;
 		}
