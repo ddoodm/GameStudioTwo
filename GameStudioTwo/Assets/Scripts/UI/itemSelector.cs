@@ -20,7 +20,7 @@ public class itemSelector : MonoBehaviour {
 
 	void Update (){
 		if (!highlighted) {
-			if (GetComponent<Transform>().tag != storeController.selectedEquipment.ToString()|| GetComponent<Transform> ().tag == "Phone_Model") {
+			if (GetComponent<Transform>().tag != storeController.selectedEquipment.ToString()) {
 				if (!isSocket) {
 					foreach (Transform child in transform) {
 						child.GetComponent<Renderer> ().material.color = startColour;
@@ -41,7 +41,7 @@ public class itemSelector : MonoBehaviour {
 	
 	void OnMouseEnter(){
 		highlighted = true;
-		if (GetComponent<Transform> ().tag != storeController.selectedEquipment.ToString() || GetComponent<Transform> ().tag == "Phone_Model" ) {
+		if (GetComponent<Transform> ().tag != storeController.selectedEquipment.ToString()) {
 			if (!isSocket) {
 				foreach (Transform child in transform) {
 					child.GetComponent<Renderer> ().material.color = highlightItemColour;
@@ -64,7 +64,7 @@ public class itemSelector : MonoBehaviour {
 	
 	void OnMouseExit(){
 		highlighted = false;
-		if (GetComponent<Transform> ().tag != storeController.selectedEquipment.ToString()|| GetComponent<Transform> ().tag == "Phone_Model") {
+		if (GetComponent<Transform> ().tag != storeController.selectedEquipment.ToString()) {
 			if (!isSocket) {
 				foreach (Transform child in transform) {
 					child.GetComponent<Renderer> ().material.color = startColour;

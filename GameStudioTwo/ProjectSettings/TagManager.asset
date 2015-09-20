@@ -37,7 +37,6 @@ TagManager:
   - UI
   - Topdown Camera
   - Minimap Camera
-  - Phone_Model
   layers:
   - Default
   - TransparentFX
