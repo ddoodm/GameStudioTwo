@@ -76,8 +76,8 @@ public class flipperControls : MonoBehaviour, Weapon {
         }
 
         // Rob's code to flip the player
-        else if (Vector3.Dot(transform.up, Vector3.up) < 0)
-            transform.parent.GetComponentInParent<Rigidbody>().AddForceAtPosition(0.5f * Vector3.up * flipForce, this.transform.position, ForceMode.Impulse);
+        else if (Vector3.Dot(this.transform.root.up, Vector3.up) < 0)
+            transform.root.GetComponentInParent<Rigidbody>().AddForceAtPosition(0.5f * Vector3.up * flipForce, this.transform.position, ForceMode.Impulse);
     }
 
     private void DoAnimation()

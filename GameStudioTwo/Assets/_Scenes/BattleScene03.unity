@@ -580,6 +580,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11467896, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
       propertyPath: flipperActivationRadius
+      value: 3.79999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 11467896, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: flipperMaxCooldownSeconds
       value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []

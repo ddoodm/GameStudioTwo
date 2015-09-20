@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BoosterControls : MonoBehaviour {
-
-
+public class BoosterControls : MonoBehaviour
+{
     public KeyCode control;
     public string button;
     public Transform body;

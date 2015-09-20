@@ -10,7 +10,7 @@ public class FSMEquipmentController : MonoBehaviour
 
     public float
         flipperActivationRadius = 8.0f,
-        flipperCooldownSeconds = 2.0f;
+        flipperMinCooldownSeconds = 1.0f, flipperMaxCooldownSeconds = 2.8f;
 
 	// Use this for initialization
 	void Start ()
@@ -47,10 +47,19 @@ public class FSMEquipmentController : MonoBehaviour
 
         float distanceToPlayer = (this.transform.position - player.transform.position).magnitude;
 
-        if (distanceToPlayer <= flipperActivationRadius && flipperCooldownTimer <= 0.0f)
+        bool playerInRange = distanceToPlayer <= flipperActivationRadius;
+        bool imUpsideDown = Vector3.Dot(this.transform.root.up, Vector3.up) < 0;
+
+        if ((playerInRange || imUpsideDown) && flipperCooldownTimer <= 0.0f)
         {
             flipper.Use();
-            flipperCooldownTimer = flipperCooldownSeconds;
+
+            // The cooldown time should reflect the distance to the player:
+            flipperCooldownTimer =
+                Mathf.Lerp(
+                    flipperMinCooldownSeconds,
+                    flipperMaxCooldownSeconds,
+                    1.0f - distanceToPlayer / flipperActivationRadius);
         }
     }
 }
