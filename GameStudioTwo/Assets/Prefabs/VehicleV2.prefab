@@ -394,6 +394,7 @@ GameObject:
   - 114: {fileID: 11484472}
   - 114: {fileID: 11443950}
   - 114: {fileID: 11479978}
+  - 114: {fileID: 11439036}
   m_Layer: 2
   m_Name: VehicleV2
   m_TagString: Player
@@ -2725,6 +2726,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   control: 50
   button: SocketRight
+--- !u!114 &11439036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36656e581ee74cb4aac9d19bf2e750c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBar: {fileID: 0}
+  maxEnergy: 50
 --- !u!114 &11440514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2777,8 +2791,6 @@ MonoBehaviour:
   flipForce: 650
   proximityRadius: 1.89999998
   initialRot: {x: 0, y: 0, z: 0}
-  control: 0
-  button: 
   animationTime: 0
   curve:
     serializedVersion: 2
@@ -2802,14 +2814,12 @@ MonoBehaviour:
   - {fileID: 14663474}
   - {fileID: 14628444}
   play: 1
-  energyBar: {fileID: 0}
   maxTorque: 40
   maxBrakeTorque: 40
-  maxEnergy: 50
   speedMultiplier: 1
+  maxSteeringAngle: 20
   strafeSpeed: 50000
   steeringAngle: 20
-  boosting: 0
 --- !u!114 &11457904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2834,7 +2844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9386a27960aef404f9db0669ae2621ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipment: 0300000000000000000000000400000000000000
+  equipment: 0300000004000000020000000000000000000000
 --- !u!114 &11482088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2877,7 +2887,7 @@ MonoBehaviour:
   finish: {fileID: 0}
   restartButton: {fileID: 0}
   gameOverScreen: {fileID: 0}
-  maxHealth: 50
+  maxHealth: 200
   mass: 1
   damageFactor: 1
 --- !u!114 &11487318

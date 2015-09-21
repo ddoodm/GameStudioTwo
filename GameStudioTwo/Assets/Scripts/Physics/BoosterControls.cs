@@ -6,7 +6,9 @@ public class BoosterControls : MonoBehaviour, Weapon
 {
     SocketLocation location;
 
-    public float strafeSpeed;
+    public float
+        strafeSpeed,
+        forwardBoostForce = 5000.0f;
 
     public bool
         thrusting,
@@ -78,76 +80,26 @@ public class BoosterControls : MonoBehaviour, Weapon
 	// Update is called once per frame
 	void Update ()
     {
-        /*
-        if (Input.GetButtonDown(button) || Input.GetKeyDown(control))
-        {
-            switch(control)
-            {
-                case KeyCode.Alpha1:
-                    {
-                        if (body.GetComponent<VehicleController>().checkEnergyFull())
-                        {
-                            thrust = true;
-                            StartCoroutine("strafeParticles");
-                            body.GetComponent<Rigidbody>().AddForce(body.transform.right * strafeSpeed);
-                            body.GetComponent<VehicleController>().drainEnergy();
-                        }
-                        break;
-                        
-                    }
-                case KeyCode.Alpha2:
-                    {
-                        if (body.GetComponent<VehicleController>().checkEnergyFull())
-                        {
-                            thrust = true;
-                            StartCoroutine("strafeParticles");
-                            body.GetComponent<Rigidbody>().AddForce(-body.transform.right * strafeSpeed);
-                            body.GetComponent<VehicleController>().drainEnergy();
-                        }
-                        break;
-                    }
-                case KeyCode.Alpha4:
-                    {
-                        thrust = true;
-                        body.GetComponent<VehicleController>().boosting = true;
-                        break;
-                    }
-            }
-        }
-        if (Input.GetButtonUp(button) || Input.GetKeyUp(control))
-        {
-            switch (control)
-            {
-                case KeyCode.Alpha4:
-                    {
-                        thrust = false;
-                        body.GetComponent<VehicleController>().boosting = false;
-                        break;
-                    }
-
-            }
-        }
-        */
-
         EnergyController energyCtrl = transform.root.GetComponent<EnergyController>();
-        VehicleController vehicle = transform.root.GetComponent<VehicleController>();
-        float energy = energyCtrl.energy;
+        //VehicleController vehicle = transform.root.GetComponent<VehicleController>();
+        Rigidbody rootBody = transform.root.GetComponent<Rigidbody>();
         float maxEnergy = energyCtrl.maxEnergy;
 
-        if (energy > 0 && forwardBoosting)
+        if (energyCtrl.energy > 0 && forwardBoosting)
         {
-            energy -= 1;
-            vehicle.speedMultiplier = 5;
+            energyCtrl.energy--;
+            rootBody.AddForce(rootBody.transform.forward * forwardBoostForce);
+            //vehicle.speedMultiplier = 5;
         }
-        if (energy == 0)
+        if (energyCtrl.energy == 0)
         {
-            vehicle.speedMultiplier = 1;
+            //vehicle.speedMultiplier = 1;
             forwardBoosting = false;
         }
-        if (!forwardBoosting && energy < maxEnergy)
+        if (!forwardBoosting && energyCtrl.energy < maxEnergy)
         {
-            energy += 0.25f;
-            vehicle.speedMultiplier = 1;
+            energyCtrl.energy += 0.25f;
+            //vehicle.speedMultiplier = 1;
         }
 
         thrustParticles();
