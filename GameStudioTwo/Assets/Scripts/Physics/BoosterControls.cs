@@ -4,29 +4,27 @@ using System;
 
 public class BoosterControls : MonoBehaviour, Weapon
 {
-    /*
-    public KeyCode control;
-    public string button;
-    public Transform body;
-    */
-
-    //public int face;
     SocketLocation location;
 
     public float strafeSpeed;
 
-    public bool thrusting;
+    public bool
+        thrusting,
+        forwardBoosting;
 
+    // From Weapon interface
     public void Use()
     {
         Boost();
     }
 
+    // From Weapon interface
     public void EndUse()
     {
         EndBoost();
     }
 
+    // From Weapon interface
     public GameObject GetGameObject()
     {
         return this.gameObject;
@@ -35,21 +33,6 @@ public class BoosterControls : MonoBehaviour, Weapon
     // Use this for initialization
     void Start ()
     {
-        /*
-        control = transform.parent.GetComponentInParent <PlayerSocketController>().control;
-        button = transform.parent.GetComponentInParent<PlayerSocketController>().button;
-
-        body = transform.parent.parent.parent.transform;
-
-        switch (control)
-        {
-            case KeyCode.Alpha1: face = 1; break; //left
-            case KeyCode.Alpha2: face = 2; break; //right
-            case KeyCode.Alpha3: face = 3; break; //front
-            case KeyCode.Alpha4: face = 4; break; //back
-        }
-	*/
-
         switch(transform.parent.name)
         {
             case "LeftSocket": location = SocketLocation.LEFT; break;
@@ -66,17 +49,18 @@ public class BoosterControls : MonoBehaviour, Weapon
                 thrusting = true;
                 StartCoroutine("strafeParticles");
                 transform.root.GetComponent<Rigidbody>().AddForce(transform.root.right * strafeSpeed);
-                transform.root.GetComponent<VehicleController>().drainEnergy();
+                transform.root.GetComponent<EnergyController>().DrainEnergy();
                 break;
             case SocketLocation.RIGHT:
                 thrusting = true;
                 StartCoroutine("strafeParticles");
                 transform.root.GetComponent<Rigidbody>().AddForce(-transform.root.right * strafeSpeed);
-                transform.root.GetComponent<VehicleController>().drainEnergy();
+                transform.root.GetComponent<EnergyController>().DrainEnergy();
                 break;
             case SocketLocation.BACK:
                 thrusting = true;
-                transform.root.GetComponent<VehicleController>().boosting = true;
+                forwardBoosting = true;
+                //transform.root.GetComponent<VehicleController>().boosting = true;
                 break;
         }
     }
@@ -86,7 +70,8 @@ public class BoosterControls : MonoBehaviour, Weapon
         if(location == SocketLocation.BACK)
         {
             thrusting = false;
-            transform.root.GetComponent<VehicleController>().boosting = false;
+            forwardBoosting = false;
+            //transform.root.GetComponent<VehicleController>().boosting = false;
         }
     }
 	
@@ -143,6 +128,27 @@ public class BoosterControls : MonoBehaviour, Weapon
             }
         }
         */
+
+        EnergyController energyCtrl = transform.root.GetComponent<EnergyController>();
+        VehicleController vehicle = transform.root.GetComponent<VehicleController>();
+        float energy = energyCtrl.energy;
+        float maxEnergy = energyCtrl.maxEnergy;
+
+        if (energy > 0 && forwardBoosting)
+        {
+            energy -= 1;
+            vehicle.speedMultiplier = 5;
+        }
+        if (energy == 0)
+        {
+            vehicle.speedMultiplier = 1;
+            forwardBoosting = false;
+        }
+        if (!forwardBoosting && energy < maxEnergy)
+        {
+            energy += 0.25f;
+            vehicle.speedMultiplier = 1;
+        }
 
         thrustParticles();
 	}
