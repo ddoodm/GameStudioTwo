@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strafeSpeed: 50000
-  forwardBoostForce: 6000
+  forwardBoostForce: 4000
   thrusting: 0
   forwardBoosting: 0
 --- !u!1001 &100100000
@@ -378,7 +378,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: forwardBoostForce
-      value: 6000
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: forwardBoosting
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
