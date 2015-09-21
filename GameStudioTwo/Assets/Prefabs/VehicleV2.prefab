@@ -2316,7 +2316,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139432}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4c413d8b9f11ddf499ce8b96d1141de1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2844,7 +2844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9386a27960aef404f9db0669ae2621ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipment: 0300000004000000020000000000000000000000
+  equipment: 0300000000000000000000000400000000000000
 --- !u!114 &11482088
 MonoBehaviour:
   m_ObjectHideFlags: 1

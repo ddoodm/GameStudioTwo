@@ -595,6 +595,18 @@ Prefab:
       value: 
       objectReference: {fileID: 13400000, guid: 4c413d8b9f11ddf499ce8b96d1141de1,
         type: 2}
+    - target: {fileID: 11467896, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: flipperMinCooldownSeconds
+      value: .460000008
+      objectReference: {fileID: 0}
+    - target: {fileID: 11467896, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: flipperActivationRadius
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11467896, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: flipperMaxCooldownSeconds
+      value: 2.45000005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_IsPrefabParent: 0

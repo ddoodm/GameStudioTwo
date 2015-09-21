@@ -2463,7 +2463,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112458}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4c413d8b9f11ddf499ce8b96d1141de1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3068,9 +3068,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dca2bc69242a72478854eac645b8ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flipperActivationRadius: 3.79999995
-  flipperMinCooldownSeconds: 1
-  flipperMaxCooldownSeconds: 4
+  flipperActivationRadius: 2.5
+  flipperMinCooldownSeconds: .460000008
+  flipperMaxCooldownSeconds: 2.45000005
 --- !u!114 &11467964
 MonoBehaviour:
   m_ObjectHideFlags: 1

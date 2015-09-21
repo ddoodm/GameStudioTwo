@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 [RequireComponent(typeof(SocketEquipment))]
@@ -19,6 +20,8 @@ public class FSMEquipmentController : MonoBehaviour
         socketEquipment = GetComponent<SocketEquipment>();
         player = GameObject.FindWithTag("Player");
         thisBody = GetComponent<Rigidbody>();
+
+        flipperCooldownTimers = new float[Enum.GetNames(typeof(SocketLocation)).Length];
 	}
 	
 	// Update is called once per frame
@@ -45,10 +48,10 @@ public class FSMEquipmentController : MonoBehaviour
         }
     }
 
-    private float flipperCooldownTimer = 0.0f;
+    private float[] flipperCooldownTimers;
     private void WeaponLogic_Flipper(SocketLocation socket)
     {
-        flipperCooldownTimer -= Time.deltaTime;
+        flipperCooldownTimers[(int)socket] -= Time.deltaTime;
 
         Weapon flipper = socketEquipment.GetWeaponInSocket(socket);
         Transform flipperTransform = flipper.GetGameObject().transform;
@@ -58,16 +61,13 @@ public class FSMEquipmentController : MonoBehaviour
         bool playerInRange = distanceToPlayer <= flipperActivationRadius;
         bool imUpsideDown = Vector3.Dot(this.transform.root.up, Vector3.up) < 0;
 
-        if ((playerInRange || imUpsideDown) && flipperCooldownTimer <= 0.0f)
+        if ((playerInRange || imUpsideDown) && flipperCooldownTimers[(int)socket] <= 0.0f)
         {
             flipper.Use();
 
             // The cooldown time should reflect the distance to the player:
-            flipperCooldownTimer =
-                Mathf.Lerp(
-                    flipperMinCooldownSeconds,
-                    flipperMaxCooldownSeconds,
-                    1.0f - distanceToPlayer / flipperActivationRadius);
+            flipperCooldownTimers[(int)socket] =
+                UnityEngine.Random.Range(flipperMinCooldownSeconds, flipperMaxCooldownSeconds);
         }
     }
 
@@ -103,8 +103,8 @@ public class FSMEquipmentController : MonoBehaviour
 
         // If the player is to the left / right, then boost
         if ((
-               (socket == SocketLocation.LEFT && lateralDistance > 4.0f)
-            || (socket == SocketLocation.RIGHT && lateralDistance < 4.0f)
+               (socket == SocketLocation.LEFT && lateralDistance > 8.0f)
+            || (socket == SocketLocation.RIGHT && lateralDistance < 8.0f)
             || isStuck)
             && boosterCooldown < 0.0f)
         {
