@@ -71,6 +71,7 @@ public class FSMEquipmentController : MonoBehaviour
         }
     }
 
+    // Unified booster-wide timer
     private float boosterCooldown = 0.0f;
     private void WeaponLogic_RearBooster(SocketLocation socket)
     {
@@ -93,9 +94,19 @@ public class FSMEquipmentController : MonoBehaviour
         boosterCooldown -= Time.deltaTime;
         Weapon booster = socketEquipment.GetWeaponInSocket(socket);
 
-        float distanceToPlayer = (this.transform.position - player.transform.position).magnitude;
+        Vector3 toPlayer = (player.transform.position - this.transform.position);
+        float distanceToPlayer = toPlayer.magnitude;
+        float lateralDistance =
+            this.transform.InverseTransformPoint(player.transform.position).x;
 
-        if (distanceToPlayer < 10.0f && boosterCooldown < 0.0f)
+        bool isStuck = thisBody.velocity.magnitude < 0.8f;
+
+        // If the player is to the left / right, then boost
+        if ((
+               (socket == SocketLocation.LEFT && lateralDistance > 4.0f)
+            || (socket == SocketLocation.RIGHT && lateralDistance < 4.0f)
+            || isStuck)
+            && boosterCooldown < 0.0f)
         {
             booster.Use();
             boosterCooldown = 2.0f;
