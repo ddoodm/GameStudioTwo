@@ -9,7 +9,6 @@ public class VehicleController : MonoBehaviour
     /// </summary>
     public WheelCollider[] wheels;
 	public bool play = true;
-    public HPBar energyBar;
 
     /// <summary>
     /// Motor, braking and steering constraints
@@ -17,48 +16,21 @@ public class VehicleController : MonoBehaviour
     public float
         maxTorque = 50.0f,
         maxBrakeTorque = 50.0f,
-        maxEnergy = 50.0f,
         speedMultiplier = 1.0f,
+        maxSteeringAngle = 20.0f,
         strafeSpeed,
         steeringAngle = 20.0f;
 
+    /*
     public bool
-        boosting;
+        boosting;*/
 
     /// <summary>
     /// Controller inputs obtained at frame update
     /// </summary>
-    private float
+    protected float
         inputLinearForce,
         inputSteering;
-
-    private float _energy;
-
-    public float energy
-    {
-        get { return _energy; }
-        set
-        {
-            _energy = value < 0 ? 0 : value;
-
-            if(energyBar)
-                energyBar.value = _energy;
-        }
-    }
-
-    void Start()
-    {
-        HPBar temp;
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("UI");
-        foreach (GameObject uiElement in objects)
-        {
-            temp = uiElement.GetComponent<HPBar>();
-            if (temp != null)
-            {
-                energyBar = temp;
-            }
-        }
-    }
 
     void Update()
     {
@@ -72,7 +44,7 @@ public class VehicleController : MonoBehaviour
             else
                 inputLinearForce = 0;
 
-            boost();
+            //boost();
             
 			    //inputLinearForce = Input.GetAxis ("Vertical");
 			inputSteering = Input.GetAxis ("Horizontal");
@@ -99,6 +71,7 @@ public class VehicleController : MonoBehaviour
 		}
     }
 
+    /* This should be a function of the booster!
     private void boost()
     {
         if (energy > 0 && boosting)
@@ -116,22 +89,6 @@ public class VehicleController : MonoBehaviour
             energy += 0.25f;
             speedMultiplier = 1;
         }
-
     }
-
-    public void drainEnergy()
-    {
-        energy -= maxEnergy;
-    }
-
-    public bool checkEnergyFull()
-    {
-        if (energy == maxEnergy)
-        {
-            return true;
-        }
-        else
-            return false;
-    }
-
+    */
 }
