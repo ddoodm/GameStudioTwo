@@ -18,7 +18,7 @@ public class BotEquipper : MonoBehaviour
             botItems[i] = Equipment.EMPTY;
 
         int rand;
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             rand = Random.Range(0, 3);
 
@@ -29,7 +29,10 @@ public class BotEquipper : MonoBehaviour
                     break;
 
                 case 1:
-                    botItems[i] = Equipment.Item_Flipper;
+                    if ((SocketLocation)i == SocketLocation.BACK)
+                        i--;
+                    else
+                        botItems[i] = Equipment.Item_Flipper;
                     break;
 
                 case 2:
