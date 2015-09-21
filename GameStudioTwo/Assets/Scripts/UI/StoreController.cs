@@ -150,7 +150,7 @@ public class StoreController : MonoBehaviour {
 				break;
 			case "Phone_Model":
 				current_state = StoreState.STATE_STORE;
-				if (current_state = StoreState.STATE_STATE_ITEM)
+				if (current_state = StoreState.STATE_ITEM)
 				{
 					GetComponent<Animator>().SetTrigger("toStoreSelection");
 				}
