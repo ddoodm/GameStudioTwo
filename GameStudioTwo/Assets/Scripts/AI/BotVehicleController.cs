@@ -1,32 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BotVehicleController : MonoBehaviour
+public class BotVehicleController : VehicleController
 {
-    /// <summary>
-    /// Wheel colliders at vehicle edges
-    /// TODO: Create axle class
-    /// </summary>
-    public WheelCollider[] wheels;
-
     /// <summary>
     /// Motor, braking and steering constraints
     /// </summary>
     public float
-        maxTorque = 50.0f,
-        maxBrakeTorque = 50.0f,
-        maxSteeringAngle = 20.0f,
         targetSpeed = 1.0f;
 
     public float
         targetThreshRadius = 1.0f;
-
-    /// <summary>
-    /// Controller inputs obtained at frame update
-    /// </summary>
-    private float
-        inputLinearForce,
-        inputSteering;
 
     /// <summary>
     /// The duration for which the bot may ram the player

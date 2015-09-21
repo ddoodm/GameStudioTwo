@@ -1,97 +1,113 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class BoosterControls : MonoBehaviour {
+public class BoosterControls : MonoBehaviour, Weapon
+{
+    SocketLocation location;
 
+    public float
+        strafeSpeed,
+        forwardBoostForce = 5000.0f;
 
-    public KeyCode control;
-    public string button;
-    public Transform body;
+    public bool
+        thrusting,
+        forwardBoosting;
 
+    // From Weapon interface
+    public void Use()
+    {
+        Boost();
+    }
 
-    public int face;
+    // From Weapon interface
+    public void EndUse()
+    {
+        EndBoost();
+    }
 
-    public float strafeSpeed;
+    // From Weapon interface
+    public GameObject GetGameObject()
+    {
+        return this.gameObject;
+    }
 
-    public bool thrust;
-
-
-
-	// Use this for initialization
-	void Start () {
-
-        control = transform.parent.GetComponentInParent <socketControl>().control;
-        button = transform.parent.GetComponentInParent<socketControl>().button;
-
-        body = transform.parent.parent.parent.transform;
-
-        switch (control)
+    // Use this for initialization
+    void Start ()
+    {
+        switch(transform.parent.name)
         {
-            case KeyCode.Alpha1: face = 1; break; //left
-            case KeyCode.Alpha2: face = 2; break; //right
-            case KeyCode.Alpha3: face = 3; break; //front
-            case KeyCode.Alpha4: face = 4; break; //back
+            case "LeftSocket": location = SocketLocation.LEFT; break;
+            case "RightSocket": location = SocketLocation.RIGHT; break;
+            case "BackSocket": location = SocketLocation.BACK; break;
         }
-	
 	}
+
+    private void Boost()
+    {
+        switch(location)
+        {
+            case SocketLocation.LEFT:
+                thrusting = true;
+                StartCoroutine("strafeParticles");
+                transform.root.GetComponent<Rigidbody>().AddForce(transform.root.right * strafeSpeed);
+                transform.root.GetComponent<EnergyController>().DrainEnergy();
+                break;
+            case SocketLocation.RIGHT:
+                thrusting = true;
+                StartCoroutine("strafeParticles");
+                transform.root.GetComponent<Rigidbody>().AddForce(-transform.root.right * strafeSpeed);
+                transform.root.GetComponent<EnergyController>().DrainEnergy();
+                break;
+            case SocketLocation.BACK:
+                thrusting = true;
+                forwardBoosting = true;
+                //transform.root.GetComponent<VehicleController>().boosting = true;
+                break;
+        }
+    }
+
+    private void EndBoost()
+    {
+        if(location == SocketLocation.BACK)
+        {
+            thrusting = false;
+            forwardBoosting = false;
+            //transform.root.GetComponent<VehicleController>().boosting = false;
+        }
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+        EnergyController energyCtrl = transform.root.GetComponent<EnergyController>();
+        //VehicleController vehicle = transform.root.GetComponent<VehicleController>();
+        Rigidbody rootBody = transform.root.GetComponent<Rigidbody>();
+        float maxEnergy = energyCtrl.maxEnergy;
 
-        if (Input.GetButtonDown(button) || Input.GetKeyDown(control))
+        if (energyCtrl.energy > 0 && forwardBoosting)
         {
-            switch(control)
-            {
-                case KeyCode.Alpha1:
-                    {
-                        if (body.GetComponent<VehicleController>().checkEnergyFull())
-                        {
-                            thrust = true;
-                            StartCoroutine("strafeParticles");
-                            body.GetComponent<Rigidbody>().AddForce(body.transform.right * strafeSpeed);
-                            body.GetComponent<VehicleController>().drainEnergy();
-                        }
-                        break;
-                        
-                    }
-                case KeyCode.Alpha2:
-                    {
-                        if (body.GetComponent<VehicleController>().checkEnergyFull())
-                        {
-                            thrust = true;
-                            StartCoroutine("strafeParticles");
-                            body.GetComponent<Rigidbody>().AddForce(-body.transform.right * strafeSpeed);
-                            body.GetComponent<VehicleController>().drainEnergy();
-                        }
-                        break;
-                    }
-                case KeyCode.Alpha4:
-                    {
-                        thrust = true;
-                        body.GetComponent<VehicleController>().boosting = true;
-                        break;
-                    }
-            }
+            energyCtrl.energy--;
+            rootBody.AddForce(rootBody.transform.forward * forwardBoostForce);
+            //vehicle.speedMultiplier = 5;
         }
-        if (Input.GetButtonUp(button) || Input.GetKeyUp(control))
+        if (energyCtrl.energy == 0)
         {
-            switch (control)
-            {
-                case KeyCode.Alpha4:
-                    {
-                        thrust = false;
-                        body.GetComponent<VehicleController>().boosting = false;
-                        break;
-                    }
+            //vehicle.speedMultiplier = 1;
+            forwardBoosting = false;
+        }
+        if (!forwardBoosting && energyCtrl.energy < maxEnergy)
+        {
+            energyCtrl.energy += 0.25f;
+            //vehicle.speedMultiplier = 1;
+        }
 
-            }
-        }
         thrustParticles();
 	}
 
     private void thrustParticles()
     {
-        if (thrust)
+        if (thrusting)
         {
             if (this.GetComponent<AudioSource>().isPlaying == false)
             {
@@ -113,13 +129,10 @@ public class BoosterControls : MonoBehaviour {
 
     }
 
-
-
     IEnumerator strafeParticles()
     {
         yield return new WaitForSeconds(1.0f);
-        thrust = false;
+        thrusting = false;
         StopCoroutine("strafeParticles");
     }
-
 }

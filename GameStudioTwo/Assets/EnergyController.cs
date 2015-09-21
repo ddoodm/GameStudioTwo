@@ -1,0 +1,32 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class EnergyController : MonoBehaviour
+{
+    public HPBar energyBar;
+    public float maxEnergy = 50.0f;
+
+    private float _energy;
+
+    public float energy
+    {
+        get { return _energy; }
+        set
+        {
+            _energy = value < 0 ? 0 : value;
+
+            if (energyBar)
+                energyBar.value = _energy;
+        }
+    }
+
+    public void DrainEnergy()
+    {
+        energy -= maxEnergy;
+    }
+
+    public bool energyFull
+    {
+        get { return energy == maxEnergy; }
+    }
+}
