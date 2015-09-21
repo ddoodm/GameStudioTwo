@@ -134,17 +134,20 @@ public class SocketEquipment : MonoBehaviour {
 			// Left Socket
 			case SocketLocation.LEFT:
 				Debug.Log("Handle in wrong position");
+                equipmentTypes[(int)socket] = Equipment.EMPTY;
 				break;
 				
 			// Right Socket
 			case SocketLocation.RIGHT:
 				Debug.Log("Handle in wrong position");
-				break;
+                equipmentTypes[(int)socket] = Equipment.EMPTY;
+                break;
 				
 			// Front Socket
 			case SocketLocation.FRONT:
 				Debug.Log("Handle in wrong position");
-				break;
+                equipmentTypes[(int)socket] = Equipment.EMPTY;
+                break;
 
 			// Back Socket
 			case SocketLocation.BACK:
@@ -164,7 +167,8 @@ public class SocketEquipment : MonoBehaviour {
 			// Top Socket
 			case SocketLocation.TOP:			
 				Debug.Log("Handle in wrong position");
-				break;
+                equipmentTypes[(int)socket] = Equipment.EMPTY;
+                break;
 					
 			default:
 				break;
@@ -243,8 +247,8 @@ public class SocketEquipment : MonoBehaviour {
 			// Top Socket
 			case SocketLocation.TOP:
 				Debug.Log("Spike in wrong position");
-
-				break;
+                equipmentTypes[(int)socket] = Equipment.EMPTY;
+                break;
 				
 			default:
 				break;
@@ -329,12 +333,14 @@ public class SocketEquipment : MonoBehaviour {
 			// Back Socket
 			case SocketLocation.BACK:
 				Debug.Log("Flipper in wrong position");
-				break;
+                equipmentTypes[(int)socket] = Equipment.EMPTY;
+                break;
 				
 			// Top Socket
 			case SocketLocation.TOP:	
 				Debug.Log("Flipper in wrong position");
-				break;
+                equipmentTypes[(int)socket] = Equipment.EMPTY;
+                break;
 				
 			default:
 				break;
@@ -384,7 +390,8 @@ public class SocketEquipment : MonoBehaviour {
 			// Front Socket
 		case SocketLocation.FRONT:
 			Debug.Log("Booster in wrong position");
-			break;
+                equipmentTypes[(int)socket] = Equipment.EMPTY;
+                break;
 
 			// Back Socket
 		case SocketLocation.BACK:
@@ -406,7 +413,8 @@ public class SocketEquipment : MonoBehaviour {
 			// Top Socket
 		case SocketLocation.TOP:	
 			Debug.Log("Booster in wrong position");
-			break;
+                equipmentTypes[(int)socket] = Equipment.EMPTY;
+                break;
 			
 		default:
 			break;

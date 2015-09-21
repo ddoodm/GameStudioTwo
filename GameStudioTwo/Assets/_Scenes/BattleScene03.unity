@@ -601,12 +601,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11467896, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
       propertyPath: flipperActivationRadius
-      value: 2.5
+      value: 3.01999998
       objectReference: {fileID: 0}
     - target: {fileID: 11467896, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
       propertyPath: flipperMaxCooldownSeconds
       value: 2.45000005
       objectReference: {fileID: 0}
+    - target: {fileID: 11473864, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: flippedCounterText
+      value: 
+      objectReference: {fileID: 599023453}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_IsPrefabParent: 0
@@ -1401,6 +1405,18 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b94daa370d72ea04eb05f3f5f5367cd3, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &599023452 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11462986, guid: b94daa370d72ea04eb05f3f5f5367cd3,
+    type: 2}
+  m_PrefabInternal: {fileID: 599023451}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &599023453 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11470266, guid: b94daa370d72ea04eb05f3f5f5367cd3,
+    type: 2}
+  m_PrefabInternal: {fileID: 599023451}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &611534489
 Prefab:
   m_ObjectHideFlags: 0
@@ -1576,6 +1592,10 @@ Prefab:
       value: 
       objectReference: {fileID: 13400000, guid: 4c413d8b9f11ddf499ce8b96d1141de1,
         type: 2}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: flippedCounterText
+      value: 
+      objectReference: {fileID: 599023452}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_IsPrefabParent: 0
