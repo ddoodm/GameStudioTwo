@@ -1,20 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class restartLevel : MonoBehaviour {
+public class mainMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Time.timeScale = 1;
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {	
+	void Update () {
+	
 	}
 
-    public void restart()
+
+    public void singlePlayer()
     {
         Application.LoadLevel("ItemStore");
+    }
+
+    public void multiPlayer()
+    {
+        Application.LoadLevel("MultiStore");
     }
 }
