@@ -18,7 +18,7 @@ public class BotEquipper : MonoBehaviour
             botItems[i] = Equipment.EMPTY;
 
         int rand;
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             rand = Random.Range(0, 3);
 
@@ -29,11 +29,14 @@ public class BotEquipper : MonoBehaviour
                     break;
 
                 case 1:
-                    botItems[i] = Equipment.Item_Flipper;
+                    if ((SocketLocation)i == SocketLocation.BACK)
+                        i--;
+                    else
+                        botItems[i] = Equipment.Item_Flipper;
                     break;
 
                 case 2:
-                    if (i == 2)
+                    if ((SocketLocation)i == SocketLocation.FRONT)
                         i--;
                     else
                         botItems[i] = Equipment.Item_Booster;
@@ -44,10 +47,9 @@ public class BotEquipper : MonoBehaviour
             }
         }
 
-        botItems[3] = Equipment.Item_Handle;
+        //botItems[3] = Equipment.Item_Handle;
+        //botItems[(int)SocketLocation.BACK] = Equipment.Item_Booster;
 
         GetComponent<SocketEquipment>().SocketItems(botItems, true);
-
-        //this.transform.Rotate (0.0f, 180.0f, 0.0f, Space.World);
     }
 }

@@ -393,6 +393,8 @@ GameObject:
   - 65: {fileID: 6563732}
   - 114: {fileID: 11484472}
   - 114: {fileID: 11443950}
+  - 114: {fileID: 11479978}
+  - 114: {fileID: 11439036}
   m_Layer: 2
   m_Name: VehicleV2
   m_TagString: Player
@@ -1524,6 +1526,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1557,6 +1560,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -2312,7 +2316,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139432}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4c413d8b9f11ddf499ce8b96d1141de1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2663,7 +2667,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100990}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
   m_Name: 
@@ -2695,7 +2699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: 51
-  button: Boost
+  button: SocketFront
 --- !u!114 &11423024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2722,6 +2726,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   control: 50
   button: SocketRight
+--- !u!114 &11439036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36656e581ee74cb4aac9d19bf2e750c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBar: {fileID: 0}
+  maxEnergy: 50
 --- !u!114 &11440514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2774,9 +2791,7 @@ MonoBehaviour:
   flipForce: 650
   proximityRadius: 1.89999998
   initialRot: {x: 0, y: 0, z: 0}
-  control: 0
-  button: 
-  curveVar: 0
+  animationTime: 0
   curve:
     serializedVersion: 2
     m_Curve: []
@@ -2799,14 +2814,12 @@ MonoBehaviour:
   - {fileID: 14663474}
   - {fileID: 14628444}
   play: 1
-  energyBar: {fileID: 0}
   maxTorque: 40
   maxBrakeTorque: 40
-  maxEnergy: 50
   speedMultiplier: 1
+  maxSteeringAngle: 20
   strafeSpeed: 50000
   steeringAngle: 20
-  boosting: 0
 --- !u!114 &11457904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2820,13 +2833,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   control: 52
   button: SocketBack
+--- !u!114 &11479978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150718}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9386a27960aef404f9db0669ae2621ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: 0300000000000000000000000400000000000000
 --- !u!114 &11482088
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134716}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
   m_Name: 
@@ -2867,14 +2892,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
-      inSlope: -1.90436912
-      outSlope: -1.90436912
-      tangentMode: 0
-    - time: 1
-      value: 0
+      value: 1.00769222
       inSlope: 0
       outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1.1920929e-07
+      inSlope: -1.53690958
+      outSlope: -1.53690958
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

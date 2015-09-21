@@ -578,6 +578,8 @@ GameObject:
   - 114: {fileID: 11473864}
   - 114: {fileID: 11438798}
   - 114: {fileID: 11463170}
+  - 114: {fileID: 11467896}
+  - 114: {fileID: 11409444}
   m_Layer: 0
   m_Name: VehicleBot2
   m_TagString: Enemy
@@ -2461,7 +2463,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112458}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4c413d8b9f11ddf499ce8b96d1141de1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2830,6 +2832,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &11409444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36656e581ee74cb4aac9d19bf2e750c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBar: {fileID: 0}
+  maxEnergy: 50
 --- !u!114 &11409628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2870,7 +2885,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111228}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
   m_Name: 
@@ -2904,6 +2919,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2956,9 +2977,7 @@ MonoBehaviour:
   flipForce: 650
   proximityRadius: 1.89999998
   initialRot: {x: 0, y: 0, z: 0}
-  control: 0
-  button: 
-  curveVar: 0
+  animationTime: 0
   curve:
     serializedVersion: 2
     m_Curve: []
@@ -2978,8 +2997,8 @@ MonoBehaviour:
   player: {fileID: 490412}
   prefab_handle: {fileID: 476778, guid: 1c1c9199febe92a498325eac01c6cd0a, type: 2}
   prefab_spike: {fileID: 418942, guid: 84586772812a76a4387ed355299244b4, type: 2}
-  prefab_flipper: {fileID: 447446, guid: d14d0ca374a0a8c4ba4c79300c867577, type: 2}
-  prefab_booster: {fileID: 429898, guid: a975cc422cb5e6e4d9f5368b693983d6, type: 2}
+  prefab_flipper: {fileID: 457978, guid: 941c6595ec8de9d4ca9aeb8c28a99ed2, type: 2}
+  prefab_booster: {fileID: 420590, guid: f20e45ea8f5f197499706a5ea6b721a5, type: 2}
   socket_left: {fileID: 434444}
   socket_right: {fileID: 438018}
   socket_front: {fileID: 449330}
@@ -3006,7 +3025,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196248}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
   m_Name: 
@@ -3038,6 +3057,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d3130299d9d7b45aaef0b26691e545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11467896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dca2bc69242a72478854eac645b8ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flipperActivationRadius: 2.5
+  flipperMinCooldownSeconds: .460000008
+  flipperMaxCooldownSeconds: 2.45000005
 --- !u!114 &11467964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3063,6 +3096,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: .839215696, b: .0588235296, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3084,6 +3123,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: .917647064, g: .0313725509, b: .0313725509, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3112,18 +3157,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
-      inSlope: -1.90436912
-      outSlope: -1.90436912
+      value: 1.00769222
+      inSlope: -1.16443216e-05
+      outSlope: -1.16443216e-05
       tangentMode: 0
     - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 1.1920929e-07
+      inSlope: -1.47481692
+      outSlope: -1.47481692
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  flippedCounterSizeVar: 0
+  flippedCounterSizeVar: 10
   maxHealth: 200
   mass: 1
   damageFactor: 1
@@ -3159,9 +3204,13 @@ MonoBehaviour:
   - {fileID: 14680776}
   - {fileID: 14639950}
   - {fileID: 14678594}
+  play: 1
   maxTorque: 50
   maxBrakeTorque: 50
+  speedMultiplier: 1
   maxSteeringAngle: 20
+  strafeSpeed: 0
+  steeringAngle: 20
   targetSpeed: 1
   targetThreshRadius: 1.5
   maxContactTime: .5
