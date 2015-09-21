@@ -3,14 +3,14 @@ using UnityEngine.UI;
 using System.Collections;
 
 
-public enum Equipment { EMPTY, Item_Handle, Item_Spike, Item_Flipper, Item_Booster};
+//public enum Equipment { EMPTY, Item_Handle, Item_Spike, Item_Flipper, Item_Booster};
 
-public enum Socket { EMPTY, Socket_Left, Socket_Right, Socket_Front, Socket_Back, Socket_Top };
+//public enum Socket { EMPTY, Socket_Left, Socket_Right, Socket_Front, Socket_Back, Socket_Top };
 
-public enum StoreState {STATE_MODEL, STATE_ITEM, STATE_STORE};
+//public enum StoreState {STATE_MODEL, STATE_ITEM, STATE_STORE};
 
 
-public class StoreController : MonoBehaviour {
+public class StoreControllerMulti : MonoBehaviour {
 
 	public GameObject player;
 	public GameObject storeUI;
@@ -42,9 +42,7 @@ public class StoreController : MonoBehaviour {
 
 	public Equipment[] AvailableItems = new Equipment[TOTAL_ITEMS];
 
-	public int DOLLADOLLABILLSYALL = 0;
-	public Text moneyText;
-
+    private bool moveMower = false;
 
 	// Use this for initialization
 	void Start () {
@@ -74,8 +72,6 @@ public class StoreController : MonoBehaviour {
 			{
 				AvailableItems[i] = playerChoice.boughtItems[i];
 			}
-
-			DOLLADOLLABILLSYALL = playerChoice.playerMoney;
 
 		}
 
@@ -117,7 +113,7 @@ public class StoreController : MonoBehaviour {
 
 		HandleBoughtItems();
 
-		moneyText.text = "Money: " + DOLLADOLLABILLSYALL;
+
 
 
         if (colourChange)
@@ -144,17 +140,15 @@ public class StoreController : MonoBehaviour {
 			case "LawnMowerBlue":
 				//player.GetComponent<Transform>().position = hit.transform.position;
 				//hit.transform.parent.gameObject.SetActive(false);
-				player.GetComponent<Transform>().position = new Vector3(7.5f, 2.6f, 7.5f);
+				//player.GetComponent<Transform>().position = new Vector3(7.5f, 2.6f, 7.5f);
+                if (moveMower == false)
+                {
+                    moveMower = true;
+                    player.GetComponent<Transform>().Translate(new Vector3(0, 5.75f, 0),Space.World);
+                }
 				
 				current_state = StoreState.STATE_ITEM;
 				GetComponent<Animator>().SetTrigger("toItemSelection");
-				break;
-			case "Phone_Model":
-				if (current_state == StoreState.STATE_ITEM)
-				{
-					GetComponent<Animator>().SetTrigger("toStoreSelection");
-				current_state = StoreState.STATE_STORE;
-				}
 				break;
 
 			case "Item_Handle":
@@ -361,24 +355,5 @@ public class StoreController : MonoBehaviour {
 		GetComponent<Animator>().SetTrigger("toItemSelection");
 	}
 
-
-
-	public void BuyFlipper()
-	{
-		Debug.Log (DOLLADOLLABILLSYALL);
-		if (DOLLADOLLABILLSYALL > 100) {
-			AvailableItems [2] = Equipment.Item_Flipper;
-			DOLLADOLLABILLSYALL -= 100;
-		}
-	}
-
-	public void BuyBooster()
-	{
-		if (DOLLADOLLABILLSYALL > 200) {
-			AvailableItems [3] = Equipment.Item_Booster;
-			DOLLADOLLABILLSYALL -= 200;
-		}
-	}
-
-
 }
+
