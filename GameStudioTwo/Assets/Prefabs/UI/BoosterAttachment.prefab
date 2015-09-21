@@ -227,6 +227,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -292,12 +293,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27a84fe24e91d34688cf5ddc7780425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: 0
-  button: 
-  body: {fileID: 0}
-  face: 0
   strafeSpeed: 50000
-  thrust: 0
+  forwardBoostForce: 6000
+  thrusting: 0
+  forwardBoosting: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -376,6 +375,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Volume
       value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: forwardBoostForce
+      value: 6000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

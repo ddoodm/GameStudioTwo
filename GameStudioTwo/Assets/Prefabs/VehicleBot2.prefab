@@ -579,6 +579,7 @@ GameObject:
   - 114: {fileID: 11438798}
   - 114: {fileID: 11463170}
   - 114: {fileID: 11467896}
+  - 114: {fileID: 11409444}
   m_Layer: 0
   m_Name: VehicleBot2
   m_TagString: Enemy
@@ -2831,6 +2832,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &11409444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36656e581ee74cb4aac9d19bf2e750c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBar: {fileID: 0}
+  maxEnergy: 50
 --- !u!114 &11409628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3138,7 +3152,7 @@ MonoBehaviour:
   finish: {fileID: 0}
   restartButton: {fileID: 0}
   gameOverScreen: {fileID: 0}
-  maxHealth: 50
+  maxHealth: 200
   mass: 1
   damageFactor: 1
 --- !u!114 &11474616
@@ -3173,9 +3187,13 @@ MonoBehaviour:
   - {fileID: 14680776}
   - {fileID: 14639950}
   - {fileID: 14678594}
+  play: 1
   maxTorque: 50
   maxBrakeTorque: 50
+  speedMultiplier: 1
   maxSteeringAngle: 20
+  strafeSpeed: 0
+  steeringAngle: 20
   targetSpeed: 1
   targetThreshRadius: 1.5
   maxContactTime: .5

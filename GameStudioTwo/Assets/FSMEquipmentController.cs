@@ -7,6 +7,7 @@ public class FSMEquipmentController : MonoBehaviour
     private SocketEquipment socketEquipment;
     private Equipment[] equips;
     private GameObject player;
+    private Rigidbody thisBody;
 
     public float
         flipperActivationRadius = 8.0f,
@@ -17,6 +18,7 @@ public class FSMEquipmentController : MonoBehaviour
     {
         socketEquipment = GetComponent<SocketEquipment>();
         player = GameObject.FindWithTag("Player");
+        thisBody = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -34,7 +36,12 @@ public class FSMEquipmentController : MonoBehaviour
         switch(item)
         {
             case Equipment.Item_Flipper: WeaponLogic_Flipper(socket); break;
-            case Equipment.Item_Booster: WeaponLogic_Booster(socket); break;
+            case Equipment.Item_Booster:
+                if(socket == SocketLocation.BACK)
+                    WeaponLogic_RearBooster(socket);
+                else
+                    WeaponLogic_LateralBooster(socket);
+                break;
         }
     }
 
@@ -65,7 +72,23 @@ public class FSMEquipmentController : MonoBehaviour
     }
 
     private float boosterCooldown = 0.0f;
-    private void WeaponLogic_Booster(SocketLocation socket)
+    private void WeaponLogic_RearBooster(SocketLocation socket)
+    {
+        boosterCooldown -= Time.deltaTime;
+        Weapon booster = socketEquipment.GetWeaponInSocket(socket);
+
+        float distanceToPlayer = (this.transform.position - player.transform.position).magnitude;
+
+        bool inRange = distanceToPlayer > 3.0f && distanceToPlayer < 15.0f;
+        bool notStuck = thisBody.velocity.magnitude > 4.0f;
+
+        if (inRange && notStuck)
+            booster.Use();
+        else
+            booster.EndUse();
+    }
+
+    private void WeaponLogic_LateralBooster(SocketLocation socket)
     {
         boosterCooldown -= Time.deltaTime;
         Weapon booster = socketEquipment.GetWeaponInSocket(socket);
@@ -75,10 +98,7 @@ public class FSMEquipmentController : MonoBehaviour
         if (distanceToPlayer < 10.0f && boosterCooldown < 0.0f)
         {
             booster.Use();
-
-            // If this is not a rear-booster, use a cooldown
-            if (socket != SocketLocation.BACK)
-                boosterCooldown = 2.0f;
+            boosterCooldown = 2.0f;
         }
         else
             booster.EndUse();
