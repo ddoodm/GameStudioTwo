@@ -611,6 +611,14 @@ Prefab:
       propertyPath: flippedCounterText
       value: 
       objectReference: {fileID: 599023453}
+    - target: {fileID: 11409444, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: maxEnergy
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473864, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: maxHealth
+      value: 4000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_IsPrefabParent: 0
@@ -1555,6 +1563,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11439036, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: energyBar
+      value: 
+      objectReference: {fileID: 1731890761}
     - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: healthBar
       value: 
@@ -1571,31 +1583,14 @@ Prefab:
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 55494381}
-    - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: equipment.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: equipment.Array.data[2]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: equipment.Array.data[3]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11439036, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: energyBar
-      value: 
-      objectReference: {fileID: 1731890761}
-    - target: {fileID: 6409684, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 4c413d8b9f11ddf499ce8b96d1141de1,
-        type: 2}
     - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: flippedCounterText
       value: 
       objectReference: {fileID: 599023452}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: maxHealth
+      value: 4000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_IsPrefabParent: 0
