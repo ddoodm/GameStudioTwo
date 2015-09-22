@@ -4174,7 +4174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: 49
-  button: 
+  button: SocketLeft
 --- !u!95 &362418221
 Animator:
   serializedVersion: 3
@@ -12954,14 +12954,12 @@ MonoBehaviour:
   - {fileID: 659224382}
   - {fileID: 1202410241}
   play: 1
-  energyBar: {fileID: 0}
   maxTorque: 40
   maxBrakeTorque: 40
-  maxEnergy: 50
   speedMultiplier: 1
+  maxSteeringAngle: 20
   strafeSpeed: 0
   steeringAngle: 20
-  boosting: 0
 --- !u!54 &1175702564
 Rigidbody:
   m_ObjectHideFlags: 0
