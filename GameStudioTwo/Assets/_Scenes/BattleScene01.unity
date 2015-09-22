@@ -1985,77 +1985,17 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 413260, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 413260, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .916999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 413260, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 5.44299984
-      objectReference: {fileID: 0}
-    - target: {fileID: 413260, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 413260, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 413260, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 413260, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: -1.62920685e-07
-      objectReference: {fileID: 0}
-    - target: {fileID: 413260, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11480802, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1165797365}
-    - target: {fileID: 11480802, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: finish
-      value: 
-      objectReference: {fileID: 1267303126}
-    - target: {fileID: 11480802, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: restartButton
-      value: 
-      objectReference: {fileID: 864352189}
-    - target: {fileID: 11480802, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: gameOverScreen
-      value: 
-      objectReference: {fileID: 1776762037}
-    - target: {fileID: 5914746, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_ConnectedAnchor.x
-      value: -.675000191
-      objectReference: {fileID: 0}
-    - target: {fileID: 5914746, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_ConnectedAnchor.z
-      value: -.016500216
-      objectReference: {fileID: 0}
-    - target: {fileID: 104194, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .503855705
       objectReference: {fileID: 0}
     - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalPosition.z
       value: 5.14362621
-      objectReference: {fileID: 0}
-    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2074,20 +2014,8 @@ Prefab:
       value: -1.62920685e-07
       objectReference: {fileID: 0}
     - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .503855705
-      objectReference: {fileID: 0}
-    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: healthBar
