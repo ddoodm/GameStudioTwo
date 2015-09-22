@@ -99,17 +99,18 @@ public class FSMEquipmentController : MonoBehaviour
         float lateralDistance =
             this.transform.InverseTransformPoint(player.transform.position).x;
 
-        bool isStuck = thisBody.velocity.magnitude < 0.8f;
+        bool isStuck = thisBody.velocity.magnitude < 0.1f;
 
-        // If the player is to the left / right, then boost
+        // Boost toward the player whenever possible,
+        // or try to get un-stuck
         if ((
-               (socket == SocketLocation.LEFT && lateralDistance > 8.0f)
-            || (socket == SocketLocation.RIGHT && lateralDistance < 8.0f)
+               (socket == SocketLocation.LEFT && lateralDistance > 4.0f)
+            || (socket == SocketLocation.RIGHT && lateralDistance < -4.0f)
             || isStuck)
             && boosterCooldown < 0.0f)
         {
             booster.Use();
-            boosterCooldown = 2.0f;
+            boosterCooldown = UnityEngine.Random.Range(0.8f, 2.0f);
         }
         else
             booster.EndUse();

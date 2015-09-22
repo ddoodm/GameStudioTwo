@@ -78,7 +78,8 @@ public class PlayerHealth : MonoBehaviour
         float damageMultiplier = 1.0f;
 
         PlayerHealth enemy = collision.gameObject.GetComponent<PlayerHealth>();
-        float damage = collision.relativeVelocity.magnitude;
+        //float damage = collision.relativeVelocity.magnitude;
+        float damage = collision.impulse.magnitude;
         float thisDamage = 0;
 
         //check if hit by weapon
@@ -97,7 +98,7 @@ public class PlayerHealth : MonoBehaviour
                     damageMultiplier *= armor.damageMultiplier;
             }
 
-            thisDamage = damage * damageMultiplier * enemy.mass;
+            thisDamage = damage * damageMultiplier * (enemy? enemy.mass : 1.0f);
 
             if (armor != null)
                 armor.issueDamageAttachment(thisDamage);
@@ -105,7 +106,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         Debug.Log("Damage Multiplier: " + damageMultiplier);
-        Debug.Log(collision.gameObject.tag + " Mass: " + enemy.mass);
+        Debug.Log(collision.gameObject.tag + " Mass: " + (enemy ? enemy.mass : 1.0f));
 
         this.issueDamage(thisDamage);
 
@@ -129,7 +130,7 @@ public class PlayerHealth : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
+        // if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
         {
             issueDamage(collision);
         }
