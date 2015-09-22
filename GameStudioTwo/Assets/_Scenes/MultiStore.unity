@@ -1407,6 +1407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   control: 49
   button: 
+  playerNumber: 0
 --- !u!95 &89549571
 Animator:
   serializedVersion: 3
@@ -1542,8 +1543,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  isUI: 0
   highlighted: 0
-  player: 1
+  player: 0
+  slider: 0
 --- !u!23 &94212797
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4135,6 +4138,7 @@ GameObject:
   - 224: {fileID: 220946841}
   - 222: {fileID: 220946843}
   - 114: {fileID: 220946842}
+  - 114: {fileID: 220946844}
   m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
@@ -4186,6 +4190,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 220946840}
+--- !u!114 &220946844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220946840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69e861d35189704aa9ee876c76c0035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSocket: 0
+  isUI: 1
+  highlighted: 0
+  player: 2
+  slider: 1
 --- !u!1 &223868938
 GameObject:
   m_ObjectHideFlags: 0
@@ -5942,6 +5962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   control: 49
   button: 
+  playerNumber: 0
 --- !u!95 &334036483
 Animator:
   serializedVersion: 3
@@ -6158,8 +6179,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  isUI: 0
   highlighted: 0
-  player: 2
+  player: 0
+  slider: 0
 --- !u!65 &339631635
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6770,6 +6793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   control: 49
   button: 
+  playerNumber: 0
 --- !u!95 &362418221
 Animator:
   serializedVersion: 3
@@ -7160,8 +7184,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  isUI: 0
   highlighted: 0
-  player: 1
+  player: 0
+  slider: 0
 --- !u!65 &377843798
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8736,6 +8762,7 @@ GameObject:
   - 224: {fileID: 449257962}
   - 222: {fileID: 449257964}
   - 114: {fileID: 449257963}
+  - 114: {fileID: 449257965}
   m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
@@ -8787,6 +8814,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 449257961}
+--- !u!114 &449257965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449257961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69e861d35189704aa9ee876c76c0035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSocket: 0
+  isUI: 1
+  highlighted: 0
+  player: 1
+  slider: 3
 --- !u!1 &449727215
 GameObject:
   m_ObjectHideFlags: 0
@@ -10421,6 +10464,8 @@ MonoBehaviour:
   current_state: 0
   selectedEquipment: 0
   AvailableItems: 00000000000000000000000000000000
+  possibleObjects: []
+  controllerSelected: 0
 --- !u!95 &511370663
 Animator:
   serializedVersion: 3
@@ -13813,8 +13858,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  isUI: 0
   highlighted: 0
-  player: 1
+  player: 0
+  slider: 0
 --- !u!23 &681755853
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14014,8 +14061,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  isUI: 0
   highlighted: 0
-  player: 1
+  player: 0
+  slider: 0
 --- !u!1 &696640149
 GameObject:
   m_ObjectHideFlags: 0
@@ -16356,8 +16405,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  isUI: 0
   highlighted: 0
-  player: 2
+  player: 0
+  slider: 0
 --- !u!65 &809734181
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20764,8 +20815,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  isUI: 0
   highlighted: 0
-  player: 2
+  player: 0
+  slider: 0
 --- !u!65 &1039584833
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21135,8 +21188,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  isUI: 0
   highlighted: 0
-  player: 1
+  player: 0
+  slider: 0
 --- !u!1 &1058195126
 GameObject:
   m_ObjectHideFlags: 0
@@ -21879,8 +21934,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  isUI: 0
   highlighted: 0
-  player: 2
+  player: 0
+  slider: 0
 --- !u!1 &1084401162
 GameObject:
   m_ObjectHideFlags: 0
@@ -22964,6 +23021,8 @@ MonoBehaviour:
   current_state: 0
   selectedEquipment: 0
   AvailableItems: 00000000000000000000000000000000
+  possibleObjects: []
+  controllerSelected: 0
 --- !u!95 &1137763547
 Animator:
   serializedVersion: 3
@@ -23660,6 +23719,7 @@ MonoBehaviour:
   - {fileID: 659224382}
   - {fileID: 1202410241}
   play: 1
+  player: 0
   maxTorque: 40
   maxBrakeTorque: 40
   speedMultiplier: 1
@@ -24012,6 +24072,7 @@ GameObject:
   - 224: {fileID: 1189447600}
   - 222: {fileID: 1189447602}
   - 114: {fileID: 1189447601}
+  - 114: {fileID: 1189447603}
   m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
@@ -24063,6 +24124,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1189447599}
+--- !u!114 &1189447603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1189447599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69e861d35189704aa9ee876c76c0035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSocket: 0
+  isUI: 1
+  highlighted: 0
+  player: 1
+  slider: 1
 --- !u!1 &1191908903
 GameObject:
   m_ObjectHideFlags: 0
@@ -25914,8 +25991,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  isUI: 0
   highlighted: 0
-  player: 2
+  player: 0
+  slider: 0
 --- !u!1 &1255333593
 GameObject:
   m_ObjectHideFlags: 0
@@ -26105,8 +26184,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  isUI: 0
   highlighted: 0
-  player: 2
+  player: 0
+  slider: 0
 --- !u!1 &1266330298
 GameObject:
   m_ObjectHideFlags: 0
@@ -27527,8 +27608,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  isUI: 0
   highlighted: 0
-  player: 1
+  player: 0
+  slider: 0
 --- !u!65 &1325712851
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27846,8 +27929,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  isUI: 0
   highlighted: 0
-  player: 2
+  player: 0
+  slider: 0
 --- !u!65 &1340869047
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28047,8 +28132,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  isUI: 0
   highlighted: 0
-  player: 1
+  player: 0
+  slider: 0
 --- !u!1 &1367378103
 GameObject:
   m_ObjectHideFlags: 0
@@ -29383,8 +29470,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  isUI: 0
   highlighted: 0
-  player: 1
+  player: 0
+  slider: 0
 --- !u!23 &1428316927
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30332,7 +30421,6 @@ GameObject:
   - 4: {fileID: 1464563608}
   - 33: {fileID: 1464563611}
   - 23: {fileID: 1464563610}
-  - 114: {fileID: 1464563609}
   m_Layer: 8
   m_Name: Ball
   m_TagString: Socket_Ball
@@ -30352,20 +30440,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1254403163}
   m_RootOrder: 0
---- !u!114 &1464563609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1464563607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b69e861d35189704aa9ee876c76c0035, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSocket: 0
-  highlighted: 0
-  player: 2
 --- !u!23 &1464563610
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31043,8 +31117,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  isUI: 0
   highlighted: 0
-  player: 1
+  player: 0
+  slider: 0
 --- !u!1 &1493069766
 GameObject:
   m_ObjectHideFlags: 0
@@ -33188,6 +33264,7 @@ MonoBehaviour:
   - {fileID: 466570193}
   - {fileID: 360751238}
   play: 1
+  player: 0
   maxTorque: 40
   maxBrakeTorque: 40
   speedMultiplier: 1
@@ -33402,6 +33479,7 @@ GameObject:
   - 224: {fileID: 1628744859}
   - 222: {fileID: 1628744861}
   - 114: {fileID: 1628744860}
+  - 114: {fileID: 1628744862}
   m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
@@ -33453,6 +33531,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1628744858}
+--- !u!114 &1628744862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1628744858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69e861d35189704aa9ee876c76c0035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSocket: 0
+  isUI: 1
+  highlighted: 0
+  player: 1
+  slider: 2
 --- !u!1 &1629791748
 GameObject:
   m_ObjectHideFlags: 0
@@ -34302,6 +34396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   control: 49
   button: 
+  playerNumber: 0
 --- !u!95 &1665452435
 Animator:
   serializedVersion: 3
@@ -35025,8 +35120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  isUI: 0
   highlighted: 0
-  player: 1
+  player: 0
+  slider: 0
 --- !u!1 &1726608352
 GameObject:
   m_ObjectHideFlags: 0
@@ -36314,7 +36411,6 @@ GameObject:
   - 4: {fileID: 1783952462}
   - 33: {fileID: 1783952465}
   - 23: {fileID: 1783952464}
-  - 114: {fileID: 1783952463}
   m_Layer: 8
   m_Name: Ball
   m_TagString: Socket_Ball
@@ -36334,20 +36430,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1075847744}
   m_RootOrder: 0
---- !u!114 &1783952463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1783952461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b69e861d35189704aa9ee876c76c0035, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSocket: 0
-  highlighted: 0
-  player: 2
 --- !u!23 &1783952464
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36867,6 +36949,7 @@ GameObject:
   - 224: {fileID: 1809323429}
   - 222: {fileID: 1809323431}
   - 114: {fileID: 1809323430}
+  - 114: {fileID: 1809323432}
   m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
@@ -36918,6 +37001,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1809323428}
+--- !u!114 &1809323432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1809323428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69e861d35189704aa9ee876c76c0035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSocket: 0
+  isUI: 1
+  highlighted: 0
+  player: 2
+  slider: 3
 --- !u!1 &1811332221
 GameObject:
   m_ObjectHideFlags: 0
@@ -38190,7 +38289,6 @@ GameObject:
   - 4: {fileID: 1879459756}
   - 33: {fileID: 1879459759}
   - 23: {fileID: 1879459758}
-  - 114: {fileID: 1879459757}
   m_Layer: 8
   m_Name: Ball
   m_TagString: Socket_Ball
@@ -38210,20 +38308,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2081284197}
   m_RootOrder: 0
---- !u!114 &1879459757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1879459755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b69e861d35189704aa9ee876c76c0035, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSocket: 0
-  highlighted: 0
-  player: 2
 --- !u!23 &1879459758
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39954,8 +40038,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  isUI: 0
   highlighted: 0
-  player: 1
+  player: 0
+  slider: 0
 --- !u!1 &1972965287
 GameObject:
   m_ObjectHideFlags: 0
@@ -40956,8 +41042,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  isUI: 0
   highlighted: 0
-  player: 2
+  player: 0
+  slider: 0
 --- !u!1 &2026556790
 GameObject:
   m_ObjectHideFlags: 0
@@ -41526,6 +41614,7 @@ GameObject:
   - 224: {fileID: 2043556627}
   - 222: {fileID: 2043556629}
   - 114: {fileID: 2043556628}
+  - 114: {fileID: 2043556630}
   m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
@@ -41577,6 +41666,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2043556626}
+--- !u!114 &2043556630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2043556626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69e861d35189704aa9ee876c76c0035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSocket: 0
+  isUI: 1
+  highlighted: 0
+  player: 2
+  slider: 2
 --- !u!1 &2046292604
 GameObject:
   m_ObjectHideFlags: 0
@@ -42176,8 +42281,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  isUI: 0
   highlighted: 0
-  player: 2
+  player: 0
+  slider: 0
 --- !u!1 &2091396612
 GameObject:
   m_ObjectHideFlags: 0
@@ -43362,8 +43469,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  isUI: 0
   highlighted: 0
-  player: 1
+  player: 0
+  slider: 0
 --- !u!1 &2141571810
 GameObject:
   m_ObjectHideFlags: 0
