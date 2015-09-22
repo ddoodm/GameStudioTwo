@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ItemSelectorMulti : MonoBehaviour
@@ -9,15 +10,22 @@ public class ItemSelectorMulti : MonoBehaviour
     private Color highlightSocketColour = new Color(0f / 255f, 200f / 255f, 0f / 255f);
     private string currentSelection;
     public bool isSocket;
+    public bool isUI;
     public bool highlighted = false;
+    public int player;
+    public int slider;
 
     private StoreControllerMulti storeController;
-    public int player;
 
     void Start()
     {
         storeController = GameObject.FindGameObjectWithTag("StoreUI").GetComponent<StoreControllerMulti>();
-        startColour = GetComponentInChildren<Renderer>().material.color;
+        if (isUI)
+        {
+            startColour = GetComponent<Image>().color;
+        }
+        else
+            startColour = GetComponentInChildren<Renderer>().material.color;
     }
 
     void Update()
@@ -28,7 +36,11 @@ public class ItemSelectorMulti : MonoBehaviour
         {
             if (GetComponent<Transform>().tag != storeController.selectedEquipment.ToString() || GetComponent<Transform>().tag == "Phone_Model")
             {
-                if (!isSocket)
+                if (isUI)
+                {
+                    GetComponent<Image>().color = startColour;
+                }
+                else if (!isSocket)
                 {
                     foreach (Transform child in transform)
                     {
@@ -52,7 +64,11 @@ public class ItemSelectorMulti : MonoBehaviour
         {
             if (GetComponent<Transform>().tag != storeController.selectedEquipment.ToString() || GetComponent<Transform>().tag == "Phone_Model")
             {
-                if (!isSocket)
+                if (isUI)
+                {
+                    GetComponent<Image>().color = highlightItemColour;
+                }
+                else if (!isSocket)
                 {
                     foreach (Transform child in transform)
                     {

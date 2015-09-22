@@ -34,10 +34,35 @@ public class StoreControllerMulti : MonoBehaviour {
 
 	public Equipment[] AvailableItems = new Equipment[TOTAL_ITEMS];
 
-    private bool moveMower = false;
+
+    //Robs super amazing variables
+    public ItemSelectorMulti[] possibleObjects;
+    public int controllerSelected = 0;
+    private string controllerA = "SocketFront";
+    private string controllerX = "SocketLeft";
+    private string controllerB = "SocketRight";
+    private string axisH = "Horizontal";
+    private int playerNumber;
+
+
 
 	// Use this for initialization
 	void Start () {
+
+        
+
+        possibleObjects = transform.parent.GetComponentsInChildren<ItemSelectorMulti>();
+        playerNumber = possibleObjects[0].player;
+
+        if (playerNumber == 2)
+        {
+            controllerA += "P2";
+            controllerB += "P2";
+            controllerX += "P2";
+            axisH += "P2";
+
+        }
+
         Time.timeScale = 1;
 
         if (GameObject.FindGameObjectWithTag ("Persistent Stats").GetComponent<persistentStats> () != null) 
@@ -76,6 +101,7 @@ public class StoreControllerMulti : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        /*
 		if (Input.GetMouseButtonDown(0)){
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
@@ -100,16 +126,19 @@ public class StoreControllerMulti : MonoBehaviour {
 					}
 				}
 			}
-		}
+		}*/
+        
+        controllerHighlight();
 
+        
 
 		HandleBoughtItems();
 
 
 
 
-        	
-		sliderColour = new Color(rgbColor.x, rgbColor.y, rgbColor.z);
+
+        sliderColour = new Color(rgbColor.x / 255, rgbColor.y / 255, rgbColor.z / 255);
         Renderer[] parts = player.GetComponentsInChildren<Renderer>();
         foreach (Renderer part in parts)
         {
@@ -123,6 +152,53 @@ public class StoreControllerMulti : MonoBehaviour {
 		}
 	}
 
+    void controllerSliders()
+    {
+        if (possibleObjects[controllerSelected].isUI)
+        {
+            possibleObjects[controllerSelected].transform.parent.GetComponentInParent<Slider>().value += Input.GetAxis(axisH);
+        }
+    }
+
+    void controllerHighlight()
+    {
+        if (current_state == StoreState.STATE_ITEM)
+        {
+            foreach (ItemSelectorMulti item in possibleObjects)
+            {
+                item.highlighted = false;
+            }
+            if (controllerSelected >= possibleObjects.Length)
+            {
+                controllerSelected = 0;
+            }
+            if (controllerSelected < 0)
+            {
+                controllerSelected = possibleObjects.Length - 1;
+            }
+            possibleObjects[controllerSelected].highlighted = true;
+            controllerSliders();
+            if(Input.GetButtonDown(controllerX))
+            {
+                controllerSelected -= 1;
+            }
+            if (Input.GetButtonDown(controllerB))
+            {
+                controllerSelected += 1;
+            }
+        }
+        else
+        {
+            if (Input.GetButtonDown(controllerA))
+            {
+                player.GetComponent<Transform>().Translate(new Vector3(0, 5.75f, 0), Space.World);
+
+
+                current_state = StoreState.STATE_ITEM;
+                GetComponent<Animator>().SetTrigger("toItemSelection");
+            }
+        }
+    }
 
 	void HandleItemSelection(RaycastHit hit) {
 		selectedSocket = Socket.EMPTY;
@@ -328,16 +404,16 @@ public class StoreControllerMulti : MonoBehaviour {
 
     public void changeB(float slider)
     {
-		rgbColor.z = slider / 255;
+		rgbColor.z = slider;
     }
 
     public void changeR(float slider)
     {
-        rgbColor.x = slider / 255;
+        rgbColor.x = slider;
     }
     public void changeG(float slider)
     {
-        rgbColor.y = slider / 255;
+        rgbColor.y = slider;
     }
 
 	public void BackToItems()
