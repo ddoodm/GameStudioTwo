@@ -10,6 +10,8 @@ public class VehicleController : MonoBehaviour
     public WheelCollider[] wheels;
 	public bool play = true;
 
+    public int player;
+
     /// <summary>
     /// Motor, braking and steering constraints
     /// </summary>
@@ -36,18 +38,40 @@ public class VehicleController : MonoBehaviour
     {
 		if (play) 
 		{
-			// Update input forces
-            if (Input.GetKey(KeyCode.W) || Input.GetButton("Fire1") || Input.GetKey(KeyCode.UpArrow))
-                inputLinearForce = 1;
-            else if (Input.GetKey(KeyCode.S) || Input.GetButton("Fire2") || Input.GetKey(KeyCode.DownArrow))
-                inputLinearForce = -1;
-            else
-                inputLinearForce = 0;
+            switch (player)
+            {
+                case 1:
+                    {
+                        // Update input forces
+                        if (Input.GetKey(KeyCode.W) || Input.GetButton("Fire1") || Input.GetKey(KeyCode.UpArrow))
+                            inputLinearForce = 1;
+                        else if (Input.GetKey(KeyCode.S) || Input.GetButton("Fire2") || Input.GetKey(KeyCode.DownArrow))
+                            inputLinearForce = -1;
+                        else
+                            inputLinearForce = 0;
 
-            //boost();
-            
-			    //inputLinearForce = Input.GetAxis ("Vertical");
-			inputSteering = Input.GetAxis ("Horizontal");
+                        //boost();
+
+                        //inputLinearForce = Input.GetAxis ("Vertical");
+                        inputSteering = Input.GetAxis("Horizontal");
+                        break;
+                    }
+                case 2:
+                    {
+                        if (Input.GetKey(KeyCode.W) || Input.GetButton("Fire1P2") || Input.GetKey(KeyCode.UpArrow))
+                            inputLinearForce = 1;
+                        else if (Input.GetKey(KeyCode.S) || Input.GetButton("Fire2P2") || Input.GetKey(KeyCode.DownArrow))
+                            inputLinearForce = -1;
+                        else
+                            inputLinearForce = 0;
+
+                        //boost();
+
+                        //inputLinearForce = Input.GetAxis ("Vertical");
+                        inputSteering = Input.GetAxis("HorizontalP2");
+                        break;
+                    }
+            }
 		}
     }
 

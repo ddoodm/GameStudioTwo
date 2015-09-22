@@ -9,7 +9,7 @@ public class ItemSelectorMulti : MonoBehaviour
     private Color highlightSocketColour = new Color(0f / 255f, 200f / 255f, 0f / 255f);
     private string currentSelection;
     public bool isSocket;
-    private bool highlighted = false;
+    public bool highlighted = false;
 
     private StoreControllerMulti storeController;
     public int player;
@@ -48,6 +48,37 @@ public class ItemSelectorMulti : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            if (GetComponent<Transform>().tag != storeController.selectedEquipment.ToString() || GetComponent<Transform>().tag == "Phone_Model")
+            {
+                if (!isSocket)
+                {
+                    foreach (Transform child in transform)
+                    {
+                        child.GetComponent<Renderer>().material.color = highlightItemColour;
+                    }
+                }
+                else
+                {
+                    foreach (Transform child in transform)
+                    {
+                        if (child.GetComponent<Renderer>() != null)
+                        {
+                            child.GetComponent<Renderer>().material.color = highlightSocketColour;
+                            child.GetComponent<Transform>().localScale = new Vector3(0.375f, 0.375f, 0.375f);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (Transform child in transform)
+                {
+                    child.GetComponent<Renderer>().material.color = storeController.selectedItemColour;
+                }
+            }
+        }
     }
 
 
@@ -56,70 +87,12 @@ public class ItemSelectorMulti : MonoBehaviour
     {
         if (storeController.current_state != StoreState.STATE_ITEM)
             return;
-
-
         highlighted = true;
-        if (GetComponent<Transform>().tag != storeController.selectedEquipment.ToString() || GetComponent<Transform>().tag == "Phone_Model")
-        {
-            if (!isSocket)
-            {
-                foreach (Transform child in transform)
-                {
-                    child.GetComponent<Renderer>().material.color = highlightItemColour;
-                }
-            }
-            else
-            {
-                foreach (Transform child in transform)
-                {
-                    if (child.GetComponent<Renderer>() != null)
-                    {
-                        child.GetComponent<Renderer>().material.color = highlightSocketColour;
-                        child.GetComponent<Transform>().localScale = new Vector3(0.375f, 0.375f, 0.375f);
-                    }
-                }
-            }
-        }
-        else
-        {
-            foreach (Transform child in transform)
-            {
-                child.GetComponent<Renderer>().material.color = storeController.selectedItemColour;
-            }
-        }
     }
 
 
     void OnMouseExit()
     {
         highlighted = false;
-        if (GetComponent<Transform>().tag != storeController.selectedEquipment.ToString() || GetComponent<Transform>().tag == "Phone_Model")
-        {
-            if (!isSocket)
-            {
-                foreach (Transform child in transform)
-                {
-                    child.GetComponent<Renderer>().material.color = startColour;
-                }
-            }
-            else
-            {
-                foreach (Transform child in transform)
-                {
-                    if (child.GetComponent<Renderer>() != null)
-                    {
-                        child.GetComponent<Renderer>().material.color = startColour;
-                        child.GetComponent<Transform>().localScale = new Vector3(0.25f, 0.25f, 0.25f);
-                    }
-                }
-            }
-        }
-        else
-        {
-            foreach (Transform child in transform)
-            {
-                child.GetComponent<Renderer>().material.color = storeController.selectedItemColour;
-            }
-        }
     }
 }

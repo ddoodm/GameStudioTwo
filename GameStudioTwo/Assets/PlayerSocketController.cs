@@ -8,9 +8,21 @@ public class PlayerSocketController : MonoBehaviour
 
     private Weapon childWeapon;
 
+    public int playerNumber;
+
     // Update is called once per frame
+    void Start()
+    {
+        playerNumber = transform.parent.GetComponentInParent<VehicleController>().player;
+        if (playerNumber == 2)
+        {
+            button = button + "P2";
+        }
+    }
+
     void Update()
     {
+        
         try
         {
             if ((Input.GetButtonDown(button) || Input.GetKeyDown(control)))

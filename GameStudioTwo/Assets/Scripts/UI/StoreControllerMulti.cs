@@ -2,14 +2,6 @@
 using UnityEngine.UI;
 using System.Collections;
 
-
-//public enum Equipment { EMPTY, Item_Handle, Item_Spike, Item_Flipper, Item_Booster};
-
-//public enum Socket { EMPTY, Socket_Left, Socket_Right, Socket_Front, Socket_Back, Socket_Top };
-
-//public enum StoreState {STATE_MODEL, STATE_ITEM, STATE_STORE};
-
-
 public class StoreControllerMulti : MonoBehaviour {
 
 	public GameObject player;
@@ -17,7 +9,7 @@ public class StoreControllerMulti : MonoBehaviour {
 	public GameObject uiPlayerModels;
 	GameObject selectedModel;
 
-	private Vector3 rgbColor = new Vector3(200f/255f, 50f/255f, 50f/255f);
+	public Vector3 rgbColor = new Vector3(200f/255f, 50f/255f, 50f/255f);
 	private Color sliderColour;
 	public Color selectedItemColour = new Color(255f/255f, 200f/255f, 0f/255f);
 
@@ -116,14 +108,15 @@ public class StoreControllerMulti : MonoBehaviour {
 
 
 
-        if (colourChange)
-		{
-			sliderColour = new Color(rgbColor.x, rgbColor.y, rgbColor.z);
-			GameObject.FindGameObjectWithTag("Player Model").GetComponent<Renderer>().material.color = sliderColour;
-			GameObject.FindGameObjectWithTag("Player Engine").GetComponent<Renderer>().material.color = sliderColour;
-			colourChange = false;
+        	
+		sliderColour = new Color(rgbColor.x, rgbColor.y, rgbColor.z);
+        Renderer[] parts = player.GetComponentsInChildren<Renderer>();
+        foreach (Renderer part in parts)
+        {
+            if(part.tag != "Socket_Ball")
+                part.material.color = sliderColour;
         }
-
+        
         if (playerChoice != null) 
 		{
 			playerChoice.playerColor = sliderColour;
@@ -141,11 +134,11 @@ public class StoreControllerMulti : MonoBehaviour {
 				//player.GetComponent<Transform>().position = hit.transform.position;
 				//hit.transform.parent.gameObject.SetActive(false);
 				//player.GetComponent<Transform>().position = new Vector3(7.5f, 2.6f, 7.5f);
-                if (moveMower == false)
-                {
-                    moveMower = true;
-                    player.GetComponent<Transform>().Translate(new Vector3(0, 5.75f, 0),Space.World);
-                }
+                
+                
+                
+                player.GetComponent<Transform>().Translate(new Vector3(0, 5.75f, 0),Space.World);
+                
 				
 				current_state = StoreState.STATE_ITEM;
 				GetComponent<Animator>().SetTrigger("toItemSelection");
@@ -331,22 +324,20 @@ public class StoreControllerMulti : MonoBehaviour {
 		}
 	}
 
-    public void changeR(float slider)
-    {
-        rgbColor.x = slider / 255;
-		colourChange = true;
-    }
-
-    public void changeG(float slider)
-    {
-		rgbColor.y = slider / 255;
-		colourChange = true;
-    }
+    
 
     public void changeB(float slider)
     {
 		rgbColor.z = slider / 255;
-		colourChange = true;
+    }
+
+    public void changeR(float slider)
+    {
+        rgbColor.x = slider / 255;
+    }
+    public void changeG(float slider)
+    {
+        rgbColor.y = slider / 255;
     }
 
 	public void BackToItems()
