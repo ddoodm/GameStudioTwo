@@ -399,7 +399,7 @@ Transform:
   - {fileID: 184516482}
   - {fileID: 1604860593}
   m_Father: {fileID: 254713715}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!95 &33063582
 Animator:
   serializedVersion: 3
@@ -592,7 +592,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 511370662}
         m_MethodName: changeR
         m_Mode: 0
         m_Arguments:
@@ -1542,6 +1542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  highlighted: 0
   player: 1
 --- !u!23 &94212797
 MeshRenderer:
@@ -4850,7 +4851,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1780681845}
-  - {fileID: 908760711}
   - {fileID: 1618086740}
   - {fileID: 1137763545}
   - {fileID: 2106630468}
@@ -6158,6 +6158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  highlighted: 0
   player: 2
 --- !u!65 &339631635
 BoxCollider:
@@ -6902,7 +6903,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 511370662}
         m_MethodName: changeB
         m_Mode: 0
         m_Arguments:
@@ -7159,6 +7160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  highlighted: 0
   player: 1
 --- !u!65 &377843798
 BoxCollider:
@@ -10414,6 +10416,7 @@ MonoBehaviour:
   player: {fileID: 1383288237}
   storeUI: {fileID: 511370660}
   uiPlayerModels: {fileID: 1024163917}
+  rgbColor: {x: .784313738, y: .196078435, z: .196078435}
   selectedItemColour: {r: 1, g: .784313738, b: 0, a: 1}
   current_state: 0
   selectedEquipment: 0
@@ -12114,7 +12117,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1137763546}
         m_MethodName: changeB
         m_Mode: 0
         m_Arguments:
@@ -13810,6 +13813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  highlighted: 0
   player: 1
 --- !u!23 &681755853
 MeshRenderer:
@@ -14010,6 +14014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  highlighted: 0
   player: 1
 --- !u!1 &696640149
 GameObject:
@@ -16351,6 +16356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  highlighted: 0
   player: 2
 --- !u!65 &809734181
 BoxCollider:
@@ -18465,80 +18471,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 901203294}
   m_Mesh: {fileID: 4300002, guid: 299eea98330d60142b8d4b25371f2090, type: 3}
---- !u!1 &908760710
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 908760711}
-  - 114: {fileID: 908760714}
-  - 114: {fileID: 908760713}
-  - 114: {fileID: 908760712}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &908760711
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 908760710}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 254713715}
-  m_RootOrder: 1
---- !u!114 &908760712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 908760710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AllowActivationOnStandalone: 0
---- !u!114 &908760713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 908760710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: .5
-  m_AllowActivationOnMobileDevice: 0
---- !u!114 &908760714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 908760710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 5
 --- !u!1 &908941531
 GameObject:
   m_ObjectHideFlags: 0
@@ -20832,6 +20764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  highlighted: 0
   player: 2
 --- !u!65 &1039584833
 BoxCollider:
@@ -21202,6 +21135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  highlighted: 0
   player: 1
 --- !u!1 &1058195126
 GameObject:
@@ -21464,7 +21398,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1137763546}
         m_MethodName: changeR
         m_Mode: 0
         m_Arguments:
@@ -21945,6 +21879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  highlighted: 0
   player: 2
 --- !u!1 &1084401162
 GameObject:
@@ -23009,7 +22944,7 @@ Transform:
   - {fileID: 1998976803}
   - {fileID: 2075386188}
   m_Father: {fileID: 254713715}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!114 &1137763546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23024,6 +22959,7 @@ MonoBehaviour:
   player: {fileID: 2106630467}
   storeUI: {fileID: 1137763544}
   uiPlayerModels: {fileID: 1803599011}
+  rgbColor: {x: .784313738, y: .196078435, z: .196078435}
   selectedItemColour: {r: 1, g: .784313738, b: 0, a: 1}
   current_state: 0
   selectedEquipment: 0
@@ -23724,14 +23660,12 @@ MonoBehaviour:
   - {fileID: 659224382}
   - {fileID: 1202410241}
   play: 1
-  energyBar: {fileID: 0}
   maxTorque: 40
   maxBrakeTorque: 40
-  maxEnergy: 50
   speedMultiplier: 1
+  maxSteeringAngle: 20
   strafeSpeed: 0
   steeringAngle: 20
-  boosting: 0
 --- !u!54 &1175702564
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25980,6 +25914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  highlighted: 0
   player: 2
 --- !u!1 &1255333593
 GameObject:
@@ -26170,6 +26105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  highlighted: 0
   player: 2
 --- !u!1 &1266330298
 GameObject:
@@ -27591,6 +27527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  highlighted: 0
   player: 1
 --- !u!65 &1325712851
 BoxCollider:
@@ -27909,6 +27846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  highlighted: 0
   player: 2
 --- !u!65 &1340869047
 BoxCollider:
@@ -28109,6 +28047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  highlighted: 0
   player: 1
 --- !u!1 &1367378103
 GameObject:
@@ -29444,6 +29383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  highlighted: 0
   player: 1
 --- !u!23 &1428316927
 MeshRenderer:
@@ -29558,7 +29498,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1137763546}
         m_MethodName: changeG
         m_Mode: 0
         m_Arguments:
@@ -30424,6 +30364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  highlighted: 0
   player: 2
 --- !u!23 &1464563610
 MeshRenderer:
@@ -31102,6 +31043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  highlighted: 0
   player: 1
 --- !u!1 &1493069766
 GameObject:
@@ -33177,7 +33119,7 @@ Transform:
   - {fileID: 1449267893}
   - {fileID: 1830711391}
   m_Father: {fileID: 254713715}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1618086741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33246,14 +33188,12 @@ MonoBehaviour:
   - {fileID: 466570193}
   - {fileID: 360751238}
   play: 1
-  energyBar: {fileID: 0}
   maxTorque: 40
   maxBrakeTorque: 40
-  maxEnergy: 50
   speedMultiplier: 1
+  maxSteeringAngle: 20
   strafeSpeed: 0
   steeringAngle: 20
-  boosting: 0
 --- !u!54 &1618086745
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -35085,6 +35025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  highlighted: 0
   player: 1
 --- !u!1 &1726608352
 GameObject:
@@ -36405,6 +36346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  highlighted: 0
   player: 2
 --- !u!23 &1783952464
 MeshRenderer:
@@ -38280,6 +38222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 0
+  highlighted: 0
   player: 2
 --- !u!23 &1879459758
 MeshRenderer:
@@ -40011,6 +39954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  highlighted: 0
   player: 1
 --- !u!1 &1972965287
 GameObject:
@@ -40476,7 +40420,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 511370662}
         m_MethodName: changeG
         m_Mode: 0
         m_Arguments:
@@ -41012,6 +40956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  highlighted: 0
   player: 2
 --- !u!1 &2026556790
 GameObject:
@@ -42231,6 +42176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  highlighted: 0
   player: 2
 --- !u!1 &2091396612
 GameObject:
@@ -42782,7 +42728,7 @@ Transform:
   - {fileID: 1274240814}
   - {fileID: 482949555}
   m_Father: {fileID: 254713715}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!114 &2106630469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43416,6 +43362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSocket: 1
+  highlighted: 0
   player: 1
 --- !u!1 &2141571810
 GameObject:
