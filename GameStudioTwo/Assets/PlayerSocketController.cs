@@ -26,7 +26,6 @@ public class PlayerSocketController : MonoBehaviour
 
     void Update()
     {
-        
         try
         {
             if ((Input.GetButtonDown(button) || Input.GetKeyDown(control)))
