@@ -42,8 +42,9 @@ public class StoreControllerMulti : MonoBehaviour {
     private string controllerX = "SocketLeft";
     private string controllerB = "SocketRight";
     private string axisH = "Horizontal";
+    private string controllerStart = "Start";
     private int playerNumber;
-
+    private GameObject selectedItem;
 
 
 	// Use this for initialization
@@ -60,6 +61,7 @@ public class StoreControllerMulti : MonoBehaviour {
             controllerB += "P2";
             controllerX += "P2";
             axisH += "P2";
+            controllerStart += "P2";
 
         }
 
@@ -130,13 +132,26 @@ public class StoreControllerMulti : MonoBehaviour {
         
         controllerHighlight();
 
-        
+        if (selectedEquipment != Equipment.EMPTY)
+        {
+            foreach (Transform child in selectedItem.transform)
+            {
+                child.GetComponent<Renderer>().material.color = selectedItemColour;
+            }
+            if (selectedSocket != Socket.EMPTY)
+            {
+                FillItemSocketArray();
+            }
 
-		HandleBoughtItems();
+        }
 
-
-
-
+        if (playerChoice != null)
+        {
+            for (int i = 0; i < MAX_SOCKETS; i++)
+            {
+                playerChoice.playerItems[i] = itemSocketArray[i];
+            }
+        }
 
         sliderColour = new Color(rgbColor.x / 255, rgbColor.y / 255, rgbColor.z / 255);
         Renderer[] parts = player.GetComponentsInChildren<Renderer>();
@@ -150,6 +165,13 @@ public class StoreControllerMulti : MonoBehaviour {
 		{
 			playerChoice.playerColor = sliderColour;
 		}
+
+
+        if(Input.GetButtonDown(controllerStart))
+        {
+            startTest();
+        }
+
 	}
 
     void controllerSliders()
@@ -178,6 +200,10 @@ public class StoreControllerMulti : MonoBehaviour {
             }
             possibleObjects[controllerSelected].highlighted = true;
             controllerSliders();
+            if (Input.GetButtonDown(controllerA) && possibleObjects[controllerSelected].isUI == false)
+            {
+                HandleItemSelection(possibleObjects[controllerSelected]);
+            }
             if(Input.GetButtonDown(controllerX))
             {
                 controllerSelected -= 1;
@@ -200,87 +226,82 @@ public class StoreControllerMulti : MonoBehaviour {
         }
     }
 
-	void HandleItemSelection(RaycastHit hit) {
-		selectedSocket = Socket.EMPTY;
+    void HandleItemSelection(ItemSelectorMulti item)
+    {
+        selectedSocket = Socket.EMPTY;
+        switch (item.tag)
+        {
+            case "Item_Handle":
+                selectedItem = item.gameObject;
+                selectedEquipment = Equipment.Item_Handle;
+                break;
 
-		switch (hit.transform.tag){
-			case "LawnMowerRed":
-			case "LawnMowerGreen":
-			case "LawnMowerBlue":
-				//player.GetComponent<Transform>().position = hit.transform.position;
-				//hit.transform.parent.gameObject.SetActive(false);
-				//player.GetComponent<Transform>().position = new Vector3(7.5f, 2.6f, 7.5f);
-                
-                
-                
-                player.GetComponent<Transform>().Translate(new Vector3(0, 5.75f, 0),Space.World);
-                
-				
-				current_state = StoreState.STATE_ITEM;
-				GetComponent<Animator>().SetTrigger("toItemSelection");
-				break;
+            case "Item_Spike":
+                selectedItem = item.gameObject;
+                selectedEquipment = Equipment.Item_Spike;
+                break;
 
-			case "Item_Handle":
-				selectedEquipment = Equipment.Item_Handle;
-				break;
-				
-			case "Item_Spike":
-				selectedEquipment = Equipment.Item_Spike;
-				break;
-				
-			case "Item_Flipper":
-				selectedEquipment = Equipment.Item_Flipper;
-				break;
+            case "Item_Flipper":
+                selectedItem = item.gameObject;
+                selectedEquipment = Equipment.Item_Flipper;
+                break;
 
-			case "Item_Booster":
-				selectedEquipment = Equipment.Item_Booster;
-				break;
+            case "Item_Booster":
+                selectedItem = item.gameObject;
+                selectedEquipment = Equipment.Item_Booster;
+                break;
 
-			case "Socket_Left":
-				selectedSocket = Socket.Socket_Left;
-				break;
-				
-			case "Socket_Right":
-				selectedSocket = Socket.Socket_Right;
-				break;
-				
-			case "Socket_Front":
-				selectedSocket = Socket.Socket_Front;
-				break;
-				
-			case "Socket_Back":
-				selectedSocket = Socket.Socket_Back;
-				break;
-				
-			case "Socket_Top":
-				selectedSocket = Socket.Socket_Top;
-				break;
+            case "Socket_Left":
+                selectedSocket = Socket.Socket_Left;
+                break;
 
-			case "Player Model":
-				break;
+            case "Socket_Right":
+                selectedSocket = Socket.Socket_Right;
+                break;
 
-			default:
-				selectedEquipment = Equipment.EMPTY;
-				selectedSocket = Socket.EMPTY;
-				break;
-		}
+            case "Socket_Front":
+                selectedSocket = Socket.Socket_Front;
+                break;
 
-		if (selectedEquipment == Equipment.Item_Handle && (selectedSocket != Socket.Socket_Back && selectedSocket != Socket.EMPTY)) {
-			selectedSocket = Socket.EMPTY;
-		}
-		if (selectedEquipment == Equipment.Item_Spike && selectedSocket == Socket.Socket_Top) {
-			selectedSocket = Socket.EMPTY;
-		}
-		if (selectedEquipment == Equipment.Item_Flipper && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Back)) {
-			selectedSocket = Socket.EMPTY;
-		}
+            case "Socket_Back":
+                selectedSocket = Socket.Socket_Back;
+                break;
 
-		if (selectedEquipment == Equipment.Item_Booster && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Front)) {
-			selectedSocket = Socket.EMPTY;
-		}
+            case "Socket_Top":
+                selectedSocket = Socket.Socket_Top;
+                break;
 
+            case "Player Model":
+                break;
 
-	}
+            default:
+                selectedEquipment = Equipment.EMPTY;
+                selectedSocket = Socket.EMPTY;
+                break;
+        }
+
+        if (selectedEquipment == Equipment.Item_Handle && (selectedSocket != Socket.Socket_Back && selectedSocket != Socket.EMPTY))
+        {
+            selectedSocket = Socket.EMPTY;
+        }
+        if (selectedEquipment == Equipment.Item_Spike && selectedSocket == Socket.Socket_Top)
+        {
+            selectedSocket = Socket.EMPTY;
+        }
+        if (selectedEquipment == Equipment.Item_Flipper && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Back))
+        {
+            selectedSocket = Socket.EMPTY;
+        }
+
+        if (selectedEquipment == Equipment.Item_Booster && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Front))
+        {
+            selectedSocket = Socket.EMPTY;
+        }
+
+        
+
+    }
+    
 
 
 	// instantiate at sockets change rotation based on what socket. make this a separate script on the vehicle prefab
@@ -337,26 +358,9 @@ public class StoreControllerMulti : MonoBehaviour {
 
 		}
         
-        Application.LoadLevel("BattleScene00");
+        Application.LoadLevel("BattleScene03Multi");
 	}
 
-
-	public void HandleBoughtItems()
-	{
-		for (int i = 0; i < TOTAL_ITEMS; i++) 
-		{
-			switch (AvailableItems [i]) 
-			{
-				case Equipment.EMPTY:
-					break;
-
-				case Equipment.Item_Handle:
-					break;
-
-
-			}
-		}
-	}
 
 
 

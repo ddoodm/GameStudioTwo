@@ -26,7 +26,13 @@ public class flipperControls : MonoBehaviour, Weapon {
         thisRigidbody = GetComponent<Rigidbody>();
 
         if(this.transform.root.tag == "Player")
-            opRigidbody = GameObject.FindWithTag("Enemy").GetComponent<Rigidbody>();
+        {
+            GameObject temp = GameObject.FindWithTag("Enemy");
+            if (temp != null)
+                opRigidbody = temp.GetComponent<Rigidbody>();
+            else
+                opRigidbody = GameObject.FindWithTag("Player2").GetComponent<Rigidbody>();
+        }
         else
             opRigidbody = GameObject.FindWithTag("Player").GetComponent<Rigidbody>();
 
