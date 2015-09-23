@@ -258,7 +258,7 @@ public class StoreController : MonoBehaviour {
 	}
 
 
-	public void startTest(){
+	public void startLevel(string levelName){
         if (playerChoice != null)
 		{
 			for (int i = 0; i < MAX_SOCKETS; i++)
@@ -269,12 +269,9 @@ public class StoreController : MonoBehaviour {
 			{
 				playerChoice.boughtItems[i] = AvailableItems[i];
 			}
-
-
-
 		}
         
-        Application.LoadLevel("BattleScene00");
+        Application.LoadLevel(levelName);
 	}
 
 
