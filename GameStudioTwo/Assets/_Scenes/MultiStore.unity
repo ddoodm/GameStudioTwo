@@ -1373,7 +1373,6 @@ GameObject:
   - 33: {fileID: 89549573}
   - 23: {fileID: 89549572}
   - 95: {fileID: 89549571}
-  - 114: {fileID: 89549570}
   m_Layer: 8
   m_Name: RightBrace
   m_TagString: Brace_Right
@@ -1393,21 +1392,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1291746362}
   m_RootOrder: 1
---- !u!114 &89549570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11492212, guid: 53e4f13783d43cf48af84058ef3b828b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 89549568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: 49
-  button: 
-  playerNumber: 0
 --- !u!95 &89549571
 Animator:
   serializedVersion: 3
@@ -5928,7 +5912,6 @@ GameObject:
   - 33: {fileID: 334036485}
   - 23: {fileID: 334036484}
   - 95: {fileID: 334036483}
-  - 114: {fileID: 334036482}
   m_Layer: 8
   m_Name: LeftBrace
   m_TagString: Brace_Left
@@ -5948,21 +5931,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 482949555}
   m_RootOrder: 0
---- !u!114 &334036482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11471306, guid: 53e4f13783d43cf48af84058ef3b828b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 334036480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: 49
-  button: 
-  playerNumber: 0
 --- !u!95 &334036483
 Animator:
   serializedVersion: 3
@@ -6759,7 +6727,6 @@ GameObject:
   - 33: {fileID: 362418223}
   - 23: {fileID: 362418222}
   - 95: {fileID: 362418221}
-  - 114: {fileID: 362418220}
   m_Layer: 8
   m_Name: LeftBrace
   m_TagString: Brace_Left
@@ -6779,21 +6746,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1291746362}
   m_RootOrder: 0
---- !u!114 &362418220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11471306, guid: 53e4f13783d43cf48af84058ef3b828b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 362418218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: 49
-  button: 
-  playerNumber: 0
 --- !u!95 &362418221
 Animator:
   serializedVersion: 3
@@ -28721,7 +28673,7 @@ MonoBehaviour:
   player: {fileID: 1383288238}
   prefab_handle: {fileID: 476778, guid: 1c1c9199febe92a498325eac01c6cd0a, type: 2}
   prefab_spike: {fileID: 418942, guid: 84586772812a76a4387ed355299244b4, type: 2}
-  prefab_flipper: {fileID: 447446, guid: d14d0ca374a0a8c4ba4c79300c867577, type: 2}
+  prefab_flipper: {fileID: 457978, guid: 941c6595ec8de9d4ca9aeb8c28a99ed2, type: 2}
   prefab_booster: {fileID: 429898, guid: a975cc422cb5e6e4d9f5368b693983d6, type: 2}
   socket_left: {fileID: 2141084482}
   socket_right: {fileID: 1725002360}
@@ -34362,7 +34314,6 @@ GameObject:
   - 33: {fileID: 1665452437}
   - 23: {fileID: 1665452436}
   - 95: {fileID: 1665452435}
-  - 114: {fileID: 1665452434}
   m_Layer: 8
   m_Name: RightBrace
   m_TagString: Brace_Right
@@ -34382,21 +34333,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 482949555}
   m_RootOrder: 1
---- !u!114 &1665452434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11492212, guid: 53e4f13783d43cf48af84058ef3b828b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1665452432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: 49
-  button: 
-  playerNumber: 0
 --- !u!95 &1665452435
 Animator:
   serializedVersion: 3
@@ -42850,7 +42786,7 @@ MonoBehaviour:
   player: {fileID: 2106630468}
   prefab_handle: {fileID: 476778, guid: 1c1c9199febe92a498325eac01c6cd0a, type: 2}
   prefab_spike: {fileID: 418942, guid: 84586772812a76a4387ed355299244b4, type: 2}
-  prefab_flipper: {fileID: 447446, guid: d14d0ca374a0a8c4ba4c79300c867577, type: 2}
+  prefab_flipper: {fileID: 457978, guid: 941c6595ec8de9d4ca9aeb8c28a99ed2, type: 2}
   prefab_booster: {fileID: 429898, guid: a975cc422cb5e6e4d9f5368b693983d6, type: 2}
   socket_left: {fileID: 1264317341}
   socket_right: {fileID: 2025670848}

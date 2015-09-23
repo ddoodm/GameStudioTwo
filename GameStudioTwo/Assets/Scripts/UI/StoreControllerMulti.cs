@@ -102,33 +102,6 @@ public class StoreControllerMulti : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
-        /*
-		if (Input.GetMouseButtonDown(0)){
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit))
-			{
-				HandleItemSelection(hit);
-
-				if (selectedEquipment != Equipment.EMPTY){
-					foreach (Transform child in hit.transform) {
-						child.GetComponent<Renderer>().material.color = selectedItemColour;
-					}
-					if (selectedSocket != Socket.EMPTY){
-						FillItemSocketArray();
-					}
-
-				}
-
-				if (playerChoice != null){
-					for (int i = 0; i < MAX_SOCKETS; i++)
-					{
-						playerChoice.playerItems[i] = itemSocketArray[i];
-					}
-				}
-			}
-		}*/
         
         controllerHighlight();
 
