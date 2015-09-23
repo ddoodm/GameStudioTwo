@@ -1530,7 +1530,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!23 &94212797
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4189,7 +4188,6 @@ MonoBehaviour:
   isUI: 1
   highlighted: 0
   player: 2
-  slider: 1
 --- !u!1 &223868938
 GameObject:
   m_ObjectHideFlags: 0
@@ -6150,7 +6148,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!65 &339631635
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7139,7 +7136,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!65 &377843798
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8781,7 +8777,6 @@ MonoBehaviour:
   isUI: 1
   highlighted: 0
   player: 1
-  slider: 3
 --- !u!1 &449727215
 GameObject:
   m_ObjectHideFlags: 0
@@ -13813,7 +13808,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!23 &681755853
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14016,7 +14010,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!1 &696640149
 GameObject:
   m_ObjectHideFlags: 0
@@ -14790,7 +14783,7 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: .5
     width: 1
     height: .5
   near clip plane: .300000012
@@ -16360,7 +16353,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!65 &809734181
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20770,7 +20762,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!65 &1039584833
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21143,7 +21134,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!1 &1058195126
 GameObject:
   m_ObjectHideFlags: 0
@@ -21889,7 +21879,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!1 &1084401162
 GameObject:
   m_ObjectHideFlags: 0
@@ -24091,7 +24080,6 @@ MonoBehaviour:
   isUI: 1
   highlighted: 0
   player: 1
-  slider: 1
 --- !u!1 &1191908903
 GameObject:
   m_ObjectHideFlags: 0
@@ -25946,7 +25934,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!1 &1255333593
 GameObject:
   m_ObjectHideFlags: 0
@@ -26139,7 +26126,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!1 &1266330298
 GameObject:
   m_ObjectHideFlags: 0
@@ -27563,7 +27549,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!65 &1325712851
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27884,7 +27869,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!65 &1340869047
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28087,7 +28071,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!1 &1367378103
 GameObject:
   m_ObjectHideFlags: 0
@@ -29425,7 +29408,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!23 &1428316927
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31072,7 +31054,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!1 &1493069766
 GameObject:
   m_ObjectHideFlags: 0
@@ -33498,7 +33479,6 @@ MonoBehaviour:
   isUI: 1
   highlighted: 0
   player: 1
-  slider: 2
 --- !u!1 &1629791748
 GameObject:
   m_ObjectHideFlags: 0
@@ -35059,7 +35039,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!1 &1726608352
 GameObject:
   m_ObjectHideFlags: 0
@@ -36952,7 +36931,6 @@ MonoBehaviour:
   isUI: 1
   highlighted: 0
   player: 2
-  slider: 3
 --- !u!1 &1811332221
 GameObject:
   m_ObjectHideFlags: 0
@@ -39977,7 +39955,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!1 &1972965287
 GameObject:
   m_ObjectHideFlags: 0
@@ -40578,7 +40555,7 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .5
+    y: 0
     width: 1
     height: .5
   near clip plane: .300000012
@@ -40981,7 +40958,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!1 &2026556790
 GameObject:
   m_ObjectHideFlags: 0
@@ -41617,7 +41593,6 @@ MonoBehaviour:
   isUI: 1
   highlighted: 0
   player: 2
-  slider: 2
 --- !u!1 &2046292604
 GameObject:
   m_ObjectHideFlags: 0
@@ -42220,7 +42195,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!1 &2091396612
 GameObject:
   m_ObjectHideFlags: 0
@@ -43408,7 +43382,6 @@ MonoBehaviour:
   isUI: 0
   highlighted: 0
   player: 0
-  slider: 0
 --- !u!1 &2141571810
 GameObject:
   m_ObjectHideFlags: 0

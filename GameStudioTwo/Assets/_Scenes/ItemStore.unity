@@ -899,7 +899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: 49
-  button: 
+  button: SocketRight
   playerNumber: 0
 --- !u!95 &89549571
 Animator:

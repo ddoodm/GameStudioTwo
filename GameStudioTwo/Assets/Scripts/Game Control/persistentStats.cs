@@ -8,6 +8,9 @@ public class persistentStats : MonoBehaviour {
 	public Equipment[] boughtItems;
 	public int playerMoney;
 
+    public Equipment[] player2Items;
+    public Color player2Color;
+
 
 	// Update is called once per frame
 	void Update () {
@@ -19,9 +22,11 @@ public class persistentStats : MonoBehaviour {
 		DontDestroyOnLoad(this);
 
 		playerItems = new Equipment[5];
+        player2Items = new Equipment[5];
 		for (int i = 0; i < 5; i++)
 		{
 			playerItems[i] = Equipment.EMPTY;
+            player2Items[i] = Equipment.EMPTY;
 		}
 
 		boughtItems = new Equipment[4];

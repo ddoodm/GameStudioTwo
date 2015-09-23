@@ -118,14 +118,6 @@ public class StoreControllerMulti : MonoBehaviour {
 
         }
 
-        if (playerChoice != null)
-        {
-            for (int i = 0; i < MAX_SOCKETS; i++)
-            {
-                playerChoice.playerItems[i] = itemSocketArray[i];
-            }
-        }
-
         sliderColour = new Color(rgbColor.x / 255, rgbColor.y / 255, rgbColor.z / 255);
         Renderer[] parts = player.GetComponentsInChildren<Renderer>();
         foreach (Renderer part in parts)
@@ -136,7 +128,15 @@ public class StoreControllerMulti : MonoBehaviour {
         
         if (playerChoice != null) 
 		{
-			playerChoice.playerColor = sliderColour;
+            switch (playerNumber)
+            {
+                case 1:
+                    playerChoice.playerColor = sliderColour;
+                    break;
+                case 2:
+                    playerChoice.player2Color = sliderColour;
+                    break;
+            }
 		}
 
 
@@ -318,16 +318,25 @@ public class StoreControllerMulti : MonoBehaviour {
 	public void startTest(){
         if (playerChoice != null)
 		{
-			for (int i = 0; i < MAX_SOCKETS; i++)
-			{
-				playerChoice.playerItems[i] = itemSocketArray[i];
-			}
-			for (int i = 0; i < TOTAL_ITEMS; i++)
-			{
-				playerChoice.boughtItems[i] = AvailableItems[i];
-			}
-
-
+            switch (playerNumber)
+            {
+                case 1:
+                    {
+                        for (int i = 0; i < MAX_SOCKETS; i++)
+                        {
+                            playerChoice.playerItems[i] = itemSocketArray[i];
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        for (int i = 0; i < MAX_SOCKETS; i++)
+                        {
+                            playerChoice.player2Items[i] = itemSocketArray[i];
+                        }
+                        break;
+                    }
+            }
 
 		}
         
