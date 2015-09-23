@@ -13,10 +13,14 @@ public class PlayerSocketController : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        playerNumber = transform.parent.GetComponentInParent<VehicleController>().player;
-        if (playerNumber == 2)
+        VehicleController temp = transform.parent.GetComponentInParent<VehicleController>();
+        if (temp != null)
         {
-            button = button + "P2";
+            playerNumber = temp.player;
+            if (playerNumber == 2)
+            {
+                button = button + "P2";
+            }
         }
     }
 

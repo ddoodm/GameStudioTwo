@@ -38,6 +38,7 @@ TagManager:
   - Topdown Camera
   - Minimap Camera
   - Phone_Model
+  - Player2
   layers:
   - Default
   - TransparentFX
