@@ -19,6 +19,9 @@ public class PlayerHealth : MonoBehaviour
 
     private bool analyticsSent = false;
     private bool flipCoroutineStarted = false;
+    private bool gameIsOver = false;
+
+    public string controllerA = "SocketFront";
 
     public float
         maxHealth = 50.0f,
@@ -40,6 +43,11 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        if (transform.GetComponent<VehicleController>().player == 2)
+        {
+            controllerA += "P2";
+        }
+
         flippedCounterSizeVar = 1.0f;
         healthBar.maxValue = maxHealth;
         health = maxHealth;
@@ -55,7 +63,12 @@ public class PlayerHealth : MonoBehaviour
 
         calculateMass();
         if (health <= 0)
+            gameIsOver = true;
+
+        if (gameIsOver)
+        {
             gameOver();
+        }
         if (Vector3.Dot(transform.up, Vector3.up) < 0 && flipCoroutineStarted == false)
         {
             flipCoroutineStarted = true;
@@ -205,7 +218,7 @@ public class PlayerHealth : MonoBehaviour
         }
 		Time.timeScale = 0.0f;
 		//Show Game Over Screen 
-		restartButton.gameObject.SetActive(true);
+		//restartButton.gameObject.SetActive(true);
 		finish.gameObject.SetActive (true);
 		Color gameOverScrColor = new Color(0.3f,0.5f,1,1);
 		gameOverScreen.color = gameOverScrColor;
@@ -221,11 +234,22 @@ public class PlayerHealth : MonoBehaviour
             */
             analyticsSent = true;
         }
-	
-        if (Input.GetButtonDown("Boost"))
+        if (Application.loadedLevelName != "BattleScene03Multi")
         {
-            Application.LoadLevel(1);
+            if (Input.GetButtonDown(controllerA) || Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.LoadLevel("ItemStore");
+            }
         }
+        else
+        {
+            if (Input.GetButtonDown(controllerA) || Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.LoadLevel("MultiStore");
+            }
+        }
+	
+        
     }
 
 	IEnumerator showGameOver() {
@@ -253,7 +277,7 @@ public class PlayerHealth : MonoBehaviour
         flippedCounterText.text = "";
         if (Vector3.Dot(transform.up, Vector3.up) < 0)
         {
-            gameOver();
+            gameIsOver = true;
         }
         StopCoroutine("checkFlipped");
     }
