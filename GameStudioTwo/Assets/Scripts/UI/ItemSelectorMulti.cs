@@ -13,7 +13,6 @@ public class ItemSelectorMulti : MonoBehaviour
     public bool isUI;
     public bool highlighted = false;
     public int player;
-    public int slider;
 
     private StoreControllerMulti storeController;
 
@@ -34,7 +33,7 @@ public class ItemSelectorMulti : MonoBehaviour
 
         if (!highlighted)
         {
-            if (GetComponent<Transform>().tag != storeController.selectedEquipment.ToString() || GetComponent<Transform>().tag == "Phone_Model")
+            if (GetComponent<Transform>().tag != storeController.selectedEquipment.ToString())
             {
                 if (isUI)
                 {
@@ -59,10 +58,18 @@ public class ItemSelectorMulti : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                foreach (Renderer child in transform.GetComponentsInChildren<Renderer>())
+                {
+                    child.material.color = storeController.selectedItemColour;
+                }
+            }
+
         }
         else
         {
-            if (GetComponent<Transform>().tag != storeController.selectedEquipment.ToString() || GetComponent<Transform>().tag == "Phone_Model")
+            if (GetComponent<Transform>().tag != storeController.selectedEquipment.ToString())
             {
                 if (isUI)
                 {
@@ -95,6 +102,7 @@ public class ItemSelectorMulti : MonoBehaviour
                 }
             }
         }
+
     }
 
 
