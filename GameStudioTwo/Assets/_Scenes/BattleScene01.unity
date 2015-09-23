@@ -2037,6 +2037,26 @@ Prefab:
       propertyPath: flippedCounterText
       value: 
       objectReference: {fileID: 1224127244}
+    - target: {fileID: 11439036, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: energyBar
+      value: 
+      objectReference: {fileID: 594062937}
+    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_AABB.m_Center.x
+      value: .251387596
+      objectReference: {fileID: 0}
+    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_AABB.m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_AABB.m_Extent.x
+      value: .251387596
+      objectReference: {fileID: 0}
+    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_AABB.m_Extent.z
+      value: .00250014523
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_IsPrefabParent: 0
@@ -2184,6 +2204,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0acec370493f9c4590c7f7fa9cfc2f1, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &594062937 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11440850, guid: b94daa370d72ea04eb05f3f5f5367cd3,
+    type: 2}
+  m_PrefabInternal: {fileID: 96571864}
+  m_Script: {fileID: 11500000, guid: c2ca93f0d6b8382458402740239e775e, type: 3}
 --- !u!1 &594330951
 GameObject:
   m_ObjectHideFlags: 0
