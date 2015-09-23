@@ -88,10 +88,10 @@ public class BoosterControls : MonoBehaviour, Weapon
         if (energyCtrl.energy > 0 && forwardBoosting)
         {
             energyCtrl.energy--;
-            rootBody.AddForce(rootBody.transform.forward * forwardBoostForce);
+            rootBody.AddForce(rootBody.transform.forward * forwardBoostForce * energyCtrl.unitEnergy);
             //vehicle.speedMultiplier = 5;
         }
-        if (energyCtrl.energy == 0)
+        if (energyCtrl.energy <= 0)
         {
             //vehicle.speedMultiplier = 1;
             forwardBoosting = false;
