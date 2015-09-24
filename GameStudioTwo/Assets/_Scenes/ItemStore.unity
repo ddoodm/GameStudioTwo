@@ -13119,6 +13119,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   flippedCounterSizeVar: 0
+  controllerA: SocketFront
   maxHealth: 50
   mass: 1
   damageFactor: 1
@@ -16305,8 +16306,8 @@ MonoBehaviour:
   player: {fileID: 1383288238}
   prefab_handle: {fileID: 476778, guid: 1c1c9199febe92a498325eac01c6cd0a, type: 2}
   prefab_spike: {fileID: 418942, guid: 84586772812a76a4387ed355299244b4, type: 2}
-  prefab_flipper: {fileID: 457978, guid: 941c6595ec8de9d4ca9aeb8c28a99ed2, type: 2}
-  prefab_booster: {fileID: 420590, guid: f20e45ea8f5f197499706a5ea6b721a5, type: 2}
+  prefab_flipper: {fileID: 447446, guid: d14d0ca374a0a8c4ba4c79300c867577, type: 2}
+  prefab_booster: {fileID: 429898, guid: a975cc422cb5e6e4d9f5368b693983d6, type: 2}
   socket_left: {fileID: 2141084482}
   socket_right: {fileID: 1725002360}
   socket_front: {fileID: 1366076822}
@@ -16315,6 +16316,7 @@ MonoBehaviour:
   brace_left: {fileID: 362418219}
   brace_right: {fileID: 89549569}
   brace_front: {fileID: 421537456}
+  inStore: 1
 --- !u!1 &1390723314
 GameObject:
   m_ObjectHideFlags: 0

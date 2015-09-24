@@ -25,6 +25,8 @@ public class SocketEquipment : MonoBehaviour {
 	public Transform brace_right;
 	public Transform brace_front;
 
+    public bool inStore;
+
     /// <summary>
     /// Each index corresponds to a SocketPosition.
     /// Equipment denotes the type that is held by a socket, not the weapon itself.
@@ -48,9 +50,12 @@ public class SocketEquipment : MonoBehaviour {
 
     private void AddWeaponReference(Transform itemTrans, SocketLocation socket)
     {
-        Weapon weapon = itemTrans.GetComponent<Weapon>();
-        if (weapon == null) throw new System.Exception(itemTrans.name + " has no component that implements Weapon.");
-        equipmentRefs[(int)socket] = weapon;
+        if (!inStore)
+        {
+            Weapon weapon = itemTrans.GetComponent<Weapon>();
+            if (weapon == null) throw new System.Exception(itemTrans.name + " has no component that implements Weapon.");
+            equipmentRefs[(int)socket] = weapon;
+        }
     }
 
 	public void SocketItems(Equipment[] equipmentArray, bool game){

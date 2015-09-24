@@ -132,13 +132,20 @@ public class StoreControllerMulti : MonoBehaviour {
             {
                 case 1:
                     playerChoice.playerColor = sliderColour;
+                    for (int i = 0; i < MAX_SOCKETS; i++)
+                    {
+                        playerChoice.playerItems[i] = itemSocketArray[i];
+                    }
                     break;
                 case 2:
                     playerChoice.player2Color = sliderColour;
+                    for (int i = 0; i < MAX_SOCKETS; i++)
+                    {
+                        playerChoice.player2Items[i] = itemSocketArray[i];
+                    }
                     break;
             }
 		}
-
 
         if(Input.GetButtonDown(controllerStart))
         {
@@ -315,31 +322,7 @@ public class StoreControllerMulti : MonoBehaviour {
 	}
 
 
-	public void startTest(){
-        if (playerChoice != null)
-		{
-            switch (playerNumber)
-            {
-                case 1:
-                    {
-                        for (int i = 0; i < MAX_SOCKETS; i++)
-                        {
-                            playerChoice.playerItems[i] = itemSocketArray[i];
-                        }
-                        break;
-                    }
-                case 2:
-                    {
-                        for (int i = 0; i < MAX_SOCKETS; i++)
-                        {
-                            playerChoice.player2Items[i] = itemSocketArray[i];
-                        }
-                        break;
-                    }
-            }
-
-		}
-        
+	public void startTest(){       
         Application.LoadLevel("BattleScene03Multi");
 	}
 

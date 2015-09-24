@@ -1487,7 +1487,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalRotation.z
@@ -1495,7 +1495,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -1.62920685e-07
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_RootOrder
@@ -1536,6 +1536,22 @@ Prefab:
     - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_AABB.m_Center.x
+      value: .251387388
+      objectReference: {fileID: 0}
+    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_AABB.m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_AABB.m_Center.z
+      value: -1.90734863e-06
+      objectReference: {fileID: 0}
+    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_AABB.m_Extent.z
+      value: .00250054011
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
