@@ -44,7 +44,7 @@ public class equipmentHandler : MonoBehaviour {
 
                 player.GetComponent<SocketEquipment>().SocketItems(playerData.player2Items, true);
 
-                player.transform.Rotate(0.0f, 180.0f, 0.0f, Space.World);
+                //player.transform.Rotate(0.0f, 180.0f, 0.0f, Space.World);
 
                 Renderer[] playerModel = player.GetComponentsInChildren<Renderer>();
 

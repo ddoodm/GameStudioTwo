@@ -1699,7 +1699,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalRotation.z
@@ -1707,7 +1707,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -1.62920685e-07
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_RootOrder
@@ -1747,7 +1747,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_AABB.m_Center.x
-      value: .251387477
+      value: .251387417
       objectReference: {fileID: 0}
     - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_AABB.m_Center.y
@@ -1755,11 +1755,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_AABB.m_Center.z
-      value: -4.76837158e-07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_AABB.m_Extent.z
-      value: .00250014523
+      value: .00250006327
       objectReference: {fileID: 0}
     - target: {fileID: 11453478, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: player
