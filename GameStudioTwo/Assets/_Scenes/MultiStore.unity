@@ -23626,6 +23626,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   flippedCounterSizeVar: 0
+  controllerA: SocketFront
   maxHealth: 50
   mass: 1
   damageFactor: 1
@@ -33163,6 +33164,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   flippedCounterSizeVar: 0
+  controllerA: SocketFront
   maxHealth: 50
   mass: 1
   damageFactor: 1
