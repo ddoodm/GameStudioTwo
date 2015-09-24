@@ -18,7 +18,8 @@ public class ItemSelectorMulti : MonoBehaviour
 
     void Start()
     {
-        storeController = GameObject.FindGameObjectWithTag("StoreUI").GetComponent<StoreControllerMulti>();
+        storeController = transform.root.GetComponentInChildren<StoreControllerMulti>();
+        //storeController = GameObject.FindGameObjectWithTag("StoreUI").GetComponent<StoreControllerMulti>();
         if (isUI)
         {
             startColour = GetComponent<Image>().color;
@@ -94,13 +95,14 @@ public class ItemSelectorMulti : MonoBehaviour
                     }
                 }
             }
+                /*
             else
             {
                 foreach (Transform child in transform)
                 {
                     child.GetComponent<Renderer>().material.color = storeController.selectedItemColour;
                 }
-            }
+            }*/
         }
 
     }
