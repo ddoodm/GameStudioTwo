@@ -1,4 +1,5 @@
 ﻿#if UNITY_WEBPLAYER
+/*
 namespace UnityEngine.Cloud.Analytics
 {
 	internal class WebPlayerWrapper : BasePlatformWrapper
@@ -17,4 +18,5 @@ namespace UnityEngine.Cloud.Analytics
 		}
 	}
 }
+*/
 #endif
