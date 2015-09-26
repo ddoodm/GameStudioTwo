@@ -91,8 +91,8 @@ public class PlayerHealth : MonoBehaviour
         float damageMultiplier = 1.0f;
 
         PlayerHealth enemy = collision.gameObject.GetComponent<PlayerHealth>();
-        float damage = collision.relativeVelocity.magnitude;
-        //float damage = collision.impulse.magnitude;
+        //float damage = collision.relativeVelocity.magnitude;
+        float damage = collision.impulse.magnitude;
         float thisDamage = 0;
 
         //check if hit by weapon
