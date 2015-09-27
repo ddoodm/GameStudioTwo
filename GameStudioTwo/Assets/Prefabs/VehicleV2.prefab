@@ -1541,7 +1541,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150718}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .0979999974, y: .666000009, z: 21.7000008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1618,6 +1618,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1651,6 +1652,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -2951,6 +2953,7 @@ MonoBehaviour:
   brace_left: {fileID: 430390}
   brace_right: {fileID: 417252}
   brace_front: {fileID: 417628}
+  inStore: 0
 --- !u!114 &11446110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3015,7 +3018,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150718}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9386a27960aef404f9db0669ae2621ca, type: 3}
   m_Name: 
@@ -3081,6 +3084,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   flippedCounterSizeVar: 0
+  controllerA: SocketFront
   maxHealth: 4000
   mass: 1
   damageFactor: 1
@@ -3208,8 +3212,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: .251387477, y: -1.1920929e-07, z: 0}
-    m_Extent: {x: .251387417, y: .139332294, z: .00250062207}
+    m_Center: {x: .251387388, y: 0, z: -1.90734863e-06}
+    m_Extent: {x: .251387417, y: .139332294, z: .00250054011}
   m_DirtyAABB: 0
 --- !u!146 &14604728
 WheelCollider:
