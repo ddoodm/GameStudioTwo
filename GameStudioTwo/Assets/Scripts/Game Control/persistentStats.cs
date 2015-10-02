@@ -33,7 +33,7 @@ public class persistentStats : MonoBehaviour {
 		
 		boughtItems[0] = Equipment.Item_Handle;
 		boughtItems[1] = Equipment.Item_Spike;
-		boughtItems[2] = Equipment.Item_Booster;
+		boughtItems[2] = Equipment.EMPTY;
 		boughtItems[3] = Equipment.EMPTY;
 
 
