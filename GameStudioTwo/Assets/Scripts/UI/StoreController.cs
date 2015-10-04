@@ -7,7 +7,7 @@ public enum Equipment { EMPTY, Item_Handle, Item_Spike, Item_Flipper, Item_Boost
 
 public enum Socket { EMPTY, Socket_Left, Socket_Right, Socket_Front, Socket_Back, Socket_Top };
 
-public enum StoreState {STATE_MODEL, STATE_ITEM, STATE_STORE};
+public enum StoreState {STATE_GARAGE, STATE_MODEL, STATE_ITEM, STATE_STORE};
 
 
 public class StoreController : MonoBehaviour {
@@ -291,11 +291,7 @@ public class StoreController : MonoBehaviour {
 			}
 		}
 	}
-
-
-
-
-
+	
 
 	public void MoveLeft() {
 		if (playerModelPos > 0)

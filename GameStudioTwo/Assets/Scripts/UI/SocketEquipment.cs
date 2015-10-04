@@ -273,9 +273,11 @@ public class SocketEquipment : MonoBehaviour {
 				brace_left.gameObject.SetActive(true);
 
 				Transform flipper_left = (Transform)Instantiate(prefab_flipper, socket_left.position, Quaternion.identity);
+
                 temp = flipper_left.GetComponent<flipperControls>();
                 if (temp != null)
                     temp.initialRot = new Vector3(0, 0, 0);
+
 				flipper_left.Rotate(0.0f, 0.0f, 0.0f, Space.World);
 				flipper_left.parent = socket_left;
 				socket_left.transform.localPosition = new Vector3(0.0f, -0.678f, 0.3f);
