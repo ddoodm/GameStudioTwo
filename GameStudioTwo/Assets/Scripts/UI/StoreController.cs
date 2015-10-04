@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 
-public enum Equipment { EMPTY, Item_Handle, Item_Spike, Item_Flipper, Item_Booster};
+public enum Equipment { EMPTY, Item_Handle, Item_BasicEngine, Item_Spike, Item_Flipper, Item_Booster, Item_MetalShield, Item_PlasmaShield, Item_CircularSaw, Item_Hammer};
 
 public enum Socket { EMPTY, Socket_Left, Socket_Right, Socket_Front, Socket_Back, Socket_Top };
 
@@ -91,9 +91,17 @@ public class StoreController : MonoBehaviour {
 		if (Input.GetMouseButtonDown(0)){
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit))
-			{
-				HandleItemSelection(hit);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (current_state == StoreState.STATE_MODEL)
+                {
+                    HandleModelSelection(hit);
+                }
+                else if (current_state == StoreState.STATE_ITEM)
+                {
+                    HandleItemSelection(hit);
+                    HandleSocketSelection(hit);
+                }
 
 				if (selectedEquipment != Equipment.EMPTY){
 					foreach (Transform child in hit.transform) {
@@ -135,33 +143,44 @@ public class StoreController : MonoBehaviour {
 	}
 
 
-	void HandleItemSelection(RaycastHit hit) {
+    void HandleModelSelection(RaycastHit hit)
+    {
+        switch (hit.transform.tag)
+        {
+            case "LawnMowerRed":
+            case "LawnMowerGreen":
+            case "LawnMowerBlue":
+                player.GetComponent<Transform>().position = new Vector3(7.5f, 2.35f, 7.4f);
+
+                current_state = StoreState.STATE_ITEM;
+                GetComponent<Animator>().SetTrigger("toItemSelection");
+                break;
+        }
+    }
+
+
+        void HandleItemSelection(RaycastHit hit) {
 		selectedSocket = Socket.EMPTY;
 
 		switch (hit.transform.tag){
-			case "LawnMowerRed":
-			case "LawnMowerGreen":
-			case "LawnMowerBlue":
-				//player.GetComponent<Transform>().position = hit.transform.position;
-				//hit.transform.parent.gameObject.SetActive(false);
-				player.GetComponent<Transform>().position = new Vector3(7.5f, 2.6f, 7.5f);
-				
-				current_state = StoreState.STATE_ITEM;
-				GetComponent<Animator>().SetTrigger("toItemSelection");
-				break;
+			
 			case "Phone_Model":
 				if (current_state == StoreState.STATE_ITEM)
 				{
 					GetComponent<Animator>().SetTrigger("toStoreSelection");
-				current_state = StoreState.STATE_STORE;
+				    current_state = StoreState.STATE_STORE;
 				}
 				break;
 
 			case "Item_Handle":
 				selectedEquipment = Equipment.Item_Handle;
 				break;
-				
-			case "Item_Spike":
+
+            case "Item_BasicEngine":
+                selectedEquipment = Equipment.Item_BasicEngine;
+                break;
+
+            case "Item_Spike":
 				selectedEquipment = Equipment.Item_Spike;
 				break;
 				
@@ -173,56 +192,84 @@ public class StoreController : MonoBehaviour {
 				selectedEquipment = Equipment.Item_Booster;
 				break;
 
-			case "Socket_Left":
-				selectedSocket = Socket.Socket_Left;
-				break;
-				
-			case "Socket_Right":
-				selectedSocket = Socket.Socket_Right;
-				break;
-				
-			case "Socket_Front":
-				selectedSocket = Socket.Socket_Front;
-				break;
-				
-			case "Socket_Back":
-				selectedSocket = Socket.Socket_Back;
-				break;
-				
-			case "Socket_Top":
-				selectedSocket = Socket.Socket_Top;
-				break;
+            case "Item_MetalShield":
+                selectedEquipment = Equipment.Item_MetalShield;
+                break;
 
-			case "Player Model":
-				break;
+            case "Item_PlasmaShield":
+                selectedEquipment = Equipment.Item_PlasmaShield;
+                break;
 
-			default:
-				selectedEquipment = Equipment.EMPTY;
-				selectedSocket = Socket.EMPTY;
-				break;
-		}
+            case "Item_CircularSaw":
+                selectedEquipment = Equipment.Item_CircularSaw;
+                break;
 
-		if (selectedEquipment == Equipment.Item_Handle && (selectedSocket != Socket.Socket_Back && selectedSocket != Socket.EMPTY)) {
-			selectedSocket = Socket.EMPTY;
-		}
-		if (selectedEquipment == Equipment.Item_Spike && selectedSocket == Socket.Socket_Top) {
-			selectedSocket = Socket.EMPTY;
-		}
-		if (selectedEquipment == Equipment.Item_Flipper && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Back)) {
-			selectedSocket = Socket.EMPTY;
-		}
+            case "Item_Hammer":
+                selectedEquipment = Equipment.Item_Hammer;
+                break;
+        }
+    }
 
-		if (selectedEquipment == Equipment.Item_Booster && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Front)) {
-			selectedSocket = Socket.EMPTY;
-		}
+    void HandleSocketSelection(RaycastHit hit)
+    {
+        switch (hit.transform.tag)
+        {
+            case "Socket_Left":
+                selectedSocket = Socket.Socket_Left;
+                break;
 
+            case "Socket_Right":
+                selectedSocket = Socket.Socket_Right;
+                break;
 
-	}
+            case "Socket_Front":
+                selectedSocket = Socket.Socket_Front;
+                break;
+
+            case "Socket_Back":
+                selectedSocket = Socket.Socket_Back;
+                break;
+
+            case "Socket_Top":
+                selectedSocket = Socket.Socket_Top;
+                break;
+        }
 
 
-	// instantiate at sockets change rotation based on what socket. make this a separate script on the vehicle prefab
-	
-	void FillItemSocketArray(){
+        if (selectedEquipment == Equipment.Item_Handle && (selectedSocket != Socket.Socket_Back && selectedSocket != Socket.EMPTY))
+        {
+            selectedSocket = Socket.EMPTY;
+        }
+        if (selectedEquipment == Equipment.Item_Spike && selectedSocket == Socket.Socket_Top)
+        {
+            selectedSocket = Socket.EMPTY;
+        }
+        if (selectedEquipment == Equipment.Item_Flipper && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Back))
+        {
+            selectedSocket = Socket.EMPTY;
+        }
+
+        if (selectedEquipment == Equipment.Item_Booster && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Front))
+        {
+            selectedSocket = Socket.EMPTY;
+        }
+
+        if (current_state != StoreState.STATE_ITEM)
+        {
+            selectedEquipment = Equipment.EMPTY;
+            selectedSocket = Socket.EMPTY;
+        }
+
+
+    }
+
+
+
+
+
+        // instantiate at sockets change rotation based on what socket. make this a separate script on the vehicle prefab
+
+        void FillItemSocketArray(){
 		switch (selectedSocket) {
 			case Socket.Socket_Left:
 				itemSocketArray[0] = selectedEquipment;
