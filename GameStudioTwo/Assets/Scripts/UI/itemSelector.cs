@@ -13,6 +13,9 @@ public class itemSelector : MonoBehaviour
 
     private StoreController storeController;
 
+    public string objectName;
+    
+
     
     void Start()
     {
@@ -35,6 +38,7 @@ public class itemSelector : MonoBehaviour
         {
             foreach (Transform child in transform)
             {
+
                 ResetColour(child);
             }
         }
@@ -78,8 +82,17 @@ public class itemSelector : MonoBehaviour
 
     public void ChangeColour(Transform transform)
     {
+        if (transform.GetComponent<Renderer>() == null)
+        {
+            return;
+        }
+
         transform.GetComponent<Renderer>().material.color = highlightItemColour;
 
+        //Item Shader Test Code - do not delete
+        //transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+        //transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", highlightItemColour);
+        
         if (isSocket)
         {
             transform.GetComponent<Renderer>().material.color = highlightSocketColour;
@@ -90,11 +103,32 @@ public class itemSelector : MonoBehaviour
 
     public void ResetColour(Transform transform)
     {
-        transform.GetComponent<Renderer>().material.color = startColour;
+        if (transform.GetComponent<Renderer>() == null)
+        {
+            return;
+        }
 
+        transform.GetComponent<Renderer>().material.color = startColour;
+        
         if (isSocket)
         {
             transform.GetComponent<Transform>().localScale = new Vector3(0.25f, 0.25f, 0.25f);
         }
+    }
+
+
+
+
+    void OnGUI()
+    {
+        if (highlighted && !isSocket && objectName != "Phone")
+        {
+            GUI.Box(new Rect(Event.current.mousePosition.x + 10, Event.current.mousePosition.y, 100, 25), objectName);
+
+
+            //GUI.Box(new Rect(Event.current.mousePosition.x - 155, Event.current.mousePosition.y, 150, 25), new GUIContent(objectName, "this box has a tooltip"));
+            //GUI.Label(new Rect(10, 40, 100, 40), GUI.tooltip);
+        }
+
     }
 }

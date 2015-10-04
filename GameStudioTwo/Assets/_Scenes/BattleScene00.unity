@@ -2035,6 +2035,42 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11443950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: prefab_plasmashield
+      value: 
+      objectReference: {fileID: 498508, guid: e5cb44c3b2a1ac54b8a38d8c426ece2c, type: 2}
+    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_AABB.m_Center.x
+      value: .251386642
+      objectReference: {fileID: 0}
+    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_AABB.m_Center.y
+      value: -1.1920929e-07
+      objectReference: {fileID: 0}
+    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_AABB.m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_AABB.m_Extent.x
+      value: .251386642
+      objectReference: {fileID: 0}
+    - target: {fileID: 11443950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: prefab_metalshield
+      value: 
+      objectReference: {fileID: 454230, guid: eaec899d5a92d0444b9903bfb2352752, type: 2}
+    - target: {fileID: 11443950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: prefab_hammer
+      value: 
+      objectReference: {fileID: 447632, guid: 8bba98947987ceb45855ef31e09de99b, type: 2}
+    - target: {fileID: 11443950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: prefab_circularsaw
+      value: 
+      objectReference: {fileID: 417414, guid: a6d17f2a60f9a5a48b743dd57e716c52, type: 2}
+    - target: {fileID: 11443950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: prefab_basicengine
+      value: 
+      objectReference: {fileID: 497140, guid: ef0707922f931e74189ca6289394c1c1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_IsPrefabParent: 0
