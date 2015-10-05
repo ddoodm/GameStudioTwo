@@ -34,6 +34,14 @@ public class VehicleController : MonoBehaviour
         inputLinearForce,
         inputSteering;
 
+    void Start()
+    {
+        this.transform.Rotate(0.0f, 180.0f, 0.0f, Space.World);
+    }
+
+
+
+
     void Update()
     {
 		if (play) 

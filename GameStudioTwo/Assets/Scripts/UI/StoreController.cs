@@ -35,7 +35,7 @@ public class StoreController : MonoBehaviour {
 	// Selected items on the model
 	//
 	private static int MAX_SOCKETS = 5;
-	private static int TOTAL_ITEMS = 4;
+	public static int TOTAL_ITEMS = 9;
 	private Equipment[] itemSocketArray = new Equipment[MAX_SOCKETS];
 	public Equipment selectedEquipment = Equipment.EMPTY;
 	private Socket selectedSocket = Socket.EMPTY;

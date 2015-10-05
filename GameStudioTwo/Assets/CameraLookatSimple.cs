@@ -8,7 +8,9 @@ public class CameraLookatSimple : MonoBehaviour
         targetFOV = 40.0f,
         maxDist = 10.0f;
 
-    private Camera camera;
+
+    //This was giving me errors
+    private new Camera camera;
 
 	// Use this for initialization
 	void Start ()
