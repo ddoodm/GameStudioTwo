@@ -18,29 +18,72 @@ public class BotEquipper : MonoBehaviour
             botItems[i] = Equipment.EMPTY;
 
         int rand;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 5; i++)
         {
-            rand = Random.Range(0, 3);
+            rand = Random.Range(0, 9);
 
             switch (rand)
             {
                 case 0:
-                    botItems[i] = Equipment.Item_Spike;
+                    if ((SocketLocation)i != SocketLocation.BACK)
+                        i--;
+                    else
+                        botItems[i] = Equipment.Item_Handle;
                     break;
 
                 case 1:
-                    if ((SocketLocation)i == SocketLocation.BACK)
+                    if ((SocketLocation)i != SocketLocation.TOP)
+                        i--;
+                    else
+                        botItems[i] = Equipment.Item_BasicEngine;
+                    break;
+
+                case 2:
+                        botItems[i] = Equipment.Item_Spike;
+                    break;
+
+                case 3:
+                    if ((SocketLocation)i == SocketLocation.BACK || (SocketLocation)i == SocketLocation.TOP)
                         i--;
                     else
                         botItems[i] = Equipment.Item_Flipper;
                     break;
 
-                case 2:
-                    if ((SocketLocation)i == SocketLocation.FRONT)
+                case 4:
+                    if ((SocketLocation)i == SocketLocation.FRONT || (SocketLocation)i == SocketLocation.TOP)
                         i--;
                     else
                         botItems[i] = Equipment.Item_Booster;
                     break;
+
+                case 5:
+                    if ((SocketLocation)i == SocketLocation.BACK || (SocketLocation)i == SocketLocation.TOP)
+                        i--;
+                    else
+                        botItems[i] = Equipment.Item_MetalShield;
+                    break;
+
+                case 6:
+                    if ((SocketLocation)i != SocketLocation.TOP)
+                        i--;
+                    else
+                        botItems[i] = Equipment.Item_PlasmaShield;
+                    break;
+
+                case 7:
+                    if ((SocketLocation)i == SocketLocation.BACK || (SocketLocation)i == SocketLocation.TOP)
+                        i--;
+                    else
+                        botItems[i] = Equipment.Item_CircularSaw;
+                    break;
+
+                case 8:
+                    if ((SocketLocation)i == SocketLocation.BACK || (SocketLocation)i == SocketLocation.TOP)
+                        i--;
+                    else
+                        botItems[i] = Equipment.Item_Hammer;
+                    break;
+                    
 
                 default:
                     break;
