@@ -2066,7 +2066,7 @@ Prefab:
     - target: {fileID: 11443950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: prefab_circularsaw
       value: 
-      objectReference: {fileID: 417414, guid: a6d17f2a60f9a5a48b743dd57e716c52, type: 2}
+      objectReference: {fileID: 407934, guid: be61b568a7d68ae48b7ebfb3bd5c87af, type: 2}
     - target: {fileID: 11443950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: prefab_basicengine
       value: 
@@ -6085,7 +6085,7 @@ Prefab:
     - target: {fileID: 11438798, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
       propertyPath: prefab_circularsaw
       value: 
-      objectReference: {fileID: 417414, guid: a6d17f2a60f9a5a48b743dd57e716c52, type: 2}
+      objectReference: {fileID: 407934, guid: be61b568a7d68ae48b7ebfb3bd5c87af, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_IsPrefabParent: 0
