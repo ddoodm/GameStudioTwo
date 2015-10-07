@@ -238,9 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 3
-  damageMultiplier: 1
-  hp: 30
+  mass: .600000024
+  damageMultiplier: .5
+  hp: 300
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -250,15 +250,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: mass
-      value: 3
+      value: .600000024
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: hp
-      value: 30
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damageMultiplier
-      value: 1
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
