@@ -655,7 +655,8 @@ public class SocketEquipment : MonoBehaviour {
                 brace_left.gameObject.SetActive(true);
 
                 Transform circularsaw_left = (Transform)Instantiate(prefab_circularsaw, socket_left.position, Quaternion.identity);
-
+                if (!inStore)
+                    circularsaw_left.GetComponentInChildren<sawController>().initialRot = new Vector3(0, 0, 90);
                 circularsaw_left.Rotate(0.0f, 0.0f, 0.0f, Space.World);
                 circularsaw_left.parent = socket_left;
                 socket_left.transform.localPosition = new Vector3(-0.47f, -1.615f, 0.075f);
@@ -672,6 +673,8 @@ public class SocketEquipment : MonoBehaviour {
                 brace_right.gameObject.SetActive(true);
 
                 Transform circularsaw_right = (Transform)Instantiate(prefab_circularsaw, socket_right.position, Quaternion.identity);
+                if (!inStore)
+                    circularsaw_right.GetComponentInChildren<sawController>().initialRot = new Vector3(0, 180, 90);
 
                 circularsaw_right.Rotate(0.0f, 180.0f, 0.0f, Space.World);
                 circularsaw_right.parent = socket_right;
@@ -689,7 +692,9 @@ public class SocketEquipment : MonoBehaviour {
                 brace_front.gameObject.SetActive(true);
 
                 Transform circularsaw_front = (Transform)Instantiate(prefab_circularsaw, socket_front.position, Quaternion.identity);
-                
+                if (!inStore)
+                    circularsaw_front.GetComponentInChildren<sawController>().initialRot = new Vector3(180, -90, 90);
+
                 circularsaw_front.Rotate(180.0f, -90.0f, 180.0f, Space.World);
                 circularsaw_front.parent = socket_front;
                 socket_front.transform.localPosition = new Vector3(2.085f, -0.475f, -0.115f);

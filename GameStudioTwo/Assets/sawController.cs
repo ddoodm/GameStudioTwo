@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class sawController : MonoBehaviour {
+public class sawController : MonoBehaviour, Weapon {
 
     private float animationTime = 1;
-    public AnimationCurve curve;
+    public AnimationCurve activeCurve;
+    public AnimationCurve lower;
+    public AnimationCurve raise;
 
     public bool canFlip;
 
@@ -13,7 +15,7 @@ public class sawController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -26,8 +28,8 @@ public class sawController : MonoBehaviour {
     private void DoAnimation()
     {
         animationTime += Time.deltaTime;
-        float animCurveValue = curve.Evaluate(animationTime);
-        this.transform.rotation = Quaternion.Euler(new Vector3(0, transform.root.rotation.eulerAngles.y - initialRot.y, -90 - animCurveValue * 90));
+        float animCurveValue = activeCurve.Evaluate(animationTime);
+        this.transform.rotation = Quaternion.Euler(new Vector3(0, transform.root.rotation.eulerAngles.y - initialRot.y, -90 + animCurveValue * 90));
 
         // The player may flip once the animation is reset
         if (animationTime >= 1.0f)
@@ -38,12 +40,18 @@ public class sawController : MonoBehaviour {
     public void Use()
     {
         if (canFlip)
+        {
             animationTime = 0;
+            activeCurve = lower;
+            this.GetComponentInChildren<sawSpinner>().spinSpeed = 4;
+        }
     }
 
     public void EndUse()
     {
-        // Not needed for the flipper
+        animationTime = 0;
+        activeCurve = raise;
+        this.GetComponentInChildren<sawSpinner>().spinSpeed = 1;
     }
 
     public GameObject GetGameObject()

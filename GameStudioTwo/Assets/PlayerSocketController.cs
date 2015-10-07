@@ -46,7 +46,7 @@ public class PlayerSocketController : MonoBehaviour
         if (transform.childCount > 1)
             throw new System.Exception(this.name + " must have ONE child that implements the Weapon interface.");
 
-        childWeapon = transform.GetChild(0).GetComponent<Weapon>();
+        childWeapon = transform.GetComponentInChildren<Weapon>();
         if (childWeapon == null)
             throw new System.Exception(this.name + "'s child must contain a component that implements the Weapon interface.");
 
