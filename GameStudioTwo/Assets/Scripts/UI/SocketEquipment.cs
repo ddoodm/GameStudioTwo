@@ -729,7 +729,8 @@ public class SocketEquipment : MonoBehaviour {
                 brace_left.gameObject.SetActive(true);
 
                 Transform hammer_left = (Transform)Instantiate(prefab_hammer, socket_left.position, Quaternion.identity);
-
+                if (!inStore)
+                    hammer_left.GetComponentInChildren<hammerControls>().initialRot = new Vector3(0, -90, 0);
                 hammer_left.Rotate(-90.0f, -90.0f, 0.0f, Space.World);
                 hammer_left.parent = socket_left;
                 socket_left.transform.localPosition = new Vector3(0.0f, -0.8f, 0.175f);
@@ -746,7 +747,8 @@ public class SocketEquipment : MonoBehaviour {
                 brace_right.gameObject.SetActive(true);
 
                 Transform hammer_right = (Transform)Instantiate(prefab_hammer, socket_right.position, Quaternion.identity);
-
+                if (!inStore)
+                    hammer_right.GetComponentInChildren<hammerControls>().initialRot = new Vector3(0, 90, 0);
                 hammer_right.Rotate(-90.0f, 90.0f, 0.0f, Space.World);
                 hammer_right.parent = socket_right;
                 socket_right.transform.localPosition = new Vector3(0.0f, 0.8f, 0.175f);
@@ -763,8 +765,9 @@ public class SocketEquipment : MonoBehaviour {
                 brace_front.gameObject.SetActive(true);
 
                 Transform hammer_front = (Transform)Instantiate(prefab_hammer, socket_front.position, Quaternion.identity);
-
-                hammer_front.Rotate(-90.0f, 00.0f, 0.0f, Space.World);
+                if (!inStore)
+                    hammer_front.GetComponentInChildren<hammerControls>().initialRot = new Vector3(0, 180, 0);
+                hammer_front.Rotate(-90.0f, 180.0f, 0.0f, Space.World);
                 hammer_front.parent = socket_front;
                 socket_front.transform.localPosition = new Vector3(1.025f, 0.0f, 0.1f);
                 break;
