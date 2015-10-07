@@ -22,20 +22,23 @@ public class FSMBotController : MonoBehaviour
 
     private NavMeshPath path;
 
-    private enum FSMState
+    public enum FSMState
     {
         PATROL,
         ARRIVE,
         EVADE,
         REVERSE,
     }
-    private FSMState state = FSMState.PATROL;
+    public FSMState state { get; protected set; }
 
     void Start()
     {
         controller = GetComponent<BotVehicleController>();
         botRigidbody = GetComponent<Rigidbody>();
         botHealth = GetComponent<PlayerHealth>();
+
+        // Start bot in patrol mode:
+        state = FSMState.PATROL;
 
         if (playerTransform == null)
             playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
