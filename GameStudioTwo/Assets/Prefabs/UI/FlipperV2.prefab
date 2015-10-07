@@ -81,6 +81,7 @@ GameObject:
   - 33: {fileID: 3313804}
   - 23: {fileID: 2381554}
   - 64: {fileID: 6435864}
+  - 114: {fileID: 11415428}
   m_Layer: 8
   m_Name: Cylinder004_MeshPart0
   m_TagString: Player Model
@@ -375,6 +376,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11415428
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: .25
+  damageMultiplier: 1.10000002
+  hp: 50
 --- !u!114 &11429648
 MonoBehaviour:
   m_ObjectHideFlags: 1
