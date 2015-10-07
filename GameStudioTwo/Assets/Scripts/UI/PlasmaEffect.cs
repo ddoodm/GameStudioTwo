@@ -23,7 +23,7 @@ public class PlasmaEffect : MonoBehaviour {
         if (hasLight)
         {
             float ping = Mathf.PingPong(200 * Time.time, 255.0f);
-            Debug.Log(ping);
+            //Debug.Log(ping);
 
             Color newColour = new Color(125 / 255f, ping / 255f, 125 / 255f);
 

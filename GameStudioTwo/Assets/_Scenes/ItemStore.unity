@@ -18440,7 +18440,7 @@ MonoBehaviour:
   prefab_metalshield: {fileID: 454230, guid: eaec899d5a92d0444b9903bfb2352752, type: 2}
   prefab_plasmashield: {fileID: 498508, guid: e5cb44c3b2a1ac54b8a38d8c426ece2c, type: 2}
   prefab_circularsaw: {fileID: 417414, guid: a6d17f2a60f9a5a48b743dd57e716c52, type: 2}
-  prefab_hammer: {fileID: 447632, guid: 8bba98947987ceb45855ef31e09de99b, type: 2}
+  prefab_hammer: {fileID: 446706, guid: 0b967076fefea5041b6ddd0ea621cbf1, type: 2}
   socket_left: {fileID: 2141084482}
   socket_right: {fileID: 1725002360}
   socket_front: {fileID: 1366076822}
