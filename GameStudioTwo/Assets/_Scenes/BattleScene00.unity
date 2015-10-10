@@ -2038,7 +2038,7 @@ Prefab:
     - target: {fileID: 11443950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: prefab_plasmashield
       value: 
-      objectReference: {fileID: 423982, guid: cf0415a3031c74648a2cddcd86082219, type: 2}
+      objectReference: {fileID: 118504, guid: cf0415a3031c74648a2cddcd86082219, type: 2}
     - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_AABB.m_Center.x
       value: .251386642

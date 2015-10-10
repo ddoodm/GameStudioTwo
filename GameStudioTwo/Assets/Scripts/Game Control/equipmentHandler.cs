@@ -6,16 +6,15 @@ public class equipmentHandler : MonoBehaviour {
 	public GameObject player;
 
 	// Use this for initialization
-	void Start () {
 	
-	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
 
-    void Awake()
+    // changed to START from AWAKE so socketEqupment script is called first. Not sure if this has broken other things
+    void Start()
     {
         if (player.GetComponent<VehicleController>().player == 1)
         {
@@ -23,7 +22,7 @@ public class equipmentHandler : MonoBehaviour {
             {
                 persistentStats playerData = GameObject.FindGameObjectWithTag("Persistent Stats").GetComponent<persistentStats>();
 
-                player.GetComponent<SocketEquipment>().SocketItems(playerData.playerItems, true);
+                player.GetComponent<SocketEquipment>().SocketItems(playerData.playerItems);
 
                 player.transform.Rotate(0.0f, 180.0f, 0.0f, Space.World);
 
@@ -42,7 +41,7 @@ public class equipmentHandler : MonoBehaviour {
             {
                 persistentStats playerData = GameObject.FindGameObjectWithTag("Persistent Stats").GetComponent<persistentStats>();
 
-                player.GetComponent<SocketEquipment>().SocketItems(playerData.player2Items, true);
+                player.GetComponent<SocketEquipment>().SocketItems(playerData.player2Items);
 
                 //player.transform.Rotate(0.0f, 180.0f, 0.0f, Space.World);
 

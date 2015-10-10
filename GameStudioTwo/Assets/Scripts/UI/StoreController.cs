@@ -300,7 +300,7 @@ public class StoreController : MonoBehaviour {
 		selectedEquipment = Equipment.EMPTY;
 		selectedSocket = Socket.EMPTY;
 
-		player.GetComponent<SocketEquipment>().SocketItems(itemSocketArray, false);
+		player.GetComponent<SocketEquipment>().SocketItems(itemSocketArray);
 
 	}
 
