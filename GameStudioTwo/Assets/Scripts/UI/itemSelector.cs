@@ -121,7 +121,7 @@ public class itemSelector : MonoBehaviour
 
     void OnGUI()
     {
-        if (highlighted && !isSocket && objectName != "Phone")
+        if (highlighted && !isSocket && !string.IsNullOrEmpty(objectName))
         {
             GUI.Box(new Rect(Event.current.mousePosition.x + 10, Event.current.mousePosition.y, 100, 25), objectName);
 

@@ -47,7 +47,7 @@ GameObject:
   - 114: {fileID: 11481400}
   - 82: {fileID: 8282028}
   m_Layer: 8
-  m_Name: FlipperV2
+  m_Name: Item_Flipper
   m_TagString: Item_Flipper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

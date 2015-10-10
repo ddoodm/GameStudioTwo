@@ -10,15 +10,15 @@ public class SocketEquipment : MonoBehaviour {
 
     public Transform player;
 
-    public Transform prefab_handle;
-    public Transform prefab_basicengine;
-    public Transform prefab_spike;
-    public Transform prefab_flipper;
-    public Transform prefab_booster;
-    public Transform prefab_metalshield;
-    public Transform prefab_plasmashield;
-    public Transform prefab_circularsaw;
-    public Transform prefab_hammer;
+    Transform prefab_handle;
+    Transform prefab_basicengine;
+    Transform prefab_spike;
+    Transform prefab_flipper;
+    Transform prefab_booster;
+    Transform prefab_metalshield;
+    Transform prefab_plasmashield;
+    Transform prefab_circularsaw;
+    Transform prefab_hammer;
 
 
     public Transform socket_left;
@@ -49,6 +49,35 @@ public class SocketEquipment : MonoBehaviour {
 
     private flipperControls temp;
 
+    // must be awake
+    void Awake()
+    {
+        prefab_handle = Resources.Load<Transform>("Item_Handle");
+        prefab_basicengine = Resources.Load<Transform>("Item_BasicEngine");
+        prefab_spike = Resources.Load<Transform>("Item_Spike");
+        prefab_metalshield = Resources.Load<Transform>("Item_MetalShield");
+
+        if (!inStore)
+        {
+            prefab_booster = Resources.Load<Transform>("Item_Booster");
+            prefab_flipper = Resources.Load<Transform>("Item_Flipper");
+            prefab_plasmashield = Resources.Load<Transform>("Item_PlasmaShield");
+            prefab_circularsaw = Resources.Load<Transform>("Item_CircularSaw");
+            prefab_hammer = Resources.Load<Transform>("Item_Hammer");
+        }
+        else
+        {
+            prefab_booster = Resources.Load<Transform>("UI_Items/Item_Booster");
+            prefab_flipper = Resources.Load<Transform>("UI_Items/Item_Flipper");
+            prefab_plasmashield = Resources.Load<Transform>("UI_Items/Item_PlasmaShield");
+            prefab_circularsaw = Resources.Load<Transform>("UI_Items/Item_CircularSaw");
+            prefab_hammer = Resources.Load<Transform>("UI_Items/Item_Hammer");
+        }
+    }
+
+
+
+
     public Weapon GetWeaponInSocket(SocketLocation socket)
     {
         return equipmentRefs[(int)socket];
@@ -64,7 +93,7 @@ public class SocketEquipment : MonoBehaviour {
         }
     }
 
-    public void SocketItems(Equipment[] equipmentArray, bool game) {
+    public void SocketItems(Equipment[] equipmentArray) {
         // Remove all items before putting more on
         RemoveItems();
         ResetSockets();
