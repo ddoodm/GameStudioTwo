@@ -3,9 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 
 
-public enum Equipment { EMPTY, Item_Handle, Item_BasicEngine, Item_Spike, Item_Flipper, Item_Booster, Item_MetalShield, Item_PlasmaShield, Item_CircularSaw, Item_Hammer};
+public enum Equipment { Item_Handle = 0, Item_BasicEngine, Item_Spike, Item_Flipper, Item_Booster, Item_MetalShield, Item_PlasmaShield, Item_CircularSaw, Item_Hammer, EMPTY };
 
-public enum Socket { EMPTY, Socket_Left, Socket_Right, Socket_Front, Socket_Back, Socket_Top };
+public enum Socket { EMPTY = 0, Socket_Left, Socket_Right, Socket_Front, Socket_Back, Socket_Top };
 
 public enum StoreState {STATE_GARAGE, STATE_MODEL, STATE_ITEM, STATE_STORE};
 
@@ -24,9 +24,8 @@ public class StoreController : MonoBehaviour {
 	public StoreState current_state = StoreState.STATE_MODEL;
 
     persistentStats playerChoice;
-
-	int noOfModels;
-	int playerModelPos = 0;
+    
+	int storeItemPos = 0;
 
 	//bool hasSpike = false;
     bool colourChange = false;
@@ -79,8 +78,6 @@ public class StoreController : MonoBehaviour {
 
 		}
 
-		noOfModels = uiPlayerModels.GetComponent<Transform> ().childCount - 1;
-
 		sliderColour = new Color(rgbColor.x, rgbColor.y, rgbColor.z);
 	}
 
@@ -106,7 +103,8 @@ public class StoreController : MonoBehaviour {
 				if (selectedEquipment != Equipment.EMPTY){
 					foreach (Transform child in hit.transform) {
 						child.GetComponent<Renderer>().material.color = selectedItemColour;
-					}
+                        child.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(63.75f / 255f, 50f / 255f, 0f / 255f));
+                    }
 					if (selectedSocket != Socket.EMPTY){
 						FillItemSocketArray();
 					}
@@ -340,43 +338,6 @@ public class StoreController : MonoBehaviour {
 	}
 	
 
-	public void MoveLeft() {
-		if (playerModelPos > 0)
-		{
-			playerModelPos--;
-			StartCoroutine ("SlideLeft");
-		}
-	}
-
-	public void MoveRight() {
-		if (playerModelPos < noOfModels)
-		{
-			playerModelPos++;
-			StartCoroutine ("SlideRight");
-		}
-	}
-
-
-	private IEnumerator SlideLeft(){
-		Vector3 oldPos;
-		for (int i = 0; i < 10; i++) 
-		{
-			oldPos = uiPlayerModels.GetComponent<Transform> ().position;
-			uiPlayerModels.GetComponent<Transform>().position = new Vector3(oldPos.x + 1, oldPos.y, oldPos.z);
-			yield return null;
-		}
-	}
-	
-	private IEnumerator SlideRight(){
-		Vector3 oldPos;
-		for (int i = 0; i < 10; i++) 
-		{
-			oldPos = uiPlayerModels.GetComponent<Transform> ().position;
-			uiPlayerModels.GetComponent<Transform>().position = new Vector3(oldPos.x - 1, oldPos.y, oldPos.z);
-			yield return null;
-		}
-	}
-
     public void changeR(float slider)
     {
         rgbColor.x = slider / 255;
@@ -395,19 +356,22 @@ public class StoreController : MonoBehaviour {
 		colourChange = true;
     }
 
-	public void BackToItems()
-	{
-		current_state = StoreState.STATE_ITEM;
-		GetComponent<Animator>().SetTrigger("toItemSelection");
-	}
+
+    public void BackToItems()
+    {
+        if (current_state == StoreState.STATE_STORE)
+        {
+            current_state = StoreState.STATE_ITEM;
+            GetComponent<Animator>().SetTrigger("toItemSelection");
+        }
+    }
 
 
-
-	public void BuyFlipper()
+    public void BuyFlipper()
 	{
 		Debug.Log (DOLLADOLLABILLSYALL);
 		if (DOLLADOLLABILLSYALL > 100) {
-			AvailableItems [2] = Equipment.Item_Flipper;
+			AvailableItems [3] = Equipment.Item_Flipper;
 			DOLLADOLLABILLSYALL -= 100;
 		}
 	}
@@ -415,7 +379,7 @@ public class StoreController : MonoBehaviour {
 	public void BuyBooster()
 	{
 		if (DOLLADOLLABILLSYALL > 200) {
-			AvailableItems [3] = Equipment.Item_Booster;
+			AvailableItems [4] = Equipment.Item_Booster;
 			DOLLADOLLABILLSYALL -= 200;
 		}
 	}

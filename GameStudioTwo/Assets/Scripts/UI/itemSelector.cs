@@ -89,13 +89,13 @@ public class itemSelector : MonoBehaviour
 
         transform.GetComponent<Renderer>().material.color = highlightItemColour;
 
-        //Item Shader Test Code - do not delete
-        //transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
-        //transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", highlightItemColour);
-        
+        transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+        transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(0f / 255f, 50f / 255f, 63.75f / 255f));
+
         if (isSocket)
         {
             transform.GetComponent<Renderer>().material.color = highlightSocketColour;
+            transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", highlightSocketColour);
             transform.GetComponent<Transform>().localScale = new Vector3(0.375f, 0.375f, 0.375f);
         }
     }
@@ -109,7 +109,7 @@ public class itemSelector : MonoBehaviour
         }
 
         transform.GetComponent<Renderer>().material.color = startColour;
-        
+        transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.black);
         if (isSocket)
         {
             transform.GetComponent<Transform>().localScale = new Vector3(0.25f, 0.25f, 0.25f);
@@ -124,10 +124,6 @@ public class itemSelector : MonoBehaviour
         if (highlighted && !isSocket && !string.IsNullOrEmpty(objectName))
         {
             GUI.Box(new Rect(Event.current.mousePosition.x + 10, Event.current.mousePosition.y, 100, 25), objectName);
-
-
-            //GUI.Box(new Rect(Event.current.mousePosition.x - 155, Event.current.mousePosition.y, 150, 25), new GUIContent(objectName, "this box has a tooltip"));
-            //GUI.Label(new Rect(10, 40, 100, 40), GUI.tooltip);
         }
 
     }
