@@ -38,6 +38,12 @@ TagManager:
   - Topdown Camera
   - Minimap Camera
   - Phone_Model
+  - Player2
+  - Item_MetalShield
+  - Item_PlasmaShield
+  - Item_CircularSaw
+  - Item_Hammer
+  - Item_BasicEngine
   layers:
   - Default
   - TransparentFX
@@ -50,7 +56,7 @@ TagManager:
   - Player
   - SceneGeometry
   - Terrain
-  - 
+  - Phone
   - 
   - 
   - 

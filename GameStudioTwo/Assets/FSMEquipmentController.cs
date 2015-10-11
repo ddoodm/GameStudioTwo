@@ -3,9 +3,11 @@ using System;
 using System.Collections;
 
 [RequireComponent(typeof(SocketEquipment))]
+[RequireComponent(typeof(FSMBotController))]
 public class FSMEquipmentController : MonoBehaviour
 {
     private SocketEquipment socketEquipment;
+    private FSMBotController botControl;
     private Equipment[] equips;
     private GameObject player;
     private Rigidbody thisBody;
@@ -18,6 +20,7 @@ public class FSMEquipmentController : MonoBehaviour
 	void Start ()
     {
         socketEquipment = GetComponent<SocketEquipment>();
+        botControl = GetComponent<FSMBotController>();
         player = GameObject.FindWithTag("Player");
         thisBody = GetComponent<Rigidbody>();
 
@@ -60,8 +63,10 @@ public class FSMEquipmentController : MonoBehaviour
 
         bool playerInRange = distanceToPlayer <= flipperActivationRadius;
         bool imUpsideDown = Vector3.Dot(this.transform.root.up, Vector3.up) < 0;
+        bool correctState = botControl.state == FSMBotController.FSMState.ARRIVE;
+        bool cooldownOkay = flipperCooldownTimers[(int)socket] <= 0.0f;
 
-        if ((playerInRange || imUpsideDown) && flipperCooldownTimers[(int)socket] <= 0.0f)
+        if ((playerInRange || imUpsideDown) && correctState && cooldownOkay)
         {
             flipper.Use();
 
@@ -82,8 +87,9 @@ public class FSMEquipmentController : MonoBehaviour
 
         bool inRange = distanceToPlayer > 3.0f && distanceToPlayer < 15.0f;
         bool notStuck = thisBody.velocity.magnitude > 4.0f;
+        bool correctState = botControl.state == FSMBotController.FSMState.ARRIVE;
 
-        if (inRange && notStuck)
+        if (inRange && notStuck && correctState)
             booster.Use();
         else
             booster.EndUse();
@@ -99,17 +105,22 @@ public class FSMEquipmentController : MonoBehaviour
         float lateralDistance =
             this.transform.InverseTransformPoint(player.transform.position).x;
 
-        bool isStuck = thisBody.velocity.magnitude < 0.8f;
+        // Do we want to boost to attack the player?
+        bool boostTowardPlayer =
+            (socket == SocketLocation.LEFT && lateralDistance > 4.0f)
+            || (socket == SocketLocation.RIGHT && lateralDistance < -4.0f);
+        boostTowardPlayer &= botControl.state == FSMBotController.FSMState.ARRIVE;
 
-        // If the player is to the left / right, then boost
-        if ((
-               (socket == SocketLocation.LEFT && lateralDistance > 8.0f)
-            || (socket == SocketLocation.RIGHT && lateralDistance < 8.0f)
-            || isStuck)
+        // Do we want to boost to get un-stuck?
+        bool isStuck = thisBody.velocity.magnitude < 0.1f;
+
+        // Boost toward the player whenever possible,
+        // or try to get un-stuck
+        if ((boostTowardPlayer || isStuck)
             && boosterCooldown < 0.0f)
         {
             booster.Use();
-            boosterCooldown = 2.0f;
+            boosterCooldown = UnityEngine.Random.Range(0.8f, 2.0f);
         }
         else
             booster.EndUse();

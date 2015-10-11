@@ -8,7 +8,22 @@ public class PlayerSocketController : MonoBehaviour
 
     private Weapon childWeapon;
 
+    public int playerNumber;
+
     // Update is called once per frame
+    void Start()
+    {
+        VehicleController temp = transform.parent.GetComponentInParent<VehicleController>();
+        if (temp != null)
+        {
+            playerNumber = temp.player;
+            if (playerNumber == 2)
+            {
+                button = button + "P2";
+            }
+        }
+    }
+
     void Update()
     {
         try
@@ -31,7 +46,7 @@ public class PlayerSocketController : MonoBehaviour
         if (transform.childCount > 1)
             throw new System.Exception(this.name + " must have ONE child that implements the Weapon interface.");
 
-        childWeapon = transform.GetChild(0).GetComponent<Weapon>();
+        childWeapon = transform.GetComponentInChildren<Weapon>();
         if (childWeapon == null)
             throw new System.Exception(this.name + "'s child must contain a component that implements the Weapon interface.");
 

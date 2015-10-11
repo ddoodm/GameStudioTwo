@@ -29,4 +29,9 @@ public class EnergyController : MonoBehaviour
     {
         get { return energy == maxEnergy; }
     }
+
+    public float unitEnergy
+    {
+        get { return energy / maxEnergy; }
+    }
 }

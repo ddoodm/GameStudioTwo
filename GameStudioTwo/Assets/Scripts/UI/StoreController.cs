@@ -3,11 +3,11 @@ using UnityEngine.UI;
 using System.Collections;
 
 
-public enum Equipment { EMPTY, Item_Handle, Item_Spike, Item_Flipper, Item_Booster};
+public enum Equipment { Item_Handle = 0, Item_BasicEngine, Item_Spike, Item_Flipper, Item_Booster, Item_MetalShield, Item_CircularSaw, Item_Hammer, Item_PlasmaShield, EMPTY };
 
-public enum Socket { EMPTY, Socket_Left, Socket_Right, Socket_Front, Socket_Back, Socket_Top };
+public enum Socket { EMPTY = 0, Socket_Left, Socket_Right, Socket_Front, Socket_Back, Socket_Top };
 
-public enum StoreState {STATE_MODEL, STATE_ITEM, STATE_STORE};
+public enum StoreState {STATE_GARAGE, STATE_MODEL, STATE_ITEM, STATE_STORE};
 
 
 public class StoreController : MonoBehaviour {
@@ -24,9 +24,8 @@ public class StoreController : MonoBehaviour {
 	public StoreState current_state = StoreState.STATE_MODEL;
 
     persistentStats playerChoice;
-
-	int noOfModels;
-	int playerModelPos = 0;
+    
+	int storeItemPos = 0;
 
 	//bool hasSpike = false;
     bool colourChange = false;
@@ -35,7 +34,7 @@ public class StoreController : MonoBehaviour {
 	// Selected items on the model
 	//
 	private static int MAX_SOCKETS = 5;
-	private static int TOTAL_ITEMS = 4;
+	public static int TOTAL_ITEMS = 9;
 	private Equipment[] itemSocketArray = new Equipment[MAX_SOCKETS];
 	public Equipment selectedEquipment = Equipment.EMPTY;
 	private Socket selectedSocket = Socket.EMPTY;
@@ -44,6 +43,7 @@ public class StoreController : MonoBehaviour {
 
 	public int DOLLADOLLABILLSYALL = 0;
 	public Text moneyText;
+
 
 	// Use this for initialization
 	void Start () {
@@ -78,8 +78,6 @@ public class StoreController : MonoBehaviour {
 
 		}
 
-		noOfModels = uiPlayerModels.GetComponent<Transform> ().childCount - 1;
-
 		sliderColour = new Color(rgbColor.x, rgbColor.y, rgbColor.z);
 	}
 
@@ -90,14 +88,24 @@ public class StoreController : MonoBehaviour {
 		if (Input.GetMouseButtonDown(0)){
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit))
-			{
-				HandleItemSelection(hit);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (current_state == StoreState.STATE_MODEL)
+                {
+                    HandleModelSelection(hit);
+                }
+                else if (current_state == StoreState.STATE_ITEM)
+                {
+                    HandleItemSelection(hit);
+                    HandleSocketSelection(hit);
+                }
 
 				if (selectedEquipment != Equipment.EMPTY){
-					foreach (Transform child in hit.transform) {
-						child.GetComponent<Renderer>().material.color = selectedItemColour;
-					}
+					foreach (Transform child in hit.transform)
+                    {
+                        child.GetComponent<Renderer>().material.color = selectedItemColour;
+                        child.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(63.75f / 255f, 50f / 255f, 0f / 255f));
+                    }
 					if (selectedSocket != Socket.EMPTY){
 						FillItemSocketArray();
 					}
@@ -134,33 +142,44 @@ public class StoreController : MonoBehaviour {
 	}
 
 
-	void HandleItemSelection(RaycastHit hit) {
+    void HandleModelSelection(RaycastHit hit)
+    {
+        switch (hit.transform.tag)
+        {
+            case "LawnMowerRed":
+            case "LawnMowerGreen":
+            case "LawnMowerBlue":
+                player.GetComponent<Transform>().position = new Vector3(7.5f, 2.35f, 7.4f);
+
+                current_state = StoreState.STATE_ITEM;
+                GetComponent<Animator>().SetTrigger("toItemSelection");
+                break;
+        }
+    }
+
+
+        void HandleItemSelection(RaycastHit hit) {
 		selectedSocket = Socket.EMPTY;
 
 		switch (hit.transform.tag){
-			case "LawnMowerRed":
-			case "LawnMowerGreen":
-			case "LawnMowerBlue":
-				//player.GetComponent<Transform>().position = hit.transform.position;
-				//hit.transform.parent.gameObject.SetActive(false);
-				player.GetComponent<Transform>().position = new Vector3(7.5f, 2.6f, 7.5f);
-				
-				current_state = StoreState.STATE_ITEM;
-				GetComponent<Animator>().SetTrigger("toItemSelection");
-				break;
+			
 			case "Phone_Model":
 				if (current_state == StoreState.STATE_ITEM)
 				{
 					GetComponent<Animator>().SetTrigger("toStoreSelection");
-				current_state = StoreState.STATE_STORE;
+				    current_state = StoreState.STATE_STORE;
 				}
 				break;
 
 			case "Item_Handle":
 				selectedEquipment = Equipment.Item_Handle;
 				break;
-				
-			case "Item_Spike":
+
+            case "Item_BasicEngine":
+                selectedEquipment = Equipment.Item_BasicEngine;
+                break;
+
+            case "Item_Spike":
 				selectedEquipment = Equipment.Item_Spike;
 				break;
 				
@@ -172,56 +191,84 @@ public class StoreController : MonoBehaviour {
 				selectedEquipment = Equipment.Item_Booster;
 				break;
 
-			case "Socket_Left":
-				selectedSocket = Socket.Socket_Left;
-				break;
-				
-			case "Socket_Right":
-				selectedSocket = Socket.Socket_Right;
-				break;
-				
-			case "Socket_Front":
-				selectedSocket = Socket.Socket_Front;
-				break;
-				
-			case "Socket_Back":
-				selectedSocket = Socket.Socket_Back;
-				break;
-				
-			case "Socket_Top":
-				selectedSocket = Socket.Socket_Top;
-				break;
+            case "Item_MetalShield":
+                selectedEquipment = Equipment.Item_MetalShield;
+                break;
 
-			case "Player Model":
-				break;
+            case "Item_CircularSaw":
+                selectedEquipment = Equipment.Item_CircularSaw;
+                break;
 
-			default:
-				selectedEquipment = Equipment.EMPTY;
-				selectedSocket = Socket.EMPTY;
-				break;
-		}
+            case "Item_Hammer":
+                selectedEquipment = Equipment.Item_Hammer;
+                break;
 
-		if (selectedEquipment == Equipment.Item_Handle && (selectedSocket != Socket.Socket_Back && selectedSocket != Socket.EMPTY)) {
-			selectedSocket = Socket.EMPTY;
-		}
-		if (selectedEquipment == Equipment.Item_Spike && selectedSocket == Socket.Socket_Top) {
-			selectedSocket = Socket.EMPTY;
-		}
-		if (selectedEquipment == Equipment.Item_Flipper && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Back)) {
-			selectedSocket = Socket.EMPTY;
-		}
+            case "Item_PlasmaShield":
+                selectedEquipment = Equipment.Item_PlasmaShield;
+                break;
+        }
+    }
 
-		if (selectedEquipment == Equipment.Item_Booster && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Front)) {
-			selectedSocket = Socket.EMPTY;
-		}
+    void HandleSocketSelection(RaycastHit hit)
+    {
+        switch (hit.transform.tag)
+        {
+            case "Socket_Left":
+                selectedSocket = Socket.Socket_Left;
+                break;
 
+            case "Socket_Right":
+                selectedSocket = Socket.Socket_Right;
+                break;
 
-	}
+            case "Socket_Front":
+                selectedSocket = Socket.Socket_Front;
+                break;
+
+            case "Socket_Back":
+                selectedSocket = Socket.Socket_Back;
+                break;
+
+            case "Socket_Top":
+                selectedSocket = Socket.Socket_Top;
+                break;
+        }
 
 
-	// instantiate at sockets change rotation based on what socket. make this a separate script on the vehicle prefab
-	
-	void FillItemSocketArray(){
+        if (selectedEquipment == Equipment.Item_Handle && (selectedSocket != Socket.Socket_Back && selectedSocket != Socket.EMPTY))
+        {
+            selectedSocket = Socket.EMPTY;
+        }
+        if (selectedEquipment == Equipment.Item_Spike && selectedSocket == Socket.Socket_Top)
+        {
+            selectedSocket = Socket.EMPTY;
+        }
+        if (selectedEquipment == Equipment.Item_Flipper && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Back))
+        {
+            selectedSocket = Socket.EMPTY;
+        }
+
+        if (selectedEquipment == Equipment.Item_Booster && (selectedSocket == Socket.Socket_Top || selectedSocket == Socket.Socket_Front))
+        {
+            selectedSocket = Socket.EMPTY;
+        }
+
+        if (current_state != StoreState.STATE_ITEM)
+        {
+            selectedEquipment = Equipment.EMPTY;
+            selectedSocket = Socket.EMPTY;
+        }
+
+
+    }
+
+
+
+
+
+        // instantiate at sockets change rotation based on what socket. make this a separate script on the vehicle prefab
+
+        void FillItemSocketArray(){
 		switch (selectedSocket) {
 			case Socket.Socket_Left:
 				itemSocketArray[0] = selectedEquipment;
@@ -252,12 +299,12 @@ public class StoreController : MonoBehaviour {
 		selectedEquipment = Equipment.EMPTY;
 		selectedSocket = Socket.EMPTY;
 
-		player.GetComponent<SocketEquipment>().SocketItems(itemSocketArray, false);
+		player.GetComponent<SocketEquipment>().SocketItems(itemSocketArray);
 
 	}
 
 
-	public void startTest(){
+	public void startLevel(string levelName){
         if (playerChoice != null)
 		{
 			for (int i = 0; i < MAX_SOCKETS; i++)
@@ -268,12 +315,9 @@ public class StoreController : MonoBehaviour {
 			{
 				playerChoice.boughtItems[i] = AvailableItems[i];
 			}
-
-
-
 		}
         
-        Application.LoadLevel(2);
+        Application.LoadLevel(levelName);
 	}
 
 
@@ -293,48 +337,7 @@ public class StoreController : MonoBehaviour {
 			}
 		}
 	}
-
-
-
-
-
-
-	public void MoveLeft() {
-		if (playerModelPos > 0)
-		{
-			playerModelPos--;
-			StartCoroutine ("SlideLeft");
-		}
-	}
-
-	public void MoveRight() {
-		if (playerModelPos < noOfModels)
-		{
-			playerModelPos++;
-			StartCoroutine ("SlideRight");
-		}
-	}
-
-
-	private IEnumerator SlideLeft(){
-		Vector3 oldPos;
-		for (int i = 0; i < 10; i++) 
-		{
-			oldPos = uiPlayerModels.GetComponent<Transform> ().position;
-			uiPlayerModels.GetComponent<Transform>().position = new Vector3(oldPos.x + 1, oldPos.y, oldPos.z);
-			yield return null;
-		}
-	}
 	
-	private IEnumerator SlideRight(){
-		Vector3 oldPos;
-		for (int i = 0; i < 10; i++) 
-		{
-			oldPos = uiPlayerModels.GetComponent<Transform> ().position;
-			uiPlayerModels.GetComponent<Transform>().position = new Vector3(oldPos.x - 1, oldPos.y, oldPos.z);
-			yield return null;
-		}
-	}
 
     public void changeR(float slider)
     {
@@ -354,19 +357,22 @@ public class StoreController : MonoBehaviour {
 		colourChange = true;
     }
 
-	public void BackToItems()
-	{
-		current_state = StoreState.STATE_ITEM;
-		GetComponent<Animator>().SetTrigger("toItemSelection");
-	}
+
+    public void BackToItems()
+    {
+        if (current_state == StoreState.STATE_STORE)
+        {
+            current_state = StoreState.STATE_ITEM;
+            GetComponent<Animator>().SetTrigger("toItemSelection");
+        }
+    }
 
 
-
-	public void BuyFlipper()
+    public void BuyFlipper()
 	{
 		Debug.Log (DOLLADOLLABILLSYALL);
 		if (DOLLADOLLABILLSYALL > 100) {
-			AvailableItems [2] = Equipment.Item_Flipper;
+			AvailableItems [3] = Equipment.Item_Flipper;
 			DOLLADOLLABILLSYALL -= 100;
 		}
 	}
@@ -374,7 +380,7 @@ public class StoreController : MonoBehaviour {
 	public void BuyBooster()
 	{
 		if (DOLLADOLLABILLSYALL > 200) {
-			AvailableItems [3] = Equipment.Item_Booster;
+			AvailableItems [4] = Equipment.Item_Booster;
 			DOLLADOLLABILLSYALL -= 200;
 		}
 	}

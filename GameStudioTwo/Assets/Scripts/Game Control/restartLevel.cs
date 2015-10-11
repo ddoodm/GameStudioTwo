@@ -15,6 +15,6 @@ public class restartLevel : MonoBehaviour {
 
     public void restart()
     {
-        Application.LoadLevel(1);
+        Application.LoadLevel("ItemStore");
     }
 }

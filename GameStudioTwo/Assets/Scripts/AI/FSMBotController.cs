@@ -19,17 +19,19 @@ public class FSMBotController : MonoBehaviour
     private BotVehicleController controller;
     private PlayerHealth botHealth, playerHealth;
     private Rigidbody botRigidbody;
+    private SocketEquipment playerEquip;
 
     private NavMeshPath path;
 
-    private enum FSMState
+    public enum FSMState
     {
         PATROL,
         ARRIVE,
+        ARRIVE_SIDE,
         EVADE,
         REVERSE,
     }
-    private FSMState state = FSMState.PATROL;
+    public FSMState state { get; protected set; }
 
     void Start()
     {
@@ -37,10 +39,14 @@ public class FSMBotController : MonoBehaviour
         botRigidbody = GetComponent<Rigidbody>();
         botHealth = GetComponent<PlayerHealth>();
 
+        // Start bot in patrol mode:
+        state = FSMState.PATROL;
+
         if (playerTransform == null)
             playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
         playerHealth = playerTransform.GetComponent<PlayerHealth>();
+        playerEquip = playerTransform.GetComponent<SocketEquipment>();
 
         path = new NavMeshPath();
 
@@ -61,6 +67,10 @@ public class FSMBotController : MonoBehaviour
             case FSMState.ARRIVE:
                 execute_arrive();
                 state = transition_arrive();
+                return;
+            case FSMState.ARRIVE_SIDE:
+                execute_arriveSide();
+                state = transition_arriveSide();
                 return;
             case FSMState.EVADE:
                 execute_evade();
@@ -106,6 +116,14 @@ public class FSMBotController : MonoBehaviour
         float distanceToPlayer =
             (this.transform.position - playerTransform.position).magnitude;
 
+        // Check whether the player has a hazard on their front.
+        // If they do, attack from the side.
+        Equipment[] dangerItems = new Equipment[]
+            { Equipment.Item_Flipper, Equipment.Item_CircularSaw, Equipment.Item_Spike };
+        if(distanceToPlayer > 5.0f)
+            if (playerEquip.SocketContainsAnyOf(SocketLocation.FRONT, dangerItems))
+                return FSMState.ARRIVE_SIDE;
+
         if (distanceToPlayer > patrolDistance)
             return FSMState.PATROL;
 
@@ -118,6 +136,47 @@ public class FSMBotController : MonoBehaviour
         //    return FSMState.EVADE;
 
         return FSMState.ARRIVE;
+    }
+
+    private SocketLocation targetSocket = SocketLocation.NONE;
+    private void execute_arriveSide()
+    {
+        Vector3 sideOffset = Vector3.zero;
+
+        switch(targetSocket)
+        {
+            case SocketLocation.LEFT: sideOffset = -playerTransform.right * 4.0f; break;
+            case SocketLocation.RIGHT: sideOffset = playerTransform.right * 4.0f; break;
+            case SocketLocation.FRONT: sideOffset = playerTransform.forward * 4.0f; break;
+            case SocketLocation.BACK: sideOffset = -playerTransform.forward * 4.0f; break;
+        }
+
+        controller.targetSpeed = 1.0f;
+        controller.setTargetWaypoint(playerTransform.position + sideOffset);
+    }
+
+    private FSMState transition_arriveSide()
+    {
+        float distanceToPlayer =
+            (this.transform.position - playerTransform.position).magnitude;
+
+        // Determine the best socket for the first time only
+        targetSocket = findBestAttackSocket();
+
+        if (distanceToPlayer > patrolDistance)
+        {
+            targetSocket = SocketLocation.NONE;
+            return FSMState.PATROL;
+        }
+
+        // If we're at the player's side, arrive at them as normal
+        if (distanceToPlayer < 4.5f)
+        {
+            targetSocket = SocketLocation.NONE;
+            return FSMState.ARRIVE;
+        }
+
+        return FSMState.ARRIVE_SIDE;
     }
 
     private void execute_evade()
@@ -161,5 +220,17 @@ public class FSMBotController : MonoBehaviour
         finalTarget.y = 0;
 
         controller.setTargetWaypoint(finalTarget);
+    }
+
+    private SocketLocation findBestAttackSocket()
+    {
+        // Find an empty socket that would be suitable for attack (if possible)
+        for(int i = 0; i <= (int)SocketLocation.BACK; i++)
+            if (playerEquip.equipmentTypes[i] == Equipment.EMPTY)
+                return (SocketLocation)i;
+
+        // No empty sockets were located. Use a random socket instead
+        SocketLocation bestSock = (SocketLocation)Random.Range((int)SocketLocation.LEFT, (int)SocketLocation.BACK);
+        return bestSock;
     }
 }

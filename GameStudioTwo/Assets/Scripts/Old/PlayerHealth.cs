@@ -19,6 +19,9 @@ public class PlayerHealth : MonoBehaviour
 
     private bool analyticsSent = false;
     private bool flipCoroutineStarted = false;
+    private bool gameIsOver = false;
+
+    public string controllerA = "SocketFront";
 
     public float
         maxHealth = 50.0f,
@@ -40,6 +43,11 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        if (transform.GetComponent<VehicleController>().player == 2)
+        {
+            controllerA += "P2";
+        }
+
         flippedCounterSizeVar = 1.0f;
         healthBar.maxValue = maxHealth;
         health = maxHealth;
@@ -55,7 +63,12 @@ public class PlayerHealth : MonoBehaviour
 
         calculateMass();
         if (health <= 0)
+            gameIsOver = true;
+
+        if (gameIsOver)
+        {
             gameOver();
+        }
         if (Vector3.Dot(transform.up, Vector3.up) < 0 && flipCoroutineStarted == false)
         {
             flipCoroutineStarted = true;
@@ -78,7 +91,8 @@ public class PlayerHealth : MonoBehaviour
         float damageMultiplier = 1.0f;
 
         PlayerHealth enemy = collision.gameObject.GetComponent<PlayerHealth>();
-        float damage = collision.relativeVelocity.magnitude;
+        //float damage = collision.relativeVelocity.magnitude;
+        float damage = collision.impulse.magnitude;
         float thisDamage = 0;
 
         //check if hit by weapon
@@ -97,7 +111,7 @@ public class PlayerHealth : MonoBehaviour
                     damageMultiplier *= armor.damageMultiplier;
             }
 
-            thisDamage = damage * damageMultiplier * enemy.mass;
+            thisDamage = damage * damageMultiplier * (enemy? enemy.mass : 1.0f);
 
             if (armor != null)
                 armor.issueDamageAttachment(thisDamage);
@@ -105,20 +119,23 @@ public class PlayerHealth : MonoBehaviour
         }
 
         Debug.Log("Damage Multiplier: " + damageMultiplier);
-        Debug.Log(collision.gameObject.tag + " Mass: " + enemy.mass);
+        Debug.Log(collision.gameObject.tag + " Mass: " + (enemy ? enemy.mass : 1.0f));
 
         this.issueDamage(thisDamage);
 
         Debug.Log(gameObject.name + " has " + health + " remaining");
 
-        /* TODO: Re-enable this; Deinyon disabled analytics for now, because of compiler errors.
-        Analytics.CustomEvent("Hit", new Dictionary<string, object> 
+        /* TODO: Re-enable this; Deinyon disabled analytics for now, because of compiler errors.*/
+        if (enemy != null)
+        {
+            Analytics.CustomEvent("Hit", new Dictionary<string, object> 
         {
             {"Was Hit", gameObject.name},
-            {"Hit by", enemy.name},
+            {"Hit by", enemy.gameObject.name},
             {"Hit for", thisDamage},
             {"Remaining HP", health}
-        });*/
+        });
+        }
     }
 
     public void issueDamage(float damage)
@@ -129,7 +146,7 @@ public class PlayerHealth : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
+        // if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
         {
             issueDamage(collision);
         }
@@ -204,7 +221,7 @@ public class PlayerHealth : MonoBehaviour
         }
 		Time.timeScale = 0.0f;
 		//Show Game Over Screen 
-		restartButton.gameObject.SetActive(true);
+		//restartButton.gameObject.SetActive(true);
 		finish.gameObject.SetActive (true);
 		Color gameOverScrColor = new Color(0.3f,0.5f,1,1);
 		gameOverScreen.color = gameOverScrColor;
@@ -212,19 +229,31 @@ public class PlayerHealth : MonoBehaviour
         if (!analyticsSent)
         {
             /* TODO: Re-enable this; Deinyon disabled analytics for now, because of compiler errors.
+            */
             Analytics.CustomEvent("gameOver", new Dictionary<string, object> 
             {
                 {"Winner", winner},
                 {"Remaining HP", health},
             });
-            */
+            
             analyticsSent = true;
         }
-	
-        if (Input.GetButtonDown("Boost"))
+        if (Application.loadedLevelName != "BattleScene03Multi")
         {
-            Application.LoadLevel(1);
+            if (Input.GetButtonDown(controllerA) || Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.LoadLevel("ItemStore");
+            }
         }
+        else
+        {
+            if (Input.GetButtonDown(controllerA) || Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.LoadLevel("MultiStore");
+            }
+        }
+	
+        
     }
 
 	IEnumerator showGameOver() {
@@ -252,7 +281,7 @@ public class PlayerHealth : MonoBehaviour
         flippedCounterText.text = "";
         if (Vector3.Dot(transform.up, Vector3.up) < 0)
         {
-            gameOver();
+            gameIsOver = true;
         }
         StopCoroutine("checkFlipped");
     }
