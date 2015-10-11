@@ -125,14 +125,17 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log(gameObject.name + " has " + health + " remaining");
 
-        /* TODO: Re-enable this; Deinyon disabled analytics for now, because of compiler errors.
-        Analytics.CustomEvent("Hit", new Dictionary<string, object> 
+        /* TODO: Re-enable this; Deinyon disabled analytics for now, because of compiler errors.*/
+        if (enemy != null)
+        {
+            Analytics.CustomEvent("Hit", new Dictionary<string, object> 
         {
             {"Was Hit", gameObject.name},
-            {"Hit by", enemy.name},
+            {"Hit by", enemy.gameObject.name},
             {"Hit for", thisDamage},
             {"Remaining HP", health}
-        });*/
+        });
+        }
     }
 
     public void issueDamage(float damage)
@@ -226,12 +229,13 @@ public class PlayerHealth : MonoBehaviour
         if (!analyticsSent)
         {
             /* TODO: Re-enable this; Deinyon disabled analytics for now, because of compiler errors.
+            */
             Analytics.CustomEvent("gameOver", new Dictionary<string, object> 
             {
                 {"Winner", winner},
                 {"Remaining HP", health},
             });
-            */
+            
             analyticsSent = true;
         }
         if (Application.loadedLevelName != "BattleScene03Multi")
