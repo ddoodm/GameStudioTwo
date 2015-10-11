@@ -82,6 +82,9 @@ public class SocketEquipment : MonoBehaviour {
 
     public Equipment GetEquipTypeInSocket(SocketLocation socket)
     {
+        if (equipmentTypes == null)
+            return Equipment.EMPTY;
+
         return equipmentTypes[(int)socket];
     }
 
