@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 
-public enum Equipment { Item_Handle = 0, Item_BasicEngine, Item_Spike, Item_Flipper, Item_Booster, Item_MetalShield, Item_PlasmaShield, Item_CircularSaw, Item_Hammer, EMPTY };
+public enum Equipment { Item_Handle = 0, Item_BasicEngine, Item_Spike, Item_Flipper, Item_Booster, Item_MetalShield, Item_CircularSaw, Item_Hammer, Item_PlasmaShield, EMPTY };
 
 public enum Socket { EMPTY = 0, Socket_Left, Socket_Right, Socket_Front, Socket_Back, Socket_Top };
 
@@ -101,8 +101,9 @@ public class StoreController : MonoBehaviour {
                 }
 
 				if (selectedEquipment != Equipment.EMPTY){
-					foreach (Transform child in hit.transform) {
-						child.GetComponent<Renderer>().material.color = selectedItemColour;
+					foreach (Transform child in hit.transform)
+                    {
+                        child.GetComponent<Renderer>().material.color = selectedItemColour;
                         child.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(63.75f / 255f, 50f / 255f, 0f / 255f));
                     }
 					if (selectedSocket != Socket.EMPTY){
@@ -194,16 +195,16 @@ public class StoreController : MonoBehaviour {
                 selectedEquipment = Equipment.Item_MetalShield;
                 break;
 
-            case "Item_PlasmaShield":
-                selectedEquipment = Equipment.Item_PlasmaShield;
-                break;
-
             case "Item_CircularSaw":
                 selectedEquipment = Equipment.Item_CircularSaw;
                 break;
 
             case "Item_Hammer":
                 selectedEquipment = Equipment.Item_Hammer;
+                break;
+
+            case "Item_PlasmaShield":
+                selectedEquipment = Equipment.Item_PlasmaShield;
                 break;
         }
     }

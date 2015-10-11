@@ -15,6 +15,42 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
+        value: {x: -.173648208, y: 0, z: 0, w: .98480773}
+        inSlope: {x: .413701057, y: 0, z: 0, w: .0655238628}
+        outSlope: {x: .413701057, y: 0, z: 0, w: .0655238628}
+        tangentMode: 0
+      - time: .0833333358
+        value: {x: -.13917312, y: 0, z: 0, w: .990268052}
+        inSlope: {x: .414718419, y: 0, z: 0, w: .0582851171}
+        outSlope: {x: .414718419, y: 0, z: 0, w: .0582851171}
+        tangentMode: 0
+      - time: .166666672
+        value: {x: -.104528472, y: 0, z: 0, w: .994521916}
+        inSlope: {x: .416499853, y: 0, z: 0, w: .0437761545}
+        outSlope: {x: .416499853, y: 0, z: 0, w: .0437761545}
+        tangentMode: 0
+      - time: .25
+        value: {x: -.0697564781, y: 0, z: 0, w: .997564077}
+        inSlope: {x: .417773843, y: 0, z: 0, w: .0292135477}
+        outSlope: {x: .417773843, y: 0, z: 0, w: .0292135477}
+        tangentMode: 0
+      - time: .333333343
+        value: {x: -.0348994993, y: 0, z: 0, w: .999390841}
+        inSlope: {x: .418538898, y: 0, z: 0, w: .0146155357}
+        outSlope: {x: .418538898, y: 0, z: 0, w: .0146155357}
+        tangentMode: 0
+      - time: .416666657
+        value: {x: 0, y: 0, z: 0, w: 1}
+        inSlope: {x: .418794096, y: 0, z: 0, w: .0073099155}
+        outSlope: {x: .418794096, y: 0, z: 0, w: .0073099155}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    path: PhoneStore
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
         value: {x: .571429968, y: 0, z: 0, w: .820650816}
         inSlope: {x: .00214791298, y: 0, z: 0, w: -.00149559975}
         outSlope: {x: .00214791298, y: 0, z: 0, w: -.00149559975}
@@ -82,42 +118,6 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: Store Camera
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: {x: -.173648208, y: 0, z: 0, w: .98480773}
-        inSlope: {x: .413701057, y: 0, z: 0, w: .0655238628}
-        outSlope: {x: .413701057, y: 0, z: 0, w: .0655238628}
-        tangentMode: 0
-      - time: .0833333358
-        value: {x: -.13917312, y: 0, z: 0, w: .990268052}
-        inSlope: {x: .414718419, y: 0, z: 0, w: .0582851171}
-        outSlope: {x: .414718419, y: 0, z: 0, w: .0582851171}
-        tangentMode: 0
-      - time: .166666672
-        value: {x: -.104528472, y: 0, z: 0, w: .994521916}
-        inSlope: {x: .416499853, y: 0, z: 0, w: .0437761545}
-        outSlope: {x: .416499853, y: 0, z: 0, w: .0437761545}
-        tangentMode: 0
-      - time: .25
-        value: {x: -.0697564781, y: 0, z: 0, w: .997564077}
-        inSlope: {x: .417773843, y: 0, z: 0, w: .0292135477}
-        outSlope: {x: .417773843, y: 0, z: 0, w: .0292135477}
-        tangentMode: 0
-      - time: .333333343
-        value: {x: -.0348994993, y: 0, z: 0, w: .999390841}
-        inSlope: {x: .418538898, y: 0, z: 0, w: .0146155357}
-        outSlope: {x: .418538898, y: 0, z: 0, w: .0146155357}
-        tangentMode: 0
-      - time: .416666657
-        value: {x: 0, y: 0, z: 0, w: 1}
-        inSlope: {x: .418794096, y: 0, z: 0, w: .0073099155}
-        outSlope: {x: .418794096, y: 0, z: 0, w: .0073099155}
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    path: PhoneStore
   m_CompressedRotationCurves: []
   m_PositionCurves:
   - curve:
@@ -191,25 +191,6 @@ AnimationClip:
     attribute: m_AnchoredPosition.y
     path: Store Camera/Canvas/ItemSelect/ColourMask/ColorSliders
     classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 10
-      - time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Alpha
-    path: Store Camera/Canvas/ItemSelect
-    classID: 225
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -306,6 +287,25 @@ AnimationClip:
     path: PhoneStore/Canvas/Phone Interface
     classID: 225
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 4
+        inSlope: -9.60000038
+        outSlope: -9.60000038
+        tangentMode: 10
+      - time: .416666657
+        value: 0
+        inSlope: -9.60000038
+        outSlope: -9.60000038
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Intensity
+    path: PhoneStore/Phone Model/Model/Phone Light
+    classID: 108
+    script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 12
   m_WrapMode: 0
@@ -326,13 +326,13 @@ AnimationClip:
       classID: 4
       customType: 0
       isPPtrCurve: 0
-    - path: 1521878687
+    - path: 3488241322
       attribute: 2
       script: {fileID: 0}
       classID: 4
       customType: 0
       isPPtrCurve: 0
-    - path: 3488241322
+    - path: 1521878687
       attribute: 2
       script: {fileID: 0}
       classID: 4
@@ -342,12 +342,6 @@ AnimationClip:
       attribute: 538195251
       script: {fileID: 0}
       classID: 224
-      customType: 0
-      isPPtrCurve: 0
-    - path: 4220911082
-      attribute: 1574349066
-      script: {fileID: 0}
-      classID: 225
       customType: 0
       isPPtrCurve: 0
     - path: 3279659606
@@ -372,6 +366,12 @@ AnimationClip:
       attribute: 1574349066
       script: {fileID: 0}
       classID: 225
+      customType: 0
+      isPPtrCurve: 0
+    - path: 3238848043
+      attribute: 898800009
+      script: {fileID: 0}
+      classID: 108
       customType: 0
       isPPtrCurve: 0
     - path: 1379317994
@@ -461,6 +461,366 @@ AnimationClip:
     attribute: m_LocalPosition.z
     path: Store Camera
     classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 2.5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalPosition.x
+    path: PhoneStore
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: -3.60000014
+        outSlope: -3.60000014
+        tangentMode: 10
+      - time: .416666657
+        value: -1.5
+        inSlope: -3.60000014
+        outSlope: -3.60000014
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalPosition.y
+    path: PhoneStore
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: .00999999978
+        inSlope: .575999975
+        outSlope: .575999975
+        tangentMode: 10
+      - time: .416666657
+        value: .25
+        inSlope: .575999975
+        outSlope: .575999975
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalPosition.z
+    path: PhoneStore
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_AnchoredPosition.x
+    path: Store Camera/Canvas/ItemSelect/ColourMask/ColorSliders
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 200
+        inSlope: -200
+        outSlope: -200
+        tangentMode: 10
+      - time: 1
+        value: 0
+        inSlope: -200
+        outSlope: -200
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_AnchoredPosition.y
+    path: Store Camera/Canvas/ItemSelect/ColourMask/ColorSliders
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: -2.4000001
+        outSlope: -2.4000001
+        tangentMode: 10
+      - time: .416666657
+        value: 0
+        inSlope: -2.4000001
+        outSlope: -2.4000001
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._EmissionColor.r
+    path: PhoneStore/Phone Model/Model/PhoneScreen
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: -2.4000001
+        outSlope: -2.4000001
+        tangentMode: 10
+      - time: .416666657
+        value: 0
+        inSlope: -2.4000001
+        outSlope: -2.4000001
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._EmissionColor.g
+    path: PhoneStore/Phone Model/Model/PhoneScreen
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: -2.4000001
+        outSlope: -2.4000001
+        tangentMode: 10
+      - time: .416666657
+        value: 0
+        inSlope: -2.4000001
+        outSlope: -2.4000001
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._EmissionColor.b
+    path: PhoneStore/Phone Model/Model/PhoneScreen
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .416666657
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: material._EmissionColor.a
+    path: PhoneStore/Phone Model/Model/PhoneScreen
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -.173648208
+        inSlope: .413701057
+        outSlope: .413701057
+        tangentMode: 0
+      - time: .0833333358
+        value: -.13917312
+        inSlope: .414718419
+        outSlope: .414718419
+        tangentMode: 0
+      - time: .166666672
+        value: -.104528472
+        inSlope: .416499853
+        outSlope: .416499853
+        tangentMode: 0
+      - time: .25
+        value: -.0697564781
+        inSlope: .417773843
+        outSlope: .417773843
+        tangentMode: 0
+      - time: .333333343
+        value: -.0348994993
+        inSlope: .418538898
+        outSlope: .418538898
+        tangentMode: 0
+      - time: .416666657
+        value: 0
+        inSlope: .418794096
+        outSlope: .418794096
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalRotation.x
+    path: PhoneStore
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: .0833333358
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: .166666672
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: .25
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: .333333343
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: .416666657
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalRotation.y
+    path: PhoneStore
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: .0833333358
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: .166666672
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: .25
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: .333333343
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: .416666657
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalRotation.z
+    path: PhoneStore
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: .98480773
+        inSlope: .0655238628
+        outSlope: .0655238628
+        tangentMode: 0
+      - time: .0833333358
+        value: .990268052
+        inSlope: .0582851171
+        outSlope: .0582851171
+        tangentMode: 0
+      - time: .166666672
+        value: .994521916
+        inSlope: .0437761545
+        outSlope: .0437761545
+        tangentMode: 0
+      - time: .25
+        value: .997564077
+        inSlope: .0292135477
+        outSlope: .0292135477
+        tangentMode: 0
+      - time: .333333343
+        value: .999390841
+        inSlope: .0146155357
+        outSlope: .0146155357
+        tangentMode: 0
+      - time: .416666657
+        value: 1
+        inSlope: .0073099155
+        outSlope: .0073099155
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalRotation.w
+    path: PhoneStore
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: -2.4000001
+        outSlope: -2.4000001
+        tangentMode: 10
+      - time: .416666657
+        value: 0
+        inSlope: -2.4000001
+        outSlope: -2.4000001
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Alpha
+    path: PhoneStore/Canvas/Phone Interface
+    classID: 225
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 4
+        inSlope: -9.60000038
+        outSlope: -9.60000038
+        tangentMode: 10
+      - time: .416666657
+        value: 0
+        inSlope: -9.60000038
+        outSlope: -9.60000038
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Intensity
+    path: PhoneStore/Phone Model/Model/Phone Light
+    classID: 108
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -757,366 +1117,6 @@ AnimationClip:
     attribute: m_LocalRotation.w
     path: Store Camera
     classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 2.5
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_LocalPosition.x
-    path: PhoneStore
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: -3.60000014
-        outSlope: -3.60000014
-        tangentMode: 10
-      - time: .416666657
-        value: -1.5
-        inSlope: -3.60000014
-        outSlope: -3.60000014
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_LocalPosition.y
-    path: PhoneStore
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: .00999999978
-        inSlope: .575999975
-        outSlope: .575999975
-        tangentMode: 10
-      - time: .416666657
-        value: .25
-        inSlope: .575999975
-        outSlope: .575999975
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_LocalPosition.z
-    path: PhoneStore
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_AnchoredPosition.x
-    path: Store Camera/Canvas/ItemSelect/ColourMask/ColorSliders
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 200
-        inSlope: -200
-        outSlope: -200
-        tangentMode: 10
-      - time: 1
-        value: 0
-        inSlope: -200
-        outSlope: -200
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_AnchoredPosition.y
-    path: Store Camera/Canvas/ItemSelect/ColourMask/ColorSliders
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 10
-      - time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Alpha
-    path: Store Camera/Canvas/ItemSelect
-    classID: 225
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: -2.4000001
-        outSlope: -2.4000001
-        tangentMode: 10
-      - time: .416666657
-        value: 0
-        inSlope: -2.4000001
-        outSlope: -2.4000001
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: material._EmissionColor.r
-    path: PhoneStore/Phone Model/Model/PhoneScreen
-    classID: 23
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: -2.4000001
-        outSlope: -2.4000001
-        tangentMode: 10
-      - time: .416666657
-        value: 0
-        inSlope: -2.4000001
-        outSlope: -2.4000001
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: material._EmissionColor.g
-    path: PhoneStore/Phone Model/Model/PhoneScreen
-    classID: 23
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: -2.4000001
-        outSlope: -2.4000001
-        tangentMode: 10
-      - time: .416666657
-        value: 0
-        inSlope: -2.4000001
-        outSlope: -2.4000001
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: material._EmissionColor.b
-    path: PhoneStore/Phone Model/Model/PhoneScreen
-    classID: 23
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: .416666657
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: material._EmissionColor.a
-    path: PhoneStore/Phone Model/Model/PhoneScreen
-    classID: 23
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: -.173648208
-        inSlope: .413701057
-        outSlope: .413701057
-        tangentMode: 0
-      - time: .0833333358
-        value: -.13917312
-        inSlope: .414718419
-        outSlope: .414718419
-        tangentMode: 0
-      - time: .166666672
-        value: -.104528472
-        inSlope: .416499853
-        outSlope: .416499853
-        tangentMode: 0
-      - time: .25
-        value: -.0697564781
-        inSlope: .417773843
-        outSlope: .417773843
-        tangentMode: 0
-      - time: .333333343
-        value: -.0348994993
-        inSlope: .418538898
-        outSlope: .418538898
-        tangentMode: 0
-      - time: .416666657
-        value: 0
-        inSlope: .418794096
-        outSlope: .418794096
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_LocalRotation.x
-    path: PhoneStore
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: .0833333358
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: .166666672
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: .25
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: .333333343
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: .416666657
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_LocalRotation.y
-    path: PhoneStore
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: .0833333358
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: .166666672
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: .25
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: .333333343
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: .416666657
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_LocalRotation.z
-    path: PhoneStore
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: .98480773
-        inSlope: .0655238628
-        outSlope: .0655238628
-        tangentMode: 0
-      - time: .0833333358
-        value: .990268052
-        inSlope: .0582851171
-        outSlope: .0582851171
-        tangentMode: 0
-      - time: .166666672
-        value: .994521916
-        inSlope: .0437761545
-        outSlope: .0437761545
-        tangentMode: 0
-      - time: .25
-        value: .997564077
-        inSlope: .0292135477
-        outSlope: .0292135477
-        tangentMode: 0
-      - time: .333333343
-        value: .999390841
-        inSlope: .0146155357
-        outSlope: .0146155357
-        tangentMode: 0
-      - time: .416666657
-        value: 1
-        inSlope: .0073099155
-        outSlope: .0073099155
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_LocalRotation.w
-    path: PhoneStore
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: -2.4000001
-        outSlope: -2.4000001
-        tangentMode: 10
-      - time: .416666657
-        value: 0
-        inSlope: -2.4000001
-        outSlope: -2.4000001
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Alpha
-    path: PhoneStore/Canvas/Phone Interface
-    classID: 225
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:

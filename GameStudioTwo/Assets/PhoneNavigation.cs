@@ -4,7 +4,7 @@ using System.Collections;
 // does anyone else love magic numbers :P
 public class PhoneNavigation : MonoBehaviour {
 
-    private enum Screen { LEMPTY = -1, Screen_Flipper = 0, Screen_Booster, REMPTY };
+    private enum Screen { LEMPTY = -1, Screen_Handle = 0, Screen_Engine, Screen_Spike, Screen_Flipper, Screen_Booster, Screen_MetalShield, Screen_CircularSaw, Screen_Hammer, Screen_PlasmaSHield, REMPTY };
     
     Screen leftScreen;
     Screen centerScreen;
@@ -19,8 +19,8 @@ public class PhoneNavigation : MonoBehaviour {
     {
         storeController = GameObject.FindGameObjectWithTag("StoreUI").GetComponent<StoreController>();
         leftScreen = Screen.LEMPTY;
-        centerScreen = Screen.Screen_Flipper;
-        rightScreen = Screen.Screen_Booster;
+        centerScreen = leftScreen + 1;
+        rightScreen = centerScreen + 1;
 
         changingScreen = false;
 
@@ -87,7 +87,7 @@ public class PhoneNavigation : MonoBehaviour {
             yield return null;
         }
 
-        current.anchoredPosition3D = new Vector3(0.0f, 130.0f, 10.0f);
+        current.anchoredPosition3D = new Vector3(0.0f, 700.0f, 10.0f);
 
         centerScreen = leftScreen;
 
@@ -120,7 +120,7 @@ public class PhoneNavigation : MonoBehaviour {
             yield return null;
         }
 
-        current.anchoredPosition3D = new Vector3(0.0f, 130.0f, 10.0f);
+        current.anchoredPosition3D = new Vector3(0.0f, 700.0f, 10.0f);
 
         centerScreen = rightScreen;
 
