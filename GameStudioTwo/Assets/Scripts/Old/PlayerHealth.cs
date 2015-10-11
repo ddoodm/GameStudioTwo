@@ -128,6 +128,7 @@ public class PlayerHealth : MonoBehaviour
         /* TODO: Re-enable this; Deinyon disabled analytics for now, because of compiler errors.*/
         if (enemy != null)
         {
+            transform.GetComponent<AudioSource>().Play();
             Analytics.CustomEvent("Hit", new Dictionary<string, object> 
         {
             {"Was Hit", gameObject.name},
