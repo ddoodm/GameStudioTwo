@@ -41,7 +41,7 @@ public class StoreController : MonoBehaviour {
 
 	public Equipment[] AvailableItems = new Equipment[TOTAL_ITEMS];
 
-	public int DOLLADOLLABILLSYALL = 0;
+	public int DOLLADOLLABILLSYALL;
 	public Text moneyText;
 
 
@@ -85,7 +85,7 @@ public class StoreController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetMouseButtonDown(0)){
+            if (Input.GetMouseButtonDown(0)){
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
@@ -366,24 +366,4 @@ public class StoreController : MonoBehaviour {
             GetComponent<Animator>().SetTrigger("toItemSelection");
         }
     }
-
-
-    public void BuyFlipper()
-	{
-		Debug.Log (DOLLADOLLABILLSYALL);
-		if (DOLLADOLLABILLSYALL > 100) {
-			AvailableItems [3] = Equipment.Item_Flipper;
-			DOLLADOLLABILLSYALL -= 100;
-		}
-	}
-
-	public void BuyBooster()
-	{
-		if (DOLLADOLLABILLSYALL > 200) {
-			AvailableItems [4] = Equipment.Item_Booster;
-			DOLLADOLLABILLSYALL -= 200;
-		}
-	}
-
-
 }

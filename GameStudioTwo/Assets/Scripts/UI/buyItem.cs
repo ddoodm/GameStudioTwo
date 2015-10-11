@@ -4,7 +4,7 @@ using System.Collections;
 public class buyItem : MonoBehaviour {
 	
 	private Vector3 startPos;
-	private bool bought = false;
+	public bool bought = false;
 	
 	private StoreController storeController;
 	
@@ -13,8 +13,10 @@ public class buyItem : MonoBehaviour {
 	void Start () {
 		storeController = GameObject.FindGameObjectWithTag("StoreUI").GetComponent<StoreController>();
 		startPos = this.transform.position;
-		
-		this.transform.position = new Vector3 (startPos.x, startPos.y - 15, startPos.z);
+        if (!this.transform.tag.Equals("Item_PlasmaShield") && !this.transform.tag.Equals("Item_CircularSaw"))
+        {
+            this.transform.position = new Vector3(startPos.x, startPos.y - 15, startPos.z);
+        }
 	}
 	
 	// Update is called once per frame
