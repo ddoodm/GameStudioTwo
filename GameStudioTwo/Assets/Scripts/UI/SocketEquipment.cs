@@ -83,6 +83,19 @@ public class SocketEquipment : MonoBehaviour {
         return equipmentRefs[(int)socket];
     }
 
+    public Equipment GetEquipTypeInSocket(SocketLocation socket)
+    {
+        return equipmentTypes[(int)socket];
+    }
+
+    public bool SocketContainsAnyOf(SocketLocation socket, Equipment[] equipTypes)
+    {
+        foreach (Equipment e in equipTypes)
+            if (GetEquipTypeInSocket(socket) == e)
+                return true;
+        return false;
+    }
+
     private void AddWeaponReference(Transform itemTrans, SocketLocation socket)
     {
         if (!inStore)
