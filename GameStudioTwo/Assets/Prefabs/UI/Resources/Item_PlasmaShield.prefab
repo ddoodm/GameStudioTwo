@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 423982}
+  - 114: {fileID: 11416224}
   m_Layer: 0
   m_Name: Item_PlasmaShield
   m_TagString: Item_PlasmaShield
@@ -566,6 +567,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 500
   hasLight: 0
+--- !u!114 &11416224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b99d4cb417980444b9b1f89584f50440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plasmaBallPrefab: {fileID: 168920, guid: b1910a6973b266c44aa1776ce61096bb, type: 2}
+  plasmaBallInstance: {fileID: 0}
+  forceRadius: 5
+  forceAmount: 800
+  vehicleMultiplier: .899999976
+  plasBallAnim:
+    serializedVersion: 2
+    m_Curve:
+    - time: .00100369938
+      value: .865940094
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .298040748
+      value: .397353679
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11431028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -612,7 +644,67 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasmaBallPrefab
+      value: 
+      objectReference: {fileID: 168920, guid: b1910a6973b266c44aa1776ce61096bb, type: 2}
+    - target: {fileID: 0}
+      propertyPath: forceAmount
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: vehicleMultiplier
+      value: .899999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: forceRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.data[1].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.data[0].value
+      value: .865940094
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.data[0].time
+      value: .00100369938
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.data[1].value
+      value: .397353679
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.data[1].time
+      value: .298040748
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 118504}
