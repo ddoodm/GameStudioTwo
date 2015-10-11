@@ -152,7 +152,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'PLACEHOLDER
 
-    FOR BOOSTER'
+    FOR HAMMER'
 --- !u!222 &3444945
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2110,7 +2110,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'PLACEHOLDER
 
-    FOR BOOSTER'
+    FOR CIRCULAR
+
+    SAW'
 --- !u!222 &145564322
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10739,7 +10741,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'PLACEHOLDER
 
-    FOR BOOSTER'
+    FOR METAL
+
+    SHIELD'
 --- !u!222 &708063626
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13966,7 +13970,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'PLACEHOLDER
 
-    FOR BOOSTER'
+    FOR FLIPPER'
 --- !u!222 &949922940
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16183,7 +16187,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'PLACEHOLDER
 
-    FOR BOOSTER'
+    FOR PLASMA
+
+    SHIELD'
 --- !u!222 &1107232606
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17478,7 +17484,7 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1215390896}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -25394,7 +25400,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'PLACEHOLDER
 
-    FOR FLIPPER'
+    FOR HANDLE'
 --- !u!222 &1770230042
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25684,7 +25690,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'PLACEHOLDER
 
-    FOR BOOSTER'
+    FOR SPIKE'
 --- !u!222 &1784217763
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27781,7 +27787,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'PLACEHOLDER
 
-    FOR BOOSTER'
+    FOR ENGINE'
 --- !u!222 &1970278128
 CanvasRenderer:
   m_ObjectHideFlags: 0

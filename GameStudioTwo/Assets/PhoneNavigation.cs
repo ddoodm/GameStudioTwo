@@ -4,7 +4,7 @@ using System.Collections;
 // does anyone else love magic numbers :P
 public class PhoneNavigation : MonoBehaviour {
 
-    private enum Screen { LEMPTY = -1, Screen_Handle = 0, Screen_Engine, Screen_Spike, Screen_Flipper, Screen_Booster, Screen_MetalShield, Screen_CircularSaw, Screen_Hammer, Screen_PlasmaSHield, REMPTY };
+    private enum Screen { LEMPTY = -1, Screen_Handle = 0, Screen_Engine, Screen_Spike, Screen_Flipper, Screen_Booster, Screen_MetalShield, Screen_CircularSaw, Screen_Hammer, Screen_PlasmaShield, REMPTY };
     
     Screen leftScreen;
     Screen centerScreen;
@@ -86,15 +86,18 @@ public class PhoneNavigation : MonoBehaviour {
             
             yield return null;
         }
-
         current.anchoredPosition3D = new Vector3(0.0f, 700.0f, 10.0f);
 
+        rightScreen = centerScreen;
         centerScreen = leftScreen;
-
         leftScreen -= 1;
-        rightScreen -= 1;
 
         changingScreen = false;
+
+        if (leftScreen == Screen.LEMPTY)
+        {
+            leftScreen = Screen.REMPTY - 1;
+        }
     }
 
 
@@ -119,14 +122,17 @@ public class PhoneNavigation : MonoBehaviour {
 
             yield return null;
         }
-
         current.anchoredPosition3D = new Vector3(0.0f, 700.0f, 10.0f);
 
+        leftScreen = centerScreen;
         centerScreen = rightScreen;
-
-        leftScreen += 1;
         rightScreen += 1;
 
         changingScreen = false;
+        
+        if (rightScreen == Screen.REMPTY)
+        {
+            rightScreen = Screen.LEMPTY + 1;
+        }
     }
 }
