@@ -75,9 +75,6 @@ public class SocketEquipment : MonoBehaviour {
         }
     }
 
-
-
-
     public Weapon GetWeaponInSocket(SocketLocation socket)
     {
         return equipmentRefs[(int)socket];
