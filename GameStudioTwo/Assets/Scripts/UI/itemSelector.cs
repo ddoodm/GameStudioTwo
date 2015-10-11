@@ -10,6 +10,7 @@ public class itemSelector : MonoBehaviour
     private string currentSelection;
     public bool isSocket;
     private bool highlighted = false;
+    private bool bought;
 
     private StoreController storeController;
 
@@ -21,6 +22,15 @@ public class itemSelector : MonoBehaviour
     {
         storeController = GameObject.FindGameObjectWithTag("StoreUI").GetComponent<StoreController>();
         startColour = GetComponentInChildren<Renderer>().material.color;
+
+        if (isSocket || GetComponent<Transform>().tag == "Phone_Model")
+        {
+            bought = true;
+        }
+        else
+        {
+            bought = GetComponent<buyItem>().bought;
+        }
     }
 
 
@@ -32,7 +42,7 @@ public class itemSelector : MonoBehaviour
         {
             return;
         }
-
+        
 
         if (GetComponent<Transform>().tag != currentSelection)
         {
@@ -48,6 +58,11 @@ public class itemSelector : MonoBehaviour
     void OnMouseEnter()
     {
         if (storeController.current_state != StoreState.STATE_ITEM)
+        {
+            return;
+        }
+
+        if (!bought)
         {
             return;
         }
@@ -125,6 +140,5 @@ public class itemSelector : MonoBehaviour
         {
             GUI.Box(new Rect(Event.current.mousePosition.x + 10, Event.current.mousePosition.y, 100, 25), objectName);
         }
-
     }
 }

@@ -11,10 +11,9 @@ public class phoneScreenUI : MonoBehaviour {
 
 	void Start () {
         storeController = GameObject.FindGameObjectWithTag("StoreUI").GetComponent<StoreController>();
-
         if (storeController.AvailableItems[(int)thisItem] != Equipment.EMPTY)
         {
-           // button.interactable = false;
+           button.interactable = false;
         }
     }
 	

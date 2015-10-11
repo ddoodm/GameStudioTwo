@@ -31,6 +31,7 @@ public class persistentStats : MonoBehaviour {
 
         boughtItems = new Equipment[9];
 
+        /*
         boughtItems[0] = Equipment.Item_Handle;
         boughtItems[1] = Equipment.Item_BasicEngine;
         boughtItems[2] = Equipment.Item_Spike;
@@ -40,14 +41,12 @@ public class persistentStats : MonoBehaviour {
         boughtItems[6] = Equipment.Item_PlasmaShield;
         boughtItems[7] = Equipment.Item_CircularSaw;
         boughtItems[8] = Equipment.Item_Hammer;
-
-        /*
-        for (int i = 3; i < 9; i++)
+        */
+        
+        for (int i = 0; i < 9; i++)
         { 
             boughtItems[i] = Equipment.EMPTY;
         }
-        */
-
-        playerMoney = 500;
+        playerMoney = 10000;
 	}
 }
