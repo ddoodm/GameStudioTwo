@@ -37,18 +37,25 @@ public class itemSelector : MonoBehaviour
     void Update()
     {
         currentSelection = storeController.selectedEquipment.ToString();
-
+        
         if (highlighted)
         {
             return;
         }
-        
+
+        if (isSocket || GetComponent<Transform>().tag == "Phone_Model")
+        {
+            bought = true;
+        }
+        else
+        {
+            bought = GetComponent<buyItem>().bought;
+        }
 
         if (GetComponent<Transform>().tag != currentSelection)
         {
             foreach (Transform child in transform)
             {
-
                 ResetColour(child);
             }
         }
@@ -68,12 +75,12 @@ public class itemSelector : MonoBehaviour
         }
 
         highlighted = true;
-
+        
         if (GetComponent<Transform>().tag != currentSelection)
         {
             foreach (Transform child in transform)
             {
-                    ChangeColour(child);
+                ChangeColour(child);
             }
         }
        

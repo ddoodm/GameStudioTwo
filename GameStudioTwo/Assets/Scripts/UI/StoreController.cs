@@ -98,19 +98,22 @@ public class StoreController : MonoBehaviour {
                 {
                     HandleItemSelection(hit);
                     HandleSocketSelection(hit);
-                }
 
-				if (selectedEquipment != Equipment.EMPTY){
-					foreach (Transform child in hit.transform)
+
+                    if (selectedEquipment != Equipment.EMPTY)
                     {
-                        child.GetComponent<Renderer>().material.color = selectedItemColour;
-                        child.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(63.75f / 255f, 50f / 255f, 0f / 255f));
-                    }
-					if (selectedSocket != Socket.EMPTY){
-						FillItemSocketArray();
-					}
+                        foreach (Transform child in hit.transform)
+                        {
+                            child.GetComponent<Renderer>().material.color = selectedItemColour;
+                            child.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color(63.75f / 255f, 50f / 255f, 0f / 255f));
+                        }
+                        if (selectedSocket != Socket.EMPTY)
+                        {
+                            FillItemSocketArray();
+                        }
 
-				}
+                    }
+                }
 
 				if (playerChoice != null){
 					for (int i = 0; i < MAX_SOCKETS; i++)
@@ -130,8 +133,12 @@ public class StoreController : MonoBehaviour {
         if (colourChange)
 		{
 			sliderColour = new Color(rgbColor.x, rgbColor.y, rgbColor.z);
-			GameObject.FindGameObjectWithTag("Player Model").GetComponent<Renderer>().material.color = sliderColour;
-			GameObject.FindGameObjectWithTag("Player Engine").GetComponent<Renderer>().material.color = sliderColour;
+
+            GameObject[] playerModel = GameObject.FindGameObjectsWithTag("Player Model");
+            foreach (GameObject child in playerModel)
+            {
+                child.GetComponent<Renderer>().material.color = sliderColour;
+            }
 			colourChange = false;
         }
 
@@ -147,9 +154,29 @@ public class StoreController : MonoBehaviour {
         switch (hit.transform.tag)
         {
             case "LawnMowerRed":
-            case "LawnMowerGreen":
             case "LawnMowerBlue":
+                playerChoice.model = "BaseMower";
+                player.GetComponent<SocketEquipment>().SocketItems(itemSocketArray, playerChoice.model);
+
+                Transform BaseMower = (Transform)Instantiate(Resources.Load<Transform>("PlayerModelBase"), player.transform.position, player.transform.rotation);
+                BaseMower.parent = player.transform;
+
                 player.GetComponent<Transform>().position = new Vector3(7.5f, 2.35f, 7.4f);
+
+                current_state = StoreState.STATE_ITEM;
+                GetComponent<Animator>().SetTrigger("toItemSelection");
+                break;
+
+            case "LawnMowerSmall":
+                playerChoice.model = "AeroMower";
+                player.GetComponent<SocketEquipment>().SocketItems(itemSocketArray, playerChoice.model);
+
+                Transform AeroMower = (Transform)Instantiate(Resources.Load<Transform>("PlayerModelAero"), player.transform.position, player.transform.rotation);
+                AeroMower.Rotate(0.0f, 90.0f, 0.0f, Space.World);
+                AeroMower.parent = player.transform;
+                AeroMower.transform.localPosition += new Vector3(-0.1f, 0.0f, 0.2f);
+
+                player.GetComponent<Transform>().position = new Vector3(7.5f, 2.45f, 7.4f);
 
                 current_state = StoreState.STATE_ITEM;
                 GetComponent<Animator>().SetTrigger("toItemSelection");
@@ -165,9 +192,9 @@ public class StoreController : MonoBehaviour {
 			
 			case "Phone_Model":
 				if (current_state == StoreState.STATE_ITEM)
-				{
-					GetComponent<Animator>().SetTrigger("toStoreSelection");
-				    current_state = StoreState.STATE_STORE;
+                {
+                    current_state = StoreState.STATE_STORE;
+                    GetComponent<Animator>().SetTrigger("toStoreSelection");
 				}
 				break;
 
@@ -207,6 +234,23 @@ public class StoreController : MonoBehaviour {
                 selectedEquipment = Equipment.Item_PlasmaShield;
                 break;
         }
+        bool available = false;
+
+        foreach(Equipment eq in AvailableItems)
+        {
+            if (selectedEquipment.Equals(eq))
+            {
+                available = true;
+            }
+        }
+        if (!available)
+        {
+            selectedEquipment = Equipment.EMPTY;
+        }
+
+
+
+
     }
 
     void HandleSocketSelection(RaycastHit hit)
@@ -299,7 +343,7 @@ public class StoreController : MonoBehaviour {
 		selectedEquipment = Equipment.EMPTY;
 		selectedSocket = Socket.EMPTY;
 
-		player.GetComponent<SocketEquipment>().SocketItems(itemSocketArray);
+		player.GetComponent<SocketEquipment>().SocketItems(itemSocketArray, playerChoice.model);
 
 	}
 

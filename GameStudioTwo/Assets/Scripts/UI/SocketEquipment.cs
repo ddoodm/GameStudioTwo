@@ -9,6 +9,7 @@ public enum SocketLocation
 public class SocketEquipment : MonoBehaviour {
 
     public Transform player;
+    private string model;
 
     Transform prefab_handle;
     Transform prefab_basicengine;
@@ -27,9 +28,23 @@ public class SocketEquipment : MonoBehaviour {
     public Transform socket_back;
     public Transform socket_top;
 
-    public Transform brace_left;
-    public Transform brace_right;
-    public Transform brace_front;
+    public Transform base_brace_left;
+    public Transform base_brace_right;
+    public Transform base_brace_front;
+
+
+    public Transform aero_brace_left;
+    public Transform aero_brace_right;
+    public Transform aero_brace_front;
+    public Transform aero_brace_back;
+
+    Transform brace_left;
+    Transform brace_right;
+    Transform brace_front;
+    Transform brace_back;
+
+
+
 
     public bool inStore;
 
@@ -106,9 +121,13 @@ public class SocketEquipment : MonoBehaviour {
         }
     }
 
-    public void SocketItems(Equipment[] equipmentArray) {
+    public void SocketItems(Equipment[] equipmentArray, string model) {
+        this.model = model;
+
         // Remove all items before putting more on
+        SetModel();
         RemoveItems();
+        ResetBraces();
         ResetSockets();
 
         this.equipmentTypes = equipmentArray;
@@ -195,11 +214,66 @@ public class SocketEquipment : MonoBehaviour {
 
 
     private void ResetSockets() {
-        socket_left.localPosition = new Vector3(0.0f, -0.8f, 0.1f);
-        socket_right.localPosition = new Vector3(0.0f, 0.8f, 0.1f);
-        socket_front.localPosition = new Vector3(1.0f, 0.0f, 0.1f);
-        socket_back.localPosition = new Vector3(-0.85f, 0.0f, 0.1f);
-        socket_top.localPosition = new Vector3(0.0f, 0.0f, 0.7f);
+        if (model == "BaseMower")
+        {
+            socket_left.localPosition = new Vector3(0.0f, -0.8f, 0.1f);
+            socket_right.localPosition = new Vector3(0.0f, 0.8f, 0.1f);
+            socket_front.localPosition = new Vector3(1.0f, 0.0f, 0.1f);
+            socket_back.localPosition = new Vector3(-0.85f, 0.0f, 0.1f);
+            socket_top.localPosition = new Vector3(0.0f, 0.0f, 0.7f);
+        }
+        else if (model == "AeroMower")
+        {
+            socket_left.localPosition = new Vector3(-0.185f, -0.572f, 0.1f);
+            socket_right.localPosition = new Vector3(-0.185f, 0.572f, 0.1f);
+            socket_front.localPosition = new Vector3(0.770f, 0.0f, 0.1f);
+            socket_back.localPosition = new Vector3(-0.875f, 0.0f, 0.1f);
+            socket_top.localPosition = new Vector3(-0.1f, 0.0f, 0.63f);
+        }
+    }
+
+
+    private void ResetBraces()
+    {
+        if (model == "BaseMower")
+        {
+            brace_left = base_brace_left;
+            brace_right = base_brace_right;
+            brace_front = base_brace_front;
+            brace_back = null;
+        }
+        else if (model == "AeroMower")
+        {
+            brace_left = aero_brace_left;
+            brace_right = aero_brace_right;
+            brace_front = aero_brace_front;
+            brace_back = aero_brace_back;
+        }
+    }
+
+
+    private void SetModel()
+    {
+        if(inStore)
+        {
+            return;
+        }
+
+        if (model == "BaseMower")
+        {
+            Transform BaseMower = (Transform)Instantiate(Resources.Load<Transform>("PlayerModelBase"), player.transform.position, player.transform.rotation);
+            BaseMower.Rotate(270.0f, 270.0f, 0.0f, Space.World);
+            BaseMower.parent = player.transform;
+            BaseMower.transform.localPosition += new Vector3(0.0f, -0.49f, 0.0f);
+        }
+        else if (model == "AeroMower")
+        {
+            Debug.Log("REEEEEEEEEEEEEEEEEEEEEEE");
+            Transform AeroMower = (Transform)Instantiate(Resources.Load<Transform>("PlayerModelAero"), player.transform.position, player.transform.rotation);
+            AeroMower.Rotate(270.0f, 0.0f, 0.0f, Space.World);
+            AeroMower.parent = player.transform;
+            AeroMower.transform.localPosition += new Vector3(0.0f, -0.25f, -0.1f);
+        }
     }
 
 
@@ -234,7 +308,7 @@ public class SocketEquipment : MonoBehaviour {
                 Transform handle_back = (Transform)Instantiate(prefab_handle, socket_back.position, Quaternion.identity);
                 handle_back.Rotate(-90.0f, 0.0f, 0.0f, Space.World);
                 handle_back.parent = socket_back;
-                socket_back.transform.localPosition = new Vector3(-0.025f, 0.0f, 0.1f);
+                socket_back.transform.localPosition += new Vector3(0.825f, 0.0f, 0.0f);
 
                 break;
 
@@ -292,7 +366,7 @@ public class SocketEquipment : MonoBehaviour {
 
                 basicengine_front.Rotate(0.0f, -90.0f, 0.0f, Space.World);
                 basicengine_front.parent = socket_top;
-                socket_top.transform.localPosition = new Vector3(0.0f, 0.12f, 0.405f);
+                socket_top.transform.localPosition += new Vector3(0.0f, 0.12f, -0.295f);
                 break;
 
             default:
@@ -316,7 +390,7 @@ public class SocketEquipment : MonoBehaviour {
                 Transform spike_left = (Transform)Instantiate(prefab_spike, socket_left.position, Quaternion.identity);
                 spike_left.Rotate(-90.0f, 180.0f, 90.0f, Space.World);
                 spike_left.parent = socket_left;
-                socket_left.transform.localPosition = new Vector3(0.0f, 0.19f, -0.045f);
+                socket_left.transform.localPosition += new Vector3(0.0f, 0.99f, -0.055f);
 
                 break;
 
@@ -333,7 +407,7 @@ public class SocketEquipment : MonoBehaviour {
                 Transform spike_right = (Transform)Instantiate(prefab_spike, socket_right.position, Quaternion.identity);
                 spike_right.Rotate(-90.0f, 0.0f, 90.0f, Space.World);
                 spike_right.parent = socket_right;
-                socket_right.transform.localPosition = new Vector3(0.0f, -0.19f, -0.04f);
+                socket_right.transform.localPosition += new Vector3(0.0f, -0.99f, -0.055f);
 
                 break;
 
@@ -351,7 +425,7 @@ public class SocketEquipment : MonoBehaviour {
                 Transform spike_front = (Transform)Instantiate(prefab_spike, socket_front.position, Quaternion.identity);
                 spike_front.Rotate(-90.0f, 0.0f, 0.0f, Space.World);
                 spike_front.parent = socket_front;
-                socket_front.transform.localPosition = new Vector3(-0.015f, 0.0f, -0.03f);
+                socket_front.transform.localPosition += new Vector3(-1.015f, 0.0f, -0.13f);
 
                 break;
 
@@ -363,10 +437,15 @@ public class SocketEquipment : MonoBehaviour {
                     child.gameObject.SetActive(false);
                 }
 
+                if(brace_back != null)
+                {
+                    brace_back.gameObject.SetActive(true);
+                }
+
                 Transform spike_back = (Transform)Instantiate(prefab_spike, socket_back.position, Quaternion.identity);
                 spike_back.Rotate(-90.0f, 0.0f, 180.0f, Space.World);
                 spike_back.parent = socket_back;
-                socket_back.transform.localPosition = new Vector3(0.2f, 0.0f, -0.07f);
+                socket_back.transform.localPosition += new Vector3(1.05f, 0.0f, -0.17f);
 
                 break;
 
@@ -402,7 +481,7 @@ public class SocketEquipment : MonoBehaviour {
 
                 flipper_left.Rotate(0.0f, 0.0f, 0.0f, Space.World);
                 flipper_left.parent = socket_left;
-                socket_left.transform.localPosition = new Vector3(0.0f, -0.678f, 0.3f);
+                socket_left.transform.localPosition += new Vector3(0.0f, 0.122f, 0.2f);
 
                 // Add a reference to the array of references
                 AddWeaponReference(flipper_left, socket);
@@ -427,7 +506,7 @@ public class SocketEquipment : MonoBehaviour {
 
                 flipper_right.Rotate(0.0f, 180.0f, 0.0f, Space.World);
                 flipper_right.parent = socket_right;
-                socket_right.transform.localPosition = new Vector3(0.0f, 0.678f, 0.3f);
+                socket_right.transform.localPosition += new Vector3(0.0f, -0.122f, 0.2f);
 
                 // Add a reference to the array of references
                 AddWeaponReference(flipper_right, socket);
@@ -452,7 +531,7 @@ public class SocketEquipment : MonoBehaviour {
 
                 flipper_front.Rotate(180.0f, -90.0f, 180.0f, Space.World);
                 flipper_front.parent = socket_front;
-                socket_front.transform.localPosition = new Vector3(1.23f, 0.0f, 0.185f);
+                socket_front.transform.localPosition += new Vector3(0.23f, 0.0f, 0.085f);
 
                 // Add a reference to the array of references
                 AddWeaponReference(flipper_front, socket);
@@ -492,7 +571,7 @@ public class SocketEquipment : MonoBehaviour {
                 Transform booster_left = (Transform)Instantiate(prefab_booster, socket_left.position, Quaternion.identity);
                 booster_left.Rotate(0.0f, 90.0f, 0.0f, Space.World);
                 booster_left.parent = socket_left;
-                socket_left.transform.localPosition = new Vector3(0.0f, -0.85f, 0.1f);
+                socket_left.transform.localPosition += new Vector3(0.0f, -0.05f, 0.0f);
 
                 AddWeaponReference(booster_left, socket);
 
@@ -511,7 +590,7 @@ public class SocketEquipment : MonoBehaviour {
                 Transform booster_right = (Transform)Instantiate(prefab_booster, socket_right.position, Quaternion.identity);
                 booster_right.Rotate(0.0f, -90.0f, 0.0f, Space.World);
                 booster_right.parent = socket_right;
-                socket_right.transform.localPosition = new Vector3(0.0f, 0.85f, 0.1f);
+                socket_right.transform.localPosition += new Vector3(0.0f, 0.05f, 0.0f);
 
                 AddWeaponReference(booster_right, socket);
 
@@ -531,10 +610,15 @@ public class SocketEquipment : MonoBehaviour {
                     child.gameObject.SetActive(false);
                 }
 
+                if (brace_back != null)
+                {
+                    brace_back.gameObject.SetActive(true);
+                }
+
                 Transform booster_back = (Transform)Instantiate(prefab_booster, socket_back.position, Quaternion.identity);
                 booster_back.Rotate(0.0f, 0.0f, 0.0f, Space.World);
                 booster_back.parent = socket_back;
-                socket_back.transform.localPosition = new Vector3(-0.775f, 0.0f, 0.15f);
+                socket_back.transform.localPosition += new Vector3(0.075f, 0.0f, 0.05f);
 
                 AddWeaponReference(booster_back, socket);
 
@@ -569,7 +653,8 @@ public class SocketEquipment : MonoBehaviour {
 
                 metalshield_left.Rotate(0.0f, 0.0f, 0.0f, Space.World);
                 metalshield_left.parent = socket_left;
-                socket_left.transform.localPosition = new Vector3(0.01f, -1f, 0.0f);
+                socket_left.transform.localPosition += new Vector3(0.01f, -0.2f, -0.1f);
+
                 break;
 
             // Right Socket
@@ -587,7 +672,8 @@ public class SocketEquipment : MonoBehaviour {
 
                 metalshield_right.Rotate(0.0f, 180.0f, 0.0f, Space.World);
                 metalshield_right.parent = socket_right;
-                socket_right.transform.localPosition = new Vector3(-0.01f, 1f, 0.0f);
+                socket_right.transform.localPosition += new Vector3(-0.01f, 0.2f, -0.1f);
+
                 break;
 
             // Front Socket
@@ -606,7 +692,8 @@ public class SocketEquipment : MonoBehaviour {
 
                 metalshield_front.Rotate(180.0f, -90.0f, 180.0f, Space.World);
                 metalshield_front.parent = socket_front;
-                socket_front.transform.localPosition = new Vector3(1.3f, 0.0f, 0.0f);
+                socket_front.transform.localPosition += new Vector3(0.3f, 0.0f, -0.1f);
+
                 break;
 
             // Back Socket
@@ -666,13 +753,14 @@ public class SocketEquipment : MonoBehaviour {
                     child.gameObject.SetActive(false);
                 }
 
-                Transform plasmashield_front = (Transform)Instantiate(prefab_plasmashield, socket_top.position, Quaternion.identity);
+                Transform plasmashield_top = (Transform)Instantiate(prefab_plasmashield, socket_top.position, Quaternion.identity);
 
 
 
-                plasmashield_front.Rotate(0.0f, 0.0f, 0.0f, Space.World);
-                plasmashield_front.parent = socket_top;
-                socket_top.transform.localPosition = new Vector3(-0.3f, 1.45f, -0.225f);
+                plasmashield_top.Rotate(0.0f, 0.0f, 0.0f, Space.World);
+                plasmashield_top.parent = socket_top;
+                socket_top.transform.localPosition += new Vector3(-0.3f, 1.45f, -0.925f);
+
                 break;
 
             default:
@@ -701,7 +789,8 @@ public class SocketEquipment : MonoBehaviour {
                     circularsaw_left.GetComponentInChildren<sawController>().initialRot = new Vector3(0, 0, 90);
                 circularsaw_left.Rotate(0.0f, 0.0f, 0.0f, Space.World);
                 circularsaw_left.parent = socket_left;
-                socket_left.transform.localPosition = new Vector3(-0.47f, -1.615f, 0.075f);
+                socket_left.transform.localPosition += new Vector3(-0.47f, -0.815f, -0.025f);
+
                 break;
                 
             // Right Socket
@@ -720,7 +809,8 @@ public class SocketEquipment : MonoBehaviour {
 
                 circularsaw_right.Rotate(0.0f, 180.0f, 0.0f, Space.World);
                 circularsaw_right.parent = socket_right;
-                socket_right.transform.localPosition = new Vector3(0.47f, 1.615f, 0.075f);
+                socket_right.transform.localPosition += new Vector3(0.47f, 0.815f, -0.025f);
+
                 break;
                 
             // Front Socket
@@ -739,7 +829,8 @@ public class SocketEquipment : MonoBehaviour {
 
                 circularsaw_front.Rotate(180.0f, -90.0f, 180.0f, Space.World);
                 circularsaw_front.parent = socket_front;
-                socket_front.transform.localPosition = new Vector3(2.085f, -0.475f, -0.115f);
+                socket_front.transform.localPosition += new Vector3(1.085f, -0.475f, -0.215f);
+
                 break;
 
             // Back Socket
@@ -780,7 +871,8 @@ public class SocketEquipment : MonoBehaviour {
                     hammer_left.GetComponentInChildren<hammerControls>().initialRot = new Vector3(0, -90, 0);
                 hammer_left.Rotate(-90.0f, -90.0f, 0.0f, Space.World);
                 hammer_left.parent = socket_left;
-                socket_left.transform.localPosition = new Vector3(0.0f, -0.8f, 0.175f);
+                socket_left.transform.localPosition += new Vector3(0.0f, 0.0f, 0.075f);
+
                 break;
 
             // Right Socket
@@ -798,7 +890,8 @@ public class SocketEquipment : MonoBehaviour {
                     hammer_right.GetComponentInChildren<hammerControls>().initialRot = new Vector3(0, 90, 0);
                 hammer_right.Rotate(-90.0f, 90.0f, 0.0f, Space.World);
                 hammer_right.parent = socket_right;
-                socket_right.transform.localPosition = new Vector3(0.0f, 0.8f, 0.175f);
+                socket_right.transform.localPosition += new Vector3(0.0f, 0.0f, 0.075f);
+
                 break;
 
             // Front Socket
@@ -816,7 +909,8 @@ public class SocketEquipment : MonoBehaviour {
                     hammer_front.GetComponentInChildren<hammerControls>().initialRot = new Vector3(0, 180, 0);
                 hammer_front.Rotate(-90.0f, 180.0f, 0.0f, Space.World);
                 hammer_front.parent = socket_front;
-                socket_front.transform.localPosition = new Vector3(1.025f, 0.0f, 0.1f);
+                socket_front.transform.localPosition += new Vector3(0.025f, 0.0f, 0.0f);
+
                 break;
 
             // Back Socket

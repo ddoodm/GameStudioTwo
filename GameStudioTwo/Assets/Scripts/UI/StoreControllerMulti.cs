@@ -317,7 +317,7 @@ public class StoreControllerMulti : MonoBehaviour {
 		selectedEquipment = Equipment.EMPTY;
 		selectedSocket = Socket.EMPTY;
 
-		player.GetComponent<SocketEquipment>().SocketItems(itemSocketArray);
+		player.GetComponent<SocketEquipment>().SocketItems(itemSocketArray, "BaseMower");
 
 	}
 
