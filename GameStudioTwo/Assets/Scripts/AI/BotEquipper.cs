@@ -93,6 +93,7 @@ public class BotEquipper : MonoBehaviour
         //botItems[3] = Equipment.Item_Handle;
         //botItems[(int)SocketLocation.BACK] = Equipment.Item_Booster;
 
-        GetComponent<SocketEquipment>().SocketItems(botItems);
+        //ayy lmao
+        GetComponent<SocketEquipment>().SocketItems(botItems, "BaseMower");
     }
 }

@@ -22,7 +22,7 @@ public class equipmentHandler : MonoBehaviour {
             {
                 persistentStats playerData = GameObject.FindGameObjectWithTag("Persistent Stats").GetComponent<persistentStats>();
 
-                player.GetComponent<SocketEquipment>().SocketItems(playerData.playerItems);
+                player.GetComponent<SocketEquipment>().SocketItems(playerData.playerItems, playerData.model);
 
                 player.transform.Rotate(0.0f, 180.0f, 0.0f, Space.World);
 
@@ -41,7 +41,7 @@ public class equipmentHandler : MonoBehaviour {
             {
                 persistentStats playerData = GameObject.FindGameObjectWithTag("Persistent Stats").GetComponent<persistentStats>();
 
-                player.GetComponent<SocketEquipment>().SocketItems(playerData.player2Items);
+                player.GetComponent<SocketEquipment>().SocketItems(playerData.player2Items, playerData.model);
 
                 //player.transform.Rotate(0.0f, 180.0f, 0.0f, Space.World);
 

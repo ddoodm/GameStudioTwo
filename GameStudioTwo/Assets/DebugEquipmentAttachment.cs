@@ -10,7 +10,8 @@ public class DebugEquipmentAttachment : MonoBehaviour
         // Jesse's code needs the mower to be rotated 0'. lol.
         Quaternion oldRotation = this.transform.rotation;
         this.transform.rotation = Quaternion.identity;
-        GetComponent<SocketEquipment>().SocketItems(equipment);
+        // more retarded code from jesse (sorry)
+        GetComponent<SocketEquipment>().SocketItems(equipment, "BaseMower");
         this.transform.rotation = oldRotation;
 	}
 	

@@ -20,7 +20,7 @@ public class phoneScreenUI : MonoBehaviour {
 
     public void DisableBuy()
     {
-        if (storeController.DOLLADOLLABILLSYALL > price)
+        if (storeController.DOLLADOLLABILLSYALL >= price)
         {
             button.interactable = false;
             storeController.DOLLADOLLABILLSYALL -= price;
