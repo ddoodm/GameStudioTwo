@@ -25,6 +25,8 @@ public class FSMEquipmentController : MonoBehaviour
         thisBody = GetComponent<Rigidbody>();
 
         flipperCooldownTimers = new float[Enum.GetNames(typeof(SocketLocation)).Length];
+        hammerCooldownTimers = new float[Enum.GetNames(typeof(SocketLocation)).Length];
+        SawHoldTimers = new float[Enum.GetNames(typeof(SocketLocation)).Length];
 	}
 	
 	// Update is called once per frame
@@ -42,6 +44,8 @@ public class FSMEquipmentController : MonoBehaviour
         switch(item)
         {
             case Equipment.Item_Flipper: WeaponLogic_Flipper(socket); break;
+            case Equipment.Item_CircularSaw: WeaponLogic_Saw(socket); break;
+            case Equipment.Item_Hammer: WeaponLogic_Hammer(socket); break;
             case Equipment.Item_Booster:
                 if(socket == SocketLocation.BACK)
                     WeaponLogic_RearBooster(socket);
@@ -76,6 +80,59 @@ public class FSMEquipmentController : MonoBehaviour
                 flipperCooldownTimers[(int)socket] =
                     UnityEngine.Random.Range(flipperMinCooldownSeconds, flipperMaxCooldownSeconds);
             }
+        }
+    }
+
+    private float[] hammerCooldownTimers;
+    private void WeaponLogic_Hammer(SocketLocation socket)
+    {
+        hammerCooldownTimers[(int)socket] -= Time.deltaTime;
+        Weapon hammer = socketEquipment.GetWeaponInSocket(socket);
+        if (hammer != null)
+        {
+            Transform hammerTransform = hammer.GetGameObject().transform;
+            float distanceToPlayer = (this.transform.position - player.transform.position).magnitude;
+
+            bool playerInRange = distanceToPlayer <= flipperActivationRadius;
+            bool correctState = botControl.state == FSMBotController.FSMState.ARRIVE;
+            bool cooldownOkay = hammerCooldownTimers[(int)socket] <= 0.0f;
+
+            Debug.Log(playerInRange + "" + correctState + "" + cooldownOkay);
+
+            if (playerInRange && correctState && cooldownOkay)
+            {
+                hammer.Use();
+                hammerCooldownTimers[(int)socket] = UnityEngine.Random.Range(flipperMinCooldownSeconds, flipperMaxCooldownSeconds);
+            }
+
+        }
+    }
+
+    private float[] SawHoldTimers;
+    private void WeaponLogic_Saw(SocketLocation socket)
+    {
+        SawHoldTimers[(int)socket] += Time.deltaTime;
+        Weapon saw = socketEquipment.GetWeaponInSocket(socket);
+        if (saw != null)
+        {
+            Transform sawTransform = saw.GetGameObject().transform;
+            float distanceToPlayer = (this.transform.position - player.transform.position).magnitude;
+
+            bool playerInRange = distanceToPlayer <= flipperActivationRadius;
+            bool correctState = botControl.state == FSMBotController.FSMState.ARRIVE;
+            bool holdTimeOkay = SawHoldTimers[(int)socket] <= 3.0f;
+
+            if (playerInRange && correctState)
+            {
+                saw.Use();
+                SawHoldTimers[(int)socket] = 0f;
+            }
+            if (!playerInRange || !correctState || !holdTimeOkay)
+            {
+                saw.EndUse();
+            }
+
+            
         }
     }
 
