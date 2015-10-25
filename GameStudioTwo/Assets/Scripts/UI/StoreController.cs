@@ -122,7 +122,19 @@ public class StoreController : MonoBehaviour {
 					}
 				}
 			}
+            
+
 		}
+        if (Input.GetMouseButtonDown(1))
+        {
+            Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit2;
+
+            if (Physics.Raycast(ray2, out hit2))
+            {
+                HandleAttachmentRemove(hit2);
+            }
+        }
 
 
 		HandleBoughtItems();
@@ -147,6 +159,44 @@ public class StoreController : MonoBehaviour {
 			playerChoice.playerColor = sliderColour;
 		}
 	}
+
+    void HandleAttachmentRemove(RaycastHit hit)
+    {
+        switch (hit.transform.tag)
+        {
+            case "Socket_Left":
+                selectedSocket = Socket.Socket_Left;
+                itemSocketArray[0] = Equipment.EMPTY;
+                player.GetComponent<SocketEquipment>().clear("socket left");
+                break;
+
+            case "Socket_Right":
+                selectedSocket = Socket.Socket_Right;
+                itemSocketArray[1] = Equipment.EMPTY;
+                player.GetComponent<SocketEquipment>().clear("socket right");
+                break;
+
+            case "Socket_Front":
+                selectedSocket = Socket.Socket_Front;
+                itemSocketArray[2] = Equipment.EMPTY;
+                player.GetComponent<SocketEquipment>().clear("socket front");
+                break;
+
+            case "Socket_Back":
+                selectedSocket = Socket.Socket_Back;
+                itemSocketArray[3] = Equipment.EMPTY;
+                player.GetComponent<SocketEquipment>().clear("socket back");
+                break;
+
+            case "Socket_Top":
+                selectedSocket = Socket.Socket_Top;
+                itemSocketArray[4] = Equipment.EMPTY;
+                player.GetComponent<SocketEquipment>().clear("socket top");
+                break;
+        }
+        selectedSocket = Socket.EMPTY;
+        player.GetComponent<SocketEquipment>().SocketItems(itemSocketArray, playerChoice.model);
+    }
 
 
     void HandleModelSelection(RaycastHit hit)
@@ -189,7 +239,6 @@ public class StoreController : MonoBehaviour {
 
     void HandleItemSelection(RaycastHit hit) {
 		selectedSocket = Socket.EMPTY;
-
 		switch (hit.transform.tag){
 			
 			case "Phone_Model":
