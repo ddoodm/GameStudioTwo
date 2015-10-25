@@ -23,4 +23,9 @@ public class mainMenu : MonoBehaviour {
     {
         Application.LoadLevel("MultiStore");
     }
+
+    public void quit()
+    {
+        Application.Quit();
+    }
 }

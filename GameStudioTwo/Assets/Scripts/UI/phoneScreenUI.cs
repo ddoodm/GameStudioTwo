@@ -8,9 +8,11 @@ public class phoneScreenUI : MonoBehaviour {
     public int price;
     public Equipment thisItem;
     StoreController storeController;
+    private persistentStats stats;
 
 	void Start () {
         storeController = GameObject.FindGameObjectWithTag("StoreUI").GetComponent<StoreController>();
+        stats = GameObject.FindGameObjectWithTag("Persistent Stats").GetComponent<persistentStats>();
         if (storeController.AvailableItems[(int)thisItem] != Equipment.EMPTY)
         {
            button.interactable = false;
@@ -20,11 +22,13 @@ public class phoneScreenUI : MonoBehaviour {
 
     public void DisableBuy()
     {
-        if (storeController.DOLLADOLLABILLSYALL >= price)
+        if (storeController.money >= price)
         {
             button.interactable = false;
-            storeController.DOLLADOLLABILLSYALL -= price;
+            storeController.money -= price;
             storeController.AvailableItems[(int)thisItem] = thisItem;
+            stats.playerMoney -= price;
+
         }
     }
 

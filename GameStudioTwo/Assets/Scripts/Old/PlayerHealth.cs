@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public HPBar healthBar;
     public Text finish;
+    public Text money;
     public Button restartButton;
 	public Image gameOverScreen;
     public Text flippedCounterText;
@@ -28,6 +29,8 @@ public class PlayerHealth : MonoBehaviour
         mass = 1.0f,
         damageFactor = 1.0f;
 
+
+    public int moneyGained;
 
     // Never set this directly! Anywhere! Yes, this means you!
     private float _health;
@@ -211,12 +214,14 @@ public class PlayerHealth : MonoBehaviour
         string winner = "Bot";
         if (gameObject.CompareTag("Player"))
         {
+            moneyGained += 50;
             winner = "Bot";
             finish.text = "You Lose!";
         }
 
         else if (gameObject.CompareTag("Enemy"))
         {
+            moneyGained += 100;
             finish.text = "You win!";
             winner = "Player";
         }
@@ -236,9 +241,21 @@ public class PlayerHealth : MonoBehaviour
                 {"Winner", winner},
                 {"Remaining HP", health},
             });
-            
+
+            calculateMoneyEarned();
             analyticsSent = true;
         }
+
+
+        
+
+
+
+
+
+
+
+
         if (Application.loadedLevelName != "BattleScene03Multi")
         {
             if (Input.GetButtonDown(controllerA) || Input.GetKeyDown(KeyCode.Escape))
@@ -257,6 +274,46 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
+    private void calculateMoneyEarned()
+    {
+        persistentStats stats = GameObject.FindGameObjectWithTag("Persistent Stats").GetComponent<persistentStats>();
+
+        if (Time.timeSinceLevelLoad < 60)
+        {
+            moneyGained += 100;
+        }
+        else
+        {
+            moneyGained += (int)Time.timeSinceLevelLoad * (10 / 6);
+        }
+
+        weaponStats[] weapons = gameObject.GetComponentsInChildren<weaponStats>();
+        foreach (weaponStats weapon in weapons)
+        {
+            moneyGained += 30;
+        }
+
+        switch (Application.loadedLevel)
+        {
+            case 6:
+                moneyGained += 200;
+                break;
+            case 7:
+                moneyGained += 300;
+                break;
+
+            default:
+                moneyGained += 100;
+                break;
+
+
+        }
+
+        money.text = "Money Earned: " + moneyGained;
+        money.gameObject.SetActive(true);
+        stats.playerMoney += moneyGained;
+    }
+
 	IEnumerator showGameOver() {
 		yield return new WaitForSeconds(2);
 
@@ -267,15 +324,31 @@ public class PlayerHealth : MonoBehaviour
         flippedCounterSizeVar = 0;
         flippedCounterText.text = "5";
         yield return new WaitForSeconds(1);
+        if (!checkFlip())
+        {
+            StopCoroutine("checkFlipped");
+        }
         flippedCounterSizeVar = 0;
         flippedCounterText.text = "4";
         yield return new WaitForSeconds(1);
+        if (!checkFlip())
+        {
+            StopCoroutine("checkFlipped");
+        }
         flippedCounterSizeVar = 0;
         flippedCounterText.text = "3";
         yield return new WaitForSeconds(1);
+        if (!checkFlip())
+        {
+            StopCoroutine("checkFlipped");
+        }
         flippedCounterSizeVar = 0;
         flippedCounterText.text = "2";
         yield return new WaitForSeconds(1);
+        if (!checkFlip())
+        {
+            StopCoroutine("checkFlipped");
+        }
         flippedCounterSizeVar = 0;
         flippedCounterText.text = "1";
         yield return new WaitForSeconds(1);
@@ -285,6 +358,16 @@ public class PlayerHealth : MonoBehaviour
             gameIsOver = true;
         }
         StopCoroutine("checkFlipped");
+    }
+
+    public bool checkFlip()
+    {
+        if (Vector3.Dot(transform.up, Vector3.up) > 0)
+        {
+            return false;
+        }
+        else
+            return true;
     }
 
 }

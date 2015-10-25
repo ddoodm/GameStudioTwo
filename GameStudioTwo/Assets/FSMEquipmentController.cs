@@ -57,22 +57,25 @@ public class FSMEquipmentController : MonoBehaviour
         flipperCooldownTimers[(int)socket] -= Time.deltaTime;
 
         Weapon flipper = socketEquipment.GetWeaponInSocket(socket);
-        Transform flipperTransform = flipper.GetGameObject().transform;
-
-        float distanceToPlayer = (this.transform.position - player.transform.position).magnitude;
-
-        bool playerInRange = distanceToPlayer <= flipperActivationRadius;
-        bool imUpsideDown = Vector3.Dot(this.transform.root.up, Vector3.up) < 0;
-        bool correctState = botControl.state == FSMBotController.FSMState.ARRIVE;
-        bool cooldownOkay = flipperCooldownTimers[(int)socket] <= 0.0f;
-
-        if ((playerInRange || imUpsideDown) && correctState && cooldownOkay)
+        if (flipper != null)
         {
-            flipper.Use();
+            Transform flipperTransform = flipper.GetGameObject().transform;
 
-            // The cooldown time should reflect the distance to the player:
-            flipperCooldownTimers[(int)socket] =
-                UnityEngine.Random.Range(flipperMinCooldownSeconds, flipperMaxCooldownSeconds);
+            float distanceToPlayer = (this.transform.position - player.transform.position).magnitude;
+
+            bool playerInRange = distanceToPlayer <= flipperActivationRadius;
+            bool imUpsideDown = Vector3.Dot(this.transform.root.up, Vector3.up) < 0;
+            bool correctState = botControl.state == FSMBotController.FSMState.ARRIVE;
+            bool cooldownOkay = flipperCooldownTimers[(int)socket] <= 0.0f;
+
+            if ((playerInRange || imUpsideDown) && correctState && cooldownOkay)
+            {
+                flipper.Use();
+
+                // The cooldown time should reflect the distance to the player:
+                flipperCooldownTimers[(int)socket] =
+                    UnityEngine.Random.Range(flipperMinCooldownSeconds, flipperMaxCooldownSeconds);
+            }
         }
     }
 
@@ -82,17 +85,19 @@ public class FSMEquipmentController : MonoBehaviour
     {
         boosterCooldown -= Time.deltaTime;
         Weapon booster = socketEquipment.GetWeaponInSocket(socket);
+        if (booster != null)
+        {
+            float distanceToPlayer = (this.transform.position - player.transform.position).magnitude;
 
-        float distanceToPlayer = (this.transform.position - player.transform.position).magnitude;
+            bool inRange = distanceToPlayer > 3.0f && distanceToPlayer < 15.0f;
+            bool notStuck = thisBody.velocity.magnitude > 4.0f;
+            bool correctState = botControl.state == FSMBotController.FSMState.ARRIVE;
 
-        bool inRange = distanceToPlayer > 3.0f && distanceToPlayer < 15.0f;
-        bool notStuck = thisBody.velocity.magnitude > 4.0f;
-        bool correctState = botControl.state == FSMBotController.FSMState.ARRIVE;
-
-        if (inRange && notStuck && correctState)
-            booster.Use();
-        else
-            booster.EndUse();
+            if (inRange && notStuck && correctState)
+                booster.Use();
+            else
+                booster.EndUse();
+        }
     }
 
     private void WeaponLogic_LateralBooster(SocketLocation socket)
