@@ -226,7 +226,7 @@ public class StoreController : MonoBehaviour {
                 Transform AeroMower = (Transform)Instantiate(Resources.Load<Transform>("PlayerModelAero"), player.transform.position, player.transform.rotation);
                 AeroMower.Rotate(0.0f, 90.0f, 0.0f, Space.World);
                 AeroMower.parent = player.transform;
-                AeroMower.transform.localPosition += new Vector3(-0.1f, 0.0f, 0.2f);
+                AeroMower.transform.localPosition += new Vector3(0.01f, 0.0f, 0.24f);
 
                 player.GetComponent<Transform>().position = new Vector3(7.5f, 2.45f, 7.4f);
 

@@ -352,11 +352,10 @@ public class SocketEquipment : MonoBehaviour {
         }
         else if (model == "AeroMower")
         {
-            Debug.Log("REEEEEEEEEEEEEEEEEEEEEEE");
             Transform AeroMower = (Transform)Instantiate(Resources.Load<Transform>("PlayerModelAero"), player.transform.position, player.transform.rotation);
             AeroMower.Rotate(270.0f, 0.0f, 0.0f, Space.World);
             AeroMower.parent = player.transform;
-            AeroMower.transform.localPosition += new Vector3(0.0f, -0.25f, -0.1f);
+            AeroMower.transform.localPosition += new Vector3(0.0f, -0.205f, 0.02f);
         }
     }
 
