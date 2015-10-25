@@ -36,7 +36,7 @@ public class VehicleController : MonoBehaviour
 
     void Start()
     {
-        this.transform.Rotate(0.0f, 180.0f, 0.0f, Space.World);
+        //this.transform.Rotate(0.0f, 180.0f, 0.0f, Space.World);
     }
 
 
