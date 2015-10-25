@@ -178,6 +178,47 @@ public class SocketEquipment : MonoBehaviour {
         }
     }
 
+    public void clear()
+    {
+        RemoveItems();
+        ResetSockets();
+        ResetBall();
+        RemoveBraces();
+    }
+
+    private void ResetBall()
+    {
+        foreach (Transform child in socket_left)
+        {
+            child.gameObject.SetActive(true);
+        }
+        foreach (Transform child in socket_right)
+        {
+            child.gameObject.SetActive(true);
+        }
+        foreach (Transform child in socket_front)
+        {
+            child.gameObject.SetActive(true);
+        }
+        foreach (Transform child in socket_back)
+        {
+            child.gameObject.SetActive(true);
+        }
+        foreach (Transform child in socket_top)
+        {
+            child.gameObject.SetActive(true);
+        }
+    }
+
+    private void RemoveBraces()
+    {
+        brace_left.gameObject.SetActive(false);
+        brace_right.gameObject.SetActive(false);
+        brace_front.gameObject.SetActive(false);
+        if(brace_back !=  null)
+            brace_back.gameObject.SetActive(false);
+    }
+
 
     private void RemoveItems() {
         foreach (Transform child in socket_left) {

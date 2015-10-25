@@ -153,6 +153,7 @@ public class StoreController : MonoBehaviour {
     {
         switch (hit.transform.tag)
         {
+            
             case "LawnMowerRed":
             case "LawnMowerBlue":
                 playerChoice.model = "BaseMower";
@@ -181,11 +182,12 @@ public class StoreController : MonoBehaviour {
                 current_state = StoreState.STATE_ITEM;
                 GetComponent<Animator>().SetTrigger("toItemSelection");
                 break;
+
         }
     }
 
 
-        void HandleItemSelection(RaycastHit hit) {
+    void HandleItemSelection(RaycastHit hit) {
 		selectedSocket = Socket.EMPTY;
 
 		switch (hit.transform.tag){
@@ -312,7 +314,7 @@ public class StoreController : MonoBehaviour {
 
         // instantiate at sockets change rotation based on what socket. make this a separate script on the vehicle prefab
 
-        void FillItemSocketArray(){
+    void FillItemSocketArray(){
 		switch (selectedSocket) {
 			case Socket.Socket_Left:
 				itemSocketArray[0] = selectedEquipment;
@@ -381,7 +383,18 @@ public class StoreController : MonoBehaviour {
 			}
 		}
 	}
-	
+
+    public void clearAttachments()
+    {
+        for (int i = 0; i < MAX_SOCKETS; i++)
+        {
+            itemSocketArray[i] = Equipment.EMPTY;
+        }
+        player.GetComponent<SocketEquipment>().clear();
+
+        
+    }
+
 
     public void changeR(float slider)
     {
