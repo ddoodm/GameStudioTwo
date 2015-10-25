@@ -13,6 +13,9 @@ public class persistentStats : MonoBehaviour {
     public Color player2Color;
 
 
+    public bool tutorialActive = true;
+
+
 	// Update is called once per frame
 	void Update () {
 
