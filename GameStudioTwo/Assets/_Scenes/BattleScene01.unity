@@ -545,6 +545,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b94daa370d72ea04eb05f3f5f5367cd3, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &96571865 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11451700, guid: b94daa370d72ea04eb05f3f5f5367cd3,
+    type: 2}
+  m_PrefabInternal: {fileID: 96571864}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &102897413
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,7 +2038,7 @@ Prefab:
     - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: finish
       value: 
-      objectReference: {fileID: 1267303126}
+      objectReference: {fileID: 96571865}
     - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: restartButton
       value: 
@@ -2093,6 +2099,10 @@ Prefab:
       propertyPath: prefab_basicengine
       value: 
       objectReference: {fileID: 497140, guid: ef0707922f931e74189ca6289394c1c1, type: 2}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 1267303126}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_IsPrefabParent: 0
@@ -3083,7 +3093,7 @@ Prefab:
     - target: {fileID: 11473864, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
       propertyPath: finish
       value: 
-      objectReference: {fileID: 1267303126}
+      objectReference: {fileID: 96571865}
     - target: {fileID: 11438798, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
       propertyPath: prefab_basicengine
       value: 
@@ -3104,9 +3114,87 @@ Prefab:
       propertyPath: prefab_hammer
       value: 
       objectReference: {fileID: 447632, guid: 8bba98947987ceb45855ef31e09de99b, type: 2}
+    - target: {fileID: 11473864, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 1267303126}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &772133251 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 157070, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+  m_PrefabInternal: {fileID: 772133250}
+--- !u!82 &772133252
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 772133251}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9ae2e0f01ddab57449f17d9e5231ba92, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &776223824
 GameObject:
   m_ObjectHideFlags: 0

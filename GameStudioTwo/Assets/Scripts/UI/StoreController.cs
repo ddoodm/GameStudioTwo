@@ -41,7 +41,7 @@ public class StoreController : MonoBehaviour {
 
 	public Equipment[] AvailableItems = new Equipment[TOTAL_ITEMS];
 
-	public int DOLLADOLLABILLSYALL;
+	public int money;
 	public Text moneyText;
 
 
@@ -74,9 +74,10 @@ public class StoreController : MonoBehaviour {
 				AvailableItems[i] = playerChoice.boughtItems[i];
 			}
 
-			DOLLADOLLABILLSYALL = playerChoice.playerMoney;
+			money = playerChoice.playerMoney;
 
 		}
+
 
 		sliderColour = new Color(rgbColor.x, rgbColor.y, rgbColor.z);
 	}
@@ -139,7 +140,7 @@ public class StoreController : MonoBehaviour {
 
 		HandleBoughtItems();
 
-		moneyText.text = "Money: " + DOLLADOLLABILLSYALL;
+		moneyText.text = "Money: " + money;
 
 
         if (colourChange)
@@ -471,5 +472,11 @@ public class StoreController : MonoBehaviour {
             current_state = StoreState.STATE_ITEM;
             GetComponent<Animator>().SetTrigger("toItemSelection");
         }
+    }
+
+
+    public void backToMain()
+    {
+        Application.LoadLevel("MainMenu");
     }
 }

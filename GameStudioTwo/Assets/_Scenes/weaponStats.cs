@@ -18,8 +18,27 @@ public class weaponStats : MonoBehaviour {
 
     void checkDestroy()
     {
+
         if (hp <= 0)
         {
+            switch (transform.parent.parent.tag)
+            {
+                case "Socket_Left":
+                    transform.root.GetComponent<SocketEquipment>().equipmentRefs[0] = null;
+                    break;
+                case "Socket_Right":
+                    transform.root.GetComponent<SocketEquipment>().equipmentRefs[1] = null;
+                    break;
+                case "Socket_Front":
+                    transform.root.GetComponent<SocketEquipment>().equipmentRefs[2] = null;
+                    break;
+                case "Socket_Back":
+                    transform.root.GetComponent<SocketEquipment>().equipmentRefs[3] = null;
+                    break;
+                case "Socket_Top":
+                    transform.root.GetComponent<SocketEquipment>().equipmentRefs[4] = null;
+                    break;
+            }
             Destroy(transform.parent.gameObject);
         }
     }
