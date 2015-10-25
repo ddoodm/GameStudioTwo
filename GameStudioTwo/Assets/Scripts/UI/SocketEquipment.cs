@@ -186,6 +186,49 @@ public class SocketEquipment : MonoBehaviour {
         RemoveBraces();
     }
 
+    public void clear(string socket)
+    {
+        switch (socket)
+        {
+            case "socket left":
+                foreach (Transform child in socket_left)
+                {
+                    child.gameObject.SetActive(true);
+                }
+                brace_left.gameObject.SetActive(false);
+                break;
+            case "socket right":
+                foreach (Transform child in socket_right)
+                {
+                    child.gameObject.SetActive(true);
+                }
+                brace_right.gameObject.SetActive(false);
+                break;
+            case "socket front":
+                foreach (Transform child in socket_front)
+                {
+                    child.gameObject.SetActive(true);
+                }
+                brace_front.gameObject.SetActive(false);
+                break;
+            case "socket back":
+                foreach (Transform child in socket_back)
+                {
+                    child.gameObject.SetActive(true);
+                }
+                if (brace_back != null)
+                    brace_back.gameObject.SetActive(false);
+                break;
+            case "socket top":
+                foreach (Transform child in socket_top)
+                {
+                    child.gameObject.SetActive(true);
+                }
+                break;
+
+        }
+    }
+
     private void ResetBall()
     {
         foreach (Transform child in socket_left)
