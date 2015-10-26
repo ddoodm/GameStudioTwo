@@ -20,6 +20,7 @@ public class SocketEquipment : MonoBehaviour {
     Transform prefab_plasmashield;
     Transform prefab_circularsaw;
     Transform prefab_hammer;
+    Transform prefab_teslacoil;
 
 
     public Transform socket_left;
@@ -79,6 +80,7 @@ public class SocketEquipment : MonoBehaviour {
             prefab_plasmashield = Resources.Load<Transform>("Item_PlasmaShield");
             prefab_circularsaw = Resources.Load<Transform>("Item_CircularSaw");
             prefab_hammer = Resources.Load<Transform>("Item_Hammer");
+            prefab_teslacoil = Resources.Load<Transform>("Item_TeslaCoil");
         }
         else
         {
@@ -87,6 +89,7 @@ public class SocketEquipment : MonoBehaviour {
             prefab_plasmashield = Resources.Load<Transform>("UI_Items/Item_PlasmaShield");
             prefab_circularsaw = Resources.Load<Transform>("UI_Items/Item_CircularSaw");
             prefab_hammer = Resources.Load<Transform>("UI_Items/Item_Hammer");
+            prefab_teslacoil = Resources.Load<Transform>("Item_TeslaCoil");
         }
     }
 
@@ -170,6 +173,10 @@ public class SocketEquipment : MonoBehaviour {
 
                 case Equipment.Item_Hammer:
                     SpawnHammer(iLocation);
+                    break;
+
+                case Equipment.Item_TeslaCoil:
+                    SpawnTeslaCoil(iLocation);
                     break;
 
                 default:
@@ -1014,12 +1021,56 @@ public class SocketEquipment : MonoBehaviour {
     }
 
 
+    private void SpawnTeslaCoil(SocketLocation socket)
+    {
+        switch (socket)
+        {
+            // Left Socket
+            case SocketLocation.LEFT:
+                Debug.Log("TeslaCoil in wrong position");
+                equipmentTypes[(int)socket] = Equipment.EMPTY;
+                break;
+
+            // Right Socket
+            case SocketLocation.RIGHT:
+                Debug.Log("TeslaCoil in wrong position");
+                equipmentTypes[(int)socket] = Equipment.EMPTY;
+                break;
+
+            // Front Socket
+            case SocketLocation.FRONT:
+                Debug.Log("TeslaCoil in wrong position");
+                equipmentTypes[(int)socket] = Equipment.EMPTY;
+                break;
+
+            // Back Socket
+            case SocketLocation.BACK:
+                Debug.Log("TeslaCoil in wrong position");
+                equipmentTypes[(int)socket] = Equipment.EMPTY;
+
+                break;
+
+            // Top Socket
+            case SocketLocation.TOP:
+                // Deactivate ball object
+                foreach (Transform child in socket_top)
+                {
+                    child.gameObject.SetActive(false);
+                }
+
+                Transform teslacoil_top = (Transform)Instantiate(prefab_teslacoil, socket_top.position, Quaternion.identity);
 
 
 
+                teslacoil_top.Rotate(-90.0f, 0.0f, 0.0f, Space.World);
+                teslacoil_top.parent = socket_top;
+               // socket_top.transform.localPosition += new Vector3(0.0f, 0.0f, -0.1f);
 
+                break;
 
-
-
+            default:
+                break;
+        }
+    }
 }
 

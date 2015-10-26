@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 
-public enum Equipment { Item_Handle = 0, Item_BasicEngine, Item_Spike, Item_Flipper, Item_Booster, Item_MetalShield, Item_CircularSaw, Item_Hammer, Item_PlasmaShield, EMPTY };
+public enum Equipment { Item_Handle = 0, Item_BasicEngine, Item_Spike, Item_Flipper, Item_Booster, Item_MetalShield, Item_CircularSaw, Item_Hammer, Item_PlasmaShield, Item_TeslaCoil, EMPTY };
 
 public enum Socket { EMPTY = 0, Socket_Left, Socket_Right, Socket_Front, Socket_Back, Socket_Top };
 
@@ -34,7 +34,7 @@ public class StoreController : MonoBehaviour {
 	// Selected items on the model
 	//
 	private static int MAX_SOCKETS = 5;
-	public static int TOTAL_ITEMS = 9;
+	public static int TOTAL_ITEMS = 10;
 	private Equipment[] itemSocketArray = new Equipment[MAX_SOCKETS];
 	public Equipment selectedEquipment = Equipment.EMPTY;
 	private Socket selectedSocket = Socket.EMPTY;
@@ -140,7 +140,7 @@ public class StoreController : MonoBehaviour {
 
 		HandleBoughtItems();
 
-		moneyText.text = "Money: " + money;
+		moneyText.text = "Money: $" + money;
 
 
         if (colourChange)
@@ -284,6 +284,10 @@ public class StoreController : MonoBehaviour {
 
             case "Item_PlasmaShield":
                 selectedEquipment = Equipment.Item_PlasmaShield;
+                break;
+
+            case "Item_TeslaCoil":
+                selectedEquipment = Equipment.Item_TeslaCoil;
                 break;
         }
         bool available = false;

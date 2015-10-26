@@ -15,6 +15,7 @@ public class itemSelector : MonoBehaviour
     private StoreController storeController;
 
     public string objectName;
+    public string objectWeight;
     
 
     
@@ -145,7 +146,7 @@ public class itemSelector : MonoBehaviour
     {
         if (highlighted && !isSocket && !string.IsNullOrEmpty(objectName))
         {
-            GUI.Box(new Rect(Event.current.mousePosition.x + 10, Event.current.mousePosition.y, 100, 25), objectName);
+            GUI.Box(new Rect(Event.current.mousePosition.x + 10, Event.current.mousePosition.y, 125, 25), objectName + " " + objectWeight);
         }
     }
 }
