@@ -4,7 +4,7 @@ using System.Collections;
 // does anyone else love magic numbers :P
 public class PhoneNavigation : MonoBehaviour {
 
-    private enum Screen { LEMPTY = -1, Screen_Handle = 0, Screen_BasicEngine, Screen_Spike, Screen_Flipper, Screen_Booster, Screen_MetalShield, Screen_CircularSaw, Screen_Hammer, Screen_PlasmaShield, REMPTY };
+    private enum Screen { LEMPTY = -1, Screen_Handle = 0, Screen_BasicEngine, Screen_Spike, Screen_Flipper, Screen_Booster, Screen_MetalShield, Screen_CircularSaw, Screen_Hammer, Screen_PlasmaShield, Screen_TeslaCoil, REMPTY };
     
     Screen leftScreen;
     Screen centerScreen;
@@ -13,7 +13,7 @@ public class PhoneNavigation : MonoBehaviour {
     bool changingScreen;
 
     StoreController storeController;
-    RectTransform[] screenList = new RectTransform[9];
+    RectTransform[] screenList = new RectTransform[10];
 
     void Start()
     {

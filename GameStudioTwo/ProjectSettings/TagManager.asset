@@ -45,6 +45,7 @@ TagManager:
   - Item_Hammer
   - Item_BasicEngine
   - Tutorial
+  - Item_TeslaCoil
   layers:
   - Default
   - TransparentFX
