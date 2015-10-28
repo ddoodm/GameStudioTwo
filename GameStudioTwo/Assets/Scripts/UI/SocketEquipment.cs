@@ -881,6 +881,8 @@ public class SocketEquipment : MonoBehaviour {
                 circularsaw_left.parent = socket_left;
                 socket_left.transform.localPosition += new Vector3(-0.47f, -0.815f, -0.025f);
 
+                AddWeaponReference(circularsaw_left, socket);
+
                 break;
                 
             // Right Socket
@@ -901,6 +903,8 @@ public class SocketEquipment : MonoBehaviour {
                 circularsaw_right.parent = socket_right;
                 socket_right.transform.localPosition += new Vector3(0.47f, 0.815f, -0.025f);
 
+                AddWeaponReference(circularsaw_right, socket);
+
                 break;
                 
             // Front Socket
@@ -920,6 +924,8 @@ public class SocketEquipment : MonoBehaviour {
                 circularsaw_front.Rotate(180.0f, -90.0f, 180.0f, Space.World);
                 circularsaw_front.parent = socket_front;
                 socket_front.transform.localPosition += new Vector3(1.085f, -0.475f, -0.215f);
+
+                AddWeaponReference(circularsaw_front, socket);
 
                 break;
 
@@ -963,6 +969,8 @@ public class SocketEquipment : MonoBehaviour {
                 hammer_left.parent = socket_left;
                 socket_left.transform.localPosition += new Vector3(0.0f, 0.0f, 0.075f);
 
+                AddWeaponReference(hammer_left, socket);
+
                 break;
 
             // Right Socket
@@ -982,6 +990,8 @@ public class SocketEquipment : MonoBehaviour {
                 hammer_right.parent = socket_right;
                 socket_right.transform.localPosition += new Vector3(0.0f, 0.0f, 0.075f);
 
+                AddWeaponReference(hammer_right, socket);
+
                 break;
 
             // Front Socket
@@ -1000,6 +1010,8 @@ public class SocketEquipment : MonoBehaviour {
                 hammer_front.Rotate(-90.0f, 180.0f, 0.0f, Space.World);
                 hammer_front.parent = socket_front;
                 socket_front.transform.localPosition += new Vector3(0.025f, 0.0f, 0.0f);
+
+                AddWeaponReference(hammer_front, socket);
 
                 break;
 

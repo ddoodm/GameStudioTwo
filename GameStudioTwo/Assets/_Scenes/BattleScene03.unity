@@ -930,7 +930,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2067096, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_Depth
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 402256, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_LocalScale.x
@@ -1084,7 +1084,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 18.4300003
-  m_Depth: 0
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1108,7 +1108,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
 --- !u!1 &504246978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,7 +1163,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 18.4300003
-  m_Depth: 0
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1187,7 +1187,7 @@ Transform:
   m_LocalScale: {x: .999999762, y: 1.00000012, z: .999999881}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &504246982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1725,7 +1725,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2067096, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_Depth
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 402256, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_LocalScale.x
@@ -1852,7 +1852,7 @@ Prefab:
       objectReference: {fileID: 599023452}
     - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: equipment.Array.data[4]
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_Enabled
@@ -1914,6 +1914,18 @@ Prefab:
       propertyPath: aero_brace_back
       value: 
       objectReference: {fileID: 885883226}
+    - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: equipment.Array.data[1]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: equipment.Array.data[0]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: equipment.Array.data[2]
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_IsPrefabParent: 0
@@ -2457,7 +2469,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2546,13 +2558,13 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: .228570208
-      value: .189026311
+    - time: .183525175
+      value: .112110123
       inSlope: 1.20453537
       outSlope: 1.20453537
       tangentMode: 0
-    - time: .484663278
-      value: .448809177
+    - time: .444122761
+      value: .487265527
       inSlope: 1.05082989
       outSlope: 1.05082989
       tangentMode: 0
@@ -2568,7 +2580,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  useDepthCorrection: 0
+  useDepthCorrection: 1
   zCurve:
     serializedVersion: 2
     m_Curve:
@@ -2591,6 +2603,16 @@ MonoBehaviour:
       value: 0
       inSlope: 0
       outSlope: 0
+      tangentMode: 0
+    - time: .398902059
+      value: .118570223
+      inSlope: .825338066
+      outSlope: .825338066
+      tangentMode: 0
+    - time: .581148028
+      value: .858674943
+      inSlope: 1.98870897
+      outSlope: 1.98870897
       tangentMode: 0
     - time: 1
       value: 1
@@ -2629,11 +2651,11 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  saturation: .769999981
+  saturation: .680000007
   selectiveCc: 0
   selectiveFromColor: {r: 1, g: 1, b: 1, a: 1}
   selectiveToColor: {r: 1, g: 1, b: 1, a: 1}
-  mode: 0
+  mode: 1
   updateTextures: 1
   colorCorrectionCurvesShader: {fileID: 4800000, guid: 62bcade1028c24ca1a39760ed84b9487,
     type: 3}
@@ -3284,7 +3306,7 @@ Transform:
   m_Children:
   - {fileID: 1498106276}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
 --- !u!114 &2111063957
 MonoBehaviour:
   m_ObjectHideFlags: 0

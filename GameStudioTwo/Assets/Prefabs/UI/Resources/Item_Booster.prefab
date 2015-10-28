@@ -99,7 +99,7 @@ ParticleAnimator:
   Does Animate Color?: 1
   colorAnimation[0]:
     serializedVersion: 2
-    rgba: 184516608
+    rgba: 33290484
   colorAnimation[1]:
     serializedVersion: 2
     rgba: 3019899135
@@ -131,10 +131,10 @@ EllipsoidParticleEmitter:
   m_Emit: 1
   minSize: .909999609
   maxSize: .932866693
-  minEnergy: .493581027
-  maxEnergy: .563671589
-  minEmission: 79.7061081
-  maxEmission: 79.8610458
+  minEnergy: .200000003
+  maxEnergy: .300000012
+  minEmission: 125
+  maxEmission: 150
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 0, z: 1}
   rndVelocity: {x: 0, y: 0, z: 0}
@@ -338,7 +338,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: colorAnimation[0].rgba
-      value: 184516608
+      value: 33290484
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: colorAnimation[1].rgba
@@ -386,6 +386,26 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minEmission
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxEmission
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minEnergy
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxEnergy
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Does Animate Color?
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

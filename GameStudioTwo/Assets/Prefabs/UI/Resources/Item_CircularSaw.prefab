@@ -46,7 +46,6 @@ GameObject:
   - 33: {fileID: 3343740}
   - 23: {fileID: 2371672}
   - 95: {fileID: 9525824}
-  - 114: {fileID: 11446682}
   m_Layer: 0
   m_Name: SawArm2
   m_TagString: Player Model
@@ -81,6 +80,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 407934}
+  - 114: {fileID: 11441236}
+  - 114: {fileID: 11494888}
   m_Layer: 0
   m_Name: Item_CircularSaw
   m_TagString: Item_CircularSaw
@@ -95,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.80600023, y: 2.47627115, z: 6.95499992}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.50000024, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 489084}
@@ -322,12 +323,12 @@ MonoBehaviour:
   mass: .300000012
   damageMultiplier: 2
   hp: 300
---- !u!114 &11446682
+--- !u!114 &11441236
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 153226}
+  m_GameObject: {fileID: 199252}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d7f2e99c3847764fad1721af9fb681d, type: 3}
@@ -370,6 +371,7 @@ MonoBehaviour:
     m_PostInfinity: 2
   canFlip: 0
   initialRot: {x: 0, y: 0, z: 0}
+  movingPart: {fileID: 153226}
 --- !u!114 &11477276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -382,13 +384,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 1
+--- !u!114 &11494888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 0
+  damageMultiplier: 0
+  hp: 10000
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: hp
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 199252}
