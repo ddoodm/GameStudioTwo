@@ -224,6 +224,7 @@ public class FSMBotController : MonoBehaviour
 
     private SocketLocation findBestAttackSocket()
     {
+        /*
         // Find an empty socket that would be suitable for attack (if possible)
         for(int i = 0; i <= (int)SocketLocation.BACK; i++)
             if (playerEquip.equipmentTypes[i] == Equipment.EMPTY)
@@ -232,5 +233,8 @@ public class FSMBotController : MonoBehaviour
         // No empty sockets were located. Use a random socket instead
         SocketLocation bestSock = (SocketLocation)Random.Range((int)SocketLocation.LEFT, (int)SocketLocation.BACK);
         return bestSock;
+        */
+
+        return SocketLocation.LEFT;
     }
 }

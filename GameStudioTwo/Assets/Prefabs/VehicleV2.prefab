@@ -83,6 +83,7 @@ GameObject:
   - 4: {fileID: 448400}
   - 135: {fileID: 13519156}
   - 114: {fileID: 11439442}
+  - 114: {fileID: 11407926}
   m_Layer: 8
   m_Name: TopSocket
   m_TagString: Socket_Top
@@ -1656,7 +1657,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: .503855705, z: 5.14362621}
+  m_LocalPosition: {x: .0979999974, y: .666000009, z: 21.7000008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 443854}
@@ -3234,6 +3235,20 @@ MonoBehaviour:
   control: 49
   button: 
   playerNumber: 0
+--- !u!114 &11407926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  control: 53
+  button: SocketTop
+  playerNumber: 0
 --- !u!114 &11415348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3348,13 +3363,13 @@ MonoBehaviour:
   socket_front: {fileID: 426692}
   socket_back: {fileID: 461482}
   socket_top: {fileID: 448400}
-  base_brace_left: {fileID: 0}
-  base_brace_right: {fileID: 0}
-  base_brace_front: {fileID: 0}
-  aero_brace_left: {fileID: 0}
-  aero_brace_right: {fileID: 0}
-  aero_brace_front: {fileID: 0}
-  aero_brace_back: {fileID: 0}
+  base_brace_left: {fileID: 430390}
+  base_brace_right: {fileID: 417252}
+  base_brace_front: {fileID: 417628}
+  aero_brace_left: {fileID: 422102}
+  aero_brace_right: {fileID: 407858}
+  aero_brace_front: {fileID: 490310}
+  aero_brace_back: {fileID: 484858}
   inStore: 0
 --- !u!114 &11446110
 MonoBehaviour:
@@ -3396,7 +3411,7 @@ MonoBehaviour:
   player: 1
   maxTorque: 40
   maxBrakeTorque: 40
-  speedMultiplier: 1
+  speedMultiplier: 2
   maxSteeringAngle: 20
   strafeSpeed: 50000
   steeringAngle: 20
@@ -3420,12 +3435,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150718}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9386a27960aef404f9db0669ae2621ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipment: 0300000000000000000000000400000000000000
+  equipment: 0700000006000000060000000400000008000000
 --- !u!114 &11482088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3616,8 +3631,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: .251387596, y: 1.1920929e-07, z: 0}
-    m_Extent: {x: .251387596, y: .139332294, z: .00250006327}
+    m_Center: {x: .251387388, y: 0, z: -1.90734863e-06}
+    m_Extent: {x: .251387417, y: .139332294, z: .00250054011}
   m_DirtyAABB: 0
 --- !u!146 &14604728
 WheelCollider:

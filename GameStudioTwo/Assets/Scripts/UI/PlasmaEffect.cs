@@ -17,12 +17,16 @@ public class PlasmaEffect : MonoBehaviour {
     {
         if (hasLight)
         {
-            float ping = Mathf.PingPong(200 * Time.time, 255.0f);
-            //Debug.Log(ping);
+            float
+                redSinus = Mathf.Sin(Time.time * 4.0f),
+                greenSinus = Mathf.Sin(Time.time * 5.0f),
+                blueSinus = Mathf.Cos(Time.time * 4.5f);
 
-            Color newColour = new Color(125 / 255f, ping / 255f, 125 / 255f);
-
-            //transform.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            Color newColour = new Color(
+                0.3f + 0.2f * redSinus,
+                0.4f + 0.2f * greenSinus,
+                0.5f + 0.2f * blueSinus
+                );
 
             transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", newColour);
             transform.GetComponent<Renderer>().material.color = newColour;
@@ -33,7 +37,6 @@ public class PlasmaEffect : MonoBehaviour {
             {
                 child.color = newColour;
             }
-
         }
     }
 
