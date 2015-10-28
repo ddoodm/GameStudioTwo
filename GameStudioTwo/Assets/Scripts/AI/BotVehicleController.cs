@@ -57,7 +57,7 @@ public class BotVehicleController : VehicleController
         inputSteering = -targetAngle - this.transform.rotation.eulerAngles.y;           // Steer toward the target angle, and subtract the local rotation
 
         // Constant driving force
-        inputLinearForce = targetSpeed;
+        inputLinearForce = targetSpeed * speedMultiplier;
 
         // Debug path display
         for (int i = 0; i < path.corners.Length - 1; i++)

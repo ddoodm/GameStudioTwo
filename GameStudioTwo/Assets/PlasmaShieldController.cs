@@ -9,6 +9,7 @@ public class PlasmaShieldController : MonoBehaviour, Weapon
         forceRadius = 10.0f,
         forceAmount = 10.0f,
         vehicleMultiplier = 3.0f;
+    public Vector3 forceOffset = new Vector3(0.0f, -0.5f, 0.0f);
     public AnimationCurve plasBallAnim;
 
     private bool _active = false;
@@ -94,7 +95,7 @@ public class PlasmaShieldController : MonoBehaviour, Weapon
             // Add the force. Origin is slightly below the bot
             colbody.AddExplosionForce(
                 forceAmount,
-                this.transform.position - this.transform.up * 2.0f,
+                this.transform.position + forceOffset,
                 forceRadius);
         }
     }

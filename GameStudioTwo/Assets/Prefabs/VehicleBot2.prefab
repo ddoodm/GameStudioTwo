@@ -1701,7 +1701,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.7999992, y: .899999976, z: -18.9400005}
+  m_LocalPosition: {x: -17.7999992, y: .899999976, z: -11.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488924}
@@ -3602,7 +3602,7 @@ MonoBehaviour:
   player: 0
   maxTorque: 50
   maxBrakeTorque: 50
-  speedMultiplier: 1
+  speedMultiplier: 2
   maxSteeringAngle: 20
   strafeSpeed: 0
   steeringAngle: 20

@@ -648,6 +648,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11475222, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: speedMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_IsPrefabParent: 0
@@ -1870,7 +1874,7 @@ Prefab:
       objectReference: {fileID: 599023452}
     - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: equipment.Array.data[4]
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_Enabled
@@ -1943,6 +1947,10 @@ Prefab:
     - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: equipment.Array.data[2]
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11453478, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: speedMultiplier
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}

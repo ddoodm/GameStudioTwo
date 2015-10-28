@@ -395,8 +395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 0
-  damageMultiplier: 0
+  mass: .100000001
+  damageMultiplier: 1
   hp: 10000
 --- !u!1001 &100100000
 Prefab:
@@ -408,6 +408,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: hp
       value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damageMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mass
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
