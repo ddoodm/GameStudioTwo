@@ -6,7 +6,7 @@ public class hammerControls : MonoBehaviour {
     private float animationTime = 1;
     public AnimationCurve curve;
 
-    public bool canFlip;
+    public bool canFlip = true;
 
     public Vector3 initialRot;
 
@@ -24,7 +24,10 @@ public class hammerControls : MonoBehaviour {
     public void useHammer()
     {
         if (canFlip)
+        {
             animationTime = 0;
+            canFlip = false;
+        }
     }
 
     private void DoAnimation()

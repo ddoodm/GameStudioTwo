@@ -104,7 +104,6 @@ public class FSMEquipmentController : MonoBehaviour
                 hammer.Use();
                 hammerCooldownTimers[(int)socket] = UnityEngine.Random.Range(flipperMinCooldownSeconds, flipperMaxCooldownSeconds);
             }
-
         }
     }
 
@@ -131,8 +130,6 @@ public class FSMEquipmentController : MonoBehaviour
             {
                 saw.EndUse();
             }
-
-            
         }
     }
 
