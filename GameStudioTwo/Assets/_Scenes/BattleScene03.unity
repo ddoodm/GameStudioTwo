@@ -1062,6 +1062,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  minOrthoSize: 5
+  velocityCoef: 2.5
+  sizeAdjustSpeed: .800000012
 --- !u!20 &445906374
 Camera:
   m_ObjectHideFlags: 0
@@ -1141,6 +1144,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  minOrthoSize: 4
+  velocityCoef: .899999976
+  sizeAdjustSpeed: .980000019
 --- !u!20 &504246980
 Camera:
   m_ObjectHideFlags: 0
@@ -1766,6 +1772,18 @@ Prefab:
     - target: {fileID: 105880, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_TagString
       value: Topdown Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451520, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
+      propertyPath: minOrthoSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451520, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
+      propertyPath: velocityCoef
+      value: .899999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451520, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
+      propertyPath: sizeAdjustSpeed
+      value: .980000019
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

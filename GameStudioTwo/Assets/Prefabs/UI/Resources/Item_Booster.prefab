@@ -102,13 +102,13 @@ ParticleAnimator:
     rgba: 33290484
   colorAnimation[1]:
     serializedVersion: 2
-    rgba: 3019899135
+    rgba: 3019911423
   colorAnimation[2]:
     serializedVersion: 2
     rgba: 4278190335
   colorAnimation[3]:
     serializedVersion: 2
-    rgba: 3019899135
+    rgba: 3019911423
   colorAnimation[4]:
     serializedVersion: 2
     rgba: 167814399
@@ -129,7 +129,7 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: .909999609
+  minSize: .400000006
   maxSize: .932866693
   minEnergy: .200000003
   maxEnergy: .300000012
@@ -342,7 +342,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: colorAnimation[1].rgba
-      value: 4278190335
+      value: 3019911423
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: colorAnimation[2].rgba
@@ -350,7 +350,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: colorAnimation[3].rgba
-      value: 3019899135
+      value: 3019911423
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: colorAnimation[4].rgba
@@ -407,6 +407,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: Does Animate Color?
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minSize
+      value: .400000006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
