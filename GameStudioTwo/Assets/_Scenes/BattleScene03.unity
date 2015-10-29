@@ -652,6 +652,10 @@ Prefab:
       propertyPath: speedMultiplier
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11463170, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_IsPrefabParent: 0
@@ -1447,6 +1451,22 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 400020, guid: 0abf45802475e4d4eaf5fa7b5a2e70d8, type: 3}
   m_PrefabInternal: {fileID: 12349270}
+--- !u!1 &550886342 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 157070, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+  m_PrefabInternal: {fileID: 111965286}
+--- !u!114 &550886353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 550886342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9386a27960aef404f9db0669ae2621ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipment: 0600000006000000060000000000000000000000
 --- !u!1001 &599023451
 Prefab:
   m_ObjectHideFlags: 0
@@ -2427,7 +2447,6 @@ GameObject:
   - 92: {fileID: 1498106274}
   - 124: {fileID: 1498106273}
   - 81: {fileID: 1498106272}
-  - 114: {fileID: 1498106271}
   - 114: {fileID: 1498106278}
   - 114: {fileID: 1498106277}
   - 114: {fileID: 1498106279}
@@ -2439,20 +2458,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1498106271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1498106270}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc10d400e8bacca4591d240dff126225, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  butter: 6
-  velocityContribution: .200000003
 --- !u!81 &1498106272
 AudioListener:
   m_ObjectHideFlags: 0
