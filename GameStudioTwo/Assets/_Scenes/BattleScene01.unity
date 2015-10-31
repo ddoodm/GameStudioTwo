@@ -547,6 +547,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 96571864}
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &96571866 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11440850, guid: b94daa370d72ea04eb05f3f5f5367cd3,
+    type: 2}
+  m_PrefabInternal: {fileID: 96571864}
+  m_Script: {fileID: 11500000, guid: c2ca93f0d6b8382458402740239e775e, type: 3}
 --- !u!1 &102897413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,6 +1932,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 364392652}
   m_Mesh: {fileID: 4300016, guid: 27587a919cc32ef4a9f9fbeeba6d6684, type: 3}
+--- !u!114 &383302269 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11492964, guid: b94daa370d72ea04eb05f3f5f5367cd3,
+    type: 2}
+  m_PrefabInternal: {fileID: 96571864}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &451688874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,6 +2067,34 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 770940989}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: finish
+      value: 
+      objectReference: {fileID: 383302269}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: money
+      value: 
+      objectReference: {fileID: 1267303126}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: restartButton
+      value: 
+      objectReference: {fileID: 864352189}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 1776762037}
+    - target: {fileID: 11484472, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: flippedCounterText
+      value: 
+      objectReference: {fileID: 1467325585}
+    - target: {fileID: 11439036, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: energyBar
+      value: 
+      objectReference: {fileID: 96571866}
     m_RemovedComponents:
     - {fileID: 11407926, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
@@ -2950,6 +2990,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &770940989 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11406564, guid: b94daa370d72ea04eb05f3f5f5367cd3,
+    type: 2}
+  m_PrefabInternal: {fileID: 96571864}
+  m_Script: {fileID: 11500000, guid: c2ca93f0d6b8382458402740239e775e, type: 3}
 --- !u!1001 &772133250
 Prefab:
   m_ObjectHideFlags: 0
@@ -5496,6 +5542,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .666900635, y: .498996705, z: 3.9207046}
   m_Center: {x: 0, y: 0, z: 1.9603523}
+--- !u!114 &1467325585 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11494516, guid: b94daa370d72ea04eb05f3f5f5367cd3,
+    type: 2}
+  m_PrefabInternal: {fileID: 96571864}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1467989801
 GameObject:
   m_ObjectHideFlags: 0
