@@ -10,7 +10,7 @@ public class VehicleController : MonoBehaviour
     public WheelCollider[] wheels;
 	public bool play = true;
 
-    public int player;
+    public int player = 1;
 
     /// <summary>
     /// Motor, braking and steering constraints
@@ -23,24 +23,12 @@ public class VehicleController : MonoBehaviour
         strafeSpeed,
         steeringAngle = 20.0f;
 
-    /*
-    public bool
-        boosting;*/
-
     /// <summary>
     /// Controller inputs obtained at frame update
     /// </summary>
     protected float
         inputLinearForce,
         inputSteering;
-
-    void Start()
-    {
-        //this.transform.Rotate(0.0f, 180.0f, 0.0f, Space.World);
-    }
-
-
-
 
     void Update()
     {
@@ -85,7 +73,8 @@ public class VehicleController : MonoBehaviour
 
     void FixedUpdate()
 	{
-		if (play) {
+		if (play)
+        {
 			// Front-wheel steering
             float temp = 1;
             if (Input.GetKey(KeyCode.LeftShift))
@@ -93,7 +82,7 @@ public class VehicleController : MonoBehaviour
                 temp = 4;
             }
 
-			float steerAngle = inputSteering * steeringAngle*temp;
+			float steerAngle = inputSteering * steeringAngle * temp;
             wheels [0].steerAngle = wheels [1].steerAngle = steerAngle;
 
 			// All-wheel drive
@@ -102,25 +91,4 @@ public class VehicleController : MonoBehaviour
 				wheels [i].motorTorque = torque;
 		}
     }
-
-    /* This should be a function of the booster!
-    private void boost()
-    {
-        if (energy > 0 && boosting)
-        {
-            energy -= 1;
-            speedMultiplier = 5;
-        }
-        if (energy == 0)
-        {
-            speedMultiplier = 1;
-            boosting = false;
-        }
-        if (boosting == false && energy < maxEnergy)
-        {
-            energy += 0.25f;
-            speedMultiplier = 1;
-        }
-    }
-    */
 }
