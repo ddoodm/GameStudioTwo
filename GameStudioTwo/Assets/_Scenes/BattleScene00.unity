@@ -4441,37 +4441,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_AABB.m_Center.x
-      value: .251386642
-      objectReference: {fileID: 0}
-    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_AABB.m_Extent.x
-      value: .251386642
-      objectReference: {fileID: 0}
-    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_AABB.m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_AABB.m_Center.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalScale.x
+    - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
+    - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: equipment.Array.data[1]
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: m_AABB.m_Extent.z
-      value: .00250054011
-      objectReference: {fileID: 0}
-    - target: {fileID: 11453478, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-      propertyPath: speedMultiplier
-      value: 1
+    - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: equipment.Array.data[2]
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
