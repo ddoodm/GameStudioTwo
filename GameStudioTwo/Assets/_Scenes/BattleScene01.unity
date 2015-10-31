@@ -2047,7 +2047,16 @@ Prefab:
       propertyPath: m_AABB.m_Center.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 139432, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11407926, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &471816611 stripped

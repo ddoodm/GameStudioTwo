@@ -452,7 +452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &149982
 GameObject:
   m_ObjectHideFlags: 1
@@ -1657,7 +1657,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0979999974, y: .666000009, z: 21.7000008}
+  m_LocalPosition: {x: -21.1399975, y: .958000004, z: 14.4499998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 443854}
@@ -3411,7 +3411,7 @@ MonoBehaviour:
   player: 1
   maxTorque: 40
   maxBrakeTorque: 40
-  speedMultiplier: 2
+  speedMultiplier: 1.20000005
   maxSteeringAngle: 20
   strafeSpeed: 50000
   steeringAngle: 20
@@ -3435,7 +3435,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150718}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9386a27960aef404f9db0669ae2621ca, type: 3}
   m_Name: 
@@ -3631,8 +3631,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: .251387388, y: 0, z: -1.90734863e-06}
-    m_Extent: {x: .251387417, y: .139332294, z: .00250054011}
+    m_Center: {x: .251386642, y: 0, z: 0}
+    m_Extent: {x: .251386642, y: .139332294, z: .00250054011}
   m_DirtyAABB: 0
 --- !u!146 &14604728
 WheelCollider:
