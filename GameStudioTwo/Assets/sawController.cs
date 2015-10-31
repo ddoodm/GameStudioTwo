@@ -24,7 +24,8 @@ public class sawController : MonoBehaviour, Weapon {
     {
         animationTime += Time.deltaTime;
         float animCurveValue = activeCurve.Evaluate(animationTime);
-        this.transform.rotation = Quaternion.Euler(new Vector3(0, transform.root.rotation.eulerAngles.y - initialRot.y, -90 - animCurveValue * 90));
+        if(movingPart != null)
+            movingPart.transform.rotation = Quaternion.Euler(new Vector3(0, transform.root.rotation.eulerAngles.y - initialRot.y, -90 + animCurveValue * 90));
 
         // The player may flip once the animation is reset
         if (animationTime >= 1.0f)
