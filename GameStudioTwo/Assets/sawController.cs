@@ -17,7 +17,8 @@ public class sawController : MonoBehaviour, Weapon {
     // Update is called once per frame
     void Update()
     {
-        DoAnimation();
+        if(movingPart)
+            DoAnimation();
     }
 
     private void DoAnimation()
