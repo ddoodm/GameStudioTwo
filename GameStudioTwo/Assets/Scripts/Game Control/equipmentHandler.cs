@@ -3,14 +3,16 @@ using System.Collections;
 
 public class equipmentHandler : MonoBehaviour {
 
-	public Transform player;
+	public GameObject player;
 
     // changed to START from AWAKE so socketEqupment script is called first. Not sure if this has broken other things
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        if (player.GetComponent<VehicleController>().player == 1)
+        VehicleController playerVehicle = player.GetComponent<VehicleController>();
+
+        if (playerVehicle.player == 1)
         {
             if (GameObject.FindGameObjectWithTag("Persistent Stats").GetComponent<persistentStats>() != null)
             {
