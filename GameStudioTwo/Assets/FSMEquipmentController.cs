@@ -97,8 +97,6 @@ public class FSMEquipmentController : MonoBehaviour
             bool correctState = botControl.state == FSMBotController.FSMState.ARRIVE;
             bool cooldownOkay = hammerCooldownTimers[(int)socket] <= 0.0f;
 
-            Debug.Log(playerInRange + "" + correctState + "" + cooldownOkay);
-
             if (playerInRange && correctState && cooldownOkay)
             {
                 hammer.Use();
