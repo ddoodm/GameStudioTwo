@@ -1052,9 +1052,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  player: {fileID: 0}
+  enemy: {fileID: 0}
   minOrthoSize: 5
   velocityCoef: 2.5
   sizeAdjustSpeed: .800000012
+  velocityBased: 0
 --- !u!20 &445906374
 Camera:
   m_ObjectHideFlags: 0
@@ -1134,9 +1137,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  minOrthoSize: 4
-  velocityCoef: .899999976
+  player: {fileID: 0}
+  enemy: {fileID: 0}
+  minOrthoSize: 1
+  velocityCoef: .930000007
   sizeAdjustSpeed: .980000019
+  velocityBased: 0
 --- !u!20 &504246980
 Camera:
   m_ObjectHideFlags: 0
@@ -1443,12 +1449,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 550886342}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9386a27960aef404f9db0669ae2621ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipment: 0600000006000000060000000000000000000000
+  equipment: 0a0000000a0000000a0000000400000008000000
 --- !u!1001 &599023451
 Prefab:
   m_ObjectHideFlags: 0
@@ -1781,11 +1787,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11451520, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: minOrthoSize
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11451520, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: velocityCoef
-      value: .899999976
+      value: .930000007
       objectReference: {fileID: 0}
     - target: {fileID: 11451520, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: sizeAdjustSpeed

@@ -5022,9 +5022,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  player: {fileID: 0}
+  enemy: {fileID: 0}
   minOrthoSize: 5
   velocityCoef: 2.5
   sizeAdjustSpeed: .800000012
+  velocityBased: 0
 --- !u!4 &1653182160 stripped
 Transform:
   m_PrefabParentObject: {fileID: 466492, guid: 8f49dbeffcc8de345857dd7226857d11, type: 2}
@@ -5591,6 +5594,18 @@ Prefab:
       propertyPath: m_TagString
       value: Topdown Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 11451520, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
+      propertyPath: minOrthoSize
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451520, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
+      propertyPath: velocityCoef
+      value: 1.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451520, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
+      propertyPath: sizeAdjustSpeed
+      value: .99000001
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
@@ -5664,9 +5679,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  minOrthoSize: 5
-  velocityCoef: 2.5
-  sizeAdjustSpeed: .800000012
+  player: {fileID: 0}
+  enemy: {fileID: 0}
+  minOrthoSize: 1.5
+  velocityCoef: 1.20000005
+  sizeAdjustSpeed: .99000001
+  velocityBased: 0
 --- !u!4 &2002179431
 Transform:
   m_ObjectHideFlags: 0

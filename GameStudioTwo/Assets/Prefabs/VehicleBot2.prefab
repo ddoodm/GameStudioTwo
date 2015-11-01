@@ -3232,6 +3232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyBar: {fileID: 0}
   maxEnergy: 50
+  energyRefillSpeed: 1.5
 --- !u!114 &11409628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3462,6 +3463,9 @@ MonoBehaviour:
   flipperActivationRadius: 3.01999998
   flipperMinCooldownSeconds: .460000008
   flipperMaxCooldownSeconds: 2.45000005
+  plasmaShieldActivationRadius: 4
+  plasmaCooldownMin: 2
+  plasmaCooldownMax: 4
 --- !u!114 &11467964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3912,7 +3916,23 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: plasmaShieldActivationRadius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasmaCooldownMin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasmaCooldownMax
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: energyRefillSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157070}
