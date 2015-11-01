@@ -363,8 +363,8 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: .298040748
-      value: .397353679
+    - time: .299516797
+      value: .399180263
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -432,6 +432,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: forceRadius
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.data[1].value
+      value: .399180263
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.data[1].time
+      value: .299516797
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
