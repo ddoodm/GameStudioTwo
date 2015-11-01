@@ -11,22 +11,43 @@ public class Lightning : MonoBehaviour {
     private float radius = 0.1f;
     private Vector2 midpoint;
 
+    //private GameObject opponent;
+    private GameObject player;
+    private GameObject enemy;
+    public Transform opponent;
+
+
     
 	void Start () {
-	    lineRenderer = GetComponent<LineRenderer>();
+        player = GameObject.FindWithTag("Player");
+        enemy = GameObject.FindWithTag("Enemy");
+        if (enemy != null && player != null)
+        {
+            if (Vector3.Distance(player.transform.position, this.transform.position) < 5)
+            {
+                opponent = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
+            }
+            else
+            {
+                opponent = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            }
+        }
+        
+        lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.SetVertexCount(noSegments);
 
         for(int i = 1; i < noSegments - 1; i++)
         {
             float z = ((float)i) * (maxZ) / (float)(noSegments - 1);
 
-            lineRenderer.SetPosition(i, new Vector3(Random.Range(-posRange, posRange), Random.Range(-posRange, posRange), z));
+            lineRenderer.SetPosition(i, new Vector3(opponent.position.x + Random.Range(-posRange, posRange), opponent.position.y + Random.Range(-posRange, posRange), opponent.position.z));
         }
 
-        lineRenderer.SetPosition(0, new Vector3(0.0f, 0.0f, 0.0f));
-        lineRenderer.SetPosition(noSegments - 1, new Vector3(0.0f, 0.0f, 4.0f));
+
+        lineRenderer.useWorldSpace = true;
+        lineRenderer.SetPosition(0, this.transform.position);
+        lineRenderer.SetPosition(noSegments - 1, opponent.position);
     }
-    
 
 
     /*
