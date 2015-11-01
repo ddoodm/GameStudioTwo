@@ -11,6 +11,9 @@ public class itemSelector : MonoBehaviour
     public bool isSocket;
     private bool highlighted = false;
     private bool bought;
+    private weaponStats weapon;
+
+
 
     private StoreController storeController;
 
@@ -21,6 +24,8 @@ public class itemSelector : MonoBehaviour
     
     void Start()
     {
+        
+
         storeController = GameObject.FindGameObjectWithTag("StoreUI").GetComponent<StoreController>();
         startColour = GetComponentInChildren<Renderer>().material.color;
 
@@ -30,7 +35,16 @@ public class itemSelector : MonoBehaviour
         }
         else
         {
+            Debug.Log(this.name);
             bought = GetComponent<buyItem>().bought;
+            Transform weaponObject = Resources.Load<Transform>("Item_" + this.name);
+            weapon = weaponObject.GetComponent<weaponStats>();
+            if (weapon == null)
+            {
+                Debug.Log("stat is in a child");
+                weapon = weaponObject.GetComponentInChildren<weaponStats>();
+            }
+            objectWeight = weapon.mass + "kg";
         }
     }
 
@@ -146,7 +160,7 @@ public class itemSelector : MonoBehaviour
     {
         if (highlighted && !isSocket && !string.IsNullOrEmpty(objectName))
         {
-            GUI.Box(new Rect(Event.current.mousePosition.x + 10, Event.current.mousePosition.y, 125, 25), objectName + " " + objectWeight);
+            GUI.Box(new Rect(Event.current.mousePosition.x + 10, Event.current.mousePosition.y, 125, 40), objectName + "\n" + "Weight: " + objectWeight);
         }
     }
 }
