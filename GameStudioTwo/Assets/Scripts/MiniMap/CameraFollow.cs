@@ -13,7 +13,9 @@ public class CameraFollow : MonoBehaviour
     private Rigidbody targetBody;
     private Camera thisCamera;
 
-    public bool velocityBased = false;
+    public bool
+        velocityBased = false,
+        midPlayerEnemy = true;
 
     void Start()
     {
@@ -29,7 +31,13 @@ public class CameraFollow : MonoBehaviour
 
 	void LateUpdate ()
     {
-		transform.position = new Vector3 (target.position.x,transform.position.y,target.position.z);
+        if (midPlayerEnemy)
+        {
+            Vector3 midTarget = (player.position + enemy.position) / 2.0f;
+            transform.position = new Vector3(midTarget.x, transform.position.y, midTarget.z);
+        }
+        else
+            transform.position = target.position;
 
         float canDistanceTarget = velocityBased?
             targetBody.velocity.magnitude :
