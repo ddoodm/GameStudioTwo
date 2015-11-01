@@ -1417,7 +1417,9 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1812370578}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11455182, guid: 3ff13eb3a41db764e9a34f929b28faad, type: 2}
+    - {fileID: 11407060, guid: 3ff13eb3a41db764e9a34f929b28faad, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3ff13eb3a41db764e9a34f929b28faad, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &510556596 stripped
@@ -1437,6 +1439,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   tutorialMessages: []
+--- !u!114 &510556598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 510556596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd197e68c485e64dbbacb53f42aaffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 599023452}
+  Enemy: {fileID: 599023453}
 --- !u!4 &519875893 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400020, guid: 0abf45802475e4d4eaf5fa7b5a2e70d8, type: 3}
