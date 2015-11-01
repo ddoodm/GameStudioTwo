@@ -8,9 +8,9 @@ public class equipmentHandler : MonoBehaviour {
     // changed to START from AWAKE so socketEqupment script is called first. Not sure if this has broken other things
     void Start()
     {
-        VehicleController playerVehicle = player.GetComponent<VehicleController>();
+        player = GameObject.FindGameObjectWithTag("Player");
 
-        if (playerVehicle.player == 1)
+        if (player.GetComponent<VehicleController>().player == 1)
         {
             if (GameObject.FindGameObjectWithTag("Persistent Stats").GetComponent<persistentStats>() != null)
             {
