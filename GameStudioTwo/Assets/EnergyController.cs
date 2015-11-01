@@ -35,7 +35,7 @@ public class EnergyController : MonoBehaviour
 
     public bool energyFull
     {
-        get { return energy == maxEnergy; }
+        get { return energy >= maxEnergy; }
     }
 
     public float unitEnergy
