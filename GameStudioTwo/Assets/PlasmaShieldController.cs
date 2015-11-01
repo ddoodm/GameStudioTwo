@@ -8,13 +8,16 @@ public class PlasmaShieldController : MonoBehaviour, Weapon
     public float
         forceRadius = 10.0f,
         forceAmount = 10.0f,
-        vehicleMultiplier = 3.0f;
+        vehicleMultiplier = 3.0f,
+        energyConsumption = 0.2f;
     public Vector3 forceOffset = new Vector3(0.0f, -0.5f, 0.0f);
     public AnimationCurve plasBallAnim;
 
     private bool _active = false;
     private float startTime;
     private float initialFalloffY;
+
+    private const string FALLOFF_BINDING = "_FalloffY";
 
     private bool active
     {
@@ -29,8 +32,11 @@ public class PlasmaShieldController : MonoBehaviour, Weapon
     void Update()
     {
         EnergyController energyCtrl = transform.root.GetComponent<EnergyController>();
-        if (energyCtrl.energy <= 1.0f)
+        if (energyCtrl.energy <= 3.0f)
             active = false;
+
+        if (active)
+            InstantiateBall();
 
         // Animate plasma ball
         animateBall();
@@ -42,7 +48,7 @@ public class PlasmaShieldController : MonoBehaviour, Weapon
         deflectWorld();
 
         // Drain energy
-        energyCtrl.energy -= 0.8f;
+        energyCtrl.energy -= energyConsumption;
     }
 
     private void animateBall()
@@ -57,10 +63,11 @@ public class PlasmaShieldController : MonoBehaviour, Weapon
         float animVal = plasBallAnim.Evaluate(active? (dt) : (endOfAnim - dt));
 
         // Apply the falloff Y to the shader
-        plasmaBallInstance.GetComponent<Renderer>().material.SetFloat("_FalloffY", animVal);
+        plasmaBallInstance.GetComponent<Renderer>().material.SetFloat(FALLOFF_BINDING, animVal);
 
         // Destroy ball if the deactivation animation is complete
         // TODO: Should make this cleaner
+
         if (!active && animVal == plasBallAnim[0].value)
         {
             if (plasmaBallInstance != null)
@@ -100,13 +107,11 @@ public class PlasmaShieldController : MonoBehaviour, Weapon
         }
     }
 
-    public void Use()
+    private void InstantiateBall()
     {
-        active = true;
-
         // Instantiate plasma effect if it is not already there
         if (plasmaBallInstance == null)
-            plasmaBallInstance = 
+            plasmaBallInstance =
                 (GameObject)GameObject.Instantiate(plasmaBallPrefab,
                 this.transform.root.position,
                 Quaternion.identity);
@@ -115,18 +120,17 @@ public class PlasmaShieldController : MonoBehaviour, Weapon
         plasmaBallInstance.transform.parent = this.transform.root;
 
         // Save initial falloff Y
-        initialFalloffY = plasmaBallInstance.GetComponent<Renderer>().material.GetFloat("_FalloffY");
+        initialFalloffY = plasmaBallInstance.GetComponent<Renderer>().material.GetFloat(FALLOFF_BINDING);
+    }
+
+    public void Use()
+    {
+        active = true;
     }
 
     public void EndUse()
     {
         active = false;
-
-        /*
-        if (plasmaBallInstance != null)
-            GameObject.Destroy(plasmaBallInstance);
-        plasmaBallInstance = null;
-        */
     }
 
     public GameObject GetGameObject()

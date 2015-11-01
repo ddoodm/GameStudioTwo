@@ -2103,6 +2103,29 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 488816, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_PrefabInternal: {fileID: 471816610}
+--- !u!1 &471816612 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 150718, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+  m_PrefabInternal: {fileID: 471816610}
+--- !u!82 &471816613 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 8266752, guid: 170ae924af56068428fe76d74e9da47f,
+    type: 2}
+  m_PrefabInternal: {fileID: 471816610}
+--- !u!114 &471816614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 471816612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e9d6401ddf91a4883e29f34ee4a1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicleSource: {fileID: 471816613}
+  impactClip: {fileID: 8300000, guid: d1be524cde091f840b8a896ca18acf24, type: 3}
+  clangClip: {fileID: 8300000, guid: 9ae2e0f01ddab57449f17d9e5231ba92, type: 3}
 --- !u!1 &509493899
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,7 +2229,9 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 471816611}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11455182, guid: 3ff13eb3a41db764e9a34f929b28faad, type: 2}
+    - {fileID: 11407060, guid: 3ff13eb3a41db764e9a34f929b28faad, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3ff13eb3a41db764e9a34f929b28faad, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &520018970 stripped
@@ -2232,6 +2257,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   tutorialMessages: []
+--- !u!114 &520018973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 520018971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd197e68c485e64dbbacb53f42aaffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1467325585}
+  Enemy: {fileID: 641320640}
 --- !u!1 &547605416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2936,9 +2974,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  player: {fileID: 0}
+  enemy: {fileID: 0}
   minOrthoSize: 5
   velocityCoef: 2.5
   sizeAdjustSpeed: .800000012
+  velocityBased: 0
+  midPlayerEnemy: 1
 --- !u!20 &765541589
 Camera:
   m_ObjectHideFlags: 0
@@ -3131,7 +3173,8 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8278476, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &772133251 stripped
@@ -3208,6 +3251,20 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &772133253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 772133251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e9d6401ddf91a4883e29f34ee4a1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicleSource: {fileID: 772133252}
+  impactClip: {fileID: 8300000, guid: d1be524cde091f840b8a896ca18acf24, type: 3}
+  clangClip: {fileID: 8300000, guid: 9ae2e0f01ddab57449f17d9e5231ba92, type: 3}
 --- !u!1 &776223824
 GameObject:
   m_ObjectHideFlags: 0
@@ -3679,9 +3736,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  minOrthoSize: 5
-  velocityCoef: 2.5
-  sizeAdjustSpeed: .800000012
+  player: {fileID: 0}
+  enemy: {fileID: 0}
+  minOrthoSize: 1.75
+  velocityCoef: 1
+  sizeAdjustSpeed: .949999988
+  velocityBased: 0
+  midPlayerEnemy: 1
 --- !u!20 &835938327
 Camera:
   m_ObjectHideFlags: 0
@@ -3692,7 +3753,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: .735294104, g: .735294104, b: .735294104, a: .0196078438}
+  m_BackGroundColor: {r: .0259515624, g: .0418446474, b: .0882353187, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -6896,15 +6957,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2067096, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_BackGroundColor.r
-      value: .735294104
+      value: .0259515624
       objectReference: {fileID: 0}
     - target: {fileID: 2067096, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_BackGroundColor.g
-      value: .735294104
+      value: .0418446474
       objectReference: {fileID: 0}
     - target: {fileID: 2067096, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_BackGroundColor.b
-      value: .735294104
+      value: .0882353187
       objectReference: {fileID: 0}
     - target: {fileID: 105880, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_Name
@@ -6913,6 +6974,18 @@ Prefab:
     - target: {fileID: 105880, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_TagString
       value: Topdown Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451520, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
+      propertyPath: velocityCoef
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451520, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
+      propertyPath: sizeAdjustSpeed
+      value: .949999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451520, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
+      propertyPath: minOrthoSize
+      value: 1.75
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

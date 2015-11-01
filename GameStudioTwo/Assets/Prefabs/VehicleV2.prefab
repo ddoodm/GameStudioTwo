@@ -363,7 +363,7 @@ GameObject:
   - 4: {fileID: 443854}
   m_Layer: 8
   m_Name: ItemSockets
-  m_TagString: Untagged
+  m_TagString: ItemSockets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -657,7 +657,7 @@ GameObject:
   - 4: {fileID: 472780}
   m_Layer: 8
   m_Name: VehicleBase
-  m_TagString: Untagged
+  m_TagString: VehicleBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3318,6 +3318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyBar: {fileID: 0}
   maxEnergy: 50
+  energyRefillSpeed: 15
 --- !u!114 &11439442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4405,7 +4406,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: ItemSockets
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: energyRefillSpeed
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150718}

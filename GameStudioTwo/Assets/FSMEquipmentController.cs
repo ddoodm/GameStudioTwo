@@ -8,13 +8,15 @@ public class FSMEquipmentController : MonoBehaviour
 {
     private SocketEquipment socketEquipment;
     private FSMBotController botControl;
+    private EnergyController energyControl;
     private Equipment[] equips;
     private GameObject player;
     private Rigidbody thisBody;
 
     public float
         flipperActivationRadius = 8.0f,
-        flipperMinCooldownSeconds = 1.0f, flipperMaxCooldownSeconds = 2.8f;
+        flipperMinCooldownSeconds = 1.0f, flipperMaxCooldownSeconds = 2.8f,
+        plasmaShieldActivationRadius = 10.0f, plasmaCooldownMin = 5.0f, plasmaCooldownMax = 10.0f;
 
 	// Use this for initialization
 	void Start ()
@@ -23,6 +25,7 @@ public class FSMEquipmentController : MonoBehaviour
         botControl = GetComponent<FSMBotController>();
         player = GameObject.FindWithTag("Player");
         thisBody = GetComponent<Rigidbody>();
+        energyControl = GetComponent<EnergyController>();
 
         flipperCooldownTimers = new float[Enum.GetNames(typeof(SocketLocation)).Length];
         hammerCooldownTimers = new float[Enum.GetNames(typeof(SocketLocation)).Length];
@@ -46,6 +49,7 @@ public class FSMEquipmentController : MonoBehaviour
             case Equipment.Item_Flipper: WeaponLogic_Flipper(socket); break;
             case Equipment.Item_CircularSaw: WeaponLogic_Saw(socket); break;
             case Equipment.Item_Hammer: WeaponLogic_Hammer(socket); break;
+            case Equipment.Item_PlasmaShield: WeaponLogic_PlasmaShield(socket); break;
             case Equipment.Item_Booster:
                 if(socket == SocketLocation.BACK)
                     WeaponLogic_RearBooster(socket);
@@ -97,8 +101,6 @@ public class FSMEquipmentController : MonoBehaviour
             bool correctState = botControl.state == FSMBotController.FSMState.ARRIVE;
             bool cooldownOkay = hammerCooldownTimers[(int)socket] <= 0.0f;
 
-            Debug.Log(playerInRange + "" + correctState + "" + cooldownOkay);
-
             if (playerInRange && correctState && cooldownOkay)
             {
                 hammer.Use();
@@ -135,21 +137,26 @@ public class FSMEquipmentController : MonoBehaviour
 
     // Unified booster-wide timer
     private float boosterCooldown = 0.0f;
+    private bool boosting = false;
     private void WeaponLogic_RearBooster(SocketLocation socket)
     {
         boosterCooldown -= Time.deltaTime;
         Weapon booster = socketEquipment.GetWeaponInSocket(socket);
         if (booster != null)
         {
-            float distanceToPlayer = (this.transform.position - player.transform.position).magnitude;
+            Vector3 vectorToPlayer = player.transform.position - this.transform.position;
+            float distanceToPlayer = (vectorToPlayer).magnitude;
 
-            bool inRange = distanceToPlayer > 3.0f && distanceToPlayer < 15.0f;
-            bool notStuck = thisBody.velocity.magnitude > 4.0f;
+            bool inRange = distanceToPlayer > 5.0f;
+            //bool notStuck = thisBody.velocity.magnitude > 0.8f;
             bool correctState = botControl.state == FSMBotController.FSMState.ARRIVE;
+            bool goodAngle = Vector3.Dot(vectorToPlayer.normalized, thisBody.transform.forward) >= 0.95f;
+            bool hasEnergy = energyControl.energy >= energyControl.maxEnergy * 0.9f;
 
-            if (inRange && notStuck && correctState)
+            if (inRange && correctState && goodAngle && hasEnergy)
                 booster.Use();
-            else
+
+            if (!inRange)
                 booster.EndUse();
         }
     }
@@ -183,5 +190,28 @@ public class FSMEquipmentController : MonoBehaviour
         }
         else
             booster.EndUse();
+    }
+
+    private float plasmaCooldownTimer = 0.0f;
+    private void WeaponLogic_PlasmaShield(SocketLocation socket)
+    {
+        plasmaCooldownTimer -= Time.deltaTime;
+        Weapon shield = socketEquipment.GetWeaponInSocket(socket);
+
+        if (shield != null)
+        {
+            Transform shieldTransform = shield.GetGameObject().transform;
+            float distanceToPlayer = (this.transform.position - player.transform.position).magnitude;
+
+            bool playerInRange = distanceToPlayer <= plasmaShieldActivationRadius;
+            bool cooldownOkay = plasmaCooldownTimer <= 0.0f;
+            bool hasEnergy = energyControl? (energyControl.energy > 8.0f) : false;
+
+            if (playerInRange && cooldownOkay && hasEnergy)
+            {
+                shield.Use();
+                plasmaCooldownTimer = UnityEngine.Random.Range(plasmaCooldownMin, plasmaCooldownMax);
+            }
+        }
     }
 }

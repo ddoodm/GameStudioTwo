@@ -46,6 +46,8 @@ TagManager:
   - Item_BasicEngine
   - Tutorial
   - Item_TeslaCoil
+  - VehicleBase
+  - ItemSockets
   layers:
   - Default
   - TransparentFX

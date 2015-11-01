@@ -27,6 +27,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 447610}
   - 114: {fileID: 11428476}
+  - 114: {fileID: 11416152}
   m_Layer: 0
   m_Name: Item_PlasmaShield
   m_TagString: Item_PlasmaShield
@@ -323,6 +324,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 750
   hasLight: 1
+--- !u!114 &11416152
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: .200000003
+  damageMultiplier: 1
+  hp: 100
 --- !u!114 &11428476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -336,9 +351,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plasmaBallPrefab: {fileID: 168920, guid: b1910a6973b266c44aa1776ce61096bb, type: 2}
   plasmaBallInstance: {fileID: 0}
-  forceRadius: 4
+  forceRadius: 5
   forceAmount: 500
   vehicleMultiplier: .899999976
+  energyConsumption: .200000003
   forceOffset: {x: 0, y: -.5, z: 0}
   plasBallAnim:
     serializedVersion: 2
@@ -348,8 +364,8 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: .298040748
-      value: .397353679
+    - time: .299516797
+      value: .399180263
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -366,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: .200000003
+  mass: 0
   damageMultiplier: 1
   hp: 100
 --- !u!114 &11483240
@@ -404,7 +420,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: mass
-      value: .200000003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: hp
@@ -416,7 +432,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: forceRadius
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.data[1].value
+      value: .399180263
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: plasBallAnim.m_Curve.Array.data[1].time
+      value: .299516797
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: energyConsumption
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

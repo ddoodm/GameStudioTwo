@@ -548,7 +548,7 @@ GameObject:
   - 4: {fileID: 411278}
   m_Layer: 8
   m_Name: VehicleBase
-  m_TagString: Untagged
+  m_TagString: VehicleBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2021,7 +2021,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flipForce: 650
   proximityRadius: 1.89999998
-  control: 0
+  initialRot: {x: 0, y: 0, z: 0}
+  animationTime: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11427360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2034,6 +2040,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: 49
+  button: 
+  playerNumber: 0
 --- !u!114 &11477662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2183,7 +2191,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: VehicleBase
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 186744}

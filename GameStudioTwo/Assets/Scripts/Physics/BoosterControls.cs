@@ -96,11 +96,13 @@ public class BoosterControls : MonoBehaviour, Weapon
             //vehicle.speedMultiplier = 1;
             forwardBoosting = false;
         }
+        /*
         if (!forwardBoosting && energyCtrl.energy < maxEnergy)
         {
             energyCtrl.energy += 0.25f;
             //vehicle.speedMultiplier = 1;
         }
+        */
 
         thrustParticles();
 	}

@@ -5,6 +5,7 @@ public class EnergyController : MonoBehaviour
 {
     public HPBar energyBar;
     public float maxEnergy = 50.0f;
+    public float energyRefillSpeed = 0.25f;
 
     private float _energy;
 
@@ -20,6 +21,13 @@ public class EnergyController : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        // Automatic energy refil
+        if (energy < maxEnergy)
+            energy += energyRefillSpeed * Time.deltaTime;
+    }
+
     public void DrainEnergy()
     {
         energy -= maxEnergy;
@@ -27,7 +35,7 @@ public class EnergyController : MonoBehaviour
 
     public bool energyFull
     {
-        get { return energy == maxEnergy; }
+        get { return energy >= maxEnergy; }
     }
 
     public float unitEnergy

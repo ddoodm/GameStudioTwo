@@ -8,7 +8,7 @@ public class sawController : MonoBehaviour, Weapon {
     public AnimationCurve lower;
     public AnimationCurve raise;
 
-    public bool canFlip;
+    public bool canLower = true, canRaise = false, raisePending = false;
 
     public Vector3 initialRot;
 
@@ -17,7 +17,8 @@ public class sawController : MonoBehaviour, Weapon {
     // Update is called once per frame
     void Update()
     {
-        DoAnimation();
+        if(movingPart)
+            DoAnimation();
     }
 
     private void DoAnimation()
@@ -27,9 +28,22 @@ public class sawController : MonoBehaviour, Weapon {
         if(movingPart != null)
             movingPart.transform.rotation = Quaternion.Euler(new Vector3(0, transform.root.rotation.eulerAngles.y - initialRot.y, -90 + animCurveValue * 90));
 
-        // The player may flip once the animation is reset
-        if (animationTime >= 1.0f)
-            canFlip = true;
+        if (animationTime >= 1.0f && activeCurve == raise)
+            canLower = true;
+
+        if (animationTime >= 1.0f && activeCurve == lower)
+            canRaise = true;
+
+        // Try raise
+        if (canRaise && raisePending)
+        {
+            animationTime = 0;
+            activeCurve = raise;
+            movingPart.GetComponentInChildren<sawSpinner>().spinSpeed = -1;
+            raisePending = false;
+            canLower = false;
+            canRaise = false;
+        }
     }
 
     public void Use()
@@ -38,11 +52,14 @@ public class sawController : MonoBehaviour, Weapon {
         if (!movingPart)
             return;
 
-        if (canFlip)
+        if (canLower)
         {
             animationTime = 0;
             activeCurve = lower;
-            movingPart.GetComponentInChildren<sawSpinner>().spinSpeed = 4;
+            movingPart.GetComponentInChildren<sawSpinner>().spinSpeed = -32;
+            canLower = false;
+            canRaise = false;
+            raisePending = false;
         }
     }
 
@@ -52,9 +69,7 @@ public class sawController : MonoBehaviour, Weapon {
         if (!movingPart)
             return;
 
-        animationTime = 0;
-        activeCurve = raise;
-        movingPart.GetComponentInChildren<sawSpinner>().spinSpeed = 1;
+        raisePending = true;
     }
 
     public GameObject GetGameObject()
