@@ -835,24 +835,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1935438582}
   m_RootOrder: 4
---- !u!1 &270411210 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 103294, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-  m_PrefabInternal: {fileID: 885883225}
---- !u!114 &270411213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 270411210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bff8ba660c22ed14f80c41a8532b0080, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  control: 53
-  button: SocketTop
-  playerNumber: 0
 --- !u!1001 &370232097
 Prefab:
   m_ObjectHideFlags: 0
@@ -1172,7 +1154,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -14.3599997
+  near clip plane: 6.69000006
   far clip plane: 88.5999985
   field of view: 60
   orthographic: 1
@@ -1197,7 +1179,7 @@ Transform:
   m_PrefabInternal: {fileID: 832795997}
   m_GameObject: {fileID: 504246978}
   m_LocalRotation: {x: -1.1520234e-07, y: .707106769, z: -.707106888, w: -1.15202319e-07}
-  m_LocalPosition: {x: -20.7999878, y: 10, z: 16.2000008}
+  m_LocalPosition: {x: -20.7999878, y: 7.84000015, z: 16.2000008}
   m_LocalScale: {x: .999999762, y: 1.00000012, z: .999999881}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1683,7 +1665,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 402256, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 7.84000015
       objectReference: {fileID: 0}
     - target: {fileID: 402256, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1735,7 +1717,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2067096, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: near clip plane
-      value: -14.3599997
+      value: 6.69000006
       objectReference: {fileID: 0}
     - target: {fileID: 2067096, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_TargetTexture
@@ -1972,7 +1954,8 @@ Prefab:
       propertyPath: speedMultiplier
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11407926, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &885883226 stripped
