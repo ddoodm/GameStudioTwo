@@ -307,6 +307,10 @@ public class PlayerHealth : MonoBehaviour
 
 
         }
+        if (gameObject.CompareTag("Enemy"))
+        {
+            moneyGained *= 2;
+        }
 
         money.text = "Money Earned: " + moneyGained;
         money.gameObject.SetActive(true);
