@@ -316,7 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: .200000003
   damageMultiplier: 1.20000005
-  hp: 7
+  hp: 700
 --- !u!114 &11435746
 MonoBehaviour:
   m_ObjectHideFlags: 1

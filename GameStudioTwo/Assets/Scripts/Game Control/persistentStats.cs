@@ -35,7 +35,15 @@ public class persistentStats : MonoBehaviour {
 
         boughtItems = new Equipment[10];
 
-        
+
+
+        for (int i = 0; i < 10; i++)
+        { 
+            boughtItems[i] = Equipment.EMPTY;
+        }
+        playerMoney = 10000;
+
+        /*
         boughtItems[0] = Equipment.Item_Handle;
         boughtItems[1] = Equipment.Item_BasicEngine;
         boughtItems[2] = Equipment.Item_Spike;
@@ -45,15 +53,7 @@ public class persistentStats : MonoBehaviour {
         boughtItems[6] = Equipment.Item_PlasmaShield;
         boughtItems[7] = Equipment.Item_CircularSaw;
         boughtItems[8] = Equipment.Item_Hammer;
-        boughtItems[9] = Equipment.Item_TeslaCoil;
-
-
-        for (int i = 0; i < 9; i++)
-        { 
-            //boughtItems[i] = Equipment.EMPTY;
-        }
-        playerMoney = 10000;
-
+        boughtItems[9] = Equipment.Item_TeslaCoil;*/
 
         model = "BaseMower";
 	}
