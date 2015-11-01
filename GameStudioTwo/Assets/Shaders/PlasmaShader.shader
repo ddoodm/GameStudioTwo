@@ -38,9 +38,9 @@
 				float2 uv : TEXCOORD0;
 				UNITY_FOG_COORDS(1)
 				float4 vertex : SV_POSITION;
-				float4 localPos : TEXCOORD1;
+				float4 localPos : TEXCOORD3;
 				float3 normal : NORMAL;
-				float3 viewDir : TEXCOORD2;
+				float3 viewDir : TEXCOORD4;
 			};
 
 			sampler2D _MainTex;

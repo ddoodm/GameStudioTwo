@@ -81,7 +81,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 447632}
   - 114: {fileID: 11452982}
-  - 114: {fileID: 11410716}
+  - 114: {fileID: 11476724}
   m_Layer: 0
   m_Name: Item_Hammer
   m_TagString: Item_Hammer
@@ -309,20 +309,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11410716
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 185190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mass: .100000001
-  damageMultiplier: 100
-  hp: 1e+07
 --- !u!114 &11427126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -378,9 +364,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mass: 0
+  damageMultiplier: 1.79999995
+  hp: 2000
+--- !u!114 &11476724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   mass: .5
   damageMultiplier: 1.79999995
-  hp: 200
+  hp: 2000
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

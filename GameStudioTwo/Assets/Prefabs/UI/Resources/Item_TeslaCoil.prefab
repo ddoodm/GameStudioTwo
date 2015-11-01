@@ -77,6 +77,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 466548}
+  - 114: {fileID: 11418734}
+  - 114: {fileID: 11479510}
   m_Layer: 0
   m_Name: Item_TeslaCoil
   m_TagString: Item_TeslaCoil
@@ -335,6 +337,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11418734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: .5
+  damageMultiplier: 1
+  hp: 30
 --- !u!114 &11437854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -348,6 +364,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightningPrefab: {fileID: 11440992, guid: 62b6acad7c63c1644ab6b8bf6042cc13, type: 2}
   electric: 0
+  opponent: {fileID: 0}
+  zapRange: 30
 --- !u!114 &11471540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -359,16 +377,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 4
+  mass: 0
   damageMultiplier: 1
   hp: 30
+--- !u!114 &11479510
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 658012330fbb2bb44a030c5582d09a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningDamage: 500
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: mass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: zapRange
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lightningDamage
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 177474}

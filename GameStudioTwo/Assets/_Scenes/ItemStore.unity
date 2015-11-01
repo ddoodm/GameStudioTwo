@@ -589,7 +589,7 @@ GameObject:
   - 224: {fileID: 36371025}
   - 114: {fileID: 36371026}
   m_Layer: 5
-  m_Name: R slider
+  m_Name: B slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -662,7 +662,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 511370662}
-        m_MethodName: changeR
+        m_MethodName: changeB
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5458,7 +5458,7 @@ GameObject:
   - 224: {fileID: 366577608}
   - 114: {fileID: 366577609}
   m_Layer: 5
-  m_Name: B slider
+  m_Name: R slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5531,7 +5531,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 511370662}
-        m_MethodName: changeB
+        m_MethodName: changeR
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12380,7 +12380,7 @@ GameObject:
   - 114: {fileID: 764352799}
   - 114: {fileID: 764352798}
   m_Layer: 8
-  m_Name: Engine
+  m_Name: BasicEngine
   m_TagString: Item_BasicEngine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
