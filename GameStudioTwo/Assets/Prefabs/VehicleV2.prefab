@@ -3318,6 +3318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyBar: {fileID: 0}
   maxEnergy: 50
+  energyRefillSpeed: 15
 --- !u!114 &11439442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4409,6 +4410,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: ItemSockets
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: energyRefillSpeed
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
