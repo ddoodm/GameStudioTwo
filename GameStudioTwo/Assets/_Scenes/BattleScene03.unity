@@ -659,6 +659,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_IsPrefabParent: 0
+--- !u!82 &111965287 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 8278476, guid: 9b1422ed844df2c44b6908a03aad489e,
+    type: 2}
+  m_PrefabInternal: {fileID: 111965286}
 --- !u!1001 &130962476
 Prefab:
   m_ObjectHideFlags: 0
@@ -1460,6 +1465,20 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 157070, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_PrefabInternal: {fileID: 111965286}
+--- !u!114 &550886343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 550886342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e9d6401ddf91a4883e29f34ee4a1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicleSource: {fileID: 111965287}
+  impactClip: {fileID: 8300000, guid: d1be524cde091f840b8a896ca18acf24, type: 3}
+  clangClip: {fileID: 8300000, guid: 9ae2e0f01ddab57449f17d9e5231ba92, type: 3}
 --- !u!114 &550886353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2009,6 +2028,29 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 430390, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
   m_PrefabInternal: {fileID: 885883225}
+--- !u!1 &885883233 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 150718, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
+  m_PrefabInternal: {fileID: 885883225}
+--- !u!82 &885883234 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 8266752, guid: 170ae924af56068428fe76d74e9da47f,
+    type: 2}
+  m_PrefabInternal: {fileID: 885883225}
+--- !u!114 &885883235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 885883233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e9d6401ddf91a4883e29f34ee4a1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicleSource: {fileID: 885883234}
+  impactClip: {fileID: 8300000, guid: d1be524cde091f840b8a896ca18acf24, type: 3}
+  clangClip: {fileID: 8300000, guid: 9ae2e0f01ddab57449f17d9e5231ba92, type: 3}
 --- !u!1001 &897685210
 Prefab:
   m_ObjectHideFlags: 0
@@ -3295,6 +3337,48 @@ Transform:
   - {fileID: 255624304}
   m_Father: {fileID: 0}
   m_RootOrder: 12
+--- !u!1001 &1941187664
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 449742, guid: 784c694d5ebaaac43bb520861ce4c357, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449742, guid: 784c694d5ebaaac43bb520861ce4c357, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449742, guid: 784c694d5ebaaac43bb520861ce4c357, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449742, guid: 784c694d5ebaaac43bb520861ce4c357, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449742, guid: 784c694d5ebaaac43bb520861ce4c357, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449742, guid: 784c694d5ebaaac43bb520861ce4c357, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449742, guid: 784c694d5ebaaac43bb520861ce4c357, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 449742, guid: 784c694d5ebaaac43bb520861ce4c357, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 784c694d5ebaaac43bb520861ce4c357, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &2010339169 stripped
 Transform:
   m_PrefabParentObject: {fileID: 480940, guid: e0acec370493f9c4590c7f7fa9cfc2f1, type: 2}
