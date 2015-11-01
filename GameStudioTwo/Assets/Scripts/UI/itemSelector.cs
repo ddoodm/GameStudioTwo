@@ -44,7 +44,7 @@ public class itemSelector : MonoBehaviour
                 Debug.Log("stat is in a child");
                 weapon = weaponObject.GetComponentInChildren<weaponStats>();
             }
-            objectWeight = weapon.mass + "kg";
+            objectWeight = weapon.mass*50 + "kg";
         }
     }
 

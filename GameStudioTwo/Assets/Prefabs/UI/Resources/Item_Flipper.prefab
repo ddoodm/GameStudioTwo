@@ -389,7 +389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 0
   damageMultiplier: 1.10000002
-  hp: 50
+  hp: 500
 --- !u!114 &11429648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -595,7 +595,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: hp
-      value: 50
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: mass

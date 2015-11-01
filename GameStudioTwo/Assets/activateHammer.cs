@@ -15,7 +15,8 @@ public class activateHammer : MonoBehaviour , Weapon {
 
     public void Use()
     {
-        transform.GetComponentInChildren<hammerControls>().useHammer();
+        if(transform.GetComponentInChildren<hammerControls>() != null)
+            transform.GetComponentInChildren<hammerControls>().useHammer();
     }
 
     public void EndUse()
