@@ -5028,6 +5028,7 @@ MonoBehaviour:
   velocityCoef: 2.5
   sizeAdjustSpeed: .800000012
   velocityBased: 0
+  midPlayerEnemy: 1
 --- !u!4 &1653182160 stripped
 Transform:
   m_PrefabParentObject: {fileID: 466492, guid: 8f49dbeffcc8de345857dd7226857d11, type: 2}
@@ -5480,7 +5481,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 402256, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 51.2099991
       objectReference: {fileID: 0}
     - target: {fileID: 402256, guid: 22744f4a1bfee794f9dfe1f97b0206ef, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5624,6 +5625,7 @@ GameObject:
   - 4: {fileID: 2002179431}
   - 20: {fileID: 2002179429}
   - 114: {fileID: 2002179430}
+  - 114: {fileID: 2002179432}
   m_Layer: 0
   m_Name: TopDownCamera
   m_TagString: Topdown Camera
@@ -5685,6 +5687,7 @@ MonoBehaviour:
   velocityCoef: 1.20000005
   sizeAdjustSpeed: .99000001
   velocityBased: 0
+  midPlayerEnemy: 1
 --- !u!4 &2002179431
 Transform:
   m_ObjectHideFlags: 0
@@ -5692,11 +5695,185 @@ Transform:
   m_PrefabInternal: {fileID: 1955540626}
   m_GameObject: {fileID: 2002179428}
   m_LocalRotation: {x: -1.1520234e-07, y: .707106769, z: -.707106888, w: -1.15202319e-07}
-  m_LocalPosition: {x: -20.7999878, y: 10, z: 16.2000008}
+  m_LocalPosition: {x: -20.7999878, y: 51.2099991, z: 16.2000008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &2002179432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2002179428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd999d1b2cf94a45a5b0a47ce074bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: .799147427
+      outSlope: .799147427
+      tangentMode: 10
+    - time: .146759287
+      value: .117282309
+      inSlope: .786461949
+      outSlope: .786461949
+      tangentMode: 10
+    - time: .291891783
+      value: .229582414
+      inSlope: .91853267
+      outSlope: .91853267
+      tangentMode: 10
+    - time: .442550182
+      value: .389775813
+      inSlope: 1.60902143
+      outSlope: 1.60902143
+      tangentMode: 10
+    - time: .654211462
+      value: .845853806
+      inSlope: 1.30026782
+      outSlope: 1.30026782
+      tangentMode: 10
+    - time: 1
+      value: 1
+      inSlope: .445781678
+      outSlope: .445781678
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  greenChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: .76552856
+      outSlope: .76552856
+      tangentMode: 10
+    - time: .183805257
+      value: .140708178
+      inSlope: 1.03334236
+      outSlope: 1.03334236
+      tangentMode: 10
+    - time: .499495625
+      value: .551470637
+      inSlope: 1.09865546
+      outSlope: 1.09865546
+      tangentMode: 10
+    - time: 1
+      value: 1
+      inSlope: .896154702
+      outSlope: .896154702
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  blueChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1.20531034
+      outSlope: 1.20531034
+      tangentMode: 10
+    - time: .10969989
+      value: .132222414
+      inSlope: 1.33442366
+      outSlope: 1.33442366
+      tangentMode: 10
+    - time: .286013991
+      value: .39026463
+      inSlope: 1.29505229
+      outSlope: 1.29505229
+      tangentMode: 10
+    - time: .565186143
+      value: .704770923
+      inSlope: .902772844
+      outSlope: .902772844
+      tangentMode: 10
+    - time: 1
+      value: 1
+      inSlope: .678978086
+      outSlope: .678978086
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  useDepthCorrection: 0
+  zCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthRedChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthGreenChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthBlueChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  saturation: .949999988
+  selectiveCc: 0
+  selectiveFromColor: {r: 1, g: 1, b: 1, a: 1}
+  selectiveToColor: {r: 1, g: 1, b: 1, a: 1}
+  mode: 0
+  updateTextures: 1
+  colorCorrectionCurvesShader: {fileID: 4800000, guid: 62bcade1028c24ca1a39760ed84b9487,
+    type: 3}
+  simpleColorCorrectionCurvesShader: {fileID: 4800000, guid: 438ddd58d82c84d9eb1fdc56111702e1,
+    type: 3}
+  colorCorrectionSelectiveShader: {fileID: 4800000, guid: e515e0f94cefc4c0db54b45cba621544,
+    type: 3}
 --- !u!1001 &2041410678
 Prefab:
   m_ObjectHideFlags: 0

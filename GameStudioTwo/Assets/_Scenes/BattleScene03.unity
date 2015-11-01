@@ -1058,6 +1058,7 @@ MonoBehaviour:
   velocityCoef: 2.5
   sizeAdjustSpeed: .800000012
   velocityBased: 0
+  midPlayerEnemy: 1
 --- !u!20 &445906374
 Camera:
   m_ObjectHideFlags: 0
@@ -1143,6 +1144,7 @@ MonoBehaviour:
   velocityCoef: .930000007
   sizeAdjustSpeed: .980000019
   velocityBased: 0
+  midPlayerEnemy: 1
 --- !u!20 &504246980
 Camera:
   m_ObjectHideFlags: 0
@@ -1449,7 +1451,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 550886342}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9386a27960aef404f9db0669ae2621ca, type: 3}
   m_Name: 
