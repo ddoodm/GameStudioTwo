@@ -845,11 +845,11 @@ public class SocketEquipment : MonoBehaviour {
 
                 Transform plasmashield_top = (Transform)Instantiate(prefab_plasmashield, socket_top.position, Quaternion.identity);
 
-
-
                 plasmashield_top.Rotate(0.0f, 0.0f, 0.0f, Space.World);
                 plasmashield_top.parent = socket_top;
                 socket_top.transform.localPosition += new Vector3(-0.3f, 1.45f, -0.925f);
+
+                AddWeaponReference(plasmashield_top, socket);
 
                 break;
 

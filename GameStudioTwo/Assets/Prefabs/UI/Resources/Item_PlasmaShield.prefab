@@ -351,9 +351,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plasmaBallPrefab: {fileID: 168920, guid: b1910a6973b266c44aa1776ce61096bb, type: 2}
   plasmaBallInstance: {fileID: 0}
-  forceRadius: 4
+  forceRadius: 5
   forceAmount: 500
   vehicleMultiplier: .899999976
+  energyConsumption: .200000003
   forceOffset: {x: 0, y: -.5, z: 0}
   plasBallAnim:
     serializedVersion: 2
@@ -431,7 +432,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: forceRadius
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: plasBallAnim.m_Curve.Array.data[1].value
@@ -440,6 +441,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: plasBallAnim.m_Curve.Array.data[1].time
       value: .299516797
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: energyConsumption
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

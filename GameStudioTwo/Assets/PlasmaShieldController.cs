@@ -8,7 +8,8 @@ public class PlasmaShieldController : MonoBehaviour, Weapon
     public float
         forceRadius = 10.0f,
         forceAmount = 10.0f,
-        vehicleMultiplier = 3.0f;
+        vehicleMultiplier = 3.0f,
+        energyConsumption = 0.2f;
     public Vector3 forceOffset = new Vector3(0.0f, -0.5f, 0.0f);
     public AnimationCurve plasBallAnim;
 
@@ -31,7 +32,7 @@ public class PlasmaShieldController : MonoBehaviour, Weapon
     void Update()
     {
         EnergyController energyCtrl = transform.root.GetComponent<EnergyController>();
-        if (energyCtrl.energy <= 1.0f)
+        if (energyCtrl.energy <= 3.0f)
             active = false;
 
         if (active)
@@ -47,7 +48,7 @@ public class PlasmaShieldController : MonoBehaviour, Weapon
         deflectWorld();
 
         // Drain energy
-        energyCtrl.energy -= 0.8f;
+        energyCtrl.energy -= energyConsumption;
     }
 
     private void animateBall()
