@@ -3,20 +3,11 @@ using System.Collections;
 
 public class equipmentHandler : MonoBehaviour {
 
-	public GameObject player;
-
-	// Use this for initialization
-	
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	public Transform player;
 
     // changed to START from AWAKE so socketEqupment script is called first. Not sure if this has broken other things
     void Start()
     {
-
         player = GameObject.FindGameObjectWithTag("Player");
 
         if (player.GetComponent<VehicleController>().player == 1)
@@ -38,7 +29,7 @@ public class equipmentHandler : MonoBehaviour {
                 }
             }
         }
-        else if (player.GetComponent<VehicleController>().player == 2)
+        else if (playerVehicle.player == 2)
         {
             if (GameObject.FindGameObjectWithTag("Persistent Stats").GetComponent<persistentStats>() != null)
             {

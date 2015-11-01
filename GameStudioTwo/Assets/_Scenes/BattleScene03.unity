@@ -1426,7 +1426,7 @@ Prefab:
     - target: {fileID: 11425896, guid: 3ff13eb3a41db764e9a34f929b28faad, type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1718060741}
+      objectReference: {fileID: 1812370578}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ff13eb3a41db764e9a34f929b28faad, type: 2}
   m_IsPrefabParent: 0
@@ -1898,7 +1898,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11479978, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 13746950, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
       propertyPath: m_AABB.m_Center.x
@@ -3173,10 +3173,6 @@ MonoBehaviour:
   target: {fileID: 1812370578}
   targetFOV: 30.0100002
   maxDist: 100
---- !u!1 &1718060741 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 150718, guid: 170ae924af56068428fe76d74e9da47f, type: 2}
-  m_PrefabInternal: {fileID: 885883225}
 --- !u!114 &1731890761 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11440850, guid: b94daa370d72ea04eb05f3f5f5367cd3,
