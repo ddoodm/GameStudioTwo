@@ -3,11 +3,38 @@ using System.Collections;
 
 public class VehicleAudioManager : MonoBehaviour
 {
-    public AudioSource vehicleSource;
+    public AudioSource vehicleSource, engineSource;
+
+    Rigidbody thisBody;
 
     public AudioClip
         impactClip,
-        clangClip;
+        clangClip,
+        engineIdle;
+
+    void Start()
+    {
+        thisBody = this.GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        EngineNoise();
+    }
+
+    void EngineNoise()
+    {
+        engineSource.clip = engineIdle;
+
+        engineSource.pitch =
+            Mathf.Clamp(
+                0.75f +
+                0.2f * thisBody.velocity.magnitude,
+            0.5f, 1.8f);
+
+        if (!engineSource.isPlaying)
+            engineSource.Play();
+    }
 
     void OnCollisionEnter(Collision collision)
     {
