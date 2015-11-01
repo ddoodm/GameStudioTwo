@@ -302,7 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 0
   damageMultiplier: 1.20000005
-  hp: 7
+  hp: 700
 --- !u!114 &11432012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: .100000001
+  mass: .200000003
   damageMultiplier: 1.20000005
   hp: 7
 --- !u!114 &11435746
@@ -328,9 +328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: .100000001
+  mass: 0
   damageMultiplier: .100000001
-  hp: 7
+  hp: 700
 --- !u!136 &13615614
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -415,6 +415,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: mass
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: hp
+      value: 700
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

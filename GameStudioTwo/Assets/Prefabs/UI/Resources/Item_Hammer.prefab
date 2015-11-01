@@ -366,7 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 0
   damageMultiplier: 1.79999995
-  hp: 200
+  hp: 2000
 --- !u!114 &11476724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: .5
   damageMultiplier: 1.79999995
-  hp: 200
+  hp: 2000
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
