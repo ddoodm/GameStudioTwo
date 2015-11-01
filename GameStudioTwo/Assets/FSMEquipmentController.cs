@@ -137,6 +137,7 @@ public class FSMEquipmentController : MonoBehaviour
 
     // Unified booster-wide timer
     private float boosterCooldown = 0.0f;
+    private bool boosting = false;
     private void WeaponLogic_RearBooster(SocketLocation socket)
     {
         boosterCooldown -= Time.deltaTime;
@@ -146,14 +147,16 @@ public class FSMEquipmentController : MonoBehaviour
             Vector3 vectorToPlayer = player.transform.position - this.transform.position;
             float distanceToPlayer = (vectorToPlayer).magnitude;
 
-            bool inRange = distanceToPlayer > 10.0f && distanceToPlayer < 15.0f;
-            bool notStuck = thisBody.velocity.magnitude > 0.8f;
+            bool inRange = distanceToPlayer > 5.0f;
+            //bool notStuck = thisBody.velocity.magnitude > 0.8f;
             bool correctState = botControl.state == FSMBotController.FSMState.ARRIVE;
             bool goodAngle = Vector3.Dot(vectorToPlayer.normalized, thisBody.transform.forward) >= 0.95f;
+            bool hasEnergy = energyControl.energy >= energyControl.maxEnergy * 0.9f;
 
-            if (inRange && notStuck && correctState && goodAngle)
+            if (inRange && correctState && goodAngle && hasEnergy)
                 booster.Use();
-            else
+
+            if (!inRange)
                 booster.EndUse();
         }
     }
