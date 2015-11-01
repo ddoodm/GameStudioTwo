@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: .200000003
+  mass: .600000024
   damageMultiplier: 1
   hp: 100
 --- !u!114 &11428476
@@ -420,7 +420,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: mass
-      value: 0
+      value: .600000024
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: hp
