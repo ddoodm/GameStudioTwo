@@ -7,6 +7,7 @@ public class phoneScreenUI : MonoBehaviour {
     public Button button;
     public Text buyText;
     public int price;
+	public Text description;
     public Equipment thisItem;
     StoreController storeController;
     private persistentStats stats;
@@ -30,6 +31,29 @@ public class phoneScreenUI : MonoBehaviour {
             button.interactable = true;
             button.image.color = activeColour;
         }
+		string name = this.name.Replace ("Screen_", "");
+		Transform weaponObject = Resources.Load<Transform>("Item_" + name);
+		weaponStats weapon = weaponObject.GetComponent<weaponStats>();
+		if (weapon == null)
+		{
+			Debug.Log("stat is in a child");
+			weapon = weaponObject.GetComponentInChildren<weaponStats>();
+		}
+
+		float damage = 0;
+		if (weapon.damageMultiplier < 1) {
+			damage = 0;
+		} else {
+			damage = (weapon.damageMultiplier - 1) * 10;
+		}
+
+
+
+		description.text = "Weight: " + weapon.mass * 50 + "kg" + "\n" + "Damage: " + damage;
+
+
+
+
     }
 
 
