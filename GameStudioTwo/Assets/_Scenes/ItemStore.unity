@@ -1943,6 +1943,7 @@ MonoBehaviour:
   button: {fileID: 115085856}
   buyText: {fileID: 646969058}
   price: 900
+  description: {fileID: 1927630254}
   thisItem: 3
 --- !u!1 &141536962
 GameObject:
@@ -6515,6 +6516,7 @@ MonoBehaviour:
   button: {fileID: 1498764788}
   buyText: {fileID: 1552983274}
   price: 2400
+  description: {fileID: 2086526637}
   thisItem: 7
 --- !u!1 &420657494
 GameObject:
@@ -8519,6 +8521,7 @@ MonoBehaviour:
   button: {fileID: 698760542}
   buyText: {fileID: 2033887829}
   price: 4500
+  description: {fileID: 404666597}
   thisItem: 9
 --- !u!1 &555256237
 GameObject:
@@ -11523,6 +11526,7 @@ MonoBehaviour:
   button: {fileID: 1701619201}
   buyText: {fileID: 1900339182}
   price: 3000
+  description: {fileID: 1957859852}
   thisItem: 8
 --- !u!1 &717934977
 GameObject:
@@ -11709,6 +11713,7 @@ MonoBehaviour:
   button: {fileID: 17907604}
   buyText: {fileID: 1442778381}
   price: 0
+  description: {fileID: 1788589205}
   thisItem: 0
 --- !u!1 &730034010
 GameObject:
@@ -17680,6 +17685,7 @@ MonoBehaviour:
   button: {fileID: 1712135772}
   buyText: {fileID: 1368647514}
   price: 200
+  description: {fileID: 328119239}
   thisItem: 2
 --- !u!1 &1188915492
 GameObject:
@@ -22058,6 +22064,7 @@ MonoBehaviour:
   button: {fileID: 760219343}
   buyText: {fileID: 1253081232}
   price: 1700
+  description: {fileID: 1100515359}
   thisItem: 5
 --- !u!1 &1426228489
 GameObject:
@@ -27477,6 +27484,7 @@ MonoBehaviour:
   button: {fileID: 2079628162}
   buyText: {fileID: 861253869}
   price: 0
+  description: {fileID: 1229855961}
   thisItem: 1
 --- !u!1 &1824862835
 GameObject:
@@ -27589,6 +27597,7 @@ MonoBehaviour:
   button: {fileID: 383808549}
   buyText: {fileID: 580421870}
   price: 1300
+  description: {fileID: 1377390917}
   thisItem: 4
 --- !u!1 &1837205524
 GameObject:
@@ -29935,6 +29944,7 @@ MonoBehaviour:
   button: {fileID: 1228331915}
   buyText: {fileID: 1367370759}
   price: 2000
+  description: {fileID: 164179159}
   thisItem: 6
 --- !u!1 &1993452875
 GameObject:

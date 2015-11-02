@@ -379,7 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 0
   damageMultiplier: 1
-  hp: 30
+  hp: 1500
 --- !u!114 &11479510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -410,6 +410,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: lightningDamage
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: hp
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
