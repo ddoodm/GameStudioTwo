@@ -541,12 +541,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b94daa370d72ea04eb05f3f5f5367cd3, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &96571865 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11451700, guid: b94daa370d72ea04eb05f3f5f5367cd3,
-    type: 2}
-  m_PrefabInternal: {fileID: 96571864}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!114 &96571866 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11440850, guid: b94daa370d72ea04eb05f3f5f5367cd3,
@@ -3239,7 +3233,7 @@ Prefab:
     - target: {fileID: 11473864, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
       propertyPath: finish
       value: 
-      objectReference: {fileID: 96571865}
+      objectReference: {fileID: 383302269}
     - target: {fileID: 11438798, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
       propertyPath: prefab_basicengine
       value: 

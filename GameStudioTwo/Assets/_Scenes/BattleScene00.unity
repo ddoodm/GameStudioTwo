@@ -3532,7 +3532,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22416902, guid: b94daa370d72ea04eb05f3f5f5367cd3, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 22416902, guid: b94daa370d72ea04eb05f3f5f5367cd3, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -4729,7 +4729,6 @@ MonoBehaviour:
   impactClip: {fileID: 8300000, guid: d1be524cde091f840b8a896ca18acf24, type: 3}
   clangClip: {fileID: 8300000, guid: 9ae2e0f01ddab57449f17d9e5231ba92, type: 3}
   engineIdle: {fileID: 8300000, guid: 7d36bbe159551934890d646014025106, type: 3}
-  engineHigh: {fileID: 8300000, guid: 6c7d0a4ac0566954987f569248a13218, type: 3}
 --- !u!82 &1488116210 stripped
 AudioSource:
   m_PrefabParentObject: {fileID: 8266752, guid: 170ae924af56068428fe76d74e9da47f,
@@ -5520,7 +5519,6 @@ MonoBehaviour:
   impactClip: {fileID: 8300000, guid: d1be524cde091f840b8a896ca18acf24, type: 3}
   clangClip: {fileID: 8300000, guid: 9ae2e0f01ddab57449f17d9e5231ba92, type: 3}
   engineIdle: {fileID: 8300000, guid: 7d36bbe159551934890d646014025106, type: 3}
-  engineHigh: {fileID: 0}
 --- !u!82 &1745030650
 AudioSource:
   m_ObjectHideFlags: 0

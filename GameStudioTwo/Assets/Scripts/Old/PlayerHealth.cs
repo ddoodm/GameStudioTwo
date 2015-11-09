@@ -257,14 +257,14 @@ public class PlayerHealth : MonoBehaviour
 
         if (Application.loadedLevelName != "BattleScene03Multi")
         {
-            if (Input.GetButtonDown(controllerA) || Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetButtonDown(controllerA) || Input.anyKeyDown)
             {
                 Application.LoadLevel("ItemStore");
             }
         }
         else
         {
-            if (Input.GetButtonDown(controllerA) || Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetButtonDown(controllerA) || Input.anyKeyDown)
             {
                 Application.LoadLevel("MultiStore");
             }
