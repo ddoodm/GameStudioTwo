@@ -481,6 +481,6 @@ public class StoreController : MonoBehaviour {
 
     public void backToMain()
     {
-        Application.LoadLevel("MainMenu");
+        Application.LoadLevel("AIDemoMenu");
     }
 }
