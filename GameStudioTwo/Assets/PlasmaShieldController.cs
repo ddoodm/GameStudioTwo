@@ -90,8 +90,7 @@ public class PlasmaShieldController : MonoBehaviour, Weapon
                     continue;
 
             // Do not interact with yourself
-            // TODO: Maybe to object comparison instead of tag comparison
-            if (this.transform.root.tag == c.transform.root.tag)
+            if (this.transform.root == c.transform.root)
                 continue;
 
             // Increase force if the collider is a mower

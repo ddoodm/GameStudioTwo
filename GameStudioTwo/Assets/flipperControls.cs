@@ -25,7 +25,7 @@ public class flipperControls : MonoBehaviour, Weapon {
     {
         thisRigidbody = GetComponent<Rigidbody>();
 
-        if(this.transform.root.tag == "Player")
+        if (this.transform.root.tag == "Player")
         {
             GameObject temp = GameObject.FindWithTag("Enemy");
             if (temp != null)
@@ -34,7 +34,10 @@ public class flipperControls : MonoBehaviour, Weapon {
                 opRigidbody = GameObject.FindWithTag("Player2").GetComponent<Rigidbody>();
         }
         else
-            opRigidbody = GameObject.FindWithTag("Player").GetComponent<Rigidbody>();
+        {
+            FSMBotController thisController = this.transform.root.GetComponent<FSMBotController>();
+            opRigidbody = thisController.playerTransform.GetComponent<Rigidbody>();
+        }
 
         canFlip = true;
 	}

@@ -11,24 +11,26 @@ public class PlayerHealth : MonoBehaviour
     public Text money;
     public Button restartButton;
 	public Image gameOverScreen;
-    public Text flippedCounterText;
 
+    public Text flippedCounterText;
     private int flippedCounter;
 
     public AnimationCurve flippedCounterSize;
-    public float flippedCounterSizeVar;
+    public float flippedCounterTextSize;
 
     private bool analyticsSent = false;
-    private bool flipCoroutineStarted = false;
+    private bool flipCoroutineRunning = false;
     private bool gameIsOver = false;
 
     public string controllerA = "SocketFront";
 
+    private Coroutine flipTimerCoroutine;
+
     public float
         maxHealth = 50.0f,
         mass = 1.0f,
-        damageFactor = 1.0f;
-
+        damageFactor = 1.0f,
+        maxInstantDamageFraction = 0.01f;
 
     public int moneyGained;
 
@@ -51,7 +53,7 @@ public class PlayerHealth : MonoBehaviour
             controllerA += "P2";
         }
 
-        flippedCounterSizeVar = 1.0f;
+        flippedCounterTextSize = 1.0f;
         healthBar.maxValue = maxHealth;
         health = maxHealth;
         calculateMass();
@@ -60,7 +62,7 @@ public class PlayerHealth : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        flippedCounterSizeVar += Time.deltaTime;
+        flippedCounterTextSize += Time.deltaTime;
         if (finish == null)
             return;
 
@@ -69,23 +71,27 @@ public class PlayerHealth : MonoBehaviour
             gameIsOver = true;
 
         if (gameIsOver)
-        {
             gameOver();
-        }
-        if (Vector3.Dot(transform.up, Vector3.up) < 0 && flipCoroutineStarted == false)
-        {
-            flipCoroutineStarted = true;
-            StartCoroutine(checkFlipped());
-        }
-        else if(Vector3.Dot(transform.up,Vector3.up) >= 0)
-        {
-            flippedCounterText.text = "";
-            flipCoroutineStarted = false;
-            StopCoroutine(checkFlipped());
-        }
-        float temp = (flippedCounterSize.Evaluate(flippedCounterSizeVar) * 300);
-        flippedCounterText.fontSize = (int)temp;
 
+        if (isFlipped() && !flipCoroutineRunning)
+        {
+            flipCoroutineRunning = true;
+            flipTimerCoroutine = StartCoroutine(FlipCountdown());
+        }
+         
+        /*
+        if(!isFlipped())
+        {
+            if(flipTimerCoroutine != null)
+                StopCoroutine(flipTimerCoroutine);
+
+            flipTimerCoroutine = null;
+            flipCoroutineRunning = false;
+        }*/
+
+        /*
+        float temp = (flippedCounterSize.Evaluate(flippedCounterTextSize) * 300);
+        flippedCounterText.fontSize = (int)temp;*/
 	}
 
     public void issueDamage(Collision collision)
@@ -94,8 +100,7 @@ public class PlayerHealth : MonoBehaviour
         float damageMultiplier = 1.0f;
 
         PlayerHealth enemy = collision.gameObject.GetComponent<PlayerHealth>();
-        //float damage = collision.relativeVelocity.magnitude;
-        float damage = collision.impulse.magnitude;
+        float damage = Mathf.Clamp(collision.impulse.magnitude, 0.0f, maxHealth * maxInstantDamageFraction); ;
         float thisDamage = 0;
 
         //check if hit by weapon
@@ -208,6 +213,9 @@ public class PlayerHealth : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().mass = 50 * mass;
     }
 
+    /// <summary>
+    /// Why is no it GameController? :(
+    /// </summary>
     void gameOver()
     {
         string winner = "Bot";
@@ -245,16 +253,6 @@ public class PlayerHealth : MonoBehaviour
             analyticsSent = true;
         }
 
-
-        
-
-
-
-
-
-
-
-
         if (Application.loadedLevelName != "BattleScene03Multi")
         {
             if (Input.GetButtonDown(controllerA) || Input.anyKeyDown)
@@ -269,8 +267,6 @@ public class PlayerHealth : MonoBehaviour
                 Application.LoadLevel("MultiStore");
             }
         }
-	
-        
     }
 
     private void calculateMoneyEarned()
@@ -319,58 +315,39 @@ public class PlayerHealth : MonoBehaviour
 
 	IEnumerator showGameOver() {
 		yield return new WaitForSeconds(2);
-
 	}
 
-    IEnumerator checkFlipped()
+    IEnumerator FlipCountdown()
     {
-        flippedCounterSizeVar = 0;
-        flippedCounterText.text = "5";
-        yield return new WaitForSeconds(1);
-        if (!checkFlip())
+        for(int i=5; i > 0; i--)
         {
-            StopCoroutine("checkFlipped");
+            flippedCounterTextSize = 0;
+            flippedCounterText.text = i.ToString();
+            yield return new WaitForSeconds(1);
+
+            if (!isFlipped())
+            {
+                flipCoroutineRunning = false;
+                yield break;
+            }
         }
-        flippedCounterSizeVar = 0;
-        flippedCounterText.text = "4";
-        yield return new WaitForSeconds(1);
-        if (!checkFlip())
-        {
-            StopCoroutine("checkFlipped");
-        }
-        flippedCounterSizeVar = 0;
-        flippedCounterText.text = "3";
-        yield return new WaitForSeconds(1);
-        if (!checkFlip())
-        {
-            StopCoroutine("checkFlipped");
-        }
-        flippedCounterSizeVar = 0;
-        flippedCounterText.text = "2";
-        yield return new WaitForSeconds(1);
-        if (!checkFlip())
-        {
-            StopCoroutine("checkFlipped");
-        }
-        flippedCounterSizeVar = 0;
-        flippedCounterText.text = "1";
-        yield return new WaitForSeconds(1);
-        flippedCounterText.text = "";
-        if (Vector3.Dot(transform.up, Vector3.up) < 0)
-        {
-            gameIsOver = true;
-        }
-        StopCoroutine("checkFlipped");
+
+        flippedCounterTextSize = 0;
+        flippedCounterText.text = "Unflip!";
+
+        // Request the GameController to reset the players
+        GameObject.FindWithTag("GameController")
+            .GetComponent<flipCounterController>()
+            .TriggerFlipTimeout(this.transform.root.gameObject, UnflipCompleteCallback);
     }
 
-    public bool checkFlip()
+    public void UnflipCompleteCallback()
     {
-        if (Vector3.Dot(transform.up, Vector3.up) > 0)
-        {
-            return false;
-        }
-        else
-            return true;
+        flipCoroutineRunning = false;
     }
 
+    public bool isFlipped()
+    {
+        return Vector3.Dot(transform.up, Vector3.up) < 0.1;
+    }
 }

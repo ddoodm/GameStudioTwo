@@ -53,10 +53,46 @@ public class FSMBotController : MonoBehaviour
         goToRandomPosition();
     }
 
+    public void CollisionCallback(Collision col)
+    {
+        if(col.collider.transform.root.tag == playerTransform.tag)
+        {
+            // Low chance of deciding to evade
+            int r = Random.Range(0, 300);
+            if(r==0) this.state = FSMState.EVADE;
+        }
+    }
+
+    private void CheckForNecessaryStateChange()
+    {
+        if(IsPlayerStuckForTooLong())
+            state = FSMState.ARRIVE;
+    }
+
+    const float
+        VELOCITY_TIMER_MIN_THRESH = 0.5f,
+        LOW_VELOCITY_MAX_DURATION = 1.5f;
+    float lowVelocityTimer = 0;
+    private bool IsPlayerStuckForTooLong()
+    {
+        if (botRigidbody.velocity.magnitude < VELOCITY_TIMER_MIN_THRESH)
+            lowVelocityTimer += Time.deltaTime;
+
+        if(lowVelocityTimer > LOW_VELOCITY_MAX_DURATION)
+        {
+            lowVelocityTimer = 0;
+            return true;
+        }
+
+        return false;
+    }
+
     void Update()
     {
         if (!controller.canPathfind)
             goToRandomPosition();
+
+        CheckForNecessaryStateChange();
 
         switch (state)
         {
@@ -119,7 +155,7 @@ public class FSMBotController : MonoBehaviour
         // Check whether the player has a hazard on their front.
         // If they do, attack from the side.
         Equipment[] dangerItems = new Equipment[]
-            { Equipment.Item_Flipper, Equipment.Item_CircularSaw, Equipment.Item_Spike };
+            { Equipment.Item_Flipper, Equipment.Item_CircularSaw, Equipment.Item_Spike, Equipment.Item_Hammer, Equipment.Item_MetalShield };
         if(distanceToPlayer > 5.0f)
             if (playerEquip.SocketContainsAnyOf(SocketLocation.FRONT, dangerItems))
                 return FSMState.ARRIVE_SIDE;
@@ -138,7 +174,7 @@ public class FSMBotController : MonoBehaviour
         return FSMState.ARRIVE;
     }
 
-    private SocketLocation targetSocket = SocketLocation.NONE;
+    private SocketLocation? targetSocket = SocketLocation.NONE;
     private void execute_arriveSide()
     {
         Vector3 sideOffset = Vector3.zero;
@@ -161,28 +197,33 @@ public class FSMBotController : MonoBehaviour
             (this.transform.position - playerTransform.position).magnitude;
 
         // Determine the best socket for the first time only
-        targetSocket = findBestAttackSocket();
+        if(!targetSocket.HasValue)
+            targetSocket = findBestAttackSocket();
 
         if (distanceToPlayer > patrolDistance)
         {
-            targetSocket = SocketLocation.NONE;
+            targetSocket = null;
             return FSMState.PATROL;
         }
 
         // If we're at the player's side, arrive at them as normal
         if (distanceToPlayer < 4.5f)
         {
-            targetSocket = SocketLocation.NONE;
+            targetSocket = null;
             return FSMState.ARRIVE;
         }
 
         return FSMState.ARRIVE_SIDE;
     }
 
+    private Vector3 GetEvadePosition()
+    {
+        return (transform.position - playerTransform.position).normalized * 10.0f;
+    }
+
     private void execute_evade()
     {
-        controller.setTargetWaypoint(
-            (transform.position - playerTransform.position).normalized * 10.0f);
+        controller.setTargetWaypoint(GetEvadePosition());
     }
 
     private FSMState transition_evade()
@@ -190,15 +231,24 @@ public class FSMBotController : MonoBehaviour
         float distanceToPlayer =
             (this.transform.position - playerTransform.position).magnitude;
 
+        float distanceToEvadePosition =
+            (this.transform.position - GetEvadePosition()).magnitude;
+
+        if (distanceToPlayer > 20.0f)
+            return FSMState.ARRIVE;
+
         if (distanceToPlayer > patrolDistance)
             return FSMState.PATROL;
 
-        if (botRigidbody.velocity.magnitude < 0.1f)
-            return FSMState.PATROL;
+        if (distanceToEvadePosition < 1.5f)
+            return FSMState.ARRIVE;
+
+        //if (botRigidbody.velocity.magnitude < 0.1f)
+        //    return FSMState.PATROL;
 
         // If we have more health than the player, chase them
-        if (botHealth.health >= playerHealth.health)
-            return FSMState.ARRIVE;
+        //if (botHealth.health >= playerHealth.health)
+        //    return FSMState.ARRIVE;
 
         return FSMState.EVADE;
     }
@@ -235,6 +285,6 @@ public class FSMBotController : MonoBehaviour
         return bestSock;
         */
 
-        return SocketLocation.LEFT;
+        return (SocketLocation)Random.Range(0, 3);
     }
 }

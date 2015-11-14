@@ -20,6 +20,8 @@ public class BotVehicleController : VehicleController
 
     private Vector3 targetWaypoint;
 
+    private FSMBotController botController;
+
     public bool canPathfind { get; private set; }
 
     public enum SteeringMethod
@@ -35,6 +37,8 @@ public class BotVehicleController : VehicleController
     {
         path = new NavMeshPath();
         //targetRigidbody = target.GetComponent<Rigidbody>();
+
+        botController = this.GetComponent<FSMBotController>();
     }
 
     void Update()
@@ -122,14 +126,16 @@ public class BotVehicleController : VehicleController
 
     void OnCollisionStay(Collision col)
     {
+        botController.CollisionCallback(col);
+
         // Increate 'contact' timer to avoid annoying ramming
-        if(col.transform.root.gameObject.tag == "Player")
+        if(col.transform.root.gameObject.tag == botController.playerTransform.tag)
             contactTimer += Time.deltaTime;
     }
 
     void OnCollisionExit(Collision col)
     {
-        if (col.transform.root.gameObject.tag == "Player")
+        if (col.transform.root.gameObject.tag == botController.playerTransform.tag)
             contactTimer = 0;
     }
 }

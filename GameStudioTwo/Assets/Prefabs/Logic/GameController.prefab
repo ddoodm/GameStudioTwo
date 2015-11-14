@@ -10,11 +10,11 @@ GameObject:
   - 4: {fileID: 491446}
   - 114: {fileID: 11487214}
   - 114: {fileID: 11425896}
-  - 114: {fileID: 11407060}
-  - 114: {fileID: 11455182}
+  - 114: {fileID: 11415940}
+  - 114: {fileID: 11456644}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11407060
+--- !u!114 &11415940
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -56,7 +56,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
---- !u!114 &11455182
+--- !u!114 &11456644
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

@@ -10,7 +10,7 @@ public class FSMEquipmentController : MonoBehaviour
     private FSMBotController botControl;
     private EnergyController energyControl;
     private Equipment[] equips;
-    private GameObject player;
+    private Transform player;
     private Rigidbody thisBody;
 
     public float
@@ -23,7 +23,8 @@ public class FSMEquipmentController : MonoBehaviour
     {
         socketEquipment = GetComponent<SocketEquipment>();
         botControl = GetComponent<FSMBotController>();
-        player = GameObject.FindWithTag("Player");
+        //player = GameObject.FindWithTag("Player");
+        player = botControl.playerTransform;
         thisBody = GetComponent<Rigidbody>();
         energyControl = GetComponent<EnergyController>();
 
