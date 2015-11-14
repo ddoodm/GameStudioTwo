@@ -67,8 +67,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd197e68c485e64dbbacb53f42aaffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  Enemy: {fileID: 0}
+  countdownText: {fileID: 0}
+  textSizeAnimation:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 8.00886726
+      outSlope: 8.00886726
+      tangentMode: 0
+    - time: .108633123
+      value: .721835673
+      inSlope: 2.9187808
+      outSlope: 2.9187808
+      tangentMode: 10
+    - time: 1
+      value: .0023696681
+      inSlope: .0120101497
+      outSlope: .0120101497
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  maxTextSize: 1
 --- !u!114 &11487214
 MonoBehaviour:
   m_ObjectHideFlags: 1

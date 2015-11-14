@@ -12,7 +12,6 @@ public class PlayerHealth : MonoBehaviour
     public Button restartButton;
 	public Image gameOverScreen;
 
-    public Text flippedCounterText;
     private int flippedCounter;
 
     public AnimationCurve flippedCounterSize;
@@ -319,10 +318,13 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator FlipCountdown()
     {
-        for(int i=5; i > 0; i--)
+        flipCounterController flipCtrl =
+            GameObject.FindWithTag("GameController").GetComponent<flipCounterController>();
+
+        for (int i=5; i > 0; i--)
         {
-            flippedCounterTextSize = 0;
-            flippedCounterText.text = i.ToString();
+            flipCtrl.UpdateCountdown(this.transform.root.gameObject, i);
+
             yield return new WaitForSeconds(1);
 
             if (!isFlipped())
@@ -332,13 +334,8 @@ public class PlayerHealth : MonoBehaviour
             }
         }
 
-        flippedCounterTextSize = 0;
-        flippedCounterText.text = "Unflip!";
-
         // Request the GameController to reset the players
-        GameObject.FindWithTag("GameController")
-            .GetComponent<flipCounterController>()
-            .TriggerFlipTimeout(this.transform.root.gameObject, UnflipCompleteCallback);
+        flipCtrl.TriggerFlipTimeout(this.transform.root.gameObject, UnflipCompleteCallback);
     }
 
     public void UnflipCompleteCallback()

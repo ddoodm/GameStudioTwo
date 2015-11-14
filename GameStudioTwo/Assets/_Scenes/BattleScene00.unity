@@ -2413,6 +2413,10 @@ Prefab:
       propertyPath: Enemy
       value: 
       objectReference: {fileID: 1143490912}
+    - target: {fileID: 11456644, guid: 3ff13eb3a41db764e9a34f929b28faad, type: 2}
+      propertyPath: countdownText
+      value: 
+      objectReference: {fileID: 340447622}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ff13eb3a41db764e9a34f929b28faad, type: 2}
   m_IsPrefabParent: 0

@@ -1,12 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
 
 public class flipCounterController : MonoBehaviour
 {
-    public Text player;
-    public Text Enemy;
+    public Text countdownText;
+    public AnimationCurve textSizeAnimation;
+
+    private GameObject currentlyDisplayedObject;
+
+    private float textSizeTime;
+
+    public float
+        maxTextSize = 1.0f;
 
     public void TriggerFlipTimeout(GameObject sender, Action callback)
     {
@@ -27,10 +35,6 @@ public class flipCounterController : MonoBehaviour
 
             body.AddForce(Vector3.up * (5.0f - body.position.y) * 0.1f, ForceMode.VelocityChange);
 
-            /*
-            body.transform.rotation = (Quaternion.Euler(body.transform.localEulerAngles
-                - (body.transform.localEulerAngles) * 0.5f * Time.deltaTime));*/
-
             body.transform.rotation = Quaternion.Lerp(
                 body.transform.rotation,
                 Quaternion.identity,
@@ -50,23 +54,34 @@ public class flipCounterController : MonoBehaviour
     {
         return Vector3.Dot(body.transform.up, Vector3.up) < 0.98f;
     }
+
+    public void UpdateCountdown(GameObject sender, int timerVal)
+    {
+        // Do not update if we're currently showing the player's time
+        if (currentlyDisplayedObject != null
+            && currentlyDisplayedObject != sender
+            && currentlyDisplayedObject.transform.root.tag == "Player")
+            return;
+
+        countdownText.text = timerVal.ToString();
+        textSizeTime = 0.0f;
+
+        currentlyDisplayedObject = sender;
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-
-        /* Y U DO DIS ROBBBBB????
-        if (player.text != "" && Enemy.text != "")
+        if (textSizeTime < textSizeAnimation.keys[textSizeAnimation.length - 1].time)
         {
-            if (int.Parse(player.text) < int.Parse(Enemy.text))
-            {
-                Enemy.text = "";
-            }
-            else
-            {
-                player.text = "";
-            }
+            countdownText.transform.localScale = Vector3.one * textSizeAnimation.Evaluate(textSizeTime);
+            textSizeTime += Time.deltaTime;
         }
-        */
+        else
+        {
+            countdownText.text = "";
+            currentlyDisplayedObject = null;
+            textSizeTime = 0.0f;
+        }
 	}
 }
