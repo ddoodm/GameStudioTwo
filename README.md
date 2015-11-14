@@ -4,4 +4,8 @@ Robot Wars with Lawnmowers
 ### WebPlayer Build
 A sometimes-up-to-date web build is available here:
 
-[http://ddoodm.com/UnityProjects/Mowdown/](http://ddoodm.com/UnityProjects/Mowdown/)
+Unity Web Player
+[http://ddoodm.com/UnityProjects/Mowdown/Mowdown_WebPlayer/](http://ddoodm.com/UnityProjects/Mowdown/Mowdown_WebPlayer/)
+
+WebGL Port (terrible)
+[http://ddoodm.com/UnityProjects/Mowdown/Mowdown_WebGL/](http://ddoodm.com/UnityProjects/Mowdown/Mowdown_WebGL/)
