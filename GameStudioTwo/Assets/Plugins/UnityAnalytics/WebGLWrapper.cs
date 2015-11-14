@@ -1,4 +1,5 @@
 #if UNITY_WEBGL
+/*
 namespace UnityEngine.Cloud.Analytics
 {
 	internal class WebGLWrapper : BasePlatformWrapper
@@ -17,4 +18,5 @@ namespace UnityEngine.Cloud.Analytics
 		}
 	}
 }
+*/
 #endif
