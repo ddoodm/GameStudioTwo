@@ -17,6 +17,9 @@ public class HPBar : MonoBehaviour
         get { return this.transform.localScale.x; }
         set
         {
+            if (value == float.PositiveInfinity)
+                return;
+
             this.transform.localScale =
                 new Vector3(value / maxValue * realScale,
                 this.transform.localScale.y,

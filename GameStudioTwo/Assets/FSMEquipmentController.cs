@@ -150,9 +150,9 @@ public class FSMEquipmentController : MonoBehaviour
 
             bool inRange = distanceToPlayer > 5.0f;
             //bool notStuck = thisBody.velocity.magnitude > 0.8f;
-            bool correctState = botControl.state == FSMBotController.FSMState.ARRIVE;
-            bool goodAngle = Vector3.Dot(vectorToPlayer.normalized, thisBody.transform.forward) >= 0.95f;
-            bool hasEnergy = energyControl.energy >= energyControl.maxEnergy * 0.9f;
+            bool correctState = (botControl.state == FSMBotController.FSMState.ARRIVE || botControl.state == FSMBotController.FSMState.ARRIVE_SIDE);
+            bool goodAngle = Vector3.Dot(vectorToPlayer.normalized, thisBody.transform.forward) >= 0.8f;
+            bool hasEnergy = energyControl.energy >= energyControl.maxEnergy * 0.4f;
 
             if (inRange && correctState && goodAngle && hasEnergy)
                 booster.Use();

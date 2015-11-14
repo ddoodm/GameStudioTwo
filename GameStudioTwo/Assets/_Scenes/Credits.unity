@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 665aba8017b76e14ba9feae39149ca0a, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -123,7 +123,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 35
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -133,19 +133,29 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Robert McClelland - Balancing & Design
+  m_Text: 'Robert McClelland
+
+    Balancing & Design
 
 
-    Deinyon L Davies - Programmer & Environment Artist
+    Deinyon L Davies
+
+    Programmer & Environment Artist
 
 
-    Jesse Walker - Programmer & Design
+    Jesse Walker
+
+    Programmer & Design
 
 
-    Dinh .B.A Vo - UI Design & SFX
+    Dinh .B.A Vo
+
+    UI Design & SFX
 
 
-    Matthew Carver - 3D Artist & UI Design'
+    Matthew Carver
+
+    3D Artist & UI Design'
 --- !u!222 &24863504
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -162,12 +172,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1246816616}
-  m_RootOrder: 1
+  m_Father: {fileID: 1626883930}
+  m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -13}
-  m_SizeDelta: {x: 1148, y: 370}
+  m_AnchoredPosition: {x: -4, y: 2}
+  m_SizeDelta: {x: 1001.29999, y: 448.519989}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &81002643
 GameObject:
@@ -447,7 +457,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1626883930}
-  - {fileID: 24863505}
   - {fileID: 1256665543}
   m_Father: {fileID: 742741441}
   m_RootOrder: 0
@@ -605,7 +614,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1246816616}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -400, y: -275}
@@ -622,7 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f8e585754801c14db09f158485974f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneID: 1
+  sceneName: AIDemoMenu
 --- !u!1 &1626883929
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,13 +658,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 24863505}
   m_Father: {fileID: 1246816616}
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 4, y: -15}
-  m_SizeDelta: {x: 1148, y: 370}
+  m_AnchoredPosition: {x: -3, y: -15}
+  m_SizeDelta: {x: 1147, y: 448.100006}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1626883931
 MonoBehaviour:
@@ -678,7 +688,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 35
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -688,19 +698,29 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Robert McClelland - Balancing & Design
+  m_Text: 'Robert McClelland
+
+    Balancing & Design
 
 
-    Deinyon L Davies - Programmer & Environment Artist
+    Deinyon L Davies
+
+    Programmer & Environment Artist
 
 
-    Jesse Walker - Programmer & Design
+    Jesse Walker
+
+    Programmer & Design
 
 
-    Dinh .B.A Vo - UI Design & SFX
+    Dinh .B.A Vo
+
+    UI Design & SFX
 
 
-    Matthew Carver - 3D Artist & UI Design'
+    Matthew Carver
+
+    3D Artist & UI Design'
 --- !u!222 &1626883932
 CanvasRenderer:
   m_ObjectHideFlags: 0

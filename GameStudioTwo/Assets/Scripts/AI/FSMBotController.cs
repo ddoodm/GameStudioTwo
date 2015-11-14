@@ -67,6 +67,9 @@ public class FSMBotController : MonoBehaviour
     {
         if(IsPlayerStuckForTooLong())
             state = FSMState.ARRIVE;
+
+        if (StuckOnAState())
+            state = FSMState.ARRIVE_SIDE;
     }
 
     const float
@@ -81,6 +84,25 @@ public class FSMBotController : MonoBehaviour
         if(lowVelocityTimer > LOW_VELOCITY_MAX_DURATION)
         {
             lowVelocityTimer = 0;
+            return true;
+        }
+
+        return false;
+    }
+
+    FSMState prevState;
+    const float MAX_STATE_STICK_DURATION = 12.0f;
+    float prevStateDuration = 0.0f;
+    private bool StuckOnAState()
+    {
+        if (state == prevState)
+            prevStateDuration += Time.deltaTime;
+
+        prevState = state;
+
+        if(prevStateDuration > MAX_STATE_STICK_DURATION)
+        {
+            prevStateDuration = 0.0f;
             return true;
         }
 

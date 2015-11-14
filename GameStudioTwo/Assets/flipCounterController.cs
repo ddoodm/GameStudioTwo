@@ -13,9 +13,6 @@ public class flipCounterController : MonoBehaviour
 
     private float textSizeTime;
 
-    public float
-        maxTextSize = 1.0f;
-
     public void TriggerFlipTimeout(GameObject sender, Action callback)
     {
         Rigidbody body = sender.transform.root.GetComponent<Rigidbody>();
@@ -63,8 +60,11 @@ public class flipCounterController : MonoBehaviour
             && currentlyDisplayedObject.transform.root.tag == "Player")
             return;
 
-        countdownText.text = timerVal.ToString();
-        textSizeTime = 0.0f;
+        if (countdownText != null)
+        {
+            countdownText.text = timerVal.ToString();
+            textSizeTime = 0.0f;
+        }
 
         currentlyDisplayedObject = sender;
     }
@@ -72,6 +72,9 @@ public class flipCounterController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (countdownText == null)
+            return;
+
         if (textSizeTime < textSizeAnimation.keys[textSizeAnimation.length - 1].time)
         {
             countdownText.transform.localScale = Vector3.one * textSizeAnimation.Evaluate(textSizeTime);

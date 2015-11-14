@@ -3,22 +3,10 @@ using System.Collections;
 
 public class SceneOpener : MonoBehaviour {
 
-    public int sceneID = 0;
+    public string sceneName;
 
-	// Use this for initialization
-	void Start ()
-    {
-	    
-	}
-	
     public void ChangeLevel()
     {
-        Application.LoadLevel(sceneID);
+        Application.LoadLevel(sceneName);
     }
-
-	// Update is called once per frame
-	void Update ()
-    {
-	
-	}
 }

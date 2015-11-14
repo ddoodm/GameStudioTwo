@@ -12,16 +12,13 @@ public class PlayerHealth : MonoBehaviour
     public Button restartButton;
 	public Image gameOverScreen;
 
-    private int flippedCounter;
-
-    public AnimationCurve flippedCounterSize;
-    public float flippedCounterTextSize;
-
     private bool analyticsSent = false;
     private bool flipCoroutineRunning = false;
     private bool gameIsOver = false;
 
     public string controllerA = "SocketFront";
+
+    private Transform initialTransform;
 
     private Coroutine flipTimerCoroutine;
 
@@ -52,7 +49,8 @@ public class PlayerHealth : MonoBehaviour
             controllerA += "P2";
         }
 
-        flippedCounterTextSize = 1.0f;
+        initialTransform = this.transform;
+
         healthBar.maxValue = maxHealth;
         health = maxHealth;
         calculateMass();
@@ -61,10 +59,6 @@ public class PlayerHealth : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        flippedCounterTextSize += Time.deltaTime;
-        if (finish == null)
-            return;
-
         calculateMass();
         if (health <= 0)
             gameIsOver = true;
@@ -77,20 +71,15 @@ public class PlayerHealth : MonoBehaviour
             flipCoroutineRunning = true;
             flipTimerCoroutine = StartCoroutine(FlipCountdown());
         }
-         
-        /*
-        if(!isFlipped())
+
+        // Check if player is out of the world!
+        // (TODO: Fix this bad hack)
+        if (this.transform.position.y < -20.0f)
         {
-            if(flipTimerCoroutine != null)
-                StopCoroutine(flipTimerCoroutine);
-
-            flipTimerCoroutine = null;
-            flipCoroutineRunning = false;
-        }*/
-
-        /*
-        float temp = (flippedCounterSize.Evaluate(flippedCounterTextSize) * 300);
-        flippedCounterText.fontSize = (int)temp;*/
+            this.transform.position = initialTransform.position;
+            this.transform.rotation = initialTransform.rotation;
+            this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
 	}
 
     public void issueDamage(Collision collision)
