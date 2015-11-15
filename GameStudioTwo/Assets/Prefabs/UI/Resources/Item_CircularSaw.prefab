@@ -321,8 +321,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mass: 0
-  damageMultiplier: 2
-  hp: 2000
+  damageMultiplier: 5
+  hp: 5000
 --- !u!114 &11441236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,7 +369,9 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  canFlip: 0
+  canLower: 1
+  canRaise: 0
+  raisePending: 0
   initialRot: {x: 0, y: 0, z: 0}
   movingPart: {fileID: 153226}
 --- !u!114 &11454192
