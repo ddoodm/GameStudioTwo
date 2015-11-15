@@ -30,7 +30,7 @@ public class flipCounterController : MonoBehaviour
         {
             body.GetComponent<PlayerHealth>().enabled = false;
 
-            body.AddForce(Vector3.up * (5.0f - body.position.y) * 0.15f, ForceMode.VelocityChange);
+            body.AddForce(Vector3.up * (4.0f - body.position.y) * 0.1f, ForceMode.VelocityChange);
 
             body.transform.rotation = Quaternion.Lerp(
                 body.transform.rotation,

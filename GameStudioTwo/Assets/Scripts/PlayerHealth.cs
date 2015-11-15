@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
 
     public string controllerA = "SocketFront";
 
-    private Transform initialTransform;
+    private Vector3 initialPosition;
 
     private Coroutine flipTimerCoroutine;
 
@@ -49,7 +49,7 @@ public class PlayerHealth : MonoBehaviour
             controllerA += "P2";
         }
 
-        initialTransform = this.transform;
+        initialPosition = this.transform.position;
 
         healthBar.maxValue = maxHealth;
         health = maxHealth;
@@ -74,11 +74,10 @@ public class PlayerHealth : MonoBehaviour
 
         // Check if player is out of the world!
         // (TODO: Fix this bad hack)
-        if (this.transform.position.y < -20.0f)
+        if (this.transform.position.y < -15.0f)
         {
-            this.transform.position = initialTransform.position;
-            this.transform.rotation = initialTransform.rotation;
-            this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            this.transform.root.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            this.transform.position = initialPosition;
         }
 	}
 
