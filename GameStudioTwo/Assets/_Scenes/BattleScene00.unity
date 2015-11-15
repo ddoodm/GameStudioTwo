@@ -985,7 +985,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!4 &257119323 stripped
 Transform:
   m_PrefabParentObject: {fileID: 466492, guid: 8f49dbeffcc8de345857dd7226857d11, type: 2}
@@ -1589,52 +1589,6 @@ Transform:
   - {fileID: 2122881707}
   m_Father: {fileID: 1711942395}
   m_RootOrder: 6
---- !u!1001 &382873383
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 474966, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -7.61999989
-      objectReference: {fileID: 0}
-    - target: {fileID: 474966, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 474966, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -5.6500001
-      objectReference: {fileID: 0}
-    - target: {fileID: 474966, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 474966, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 474966, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 474966, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 474966, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 121312, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
-      propertyPath: m_TagString
-      value: Weapon
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &385899829
 Prefab:
   m_ObjectHideFlags: 0
@@ -1831,7 +1785,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!82 &414828715
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4827,24 +4781,6 @@ Transform:
   - {fileID: 1263328715}
   m_Father: {fileID: 1711942395}
   m_RootOrder: 3
---- !u!1 &1508282561 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 121312, guid: 6c67e1e68ad2ae64ea43af1e3d2e2f11, type: 2}
-  m_PrefabInternal: {fileID: 382873383}
---- !u!114 &1508282567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1508282561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4569aeec55093754a8d80a3ea0c31375, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mass: 1
-  damageMultiplier: 2
-  hp: 5
 --- !u!1001 &1515697550
 Prefab:
   m_ObjectHideFlags: 0
