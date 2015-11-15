@@ -49,7 +49,9 @@ public class flipCounterController : MonoBehaviour
 
     private bool BodyUneven(Rigidbody body)
     {
-        return Vector3.Dot(body.transform.up, Vector3.up) < 0.98f;
+        return
+            body.angularVelocity.magnitude > 0.2f
+            || (Vector3.Dot(body.transform.up, Vector3.up) < 0.98f);
     }
 
     public void UpdateCountdown(GameObject sender, int timerVal)
