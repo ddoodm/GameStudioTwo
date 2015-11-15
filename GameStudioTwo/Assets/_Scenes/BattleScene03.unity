@@ -660,6 +660,10 @@ Prefab:
       propertyPath: maxInstantDamageFraction
       value: .00999999978
       objectReference: {fileID: 0}
+    - target: {fileID: 11435424, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1812370578}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b1422ed844df2c44b6908a03aad489e, type: 2}
   m_IsPrefabParent: 0
