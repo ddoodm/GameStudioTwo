@@ -112,13 +112,18 @@ public class PlayerHealth : MonoBehaviour
                 armor.issueDamageAttachment(thisDamage);
 
         }
-
-        Debug.Log("Damage Multiplier: " + damageMultiplier);
-        Debug.Log(collision.gameObject.tag + " Mass: " + (enemy ? enemy.mass : 1.0f));
-
+        if (collision.gameObject.tag != "Untagged")
+        {
+            Debug.Log("Damage Multiplier: " + damageMultiplier);
+            Debug.Log(collision.gameObject.tag + " Mass: " + (enemy ? enemy.mass : 1.0f));
+        }
         this.issueDamage(thisDamage);
 
-        Debug.Log(gameObject.name + " has " + health + " remaining");
+        if (collision.gameObject.tag != "Untagged")
+        {
+            Debug.Log(gameObject.tag + " hit for " + thisDamage);
+            Debug.Log(gameObject.name + " has " + health + " remaining");
+        }
 
         /* TODO: Re-enable this; Deinyon disabled analytics for now, because of compiler errors.*/
         if (enemy != null)
@@ -136,7 +141,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void issueDamage(float damage)
     {
-        Debug.Log(gameObject.tag + " hit for " + damage);
+        
         health -= damage;
     }
 

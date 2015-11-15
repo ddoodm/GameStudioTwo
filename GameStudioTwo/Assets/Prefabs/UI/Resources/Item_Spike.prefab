@@ -162,7 +162,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.54999161, z: .670000315}
+  m_LocalPosition: {x: -0, y: -7.24399996, z: .670000017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 418942}
@@ -301,8 +301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mass: 0
-  damageMultiplier: 1.20000005
-  hp: 700
+  damageMultiplier: 4
+  hp: 2800
 --- !u!114 &11432012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -354,7 +354,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .234622091
-  m_Height: 4.46254873
+  m_Height: 3.93000007
   m_Direction: 1
   m_Center: {x: 0, y: .540000021, z: 0}
 --- !u!1001 &100100000

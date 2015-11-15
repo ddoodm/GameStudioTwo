@@ -47,9 +47,9 @@ public class BotVehicleController : VehicleController
         NavMesh.CalculatePath(transform.position, targetWaypoint, NavMesh.AllAreas, path);
         Debug.DrawLine(targetWaypoint, targetWaypoint + Vector3.up * 10.0f, Color.magenta);
         canPathfind = (path.status == NavMeshPathStatus.PathComplete);
-        if (!canPathfind)
+        /*if (!canPathfind)
             Debug.Log("Cannot pathfind!");
-
+        */
         // The target is the first waypoint, or the position of the target
         Vector3 cWaypt = path.corners.Length > 1 ? path.corners[1] : targetWaypoint;
         Debug.DrawLine(cWaypt, cWaypt + Vector3.up * 10.0f, Color.green);
