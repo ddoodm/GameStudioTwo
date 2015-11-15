@@ -153,12 +153,8 @@ public class StoreController : MonoBehaviour {
                 child.GetComponent<Renderer>().material.color = sliderColour;
             }
 			colourChange = false;
+            playerChoice.playerColor = sliderColour;
         }
-
-        if (playerChoice != null) 
-		{
-			playerChoice.playerColor = sliderColour;
-		}
 	}
 
     void HandleAttachmentRemove(RaycastHit hit)
@@ -235,6 +231,7 @@ public class StoreController : MonoBehaviour {
                 break;
 
         }
+        colourChange = true;
     }
 
 

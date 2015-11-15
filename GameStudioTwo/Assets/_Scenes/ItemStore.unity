@@ -581,8 +581,9 @@ GameObject:
   m_Component:
   - 224: {fileID: 36371025}
   - 114: {fileID: 36371026}
+  - 114: {fileID: 36371027}
   m_Layer: 5
-  m_Name: B slider
+  m_Name: b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -667,6 +668,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &36371027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 36371024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4632ea2a4d88da042a340d6ae572f5d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerChoice: {fileID: 0}
+  slider: {fileID: 0}
 --- !u!1 &46999935
 GameObject:
   m_ObjectHideFlags: 0
@@ -5508,8 +5522,9 @@ GameObject:
   m_Component:
   - 224: {fileID: 366577608}
   - 114: {fileID: 366577609}
+  - 114: {fileID: 366577610}
   m_Layer: 5
-  m_Name: R slider
+  m_Name: r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5594,6 +5609,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &366577610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 366577607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4632ea2a4d88da042a340d6ae572f5d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerChoice: {fileID: 0}
+  slider: {fileID: 0}
 --- !u!1 &370783498
 GameObject:
   m_ObjectHideFlags: 0
@@ -17362,17 +17390,11 @@ MonoBehaviour:
   money: {fileID: 0}
   restartButton: {fileID: 0}
   gameOverScreen: {fileID: 0}
-  flippedCounterText: {fileID: 0}
-  flippedCounterSize:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  flippedCounterSizeVar: 0
   controllerA: SocketFront
   maxHealth: 50
   mass: 1
   damageFactor: 1
+  maxInstantDamageFraction: .00999999978
   moneyGained: 0
 --- !u!65 &1175702562
 BoxCollider:
@@ -17685,7 +17707,7 @@ GameObject:
   - 95: {fileID: 1199339160}
   m_Layer: 0
   m_Name: AeroBack
-  m_TagString: Player Model
+  m_TagString: LawnMowerSmall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18782,7 +18804,7 @@ GameObject:
   - 95: {fileID: 1238651652}
   m_Layer: 0
   m_Name: Cover
-  m_TagString: Player Model
+  m_TagString: LawnMowerSmall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21935,7 +21957,7 @@ GameObject:
   - 95: {fileID: 1426228490}
   m_Layer: 0
   m_Name: AeroFront
-  m_TagString: Player Model
+  m_TagString: LawnMowerSmall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29739,8 +29761,9 @@ GameObject:
   m_Component:
   - 224: {fileID: 1993452876}
   - 114: {fileID: 1993452877}
+  - 114: {fileID: 1993452878}
   m_Layer: 5
-  m_Name: G slider
+  m_Name: g
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29825,6 +29848,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1993452878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1993452875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4632ea2a4d88da042a340d6ae572f5d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerChoice: {fileID: 0}
+  slider: {fileID: 0}
 --- !u!1 &1993738907
 GameObject:
   m_ObjectHideFlags: 0
@@ -32291,7 +32327,7 @@ GameObject:
   - 95: {fileID: 2135146899}
   m_Layer: 0
   m_Name: Engine 1
-  m_TagString: Player Model
+  m_TagString: LawnMowerSmall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
